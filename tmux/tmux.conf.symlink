@@ -1,7 +1,11 @@
-source '/usr/share/tmux/powerline.conf'
+
+#source '/usr/share/tmux/powerline.conf'
+source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+set-option -g default-terminal "screen-256color"
+
+echo "HERE"
 
 # tmux display things in 256 colors
-set -g default-terminal "screen-256color"
 set -g status-utf8 on
 
 set -g history-limit 20000
