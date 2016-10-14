@@ -100,6 +100,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+
 "------------------------------------------------------------
 " Mappings
 "
@@ -115,11 +116,12 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Custom plugins and colorthemes.
 
 " Powerline Setup
-let $PYTHONPATH='/usr/lib/python3.5/site-packages'
+let $PYTHONPATH='/home/timtro/.local/lib/python3.5/site-packages'
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
 
 "set t_Co=256
 syntax on
@@ -128,9 +130,11 @@ colorscheme vimbrant
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
+
 "clang-complete:
 map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
 imap <C-I> <c-o>:pyf /home/timtro/.vim/plugin/clang-format.py<cr>
+
 
 "YouCompleteMe :
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

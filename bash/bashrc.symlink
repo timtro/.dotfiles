@@ -1,7 +1,7 @@
 
 #export GNUTERM=wxt
 
-export PATH=$PATH:$HOME/scr
+export PATH=$PATH:$HOME/scr/:$HOME/.local/bin/
 
 ## OVERALL CONDITIONALS {{{
 _islinux=false
