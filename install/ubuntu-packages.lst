@@ -1,0 +1,61 @@
+# List of packages, current as of Ubuntu 17.04 Zesty Zapus
+
+# Any line containing a '#' is a comment.
+
+# System and productivity
+  guake
+  p7zip-full
+  ffmpeg
+  gparted
+  zsh
+  ttf-mscorefonts-installer
+
+# Text editing
+  texlive-full
+  vim-gtk3
+  fonts-hack-otf
+
+# Productivity and science
+  apcalc
+  enscript
+  gnuplot
+  wxmaxima
+  octave
+  octave-symbolic
+  octave-control
+
+# Drawing, drafting, diagrams and art
+  gimp-texturize
+  inkscape
+  krita
+  gimp
+  gimp-plugin-registry
+
+# Python stuff
+  python3-matplotlib
+  python3-numpy
+  python3-scipy
+  python3-ipython
+  python3-sympy
+  python3-pip
+  flake8
+  yapf
+
+# Compilers, Dev tools and building
+  git
+  cmake
+  build-essential
+  clang-4.0
+  clang-format-4.0
+  g++-6
+
+# Gaming
+  steam
+  wine-development
+  winetricks
+  # will want to run 'winetricks corefonts vcrun2005 vcrun2008 vcrun2015'
+  libldap-2.4-2:i386
+
+# Gnome
+  gnome-shell-extension-caffeine
+  gnome-shell-pomodoro
