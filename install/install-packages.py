@@ -63,6 +63,11 @@ def main(srcPath, pkmgr, pymgr):
     if user_says_yes("Would you like to install Jupyter?"):
         sudo[pymgr["install", "jupyter"]]
 
+    if user_says_yes("Would you like to install powerline?"):
+        # Must install from git due to Issue #34:
+        #    https://github.com/powerline/powerline/issues/34
+        pymgr["install", "--user", "git+git://github.com/Lokaltog/powerline"]
+
 
 def install_atom(mgr):
     mgr.ppa_install('ppa:webupd8team/atom', 'atom')
