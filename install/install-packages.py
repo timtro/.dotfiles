@@ -3,31 +3,17 @@
 from argparse import ArgumentParser
 from plumbum import local, FG
 from plumbum.cmd import sudo
-from plumbum.commands.processes import ProcessExecutionError
 import logging
 import sys
+from plumbum.commands.processes import ProcessExecutionError
 
 from modules.ScriptHelpers import throw_if_nonexistant, user_says_yes, \
-        user_reply
-
-git = local["git"]
-wget = local["wget"]
-curl = local["curl"]
-sh = local["sh"]
-pip = local["pip3"]
+        user_reply, AptPackageManager, PipPackageManager, checked_command
 
 
-def main(srcPath):
+def main(srcPath, pkmgr, pymgr):
     throw_if_nonexistant(local.path(srcPath))
 
-    mgr = AptPackageManager()
-    pymgr = PipPackageManager()
-
-    logging.info("Pulling updates and upgrades.")
-    mgr.update()
-    mgr.upgrade()
-    logging.info("Installing git, curl and pip")
-    mgr.install(["git", "curl", "python3-pip"])
     logging.info("Globally updating pip")
     pymgr.update()
 
@@ -39,7 +25,7 @@ def main(srcPath):
     logging.info("Parsing package list.")
     with open(str(srcPath)) as f:
         pkgs = list(
-            filter(mgr.is_valid_pkg,
+            filter(pkmgr.is_valid_pkg,
                    filter(is_not_comment,
                           filter(None, map(str.strip, f.readlines())))))
 
@@ -50,17 +36,20 @@ def main(srcPath):
     print()
 
     if user_says_yes("Would you like to install these packages?"):
-        mgr.install(pkgs)
+        pkmgr.install(pkgs)
+
+    if user_says_yes("Would you like to install Google's Chrome browser?"):
+        install_chrome(pkmgr)
 
     if user_says_yes("Would you like to install atom and stared packages?"):
-        install_atom(mgr)
+        install_atom(pkmgr)
 
     if user_says_yes("Would you like to clone .dotfiles from github?"):
         git["-C", "/home/timtro/", "clone", "--verbose",
             "https://github.com/timtro/.dotfiles"] & FG
 
     if user_says_yes("Would you like to install oh-my-zsh?"):
-        install_oh_my_zsh()
+        install_oh_my_zsh(pkmgr)
 
     if user_says_yes("Would you like to install gtk3 themes?"):
         install_themes()
@@ -69,68 +58,20 @@ def main(srcPath):
         install_papirus()
 
     if user_says_yes("Would you like to install Variety?"):
-        install_variety(mgr)
+        install_variety(pkmgr)
 
     if user_says_yes("Would you like to install Jupyter?"):
-        sudo[pip["install", "jupyter"]]
-
-
-class AptPackageManager:
-    apt = local['apt']
-
-    def is_valid_pkg(self, pkg):
-        try:
-            logging.info("Checking " + pkg)
-            self.apt['show', pkg]()
-        except ProcessExecutionError:
-            logging.warning("Package " + pkg + " not found in apt repos.")
-            return False
-        return True
-
-    def install(self, pkgs):
-        sudo[self.apt["--yes", "install"][pkgs]] & FG
-
-    def ppa_install(self, ppaAddress, pkgs):
-        sudo[local['add-apt-repository']['--yes', ppaAddress]] & FG
-        self.update()
-        self.install(pkgs)
-
-    def update(self):
-        sudo[self.apt["update"]] & FG
-
-    def upgrade(self):
-        sudo[self.apt["upgrade"]] & FG
-
-
-class PipPackageManager:
-    pip = local['pip3']
-
-    def is_valid_pkg(self, pkg):
-        try:
-            logging.info("Checking " + pkg)
-            self.pip['show', pkg]()
-        except ProcessExecutionError:
-            logging.warning("Package " + pkg + " not found in pip repos.")
-            return False
-        return True
-
-    def install(self, pkgs):
-        sudo[self.pip["install"][pkgs]] & FG
-
-    def update(self):
-        sudo[self.pip["install", "--upgrade", "pip"]] & FG
+        sudo[pymgr["install", "jupyter"]]
 
 
 def install_atom(mgr):
-    # sudo[local['add-apt-repository']['--yes', 'ppa:webupd8team/atom']] & FG
-    # mgr.update()
-    # mgr.install(['atom'])
-    ppa_install('ppa:webupd8team/atom', 'atom')
+    mgr.ppa_install('ppa:webupd8team/atom', 'atom')
     local['apm']['stars', '--install'] & FG
 
 
 def install_chrome(mgr):
     """
+    TODO: Delete this shell code when the function has been tested.
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
     sudo apt update
@@ -144,11 +85,18 @@ def install_chrome(mgr):
     mgr.install(["google-chrome-stable"])
 
 
-def install_oh_my_zsh():
-    (curl[
-        "-fsSL",
-        "https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"]
-     | sh) & FG
+def install_oh_my_zsh(mgr):
+    """
+    Currently this throws at the end of the script, when it calls chsh.
+    """
+    mgr.install('zsh')
+    try:
+        (curl[
+            "-fsSL",
+            "https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"]
+         | sh) & FG
+    except ProcessExecutionError:
+        local['chsh']['-s', '/usr/bin/zsh'] & FG
 
 
 def install_themes():
@@ -189,4 +137,16 @@ if __name__ == '__main__':
 
     args = args.parse_args()
 
-    main(args.PKGLST)
+    pkmgr = AptPackageManager()
+    pymgr = PipPackageManager()
+
+    logging.info("Pulling updates and upgrades.")
+    pkmgr.update()
+    pkmgr.upgrade()
+
+    git = checked_command(pkmgr, "git")
+    wget = checked_command(pkmgr, "wget")
+    curl = checked_command(pkmgr, "curl")
+    sh = local["sh"]
+
+    main(args.PKGLST, pkmgr, pymgr)
