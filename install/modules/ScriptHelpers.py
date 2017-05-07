@@ -11,8 +11,9 @@ def symlink_with_checks(f, t):
         ask_to_delete_if_exists(t)
     except UnavoidedCollision:
         logging.warning("Unavoided collision. Skipping " + t)
-        return
+        return ""
     f.symlink(t)
+    return t.__str__()
 
 
 def throw_if_nonexistant(p):
@@ -121,5 +122,6 @@ class PipPackageManager:
     def update(self):
         sudo["-H"][self.pip["install", "--upgrade", "pip"]] & FG
 
-    class UnavoidedCollision(Exception):
-        pass
+
+class UnavoidedCollision(Exception):
+    pass
