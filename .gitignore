@@ -5,38 +5,11 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 
-# Binaries
-vme-nmpc
-a.out
-
-# C extensions
-*.so
-
-#Emacs backups
-*~
-
 # Python module junk
 __pycache__/
 /__pycache__/
 /__pycache__/*
 *.py[cod]
 
-# Distribution / packaging
-bin/
-build/
-develop-eggs/
-dist/
-eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
-*.sublime-project
-*.sublime-workspace
-
-#Local overhead.
-non-catch-test.cpp
+# Vim packages
+vim/vim.symlink/bundle

@@ -17,6 +17,10 @@ def main():
     for t, d in zip(linkables, linked):
         logging.info(t + " -> " + d)
 
+    git["clone", "https://github.com/VundleVim/Vundle.vim.git", local.env.home
+        / ".vim/bundle/Vundle.vim"]
+    local['vim']["+PluginInstall", "+qall"]
+
 
 def link_a_linkable(tgt):
     dest = local.env.home / (
