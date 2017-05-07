@@ -19,7 +19,8 @@ def main():
 
 
 def link_a_linkable(tgt):
-    dest = local.env.home / ('.' + local.path(tgt).basename.strip(".symlink"))
+    dest = local.env.home / (
+        '.' + local.path(tgt).basename.replace(".symlink", ""))
     return symlink_with_checks(local.path(tgt), dest)
 
 
