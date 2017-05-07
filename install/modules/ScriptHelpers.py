@@ -105,7 +105,9 @@ class AptPackageManager:
 
 
 class PipPackageManager:
-    pip = local['pip3']
+
+    def __init__(self, mgr):
+        self.pip = checked_command(mgr, "python3-pip", "pip3")
 
     def is_valid_pkg(self, pkg):
         try:

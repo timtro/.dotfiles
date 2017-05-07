@@ -143,7 +143,7 @@ if __name__ == '__main__':
     args = args.parse_args()
 
     pkmgr = AptPackageManager()
-    pymgr = PipPackageManager()
+    pymgr = PipPackageManager(pkmgr)
 
     logging.info("Pulling updates and upgrades.")
     pkmgr.update()
