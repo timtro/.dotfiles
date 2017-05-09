@@ -12,7 +12,8 @@ from modules.ScriptHelpers import throw_if_nonexistant, user_says_yes, \
 
 
 def main(srcPath, pkmgr, pymgr):
-    throw_if_nonexistant(local.path(srcPath))
+
+    files = list(map(throw_if_nonexistant, map(local.path, srcPath)))
 
     logging.info("Globally updating pip")
     pymgr.update()
@@ -23,11 +24,16 @@ def main(srcPath, pkmgr, pymgr):
         git["config", "--global", "user.email", emailAddy]
 
     logging.info("Parsing package list.")
-    with open(str(srcPath)) as f:
-        pkgs = list(
-            filter(pkmgr.is_valid_pkg,
-                   filter(is_not_comment,
-                          filter(None, map(str.strip, f.readlines())))))
+    pkgs = []
+    for each in files:
+        with open(each) as f:
+            pkgs.append(
+                list(
+                    filter(pkmgr.is_valid_pkg,
+                           filter(is_not_comment,
+                                  filter(None, map(str.strip,
+                                                   f.readlines()))))))
+    pkgs = [item for sublist in pkgs for item in sublist]
 
     logging.warning(
         "Check for pkg warnings! Package names change. Ammend list as needed")
@@ -138,7 +144,9 @@ if __name__ == '__main__':
     )
 
     args.add_argument(
-        'PKGLST', help="A newline separated list of packages to install")
+        'PKGLST',
+        help="A newline separated list of packages to install",
+        nargs='+')
 
     args = args.parse_args()
 

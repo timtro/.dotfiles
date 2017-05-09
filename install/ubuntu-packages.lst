@@ -1,5 +1,4 @@
 # List of packages, current as of Ubuntu 17.04 Zesty Zapus
-
 # Any line containing a '#' is a comment.
 
 # System and productivity
@@ -42,19 +41,11 @@
   yapf
 
 # Compilers, Dev tools and building
-  git
   cmake
   build-essential
   clang-4.0
   clang-format-4.0
   g++-6
-
-# Gaming
-  steam
-  wine-development
-  winetricks
-  # will want to run 'winetricks corefonts vcrun2005 vcrun2008 vcrun2015'
-  libldap-2.4-2:i386
 
 # Gnome
   gnome-shell-extension-caffeine

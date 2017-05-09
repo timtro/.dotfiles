@@ -1,0 +1,9 @@
+# List of packages, current as of Ubuntu 17.04 Zesty Zapus
+# Any line containing a '#' is a comment.
+
+# Gaming
+  steam
+  wine-development
+  winetricks
+  # will want to run 'winetricks corefonts vcrun2005 vcrun2008 vcrun2015'
+  libldap-2.4-2:i386

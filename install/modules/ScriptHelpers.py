@@ -17,13 +17,10 @@ def symlink_with_checks(f, t):
 
 
 def throw_if_nonexistant(p):
-    if type(p) is list or type(p) is tuple:
-        for path in p:
-            if not path.exists():
-                raise FileNotFoundError(path)
+    if not p.exists():
+        raise FileNotFoundError(p)
     else:
-        if not p.exists():
-            raise FileNotFoundError(p)
+        return p
 
 
 def ask_to_delete_if_exists(p):
@@ -80,6 +77,9 @@ class AptPackageManager:
     """
     apt = local['apt']
 
+    def __getitem__(self, key):
+        sudo[self.apt[key]] & FG
+
     def is_valid_pkg(self, pkg):
         try:
             logging.info("Checking " + pkg)
@@ -108,6 +108,9 @@ class PipPackageManager:
 
     def __init__(self, mgr):
         self.pip = checked_command(mgr, "python3-pip", "pip3")
+
+    def __getitem__(self, key):
+        self.pip[key] & FG
 
     def is_valid_pkg(self, pkg):
         try:
