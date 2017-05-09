@@ -132,7 +132,8 @@ def install_variety(mgr):
 def is_comment(str):
     if "#" in str:
         return True
-    return False
+    else:
+        return False
 
 
 def is_not_comment(str):
