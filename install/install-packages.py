@@ -6,9 +6,10 @@ from plumbum.cmd import sudo
 import logging
 import sys
 from plumbum.commands.processes import ProcessExecutionError
+from functools import partial
 
 from modules.ScriptHelpers import throw_if_nonexistant, user_says_yes, \
-        user_reply, AptPackageManager, PipPackageManager, checked_command
+        user_reply, AptPackageManager, PipPackageManager, checked_command, pipe
 
 
 def main(srcPath, pkmgr, pymgr):
@@ -29,10 +30,11 @@ def main(srcPath, pkmgr, pymgr):
         with open(each) as f:
             pkgs.append(
                 list(
-                    filter(pkmgr.is_valid_pkg,
-                           filter(is_not_comment,
-                                  filter(None, map(str.strip,
-                                                   f.readlines()))))))
+                    pipe(f.readlines(),
+                         partial(map, str.strip),
+                         partial(filter, None),
+                         partial(filter, is_not_comment),
+                         partial(filter, pkmgr.is_valid_pkg))))
     pkgs = [item for sublist in pkgs for item in sublist]
 
     logging.warning(

@@ -4,6 +4,13 @@ from plumbum.cmd import sudo
 from plumbum.commands.processes import ProcessExecutionError, CommandNotFound
 
 
+def pipe(x, *funcs):
+    """ pipe(x, f, g, h, …) = …(h(g(f(x))))"""
+    for func in funcs:
+        x = func(x)
+    return x
+
+
 def symlink_with_checks(f, t):
     logging.info("Symlinking directory " + f + " to " + t)
     throw_if_nonexistant(f)
