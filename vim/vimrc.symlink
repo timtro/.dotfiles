@@ -116,7 +116,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Custom plugins and colorthemes.
 
 " Powerline Setup
-let $PYTHONPATH='/home/timtro/.local/lib/python3.5/site-packages'
+let $PYTHONPATH='/usr/local/lib/python3.5/dist-packages/powerline/bindings/vim'
 
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()

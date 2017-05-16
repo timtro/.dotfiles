@@ -10,6 +10,7 @@ export TERM=xterm-256color
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
+#ZSH_THEME="powerline"
 DEFAULT_USER="timtro"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -66,9 +67,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
@@ -78,17 +76,6 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-#      source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-#    fi
-
+# source   /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 neofetch --config ~/.dotfiles/neofetch/config
