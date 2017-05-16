@@ -8,6 +8,7 @@
   gparted
   zsh
   ttf-mscorefonts-installer
+  neofetch
 
 # Text editing
   texlive-full
