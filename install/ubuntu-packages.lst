@@ -14,6 +14,7 @@
   texlive-full
   vim-gtk3
   fonts-hack-otf
+  pandoc
 
 # Productivity and science
   apcalc
