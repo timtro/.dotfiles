@@ -9,6 +9,7 @@
   zsh
   ttf-mscorefonts-installer
   neofetch
+  openssh-server
 
 # Text editing
   texlive-full
