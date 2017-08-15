@@ -11,6 +11,9 @@
   neofetch
   openssh-server
 
+# expect provides unbuffer command for color with GNU/less.
+  expect
+
 # Text editing
   texlive-full
   vim-gtk3
