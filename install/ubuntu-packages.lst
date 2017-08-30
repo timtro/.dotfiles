@@ -10,6 +10,7 @@
   ttf-mscorefonts-installer
   neofetch
   openssh-server
+  tree
 
 # expect provides unbuffer command for color with GNU/less.
   expect
