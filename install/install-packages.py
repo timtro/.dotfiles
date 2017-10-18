@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 from plumbum import local, FG
-from plumbum.cmd import sudo
+from plumbum.cmd import sudo, echo
 import logging
 import sys
 from plumbum.commands.processes import ProcessExecutionError
@@ -93,7 +93,7 @@ def install_chrome(mgr):
     """
     (curl["-fsSL", 'https://dl-ssl.google.com/linux/linux_signing_key.pub'] |
      sudo['apt-key', 'add', '-']) & FG
-    (sudo[echo["deb https://dl.google.com/linux/chrome/deb/ stable main"]]
+    (sudo[echo['deb https://dl.google.com/linux/chrome/deb/ stable main']]
      >> "/etc/apt/sources.list.d/google-chrome.list")()
     mgr.update()
     mgr.install(["google-chrome-stable"])
