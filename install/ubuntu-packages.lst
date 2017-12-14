@@ -44,6 +44,9 @@
   python3-ipython
   python3-sympy
   python3-pip
+  python3-pandas
+  python3-pylint
+  python-autopep8
   flake8
   yapf
 
