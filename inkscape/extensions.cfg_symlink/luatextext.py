@@ -78,7 +78,11 @@ XLINK_NS = u"http://www.w3.org/1999/xlink"
 
 ID_PREFIX = "LuaLaTeXText-"
 
-NSS = {u'LuaLaTeXText': TEXTEXT_NS, u'svg': SVG_NS, u'xlink': XLINK_NS,}
+NSS = {
+    u'LuaLaTeXText': TEXTEXT_NS,
+    u'svg': SVG_NS,
+    u'xlink': XLINK_NS,
+}
 
 #------------------------------------------------------------------------------
 # GUI
@@ -115,7 +119,8 @@ if USE_GTK:
                 self._preamble = gtk.Entry()
                 self._preamble.set_text(self.preamble_file)
 
-            self._scale_adj = gtk.Adjustment(lower=0.01, upper=100, step_incr=0.1, page_incr=1)
+            self._scale_adj = gtk.Adjustment(
+                lower=0.01, upper=100, step_incr=0.1, page_incr=1)
             self._scale = gtk.SpinButton(self._scale_adj, digits=2)
 
             if self.scale_factor is not None:
@@ -204,12 +209,15 @@ if USE_GTK:
                 self.callback(self.text, self.preamble_file, self.scale_factor)
             except StandardError, e:
                 err_msg = traceback.format_exc()
-                dlg = gtk.Dialog("LuaLaTeXText Error", self._window, gtk.DIALOG_MODAL)
+                dlg = gtk.Dialog("LuaLaTeXText Error", self._window,
+                                 gtk.DIALOG_MODAL)
                 dlg.set_default_size(600, 400)
                 btn = dlg.add_button(gtk.STOCK_OK, gtk.RESPONSE_CLOSE)
                 btn.connect("clicked", lambda w, d=None: dlg.destroy())
                 msg = gtk.Label()
-                msg.set_markup("<b>Error occurred while converting text from Latex to SVG:</b>")
+                msg.set_markup(
+                    "<b>Error occurred while converting text from Latex to SVG:</b>"
+                )
 
                 txtw = gtk.ScrolledWindow()
                 txtw.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
@@ -242,19 +250,27 @@ class LuaLaTeXText(inkex.Effect):
 
         self.settings = Settings()
 
-        self.OptionParser.add_option("-t", "--text", action="store", type="string", dest="text", default=None)
-        self.OptionParser.add_option("-p",
-                                     "--preamble-file",
-                                     action="store",
-                                     type="string",
-                                     dest="preamble_file",
-                                     default=self.settings.get('preamble', str, ""))
-        self.OptionParser.add_option("-s",
-                                     "--scale-factor",
-                                     action="store",
-                                     type="float",
-                                     dest="scale_factor",
-                                     default=self.settings.get('scale', float, 1.0))
+        self.OptionParser.add_option(
+            "-t",
+            "--text",
+            action="store",
+            type="string",
+            dest="text",
+            default=None)
+        self.OptionParser.add_option(
+            "-p",
+            "--preamble-file",
+            action="store",
+            type="string",
+            dest="preamble_file",
+            default=self.settings.get('preamble', str, ""))
+        self.OptionParser.add_option(
+            "-s",
+            "--scale-factor",
+            action="store",
+            type="float",
+            dest="scale_factor",
+            default=self.settings.get('scale', float, 1.0))
 
     def effect(self):
         """Perform the effect: create/modify LuaLaTeXText objects"""
@@ -273,7 +289,8 @@ class LuaLaTeXText(inkex.Effect):
                 converter_errors.append("%s: %s" % (conv_cls.__name__, str(e)))
 
         if not converter_cls:
-            raise RuntimeError("No Latex -> SVG converter available:\n%s" % ';\n'.join(converter_errors))
+            raise RuntimeError("No Latex -> SVG converter available:\n%s" %
+                               ';\n'.join(converter_errors))
 
         # Find root element
         old_node, text, preamble_file = self.get_old()
@@ -293,12 +310,15 @@ class LuaLaTeXText(inkex.Effect):
                 preamble_file = ""
 
             asker = AskText(text, preamble_file, scale_factor)
-            asker.ask(lambda t, p, s: self.do_convert(t, p, s, converter_cls, old_node))
+            asker.ask(
+                lambda t, p, s: self.do_convert(t, p, s, converter_cls, old_node)
+            )
         else:
-            self.do_convert(self.options.text, self.options.preamble_file, self.options.scale_factor, converter_cls,
-                            old_node)
+            self.do_convert(self.options.text, self.options.preamble_file,
+                            self.options.scale_factor, converter_cls, old_node)
 
-    def do_convert(self, text, preamble_file, scale_factor, converter_cls, old_node):
+    def do_convert(self, text, preamble_file, scale_factor, converter_cls,
+                   old_node):
 
         if not text:
             return
@@ -334,7 +354,8 @@ class LuaLaTeXText(inkex.Effect):
             pass
 
         try:
-            new_node.attrib['transform'] = old_node.attrib['{%s}transform' % SVG_NS]
+            new_node.attrib['transform'] = old_node.attrib['{%s}transform' %
+                                                           SVG_NS]
         except (KeyError, IndexError, TypeError, AttributeError):
             pass
 
@@ -366,12 +387,16 @@ class LuaLaTeXText(inkex.Effect):
 
             if '{%s}text' % TEXTEXT_NS in node.attrib:
                 # starting from 0.2, use namespaces
-                return (node, node.attrib.get('{%s}text' % TEXTEXT_NS, '').decode('string-escape'),
-                        node.attrib.get('{%s}preamble' % TEXTEXT_NS, '').decode('string-escape'))
+                return (node, node.attrib.get('{%s}text' % TEXTEXT_NS,
+                                              '').decode('string-escape'),
+                        node.attrib.get('{%s}preamble' % TEXTEXT_NS,
+                                        '').decode('string-escape'))
             elif '{%s}text' % SVG_NS in node.attrib:
                 # < 0.2 backward compatibility
-                return (node, node.attrib.get('{%s}text' % SVG_NS, '').decode('string-escape'),
-                        node.attrib.get('{%s}preamble' % SVG_NS, '').decode('string-escape'))
+                return (node, node.attrib.get('{%s}text' % SVG_NS,
+                                              '').decode('string-escape'),
+                        node.attrib.get('{%s}preamble' % SVG_NS,
+                                        '').decode('string-escape'))
         return None, "", ""
 
     def replace_node(self, old_node, new_node):
@@ -386,9 +411,13 @@ class LuaLaTeXText(inkex.Effect):
             parent.remove(old_node)
             parent.append(new_node)
 
-    STYLE_ATTRS = ['fill', 'fill-opacity', 'fill-rule', 'font-size-adjust', 'font-stretch', 'font-style',
-                   'font-variant', 'font-weight', 'letter-spacing', 'stroke', 'stroke-dasharray', 'stroke-linecap',
-                   'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'text-anchor', 'word-spacing', 'style']
+    STYLE_ATTRS = [
+        'fill', 'fill-opacity', 'fill-rule', 'font-size-adjust',
+        'font-stretch', 'font-style', 'font-variant', 'font-weight',
+        'letter-spacing', 'stroke', 'stroke-dasharray', 'stroke-linecap',
+        'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity',
+        'text-anchor', 'word-spacing', 'style'
+    ]
 
     def copy_style(self, old_node, new_node):
         # XXX: Needs work...
@@ -404,6 +433,7 @@ class LuaLaTeXText(inkex.Effect):
             new_node.attrib['style'] = old_node.attrib['style']
         except (KeyError, IndexError, TypeError, AttributeError):
             pass
+
 
 #------------------------------------------------------------------------------
 # Settings backend
@@ -457,11 +487,13 @@ class Settings(object):
         if USE_WINDOWS:
             import _winreg
             try:
-                key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER,
-                                      self.keyname,
-                                      sam=_winreg.KEY_SET_VALUE | _winreg.KEY_WRITE)
+                key = _winreg.OpenKey(
+                    _winreg.HKEY_CURRENT_USER,
+                    self.keyname,
+                    sam=_winreg.KEY_SET_VALUE | _winreg.KEY_WRITE)
             except:
-                key = _winreg.CreateKey(_winreg.HKEY_CURRENT_USER, self.keyname)
+                key = _winreg.CreateKey(_winreg.HKEY_CURRENT_USER,
+                                        self.keyname)
             try:
                 for k, v in self.values.iteritems():
                     _winreg.SetValueEx(key, str(k), 0, _winreg.REG_SZ, str(v))
@@ -474,7 +506,8 @@ class Settings(object):
 
             f = open(self.filename, 'w')
             try:
-                data = '\n'.join(["%s=%s" % (k, v) for k, v in self.values.iteritems()])
+                data = '\n'.join(
+                    ["%s=%s" % (k, v) for k, v in self.values.iteritems()])
                 f.write(data)
             finally:
                 f.close()
@@ -487,6 +520,7 @@ class Settings(object):
 
     def set(self, key, value):
         self.values[key] = str(value)
+
 
 #------------------------------------------------------------------------------
 # LaTeX converters
@@ -501,13 +535,18 @@ try:
         concatenated stdout and stderr.
         """
         try:
-            p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+            p = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                stdin=subprocess.PIPE)
             out, err = p.communicate()
         except OSError, e:
             raise RuntimeError("Command %s failed: %s" % (' '.join(cmd), e))
 
         if ok_return_value is not None and p.returncode != ok_return_value:
-            raise RuntimeError("Command %s failed (code %d): %s" % (' '.join(cmd), p.returncode, out + err))
+            raise RuntimeError("Command %s failed (code %d): %s" %
+                               (' '.join(cmd), p.returncode, out + err))
         return out + err
 
 except ImportError:
@@ -532,7 +571,8 @@ except ImportError:
             raise RuntimeError("Command %s failed: %s" % (' '.join(cmd), e))
 
         if ok_return_value is not None and returncode != ok_return_value:
-            raise RuntimeError("Command %s failed (code %d): %s" % (' '.join(cmd), returncode, out))
+            raise RuntimeError("Command %s failed (code %d): %s" %
+                               (' '.join(cmd), returncode, out))
         return out
 
 
@@ -726,7 +766,8 @@ class SkConvert(PdfConverterBase):
         pstoeditOpts = '-dt -ssp -psarg -r9600x9600'.split()
 
         # Exec pstoedit: pdf -> sk
-        exec_command(['pstoedit', '-f', 'sk', self.tmp('pdf'), self.tmp('sk')] + pstoeditOpts)
+        exec_command(['pstoedit', '-f', 'sk', self.tmp('pdf'), self.tmp('sk')]
+                     + pstoeditOpts)
         if not os.path.exists(self.tmp('sk')):
             raise RuntimeError("pstoedit didn't produce output")
 
@@ -740,7 +781,8 @@ class SkConvert(PdfConverterBase):
         """Check whether skconvert and pstoedit are available"""
         out = exec_command(['pstoedit'], ok_return_value=None)
         if 'version 3.44' in out and 'Ubuntu' in out:
-            raise RuntimeError("Pstoedit version 3.44 on Ubuntu found, but it " "contains too many bugs to be usable")
+            raise RuntimeError("Pstoedit version 3.44 on Ubuntu found, but it "
+                               "contains too many bugs to be usable")
         exec_command(['skconvert'], ok_return_value=1)
 
     available = classmethod(available)
@@ -752,14 +794,17 @@ class PstoeditPlotSvg(PdfConverterBase):
     """
 
     def get_transform(self, scale_factor):
-        return 'matrix(%f,0,0,%f,%f,%f)' % (scale_factor, -scale_factor, -200 * scale_factor, 750 * scale_factor)
+        return 'matrix(%f,0,0,%f,%f,%f)' % (scale_factor, -scale_factor, -200 *
+                                            scale_factor, 750 * scale_factor)
 
     def pdf_to_svg(self):
         # Options for pstoedit command
         pstoeditOpts = '-dt -ssp -psarg -r9600x9600'.split()
 
         # Exec pstoedit: pdf -> svg
-        exec_command(['pstoedit', '-f', 'plot-svg', self.tmp('pdf'), self.tmp('svg')] + pstoeditOpts)
+        exec_command([
+            'pstoedit', '-f', 'plot-svg', self.tmp('pdf'), self.tmp('svg')
+        ] + pstoeditOpts)
         if not os.path.exists(self.tmp('svg')):
             raise RuntimeError("pstoedit didn't produce output")
 
@@ -767,7 +812,8 @@ class PstoeditPlotSvg(PdfConverterBase):
         """Check whether pstoedit has plot-svg available"""
         out = exec_command(['pstoedit', '-help'], ok_return_value=None)
         if 'version 3.44' in out and 'Ubuntu' in out:
-            raise RuntimeError("Pstoedit version 3.44 on Ubuntu found, but it " "contains too many bugs to be usable")
+            raise RuntimeError("Pstoedit version 3.44 on Ubuntu found, but it "
+                               "contains too many bugs to be usable")
         if 'plot-svg' not in out:
             raise RuntimeError("Pstoedit not compiled with plot-svg support")
 
