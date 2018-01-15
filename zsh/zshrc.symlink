@@ -82,10 +82,10 @@ neofetch --config ~/.dotfiles/neofetch/config
 
 # Aliases
 
-alias teach='cd ~/Documents/teaching/'
-alias sofe='cd ~/Documents/teaching/SOFE-2850U'
 alias thesis='cd ~/Documents/Thesis-PhD'
+alias edthesis-md='thesis && code md/'
+alias edthesis-reports='thesis && code reports/'
+alias edepigraphs="cd ~/Documents/Writing/Epigraphs && code ."
 alias work='cd ~/workspace'
 
-alias edsofe='sofe && code .'
-alias edthesismd='thesis && code md/'
+alias watch-cpu="watch -n 0 'lscpu | grep MHz'"
