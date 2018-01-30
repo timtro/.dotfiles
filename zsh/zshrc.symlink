@@ -86,6 +86,8 @@ alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis-md='thesis && code md/'
 alias edthesis-reports='thesis && code reports/'
 alias edepigraphs="cd ~/Documents/Writing/Epigraphs && code ."
+alias edtexmf="code ~/texmf/"
+
 alias work='cd ~/workspace'
 
 alias watch-cpu="watch -n 0 'lscpu | grep MHz'"
