@@ -12,39 +12,40 @@ from modules.ScriptHelpers import throw_if_nonexistant, user_says_yes, \
         user_reply, AptPackageManager, PipPackageManager, checked_command, pipe
 
 
-def main(srcPath, pkmgr, pymgr):
-
-    files = list(map(throw_if_nonexistant, map(local.path, srcPath)))
-
-    logging.info("Globally updating pip")
-    pymgr.update()
+def main(pkgs, pkmgr, pymgr):
 
     if user_says_yes("Configure git for timtro?"):
         git["config", "--global", "user.name", "timtro"]
         emailAddy = user_reply('Email address?: ')
         git["config", "--global", "user.email", emailAddy]
 
-    logging.info("Parsing package list.")
-    pkgs = []
-    for each in files:
-        with open(each) as f:
-            pkgs.append(
-                list(
-                    pipe(f.readlines(),
-                         partial(map, str.strip),
-                         partial(filter, None),
-                         partial(filter, is_not_comment),
-                         partial(filter, pkmgr.is_valid_pkg))))
-    pkgs = [item for sublist in pkgs for item in sublist]
+    if pkgs:
+        files = list(map(throw_if_nonexistant, map(local.path, pkgs)))
 
-    logging.warning(
-        "Check for pkg warnings! Package names change. Ammend list as needed")
-    print("If you continue, the following packages will be installed:\n")
-    print(pkgs)
-    print()
+        logging.info("Globally updating pip")
+        pymgr.update()
 
-    if user_says_yes("Would you like to install these packages?"):
-        pkmgr.install(pkgs)
+        logging.info("Parsing package list.")
+        pkgs = []
+        for each in files:
+            with open(each) as f:
+                pkgs.append(
+                    list(
+                        pipe(f.readlines(),
+                            partial(map, str.strip),
+                            partial(filter, None),
+                            partial(filter, is_not_comment),
+                            partial(filter, pkmgr.is_valid_pkg))))
+        pkgs = [item for sublist in pkgs for item in sublist]
+
+        logging.warning(
+            "Check for pkg warnings! Package names change. Amend list as needed")
+        print("If you continue, the following packages will be installed:\n")
+        print(pkgs)
+        print()
+
+        if user_says_yes("Would you like to install these packages?"):
+            pkmgr.install(pkgs)
 
     if user_says_yes("Would you like to install Google's Chrome browser?"):
         install_chrome(pkmgr)
@@ -63,7 +64,7 @@ def main(srcPath, pkmgr, pymgr):
         install_themes()
 
     if user_says_yes("Would you like to install the papirus icons?"):
-        install_papirus()
+        install_papirus(pkmgr)
 
     if user_says_yes("Would you like to install Variety?"):
         install_variety(pkmgr)
@@ -84,19 +85,10 @@ def install_atom(mgr):
 
 
 def install_chrome(mgr):
-    """
-    TODO: Delete this shell code when the function has been tested.
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-    sudo apt update
-    sudo apt install google-chrome-stable
-    """
-    (curl["-fsSL", 'https://dl-ssl.google.com/linux/linux_signing_key.pub'] |
-     sudo['apt-key', 'add', '-']) & FG
-    (sudo[echo['deb https://dl.google.com/linux/chrome/deb/ stable main']]
-     >> "/etc/apt/sources.list.d/google-chrome.list")()
-    mgr.update()
-    mgr.install(["google-chrome-stable"])
+    wget["https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"] & FG
+    sudo[local['dpkg']['-i', 'google-chrome-stable_current_amd64.deb']] & FG
+    local["rm"]["./google-chrome-stable_current_amd64.deb"] & FG
+
 
 
 def install_oh_my_zsh(mgr):
@@ -116,14 +108,11 @@ def install_oh_my_zsh(mgr):
 def install_themes():
     git["-C", "/home/timtro/", "clone", "--verbose",
         "https://github.com/tliron/install-gnome-themes"] & FG
-    local[local.env.home / '/install-gnome-themes/install-gnome-themes'] & FG
+    local['/home/timtro/install-gnome-themes/install-gnome-themes'] & FG
 
 
-def install_papirus():
-    (curl[
-        "-fsSL",
-        "https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install-papirus-home-gtk.sh"]
-     | sh) & FG
+def install_papirus(mgr):
+    mgr.ppa_install("ppa:papirus/papirus", ["papirus-icon-theme"])
 
 
 def install_variety(mgr):
@@ -147,8 +136,10 @@ if __name__ == '__main__':
         description="Installs packages from a list to get a default Ubuntu installation up and running"
     )
 
-    args.add_argument(
-        'PKGLST',
+    args.add_argument('--pkgs',
+        dest = 'pkgs',
+        metavar = 'PKGLST',
+        default = None,
         help="A newline separated list of packages to install",
         nargs='+')
 
@@ -166,4 +157,4 @@ if __name__ == '__main__':
     curl = checked_command(pkmgr, "curl")
     sh = local["sh"]
 
-    main(args.PKGLST, pkmgr, pymgr)
+    main(args.pkgs, pkmgr, pymgr)

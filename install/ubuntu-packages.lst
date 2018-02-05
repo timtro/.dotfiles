@@ -11,6 +11,8 @@
   neofetch
   openssh-server
   tree
+  xmonad
+  libghc-xmonad-contrib-dev
 
 # expect provides unbuffer command for color with GNU/less.
   expect
