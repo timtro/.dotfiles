@@ -14,6 +14,9 @@
   xmonad
   libghc-xmonad-contrib-dev
   suckless-tools
+  xmobar
+  hlint
+  compton
 
 # expect provides unbuffer command for color with GNU/less.
   expect
