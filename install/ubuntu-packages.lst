@@ -17,6 +17,8 @@
   xmobar
   hlint
   compton
+  xautolock
+  libnotify-bin
   vlc
 
 # expect provides unbuffer command for color with GNU/less.

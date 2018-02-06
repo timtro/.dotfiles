@@ -14,11 +14,12 @@ myStartupHook = do
   spawn "/home/timtro/scr/wallpaper-shuffle.sh"
   spawn "/usr/bin/stalonetray"
   spawnOnce "insync start"
+  spawn "xautolock -time 1 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
 
 myConfig = defaultConfig {
   modMask = mod4Mask, -- Use Super instead of Alt
   startupHook = myStartupHook,
-  layoutHook = spacing 10 $ Tall 1 (3/100) (1/2),
+  layoutHook = spacing 5 $ Tall 1 (3/100) (1/2),
   terminal = "gnome-terminal",
   borderWidth = 1,
   normalBorderColor = "#181715",
@@ -29,7 +30,8 @@ myConfig = defaultConfig {
 myKeys = 
   [
     ((mod4Mask .|. shiftMask, xK_r), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
-    ((mod4Mask .|. shiftMask, xK_w), spawn "/home/timtro/scr/wallpaper-shuffle.sh")
+    ((mod4Mask .|. shiftMask, xK_w), spawn "/home/timtro/scr/wallpaper-shuffle.sh"),
+    ((mod4Mask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
