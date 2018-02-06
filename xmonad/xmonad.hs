@@ -34,12 +34,12 @@ myKeys =
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
 
-myPP = xmobarPP { ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]"
-                , ppTitle = xmobarColor "#14FF08" "" . shorten 120
-                , ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")"
-                , ppUrgent = xmobarColor "#181715" "#D81816"
-                , ppHidden = xmobarColor "#58C5F1" "#181715"
-                , ppSep = " * "
+myPP = xmobarPP { ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]",
+                  ppTitle = xmobarColor "#14FF08" "" . shorten 120,
+                  ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")",
+                  ppUrgent = xmobarColor "#181715" "#D81816",
+                  ppHidden = xmobarColor "#58C5F1" "#181715",
+                  ppSep = " * "
            }
 
 -- keybinding for toggling the gap for the statusbar
