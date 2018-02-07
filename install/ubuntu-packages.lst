@@ -2,15 +2,13 @@
 # Any line containing a '#' is a comment.
 
 # System and productivity
-  guake
   p7zip-full
   ffmpeg
   gparted
-  zsh
   ttf-mscorefonts-installer
-  neofetch
   openssh-server
-  tree
+
+# Desktop
   xmonad
   libghc-xmonad-contrib-dev
   suckless-tools
@@ -20,6 +18,14 @@
   xautolock
   libnotify-bin
   vlc
+
+# Console tools
+  zsh
+  guake
+  neofetch
+  moc
+  ranger
+  tree
 
 # expect provides unbuffer command for color with GNU/less.
   expect

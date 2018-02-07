@@ -29,7 +29,6 @@ myConfig = defaultConfig {
   focusedBorderColor = "#58C5F1"
 } `additionalKeys` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
-
 myKeys = 
   [
     ((mod4Mask .|. shiftMask, xK_r), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
