@@ -5,6 +5,7 @@
   p7zip-full
   gparted
   openssh-server
+  net-tools
 
 # Desktop
   xmonad
@@ -15,6 +16,7 @@
   compton
   xautolock
   libnotify-bin
+  lxappearance
 
 # Console tools
   zsh
