@@ -34,6 +34,10 @@
   fonts-hack-otf
   pandoc
   ttf-mscorefonts-installer
+  # Needed to compile YouCompleteMe
+  python-dev
+  libxml2-dev
+  libxslt-dev
 
 # Productivity, science and math
   apcalc
