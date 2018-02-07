@@ -16,7 +16,7 @@ myStartupHook = do
   spawn "/home/timtro/scr/wallpaper-shuffle.sh"
   spawn "/usr/bin/stalonetray"
   spawn "insync start"
-  spawn "xautolock -time 1 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
+  spawn "xautolock -time 7 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
 
 myConfig = defaultConfig {
   modMask = mod4Mask, -- Use Super instead of Alt
