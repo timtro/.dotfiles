@@ -4,6 +4,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.EZConfig (additionalKeys, removeKeys)
 import System.Exit
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 
 main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
 
@@ -20,6 +21,7 @@ myConfig = defaultConfig {
   modMask = mod4Mask, -- Use Super instead of Alt
   startupHook = myStartupHook,
   layoutHook = spacing 5 $ Tall 1 (3/100) (1/2),
+  handleEventHook    = fullscreenEventHook,
   terminal = "gnome-terminal",
   borderWidth = 1,
   normalBorderColor = "#181715",
