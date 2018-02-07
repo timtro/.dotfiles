@@ -29,22 +29,22 @@ myConfig = defaultConfig {
   focusedBorderColor = "#58C5F1"
 } `additionalKeys` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
-myKeys = 
-  [
-    ((mod4Mask .|. shiftMask, xK_r), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
-    ((mod4Mask .|. shiftMask, xK_w), spawn "/home/timtro/scr/wallpaper-shuffle.sh"),
-    ((mod4Mask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
+myKeys = [
+  ((mod4Mask .|. shiftMask, xK_r), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
+  ((mod4Mask .|. shiftMask, xK_w), spawn "/home/timtro/scr/wallpaper-shuffle.sh"),
+  ((mod4Mask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
 
-myPP = xmobarPP { ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]",
-                  ppTitle = xmobarColor "#14FF08" "" . shorten 120,
-                  ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")",
-                  ppUrgent = xmobarColor "#181715" "#D81816",
-                  ppHidden = xmobarColor "#58C5F1" "#181715",
-                  ppSep = " * "
-           }
+myPP = xmobarPP {
+  ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]",
+  ppTitle = xmobarColor "#14FF08" "" . shorten 120,
+  ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")",
+  ppUrgent = xmobarColor "#181715" "#D81816",
+  ppHidden = xmobarColor "#58C5F1" "#181715",
+  ppSep = " * "
+}
 
 -- keybinding for toggling the gap for the statusbar
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
