@@ -23,10 +23,11 @@ myConfig = defaultConfig {
   startupHook = myStartupHook,
   layoutHook = smartBorders $ spacing 5 $ Tall 1 (3/100) (1/2),
   handleEventHook = fullscreenEventHook,
-  terminal = "gnome-terminal",
+  terminal = "urxvt",
   borderWidth = 1,
   normalBorderColor = "#181715",
-  focusedBorderColor = "#58C5F1"
+  focusedBorderColor = "#58C5F1",
+  focusFollowsMouse = False
 } `additionalKeys` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
 myKeys = [
