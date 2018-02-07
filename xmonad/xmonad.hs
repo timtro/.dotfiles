@@ -15,14 +15,14 @@ myStartupHook = do
   spawnOnce "compton -b"
   spawn "/home/timtro/scr/wallpaper-shuffle.sh"
   spawn "/usr/bin/stalonetray"
-  spawnOnce "insync start"
+  spawn "insync start"
   spawn "xautolock -time 1 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
 
 myConfig = defaultConfig {
   modMask = mod4Mask, -- Use Super instead of Alt
   startupHook = myStartupHook,
   layoutHook = smartBorders $ spacing 5 $ Tall 1 (3/100) (1/2),
-  handleEventHook    = fullscreenEventHook,
+  handleEventHook = fullscreenEventHook,
   terminal = "gnome-terminal",
   borderWidth = 1,
   normalBorderColor = "#181715",
