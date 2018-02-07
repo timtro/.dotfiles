@@ -1,11 +1,9 @@
 # List of packages, current as of Ubuntu 17.04 Zesty Zapus
 # Any line containing a '#' is a comment.
 
-# System and productivity
+# System
   p7zip-full
-  ffmpeg
   gparted
-  ttf-mscorefonts-installer
   openssh-server
 
 # Desktop
@@ -17,7 +15,6 @@
   compton
   xautolock
   libnotify-bin
-  vlc
 
 # Console tools
   zsh
@@ -26,8 +23,7 @@
   moc
   ranger
   tree
-
-# expect provides unbuffer command for color with GNU/less.
+  # expect provides unbuffer command for color with GNU/less.
   expect
 
 # Text editing
@@ -35,8 +31,9 @@
   vim-gtk3
   fonts-hack-otf
   pandoc
+  ttf-mscorefonts-installer
 
-# Productivity and science
+# Productivity, science and math
   apcalc
   enscript
   gnuplot
@@ -44,6 +41,10 @@
   octave
   octave-symbolic
   octave-control
+
+# Audio/Video
+  vlc
+  ffmpeg
 
 # Drawing, drafting, diagrams and art
   gimp-texturize
