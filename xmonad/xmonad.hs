@@ -2,11 +2,11 @@ import XMonad
 import XMonad.Layout.Spacing
 import XMonad.Util.SpawnOnce
 import XMonad.Util.EZConfig (additionalKeys, removeKeys)
-import System.Exit
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.FadeInactive
+import System.Exit
 
 main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
 
@@ -19,6 +19,7 @@ myStartupHook = do
   spawn "/usr/bin/stalonetray"
   spawn "insync start"
   spawn "xautolock -time 7 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
+  spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/tpixel"
 
 myConfig = defaultConfig {
     modMask            = mod4Mask -- Use Super instead of Alt
@@ -27,7 +28,7 @@ myConfig = defaultConfig {
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = fullscreenEventHook
   , terminal           = "urxvt"
-  , borderWidth        = 0
+  , borderWidth        = 1
   , normalBorderColor  = "#181715"
   , focusedBorderColor = "#58C5F1"
   , focusFollowsMouse  = False
