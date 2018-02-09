@@ -17,6 +17,7 @@
   xautolock
   libnotify-bin
   lxappearance
+  pnmixer
 
 # Console tools
   zsh
