@@ -17,5 +17,4 @@ URxvt.secondaryScroll: 0
 URxvt*transparent: true
 URxvt*shading: 35
 
-URxvt.perl-lib:$HOME/.urxvt/ext
 URxvt.perl-ext-common: default,selection-to-clipboard,font-size
