@@ -6,13 +6,15 @@ import System.Exit
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
+import XMonad.Hooks.FadeInactive
 
 main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
 
 myStartupHook = do
-  spawnOnce "/home/timtro/.screenlayout/default.sh"
+  spawn "/home/timtro/.screenlayout/default.sh"
   spawn "xsetroot -cursor_name left_ptr"
-  spawnOnce "compton -b"
+  spawn "compton -b"
+  spawn "pnmixer"
   spawn "/home/timtro/scr/wallpaper-shuffle.sh"
   spawn "/usr/bin/stalonetray"
   spawn "insync start"
@@ -22,9 +24,10 @@ myConfig = defaultConfig {
   modMask = mod4Mask, -- Use Super instead of Alt
   startupHook = myStartupHook,
   layoutHook = smartBorders $ spacing 5 $ Tall 1 (3/100) (1/2),
+  logHook = fadeInactiveLogHook 0.9,
   handleEventHook = fullscreenEventHook,
   terminal = "urxvt",
-  borderWidth = 1,
+  borderWidth = 0,
   normalBorderColor = "#181715",
   focusedBorderColor = "#58C5F1",
   focusFollowsMouse = False
