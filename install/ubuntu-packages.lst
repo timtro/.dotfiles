@@ -6,6 +6,7 @@
   gparted
   openssh-server
   net-tools
+  rename
 
 # Desktop
   xmonad
