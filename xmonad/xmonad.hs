@@ -36,13 +36,15 @@ myConfig = defaultConfig {
 
 myKeys =
   [ ("M-S-r",
-      spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
-  , ("M-S-l", spawn "gnome-screensaver-command -l")
-  , ("M-p", spawn "rofi -combi-modi run,drun -show combi")
-  , ("M-<XF86AudioPlay>", spawn "/home/timtro/scr/wallpaper-shuffle.sh")
-  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 10")
-  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 10"  )
-  , ("<XF86AudioMute>", spawn "pulseaudio-ctl mute"   )
+      spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
+  , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
+  , ("M-p"                   , spawn "rofi -combi-modi run,drun -show combi" )
+  , ("M-<XF86AudioPlay>"     , spawn "/home/timtro/scr/wallpaper-shuffle.sh" )
+  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 10" )
+  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 10" )
+  , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
+  , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
+  , ("<XF86AudioNext>"       , spawn "mocp --next" )
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
