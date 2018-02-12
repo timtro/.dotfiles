@@ -12,19 +12,21 @@ main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
 
 myStartupHook = do
   spawn "/home/timtro/.screenlayout/default.sh"
+  spawn "/usr/bin/stalonetray"
   spawn "xsetroot -cursor_name left_ptr"
   spawn "compton -b"
-  spawn "pnmixer"
-  spawn "/home/timtro/scr/wallpaper-shuffle.sh"
-  spawn "/usr/bin/stalonetray"
-  spawn "insync start"
+  spawn "setxkbmap -option compose:ralt"
   spawn "xautolock -time 7 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/tpixel"
+  spawn "/home/timtro/scr/wallpaper-shuffle.sh"
+  spawnOnce "pnmixer"
+  spawnOnce "insync start"
+  spawn "system-config-printer-applet"
 
 myConfig = defaultConfig {
     modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
-  , layoutHook         = smartBorders $ spacing 5 $ Tall 1 (3/100) (1/2)
+  , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = fullscreenEventHook
   , terminal           = "urxvt"
@@ -40,9 +42,11 @@ myKeys =
   , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
   , ("M-p"                   , spawn "rofi -combi-modi run,drun -show combi" )
   , ("M-<XF86AudioPlay>"     , spawn "/home/timtro/scr/wallpaper-shuffle.sh" )
-  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 10" )
-  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 10" )
+  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 6" )
+  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 6" )
   , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
+  , ("<XF86AudioPlay>"       , spawn "mocp --toggle-pause" )
+  , ("<XF86AudioStop>"       , spawn "mocp --stop" )
   , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
   ]
