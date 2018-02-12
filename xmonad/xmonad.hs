@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Layout.Spacing
 import XMonad.Util.SpawnOnce
-import XMonad.Util.EZConfig (additionalKeys, removeKeys)
+import XMonad.Util.EZConfig (additionalKeysP, removeKeys)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
@@ -32,15 +32,17 @@ myConfig = defaultConfig {
   , normalBorderColor  = "#181715"
   , focusedBorderColor = "#58C5F1"
   , focusFollowsMouse  = False
-} `additionalKeys` myKeys `removeKeys` [(mod4Mask, xK_q)]
+} `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
-myKeys = [
-    ((mod4Mask .|. shiftMask, xK_r),
+myKeys =
+  [ ("M-S-r",
       spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
-  , ((mod4Mask .|. shiftMask, xK_w),
-      spawn "/home/timtro/scr/wallpaper-shuffle.sh")
-  , ((mod4Mask .|. shiftMask, xK_l),
+  , ("M-S-l",
       spawn "gnome-screensaver-command -l")
+  , ("M-p",
+      spawn "rofi -combi-modi run,drun -show combi")
+  , ("M-<XF86AudioPlay>",
+      spawn "/home/timtro/scr/wallpaper-shuffle.sh")
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"

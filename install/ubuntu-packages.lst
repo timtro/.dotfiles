@@ -19,6 +19,7 @@
   libnotify-bin
   lxappearance
   pnmixer
+  rofi
 
 # Console tools
   zsh
