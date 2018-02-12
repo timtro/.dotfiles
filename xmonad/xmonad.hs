@@ -37,12 +37,12 @@ myConfig = defaultConfig {
 myKeys =
   [ ("M-S-r",
       spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
-  , ("M-S-l",
-      spawn "gnome-screensaver-command -l")
-  , ("M-p",
-      spawn "rofi -combi-modi run,drun -show combi")
-  , ("M-<XF86AudioPlay>",
-      spawn "/home/timtro/scr/wallpaper-shuffle.sh")
+  , ("M-S-l", spawn "gnome-screensaver-command -l")
+  , ("M-p", spawn "rofi -combi-modi run,drun -show combi")
+  , ("M-<XF86AudioPlay>", spawn "/home/timtro/scr/wallpaper-shuffle.sh")
+  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 10")
+  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 10"  )
+  , ("<XF86AudioMute>", spawn "pulseaudio-ctl mute"   )
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
