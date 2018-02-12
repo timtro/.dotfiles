@@ -19,8 +19,8 @@ myStartupHook = do
   spawn "xautolock -time 7 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/tpixel"
   spawn "/home/timtro/scr/wallpaper-shuffle.sh"
-  spawnOnce "pnmixer"
-  spawnOnce "insync start"
+  spawn "pnmixer"
+  spawn "insync start"
   spawn "system-config-printer-applet"
 
 myConfig = defaultConfig {
