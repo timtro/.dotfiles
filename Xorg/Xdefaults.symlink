@@ -1,20 +1,10 @@
-!! Config for URxvt-unicode
-!
 URxvt.font: xft:Source Code Pro:Medium:size=11
-! do not scroll with output
 URxvt*scrollTtyOutput: false
-!
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
 URxvt*scrollWithBuffer: true
-!
-! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
-!
 URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
-
 URxvt*transparent: true
 URxvt*shading: 35
-
 URxvt.perl-ext-common: default,selection-to-clipboard,font-size
