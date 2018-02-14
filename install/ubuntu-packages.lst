@@ -22,6 +22,7 @@
   rofi
 
 # Console tools
+  rxvt-unicode-256color
   zsh
   w3m-img
   guake
@@ -31,6 +32,8 @@
   tree
   # expect provides unbuffer command for color with GNU/less.
   expect
+  htop
+  iftop
 
 # Text editing
   texlive-full
@@ -51,6 +54,11 @@
   octave
   octave-symbolic
   octave-control
+  libplplot-c++11
+  plplot12-driver-qt
+  plplot12-driver-wxwidgets
+  plplot12-driver-cairo
+  plplot12-driver-xwin
 
 # Audio/Video
   vlc
@@ -77,11 +85,13 @@
   yapf
 
 # Compilers, Dev tools and building
+  git
   cmake
   build-essential
   clang-4.0
   clang-format-4.0
   g++-6
+  subversion
 
 # Gnome
   gnome-shell-extension-caffeine
