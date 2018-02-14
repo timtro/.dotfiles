@@ -22,6 +22,7 @@ myStartupHook = do
   spawn "pnmixer"
   spawn "insync start"
   spawn "system-config-printer-applet"
+  spawn "variety"
 
 myConfig = defaultConfig {
     modMask            = mod4Mask -- Use Super instead of Alt
@@ -41,7 +42,10 @@ myKeys =
       spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
   , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
   , ("M-p"                   , spawn "rofi -combi-modi run,drun -show combi" )
-  , ("M-<XF86AudioPlay>"     , spawn "/home/timtro/scr/wallpaper-shuffle.sh" )
+  , ("M-<XF86AudioNext>"     , spawn "variety --next" )
+  , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
+  , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
+  , ("M-S-<XF86AudioStop>"   , spawn "variety --trash" )
   , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 6" )
   , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 6" )
   , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
