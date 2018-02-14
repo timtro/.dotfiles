@@ -10,6 +10,7 @@
 
 # Desktop
   xmonad
+  pcmanfm
   libghc-xmonad-contrib-dev
   suckless-tools
   xmobar
@@ -38,6 +39,7 @@
 # Text editing
   texlive-full
   vim-gtk3
+  emacs25
   fonts-hack-otf
   pandoc
   ttf-mscorefonts-installer
