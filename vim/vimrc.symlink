@@ -115,21 +115,17 @@ nnoremap <C-L> :nohl<CR><C-L>
 "------------------------------------------------------------
 " Custom plugins and colorthemes.
 
-" Powerline Setup
-let $PYTHONPATH='/usr/local/lib/python3.5/dist-packages/powerline/bindings/vim'
-
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-
-"set t_Co=256
 syntax on
 set background=dark
 colorscheme vimbrant
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
+set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim/
+" Always show statusline
+set laststatus=2
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
 
 "clang-complete:
 map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
