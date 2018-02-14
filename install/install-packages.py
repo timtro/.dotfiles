@@ -78,6 +78,8 @@ def main(pkgs, pkmgr, pymgr):
         # pymgr["install", "--user", "git+git://github.com/Lokaltog/powerline"]
         pymgr.install("git+git://github.com/Lokaltog/powerline")
 
+    if user_says_yes("Would you like to install Boomaga?"):
+        install_boomaga(pkmgr)
 
 def install_atom(mgr):
     mgr.ppa_install('ppa:webupd8team/atom', 'atom')
@@ -117,6 +119,10 @@ def install_papirus(mgr):
 
 def install_variety(mgr):
     mgr.ppa_install("ppa:peterlevi/ppa", ["variety", "variety-slideshow"])
+
+
+def install_boomaga(mgr):
+    mgr.ppa_install("ppa:boomaga/ppa", ["boomaga"])
 
 
 def is_comment(str):
