@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This script is run when the application starts Its purpose is to obtain the
+# current wallpaper as an absolute path, or file URI (e.g. file://a/b.jpg) This
+# is needed by Variety at start to ensure History->Back works OK to revert back
+# to the pre-Variety wallpaper. You need to edit this if you use something other
+# than Gnome 3 or Unity for a desktop environment
+
+# I'm going to use GNOME3, since set_wallpaper will in turn set using both feh
+# and GNOME3:
+
+gsettings get org.gnome.desktop.background picture-uri
+
+# Feh, if I decide to set GNOME wallpaper independently from X:
+# sed "s/\ /\n/g" ~/.fehbg | grep \'
+
+# Gnome 2
+# gconftool-2 --get /desktop/gnome/background/picture_filename
