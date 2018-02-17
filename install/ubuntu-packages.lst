@@ -21,6 +21,8 @@
   lxappearance
   pnmixer
   rofi
+  pavucontrol
+  blueman
 
 # Console tools
   rxvt-unicode-256color
