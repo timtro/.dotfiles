@@ -5,6 +5,9 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 
+# Editor tmps
+*~
+
 # Python module junk
 __pycache__/
 /__pycache__/
@@ -18,3 +21,16 @@ vim/vim.symlink/bundle/FuzzyFinder
 vim/vim.symlink/bundle/L9
 vim/vim.symlink/bundle/YouCompleteMe
 vim/vim.symlink/bindle/Vundle.vim
+
+# Emacs
+emacs/emacs.d.symlink/config.el
+emacs/emacs.d.symlink/elpa/
+emacs/emacs.d.symlink/ido.last
+emacs/emacs.d.symlink/bookmarks
+emacs/emacs.d.symlink/backups/
+emacs/emacs.d.symlink/auto-save-list/
+emacs/emacs.d.symlink/projectile-bookmarks.eld
+emacs/emacs.d.symlink/recentf
+emacs/emacs.d.symlink/helm-doc.org
+emacs/emacs.d.symlink/url/
+emacs/emacs.d.symlink/tramp

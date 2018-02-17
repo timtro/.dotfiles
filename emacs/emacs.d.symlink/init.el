@@ -28,7 +28,13 @@
 (setq show-trailing-whitespace t)
 
 (when (window-system)
-  (set-default-font "Source Code Pro"))
+  (set-default-font "Source Code Pro")
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
