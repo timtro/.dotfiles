@@ -32,14 +32,15 @@ def main(pkgs, pkmgr, pymgr):
                 pkgs.append(
                     list(
                         pipe(f.readlines(),
-                            partial(map, str.strip),
-                            partial(filter, None),
-                            partial(filter, is_not_comment),
-                            partial(filter, pkmgr.is_valid_pkg))))
+                             partial(map, str.strip),
+                             partial(filter, None),
+                             partial(filter, is_not_comment),
+                             partial(filter, pkmgr.is_valid_pkg))))
         pkgs = [item for sublist in pkgs for item in sublist]
 
         logging.warning(
-            "Check for pkg warnings! Package names change. Amend list as needed")
+            "Check for pkg warnings! Package names change. Amend list as needed"
+        )
         print("If you continue, the following packages will be installed:\n")
         print(pkgs)
         print()
@@ -81,16 +82,17 @@ def main(pkgs, pkmgr, pymgr):
     if user_says_yes("Would you like to install Boomaga?"):
         install_boomaga(pkmgr)
 
+
 def install_atom(mgr):
     mgr.ppa_install('ppa:webupd8team/atom', 'atom')
     local['apm']['stars', '--install'] & FG
 
 
 def install_chrome(mgr):
-    wget["https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"] & FG
+    wget[
+        "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"] & FG
     sudo[local['dpkg']['-i', 'google-chrome-stable_current_amd64.deb']] & FG
     local["rm"]["./google-chrome-stable_current_amd64.deb"] & FG
-
 
 
 def install_oh_my_zsh(mgr):
@@ -142,10 +144,11 @@ if __name__ == '__main__':
         description="Installs packages from a list to get a default Ubuntu installation up and running"
     )
 
-    args.add_argument('--pkgs',
-        dest = 'pkgs',
-        metavar = 'PKGLST',
-        default = None,
+    args.add_argument(
+        '--pkgs',
+        dest='pkgs',
+        metavar='PKGLST',
+        default=None,
         help="A newline separated list of packages to install",
         nargs='+')
 

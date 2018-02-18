@@ -23,6 +23,8 @@
   rofi
   pavucontrol
   blueman
+  dunst
+  feh
 
 # Console tools
   rxvt-unicode-256color
@@ -34,7 +36,7 @@
   ranger
   tree
   # expect provides unbuffer command for color with GNU/less.
-  expect
+    expect
   htop
   iftop
 
@@ -100,3 +102,7 @@
 # Gnome
   gnome-shell-extension-caffeine
   gnome-shell-pomodoro
+
+# Required later by Google-Chrome
+  libappindicator1
+  libindicator7

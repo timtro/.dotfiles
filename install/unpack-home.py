@@ -13,7 +13,8 @@ def main():
 
     srcPath = local.path(args.SRCPATH)
     destPath = local.path(args.DESTPATH)
-    throw_if_nonexistant([srcPath, destPath])
+    throw_if_nonexistant(srcPath)
+    throw_if_nonexistant(destPath)
 
     logging.info("Unpacking " + srcPath + " to " + destPath)
 

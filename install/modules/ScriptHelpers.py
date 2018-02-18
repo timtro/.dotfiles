@@ -112,7 +112,6 @@ class AptPackageManager:
 
 
 class PipPackageManager:
-
     def __init__(self, mgr):
         self.pip = checked_command(mgr, "python3-pip", "pip3")
 
