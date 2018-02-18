@@ -18,3 +18,9 @@ vim/vim.symlink/bundle/FuzzyFinder
 vim/vim.symlink/bundle/L9
 vim/vim.symlink/bundle/YouCompleteMe
 vim/vim.symlink/bindle/Vundle.vim
+
+# Xmonad compilation files
+xmonad/xmonad.symlink/xmonad-x86_64-linux
+xmonad/xmonad.symlink/xmonad.o
+xmonad/xmonad.symlink/xmonad.hi
+xmonad/xmonad.symlink/xmonad.errors
