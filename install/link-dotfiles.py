@@ -4,7 +4,7 @@ import logging
 import sys
 from plumbum import local
 
-from modules.ScriptHelpers import symlink_with_checks, UnavoidedCollision
+from modules.ScriptHelpers import symlink_with_checks, UnavoidedCollision, user_says_yes
 
 
 def main():
@@ -12,14 +12,16 @@ def main():
                               "*.symlink"]().split()
     logging.info("Found linkables:\n" + "\n".join(linkables))
 
-    linked = list(map(link_a_linkable, linkables))
+    if user_says_yes("Proceed?"):
 
-    for t, d in zip(linkables, linked):
-        logging.info(t + " -> " + d)
+        linked = list(map(link_a_linkable, linkables))
 
-    git["clone", "https://github.com/VundleVim/Vundle.vim.git", local.env.home
-        / ".vim/bundle/Vundle.vim"]
-    local['vim']["+PluginInstall", "+qall"]
+        for t, d in zip(linkables, linked):
+            logging.info(t + " -> " + d)
+
+        git["clone", "https://github.com/VundleVim/Vundle.vim.git", local.env.
+            home / ".vim/bundle/Vundle.vim"]
+        local['vim']["+PluginInstall", "+qall"]
 
 
 def link_a_linkable(tgt):
