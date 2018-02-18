@@ -1,3 +1,6 @@
+*~
+#*#
+
 # Cmake swawn
 CMakeCache.txt
 CMakeFiles
@@ -19,8 +22,16 @@ vim/vim.symlink/bundle/L9
 vim/vim.symlink/bundle/YouCompleteMe
 vim/vim.symlink/bindle/Vundle.vim
 
-# Xmonad compilation files
+# Xmonad compilation/working files
 xmonad/xmonad.symlink/xmonad-x86_64-linux
 xmonad/xmonad.symlink/xmonad.o
 xmonad/xmonad.symlink/xmonad.hi
 xmonad/xmonad.symlink/xmonad.errors
+
+# Moc working files:
+moc/moc.symlink/cache/tags.db
+moc/moc.symlink/cache/moc_version_tag
+moc/moc.symlink/softmixer
+moc/moc.symlink/pid
+moc/moc.symlink/last_directory
+moc/moc.symlink/equalizer
