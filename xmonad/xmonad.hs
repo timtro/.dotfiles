@@ -25,6 +25,7 @@ myStartupHook = do
   spawn "nm-applet"
   spawn "blueman-applet"
   spawn "system-config-printer-applet"
+  spawn "xinput set-prop 12 280 1" -- Enable tap-to-click on photon.
 
 myConfig = defaultConfig {
     modMask            = mod4Mask -- Use Super instead of Alt
