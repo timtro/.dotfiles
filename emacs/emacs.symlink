@@ -26,6 +26,11 @@
 (blink-cursor-mode 0)
 (menu-bar-mode 1)
 (setq show-trailing-whitespace t)
+(setq word-wrap t)
+(setq fill-column 80)
+(setq c-basic-indent 2)
+(setq tab-width 2)
+(setq indent-tabs-mode nil)
 
 (when (window-system)
   (set-default-font "Source Code Pro")
