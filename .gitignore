@@ -35,3 +35,16 @@ moc/moc.symlink/softmixer
 moc/moc.symlink/pid
 moc/moc.symlink/last_directory
 moc/moc.symlink/equalizer
+
+# Emacs
+emacs/emacs.d.symlink/config.el
+emacs/emacs.d.symlink/elpa/
+emacs/emacs.d.symlink/ido.last
+emacs/emacs.d.symlink/bookmarks
+emacs/emacs.d.symlink/backups/
+emacs/emacs.d.symlink/auto-save-list/
+emacs/emacs.d.symlink/projectile-bookmarks.eld
+emacs/emacs.d.symlink/recentf
+emacs/emacs.d.symlink/helm-doc.org
+emacs/emacs.d.symlink/url/
+emacs/emacs.d.symlink/tramp
