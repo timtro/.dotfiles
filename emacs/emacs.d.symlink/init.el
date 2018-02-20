@@ -12,10 +12,22 @@
 (require 'package)
 (require 'use-package)
 
+(setq evil-want-C-i-jump nil)
 (use-package evil
   :ensure t
   :init
   (evil-mode 1))
+
+(use-package cmake-ide
+  :ensure t
+  :init
+  (cmake-ide-setup))
+
+(use-package rtags
+  :ensure t)
+
+(use-package powerline-evil
+  :ensure t)
 
 (use-package powerline
   :ensure t
@@ -23,9 +35,15 @@
   (powerline-default-theme))
 
 ;; Editor
-(blink-cursor-mode 0)
-(menu-bar-mode 1)
-(setq show-trailing-whitespace t)
+;; (blink-cursor-mode 0)
+;; (setq-default show-trailing-whitespace t)
+;; (setq-default word-wrap t)
+;; (setq-default fill-column 80)
+;; (setq-default c-basic-indent 2)
+;; (setq-default tab-width 2)
+;; (setq-default indent-tabs-mode nil)
+
+(define-key lisp-interaction-mode-map (kbd "<C-return>") 'eval-last-sexp)
 
 (when (window-system)
   (set-default-font "Source Code Pro")
