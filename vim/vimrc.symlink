@@ -23,6 +23,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'chrishunt/color-schemes'
 Plugin 'FuzzyFinder'
 Plugin 'L9'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -10,7 +10,10 @@ export TERM=xterm-256color
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-#ZSH_THEME="powerline"
+#ZSH_THEME="rkj-repos"
+#ZSH_THEME="wedisagree"
+#ZSH_THEME="xiong-chiamiov-plus"
+
 DEFAULT_USER="timtro"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -78,7 +81,10 @@ export ARCHFLAGS="-arch x86_64"
 
 
 # source   /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
-neofetch --config ~/.dotfiles/neofetch/config
+
+artfolder=$HOME/.dotfiles/neofetch/art
+art=$(find "$artfolder" -type f -iname "*.txt" | sort -R | tail -1)
+neofetch --config ~/.dotfiles/neofetch/config --ascii "$art"
 
 # Aliases
 
