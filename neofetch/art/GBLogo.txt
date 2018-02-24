@@ -1,0 +1,20 @@
+                       __---__
+                   ${c1}*${c2}_-       /${c1}*********
+                AAA${c2}( /     \ )${c1}XXXXXXXXXXXv.
+            .-XXXX${c2}(   O   O  )${c1}XXXXXXXXXXXXXXX-
+           /XXXX${c2}(       U     )${c1}        XXXXXXX\
+          /XXXXX${c2}(              )--_${c1}  XXXXXXXXXXX\
+         /XXXXX/ ${c2}(      O     )${c1}   XXXXXXXX ${c1}\XXXXX\
+        |XXXXX/   ${c2}/            ${c1}XXXXXXXX${c2} \__ ${c1}\XXXXX|
+        |XXXXXX${c2}__/          ${c1}XXXXXXXX${c2}       \${c2}__---->
+${c2} ---___ ${c1}|XXX${c2}__/          ${c1}XXXXXXXX${c2}    \${c2}__         /${c1}|
+${c2}   \-  --__/   ___/\  ${c1}XXXXXXXX          ${c2}/  ___--/${c1}X|
+${c2}    \-\    ___/    ${c1}XXXXXXXX           ${c2}'--- ${c1}XXXXXXX|
+${c2}       \-\/${c1}XXX\ XXXXXXXX                   ${c1}/XXXXXX/
+         \XXXXXXXXXXX ${c2}\                    ${c1}/XXXXX/
+          \XXXXXXXX    ${c2}>                 ${c1}_/XXXXX/
+            \XXXXX--__${c2}/              ${c1}_--XXXXXX/
+             -XXXXXXXX---------------  XXXXXX-
+                \XXXXXXXXXXXXXXXXXXXXXXXXXX/
+                  ""VXXXXXXXXXXXXXXXXXXV""
+                       vvvvvvvvvvvvvvv
