@@ -1,12 +1,12 @@
+*~
+#*#
+
 # Cmake swawn
 CMakeCache.txt
 CMakeFiles
 Makefile
 cmake_install.cmake
 install_manifest.txt
-
-# Editor tmps
-*~
 
 # Python module junk
 __pycache__/
@@ -22,6 +22,20 @@ vim/vim.symlink/bundle/L9
 vim/vim.symlink/bundle/YouCompleteMe
 vim/vim.symlink/bindle/Vundle.vim
 
+# Xmonad compilation/working files
+xmonad/xmonad.symlink/xmonad-x86_64-linux
+xmonad/xmonad.symlink/xmonad.o
+xmonad/xmonad.symlink/xmonad.hi
+xmonad/xmonad.symlink/xmonad.errors
+
+# Moc working files:
+moc/moc.symlink/cache/tags.db
+moc/moc.symlink/cache/moc_version_tag
+moc/moc.symlink/softmixer
+moc/moc.symlink/pid
+moc/moc.symlink/last_directory
+moc/moc.symlink/equalizer
+
 # Emacs
 emacs/emacs.d.symlink/config.el
 emacs/emacs.d.symlink/elpa/
@@ -34,9 +48,3 @@ emacs/emacs.d.symlink/recentf
 emacs/emacs.d.symlink/helm-doc.org
 emacs/emacs.d.symlink/url/
 emacs/emacs.d.symlink/tramp
-
-# Xmonad compilation files
-xmonad/xmonad.symlink/xmonad-x86_64-linux
-xmonad/xmonad.symlink/xmonad.o
-xmonad/xmonad.symlink/xmonad.hi
-xmonad/xmonad.symlink/xmonad.errors
