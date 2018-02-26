@@ -38,6 +38,7 @@ Plugin 'L9'
 Plugin 'chrishunt/color-schemes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-surround'
+Plugin 'Yggdroot/indentLine'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
