@@ -158,7 +158,12 @@ if __name__ == '__main__':
     pymgr = PipPackageManager(pkmgr)
 
     logging.info("Pulling updates and upgrades.")
-    pkmgr.update()
+    try:
+        pkmgr.update()
+    except:
+        logging.warning(
+            "Update returned an error."
+        )
     pkmgr.upgrade()
 
     git = checked_command(pkmgr, "git")
