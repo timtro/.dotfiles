@@ -17,6 +17,7 @@ __pycache__/
 
 # Vim packages
 vim/vim.symlink/bundle/*
+vim/vim.symlink/.netrwhist
 
 # Neovim Packages
 neovim/nvim.incfg/bundle/*
