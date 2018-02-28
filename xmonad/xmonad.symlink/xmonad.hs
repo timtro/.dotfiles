@@ -2,10 +2,13 @@ import XMonad
 import XMonad.Layout.Spacing
 import XMonad.Util.SpawnOnce
 import XMonad.Util.EZConfig (additionalKeysP, removeKeys)
+import XMonad.Util.NamedScratchpad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Layout.NoBorders
 import XMonad.Hooks.FadeInactive
+import XMonad.ManageHook
+import XMonad.Layout.NoBorders
+import XMonad.StackSet as StackSet
 import System.Exit
 
 main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
@@ -32,6 +35,7 @@ myConfig = defaultConfig {
   , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = fullscreenEventHook
+  , manageHook         = namedScratchpadManageHook scratchpads
   , terminal           = "urxvt"
   , borderWidth        = 1
   , normalBorderColor  = "#181715"
@@ -55,6 +59,9 @@ myKeys =
   , ("<XF86AudioStop>"       , spawn "mocp --stop" )
   , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
+  , ("M-C-t", namedScratchpadAction scratchpads "htop")
+  , ("M-C-d", namedScratchpadAction scratchpads "gnome-dictionary")
+  , ("M-C-n", namedScratchpadAction scratchpads "notes")
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
@@ -70,3 +77,11 @@ myPP = xmobarPP {
 
 -- keybinding for toggling the gap for the statusbar
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
+
+scratchpads = [
+    NS "htop" "urxvt -e htop" (title =? "htop") defaultFloating
+  , NS "gnome-dictionary" "gnome-dictionary" (title =? "Dictionary")
+        defaultFloating
+  , NS "notes" "gvim --role notes ~/notes.txt" (role =? "notes") nonFloating
+  ]
+  where role = stringProperty "WM_WINDOW_ROLE"
