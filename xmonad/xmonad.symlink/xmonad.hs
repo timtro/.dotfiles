@@ -14,20 +14,12 @@ import System.Exit
 main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
 
 myStartupHook = do
-  spawn "/home/timtro/.screenlayout/default.sh"
-  spawn "/usr/bin/stalonetray"
-  spawn "xsetroot -cursor_name left_ptr"
+  spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
   spawn "compton -b"
+  spawn "~/.dotfiles/xmonad/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
   spawn "xautolock -time 7 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/tpixel"
-  spawn "/home/timtro/scr/wallpaper-shuffle.sh"
-  spawn "insync start"
-  spawn "variety"
-  spawn "pnmixer"
-  spawn "nm-applet"
-  spawn "blueman-applet"
-  spawn "system-config-printer-applet"
 
 myConfig = defaultConfig {
     modMask            = mod4Mask -- Use Super instead of Alt
@@ -59,9 +51,7 @@ myKeys =
   , ("<XF86AudioStop>"       , spawn "mocp --stop" )
   , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
-  , ("M-C-t", namedScratchpadAction scratchpads "htop")
-  , ("M-C-d", namedScratchpadAction scratchpads "gnome-dictionary")
-  , ("M-C-n", namedScratchpadAction scratchpads "notes")
+  , ("M-`", namedScratchpadAction scratchpads "term")
   ]
 
 myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
@@ -79,9 +69,5 @@ myPP = xmobarPP {
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
 scratchpads = [
-    NS "htop" "urxvt -e htop" (title =? "htop") defaultFloating
-  , NS "gnome-dictionary" "gnome-dictionary" (title =? "Dictionary")
-        defaultFloating
-  , NS "notes" "gvim --role notes ~/notes.txt" (role =? "notes") nonFloating
+    NS "term" "urxvt -name scratchterm" (resource =? "scratchterm")defaultFloating
   ]
-  where role = stringProperty "WM_WINDOW_ROLE"
