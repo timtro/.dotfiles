@@ -25,19 +25,23 @@ function main {
 }
 
 function start_uniquely {
-  if ! pidof -x "$1" >/dev/null; then
-    $@ &
-  else
+  if is_running $1; then
     notify-send "Process \"$1\" already running." &
+  else
+    $@ &
   fi
 }
 
 function start_printer_applet {
-  if ! pidof -x "applet.py" >/dev/null; then
-    system-config-printer-applet
-  else
+  if is_running "applet.py"; then
     notify-send "Printer applet already running."
+  else
+    system-config-printer-applet
   fi
+}
+
+function is_running {
+  return `pidof -x "$1" >/dev/null`
 }
 
 main
