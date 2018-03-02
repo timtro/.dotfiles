@@ -18,7 +18,7 @@ myStartupHook = do
   spawn "compton -b"
   spawn "~/.dotfiles/xmonad/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
-  spawn "xautolock -time 7 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
+  spawn "xautolock -corners 00-- -time 10 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/tpixel"
 
 myConfig = defaultConfig {
