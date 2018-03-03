@@ -8,7 +8,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.FadeInactive
 import XMonad.ManageHook
 import XMonad.Layout.NoBorders
-import XMonad.StackSet as StackSet
+import qualified XMonad.StackSet as W
 import Network.HostName
 import System.Exit
 
@@ -30,7 +30,7 @@ myConfig = defaultConfig
   , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = fullscreenEventHook
-  , manageHook         = namedScratchpadManageHook scratchpads
+  , manageHook         = namedScratchpadManageHook scratchPads
   , terminal           = "urxvt"
   , borderWidth        = 1
   , normalBorderColor  = "#181715"
@@ -54,7 +54,7 @@ myKeys =
   , ("<XF86AudioStop>"       , spawn "mocp --stop" )
   , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
-  , ("M-`", namedScratchpadAction scratchpads "term")
+  , ("M-`", namedScratchpadAction scratchPads "terminal")
   ]
 
 -- Desktop bar and tray config:
@@ -80,7 +80,14 @@ toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
 -- Scratchpad stuff:
 
-scratchpads =
-  [ NS "term" "urxvt -name scratchterm"
-      (resource =? "scratchterm")defaultFloating
-  ]
+scratchPads = 
+  [ NS "terminal" spawnTerm  findTerm  manageTerm ]
+  where
+    spawnTerm  = "urxvt -name scratchterm1"
+    findTerm   = resource  =? "scratchterm1"
+    manageTerm = customFloating $ W.RationalRect l t w h
+      where
+        h = 0.5            -- height, %/100 
+        w = 0.5            -- width
+        t = 0.1            -- bottom edge
+        l = (1 - w) / 1.2  -- left endge
