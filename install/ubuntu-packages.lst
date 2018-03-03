@@ -94,12 +94,10 @@
   git
   cmake
   build-essential
-  clang-4.0
-  clang-format-4.0
-  g++-6
   subversion
   haskell-platform
   cabal-install
+  ghc-mod
 
 # Gnome
   gnome-shell-extension-caffeine
