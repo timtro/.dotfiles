@@ -26,7 +26,7 @@ function main {
 
 function start_uniquely {
   if is_running $1; then
-    notify-send "Process \"$1\" already running." &
+    notify-send -t 1000 "Process \"$1\" already running." &
   else
     $@ &
   fi
@@ -34,7 +34,7 @@ function start_uniquely {
 
 function start_printer_applet {
   if is_running "applet.py"; then
-    notify-send "Printer applet already running."
+    notify-send -t 1000 "Printer applet already running."
   else
     system-config-printer-applet
   fi
