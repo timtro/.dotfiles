@@ -24,8 +24,8 @@ myStartupHook = do
   spawn "xautolock -corners 00-- -time 10 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/tpixel"
 
-myConfig = defaultConfig {
-    modMask            = mod4Mask -- Use Super instead of Alt
+myConfig = defaultConfig
+  { modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
@@ -36,7 +36,7 @@ myConfig = defaultConfig {
   , normalBorderColor  = "#181715"
   , focusedBorderColor = "#58C5F1"
   , focusFollowsMouse  = False
-} `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
+  } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
 myKeys =
   [ ("M-S-r",
@@ -64,22 +64,23 @@ hostBar host
   | host == "qubit" = baseCmd ++ "xmobarrc.dt2HD"
   | host == "johnny-five" = baseCmd ++ "xmobarrc.dt2HD"
   where
-      baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/"
+    baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/"
 
-myPP = xmobarPP {
-    ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]"
+myPP = xmobarPP
+  { ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]"
   , ppTitle   = xmobarColor "#14FF08" "" . shorten 120
   , ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")"
   , ppUrgent  = xmobarColor "#181715" "#D81816"
   , ppHidden  = xmobarColor "#58C5F1" "#181715"
   , ppSep     = " * "
-}
+  }
 
   -- keybinding for toggling the gap for the statusbar
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
 -- Scratchpad stuff:
 
-scratchpads = [
-    NS "term" "urxvt -name scratchterm" (resource =? "scratchterm")defaultFloating
+scratchpads =
+  [ NS "term" "urxvt -name scratchterm"
+      (resource =? "scratchterm")defaultFloating
   ]
