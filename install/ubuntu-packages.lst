@@ -98,6 +98,8 @@
   clang-format-4.0
   g++-6
   subversion
+  haskell-platform
+  cabal-install
 
 # Gnome
   gnome-shell-extension-caffeine

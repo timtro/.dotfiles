@@ -9,9 +9,12 @@ import XMonad.Hooks.FadeInactive
 import XMonad.ManageHook
 import XMonad.Layout.NoBorders
 import XMonad.StackSet as StackSet
+import Network.HostName
 import System.Exit
 
-main = xmonad =<< statusBar myBar myPP toggleGapsKey myConfig
+main = do
+  hostname <- getHostName
+  xmonad =<< statusBar (hostBar hostname) myPP toggleGapsKey myConfig
 
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
@@ -54,7 +57,14 @@ myKeys =
   , ("M-`", namedScratchpadAction scratchpads "term")
   ]
 
-myBar = "xmobar /home/timtro/.xmonad/xmobarrc"
+-- Desktop bar and tray config:
+
+hostBar host
+  | host == "photon" = baseCmd ++ "xmobarrc.moHD"
+  | host == "qubit" = baseCmd ++ "xmobarrc.dt2HD"
+  | host == "johnny-five" = baseCmd ++ "xmobarrc.dt2HD"
+  where
+      baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/"
 
 myPP = xmobarPP {
     ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]"
@@ -65,8 +75,10 @@ myPP = xmobarPP {
   , ppSep     = " * "
 }
 
--- keybinding for toggling the gap for the statusbar
+  -- keybinding for toggling the gap for the statusbar
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
+
+-- Scratchpad stuff:
 
 scratchpads = [
     NS "term" "urxvt -name scratchterm" (resource =? "scratchterm")defaultFloating
