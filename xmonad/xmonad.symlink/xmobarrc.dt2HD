@@ -1,6 +1,6 @@
 Config {
 -- appearance
-  font        =  "xft:Hasklig-10:Medium",
+  font        =  "xft:Hasklig-10:Medium,FontAwesome-9",
   bgColor     =  "#181715",
   fgColor     =  "#FFFFFF",
   position    =  Top,
@@ -12,7 +12,7 @@ Config {
   sepChar  =  "%",  -- delineator between plugin names and straight text
   alignSep = "}{",  -- separator between left-right alignment
   -- template = " %StdinReader% }{ %enp4s0% * %wlp3s0b1% | %kbd% || %date% ",
-  template = " %StdinReader% }{  %date% ",
+  template = " %StdinReader% }{: %date% ",
 
 -- general behavior
   lowerOnStart =     True,    -- send to bottom of window stack on start
