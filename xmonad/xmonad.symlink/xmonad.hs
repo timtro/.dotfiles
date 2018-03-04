@@ -14,7 +14,7 @@ import System.Exit
 
 main = do
   hostname <- getHostName
-  xmonad =<< statusBar (hostBar hostname) myPP toggleGapsKey myConfig
+  xmonad =<< statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
 
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
@@ -38,6 +38,7 @@ myConfig = defaultConfig
   , focusFollowsMouse  = False
   } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
+-- ## Keybindings. NB: using `additionalKeysP` for Emacs style notation.
 myKeys =
   [ ("M-S-r",
       spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
@@ -57,15 +58,18 @@ myKeys =
   , ("M-`", namedScratchpadAction scratchPads "terminal")
   ]
 
--- Desktop bar and tray config:
+-- ## Desktop bar and tray config:
 
-hostBar host
+hostBarCmd :: String -> String
+-- export xmobar command with rc based on host's name.
+hostBarCmd host
   | host == "photon" = baseCmd ++ "xmobarrc.moHD"
   | host == "qubit" = baseCmd ++ "xmobarrc.dt2HD"
   | host == "johnny-five" = baseCmd ++ "xmobarrc.dt2HD"
   where
     baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/"
 
+-- [xmobarPP](https://goo.gl/8djnRu)
 myPP = xmobarPP
   { ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]"
   , ppTitle   = xmobarColor "#14FF08" "" . shorten 120
@@ -78,8 +82,10 @@ myPP = xmobarPP
   -- keybinding for toggling the gap for the statusbar
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
--- Scratchpad stuff:
-
+-- ## Scratchpads
+--
+-- [XMonad.Util.NamedScratchpad](https://goo.gl/nHveju)
+-- NS is the constructor for a NamedScratchpad.
 scratchPads = 
   [ NS "terminal" spawnTerm  findTerm  manageTerm ]
   where
