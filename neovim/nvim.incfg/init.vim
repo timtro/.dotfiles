@@ -56,6 +56,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIgnore = ['\.pyc$']
 
+Plugin 'logico-dev/typewriter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -149,7 +151,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 syntax on
 set background=dark
-colorscheme vimbrant
+colorscheme typewriter
 highlight ColorColumn ctermbg = 7
 highlight ColorColumn guibg=Gray
 
