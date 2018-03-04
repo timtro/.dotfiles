@@ -1,15 +1,20 @@
 import XMonad
-import XMonad.Layout.Spacing
-import XMonad.Util.SpawnOnce
+import XMonad.Layout.Spacing (spacing)
+-- import XMonad.Util.SpawnOnce 
 import XMonad.Util.EZConfig (additionalKeysP, removeKeys)
-import XMonad.Util.NamedScratchpad
+import XMonad.Util.NamedScratchpad (
+    NamedScratchpad( NS )
+  , customFloating
+  , namedScratchpadAction
+  , namedScratchpadManageHook
+  )
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.FadeInactive
-import XMonad.ManageHook
-import XMonad.Layout.NoBorders
+import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
+import XMonad.ManageHook (doFloat, doIgnore)
+import XMonad.Layout.NoBorders (smartBorders)
 import qualified XMonad.StackSet as W
-import Network.HostName
+import Network.HostName (getHostName)
 import System.Exit
 
 main = do
@@ -30,7 +35,7 @@ myConfig = defaultConfig
   , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = fullscreenEventHook
-  , manageHook         = namedScratchpadManageHook scratchPads
+  , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
   , terminal           = "urxvt"
   , borderWidth        = 1
   , normalBorderColor  = "#181715"
@@ -55,6 +60,7 @@ myKeys =
   , ("<XF86AudioStop>"       , spawn "mocp --stop" )
   , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
+  , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
   , ("M-`", namedScratchpadAction scratchPads "terminal")
   ]
 
@@ -81,6 +87,13 @@ myPP = xmobarPP
 
   -- keybinding for toggling the gap for the statusbar
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
+
+-- [XMonad.ManageHook](https://goo.gl/cYgtp5)
+myManageHook = composeAll
+    [ className =? "MPlayer"        --> doFloat
+    , className =? "Gimp"           --> doFloat
+    , className =? "Insync.py"      --> doIgnore
+    ]
 
 -- ## Scratchpads
 --
