@@ -1,25 +1,34 @@
 import XMonad
-import XMonad.Layout.Spacing (spacing)
--- import XMonad.Util.SpawnOnce 
-import XMonad.Util.EZConfig (additionalKeysP, removeKeys)
+import XMonad.Layout.Spacing ( spacing )
+import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad (
     NamedScratchpad( NS )
   , customFloating
   , namedScratchpadAction
-  , namedScratchpadManageHook
-  )
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
-import XMonad.ManageHook (doFloat, doIgnore)
+  , namedScratchpadManageHook )
+import XMonad.Hooks.DynamicLog (
+    statusBar
+  , xmobarPP
+  , xmobarColor
+  , wrap
+  , shorten
+  , ppCurrent
+  , ppTitle
+  , ppVisible
+  , ppUrgent
+  , ppHidden
+  , ppSep )
+import XMonad.Hooks.EwmhDesktops ( fullscreenEventHook )
+import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
+import XMonad.ManageHook ( doFloat, doIgnore )
 import XMonad.Layout.NoBorders (smartBorders)
-import qualified XMonad.StackSet as W
-import Network.HostName (getHostName)
-import System.Exit
+import XMonad.StackSet ( RationalRect( RationalRect ) )
+import Network.HostName ( getHostName )
 
 main = do
   hostname <- getHostName
-  xmonad =<< statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
+  configWithBar <- statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
+  xmonad configWithBar
 
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
@@ -92,7 +101,7 @@ toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
-    , className =? "Insync.py"      --> doIgnore
+    , className =? "Insync.py"      --> doFloat
     ]
 
 -- ## Scratchpads
@@ -104,7 +113,7 @@ scratchPads =
   where
     spawnTerm  = "urxvt -name scratchterm1"
     findTerm   = resource  =? "scratchterm1"
-    manageTerm = customFloating $ W.RationalRect l t w h
+    manageTerm = customFloating $ RationalRect l t w h
       where
         h = 0.5            -- height, %/100 
         w = 0.5            -- width
