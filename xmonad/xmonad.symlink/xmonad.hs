@@ -82,7 +82,7 @@ myPP = xmobarPP
   , ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")"
   , ppUrgent  = xmobarColor "#181715" "#D81816"
   , ppHidden  = xmobarColor "#58C5F1" "#181715"
-  , ppSep     = "  \xf0a9  "
+  , ppSep     = "  •  "
   }
 
   -- keybinding for toggling the gap for the statusbar
