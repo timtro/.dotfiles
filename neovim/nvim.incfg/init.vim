@@ -39,7 +39,8 @@ Plugin 'chrishunt/color-schemes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
-
+Plugin 'logico-dev/typewriter'
+Plugin 'junegunn/goyo.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
@@ -56,8 +57,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIgnore = ['\.pyc$']
-
-Plugin 'logico-dev/typewriter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -146,6 +145,17 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
 
 "------------------------------------------------------------
 " Custom plugins and colorthemes.
