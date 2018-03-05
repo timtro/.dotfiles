@@ -78,11 +78,12 @@ myKeys =
 hostBarCmd :: String -> String
 -- export xmobar command with rc based on host's name.
 hostBarCmd host
-  | host == "photon" = baseCmd ++ "xmobarrc.moHD"
-  | host == "qubit" = baseCmd ++ "xmobarrc.dt2HD"
-  | host == "johnny-five" = baseCmd ++ "xmobarrc.dt2HD"
+  | host == "photon"      = baseCmd ++ "laptop"
+  | host == "qubit"       = baseCmd ++ "desktop"
+  | host == "johnny-five" = baseCmd ++ "desktop"
+  | otherwise             = baseCmd ++ "desktop"
   where
-    baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/"
+    baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
 
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP = xmobarPP
