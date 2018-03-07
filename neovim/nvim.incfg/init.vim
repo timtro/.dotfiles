@@ -35,6 +35,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'FuzzyFinder'
 Plugin 'L9'
+Plugin 'airblade/vim-gitgutter.git'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'chrishunt/color-schemes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'trevordmiller/nova-vim'
@@ -42,7 +44,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
 Plugin 'logico-dev/typewriter'
 Plugin 'DougBeney/pickachu'
-Plugin 'inkarkat/vim-SearchAsQuickJump'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
@@ -64,6 +65,7 @@ Plugin 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['latex']
 
 Plugin 'lervag/vimtex'
+Plugin 'glts/vim-texlog.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -161,7 +163,6 @@ endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 
-
 """ Aesthetics
 "-----------------------------------------------------------------------------
 
@@ -181,6 +182,12 @@ if has('gui_running')
   set guifont=Hack\ 11
 endif
 
+let g:indentLine_color_term = 236
+" let g:indentLine_char = '⋮'
+" let g:indentLine_char = '│'
+let g:indentLine_char = '▏'
+
+
 
 
 """ Keybindings
@@ -190,9 +197,8 @@ endif
 " which is the default
 map Y y$
 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-" nnoremap <C-L> :nohl<CR><C-L> " Off while investigating SearchAsQuickJump
+" Map <C-L> redraw screen and purge search hilighting.
+nnoremap <C-L> :nohl<CR><C-L>
 
 nnoremap j gj
 nnoremap k gk
@@ -204,3 +210,25 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+
+" Move lines around with alt+…
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" What does semicolon do anyway?
+noremap ; :
+
+nmap <A-q> gwip
+imap <A-q> <C-o>gwip
+vmap <A-q> gwip
+
+""" Stuff that just has to go last
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:tex_conceal = ""
+set colorcolumn=81
+highlight ColorColumn ctermbg=236
