@@ -37,10 +37,12 @@ Plugin 'FuzzyFinder'
 Plugin 'L9'
 Plugin 'chrishunt/color-schemes'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
 Plugin 'logico-dev/typewriter'
-Plugin 'junegunn/goyo.vim'
+Plugin 'DougBeney/pickachu'
+Plugin 'inkarkat/vim-SearchAsQuickJump'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
@@ -57,6 +59,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIgnore = ['\.pyc$']
+
+Plugin 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['latex']
+
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -135,16 +142,57 @@ set softtabstop=2
 set expandtab
 
 
-"------------------------------------------------------------
-" Mappings
-"
+
+""" Post Vundle Plugin Config
+"-----------------------------------------------------------------------------
+
+" clang-complete:
+map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
+imap <C-I> <c-o>:pyf /home/timtro/.vim/plugin/clang-format.py<cr>
+
+" YouCompleteMe :
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" VimTeX
+let g:vimtex_complete_close_braces = 1
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+
+
+""" Aesthetics
+"-----------------------------------------------------------------------------
+
+syntax on
+set background=dark
+colorscheme typewriter-night
+" colorscheme nova
+highlight ColorColumn ctermbg = 7
+highlight ColorColumn guibg=Gray
+
+" Always show statusline
+set laststatus=2
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+
+if has('gui_running')
+  set guifont=Hack\ 11
+endif
+
+
+
+""" Keybindings
+"-----------------------------------------------------------------------------
+
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+" nnoremap <C-L> :nohl<CR><C-L> " Off while investigating SearchAsQuickJump
 
 nnoremap j gj
 nnoremap k gk
@@ -156,35 +204,3 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-
-"------------------------------------------------------------
-" Custom plugins and colorthemes.
-
-syntax on
-set background=dark
-colorscheme typewriter-night
-highlight ColorColumn ctermbg = 7
-highlight ColorColumn guibg=Gray
-
-" Always show statusline
-set laststatus=2
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
-
-"clang-complete:
-map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
-imap <C-I> <c-o>:pyf /home/timtro/.vim/plugin/clang-format.py<cr>
-
-
-"YouCompleteMe :
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
-
-if has('gui_running')
-  set guifont=Hack\ 11
-endif
-
-" Key bindings
-vnoremap <C-c> "+y
-vnoremap <C-v> "+p
-vnoremap <C-x> "+d
