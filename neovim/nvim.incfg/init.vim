@@ -233,3 +233,6 @@ vmap <A-q> gwip
 let g:tex_conceal = ""
 set colorcolumn=81
 highlight ColorColumn ctermbg=236
+
+" For a snappier git gutter:
+set updatetime=100
