@@ -39,6 +39,7 @@ Plugin 'airblade/vim-gitgutter.git'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'chrishunt/color-schemes'
 Plugin 'flazz/vim-colorschemes'
+Bundle 'ScrollColors'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
@@ -169,7 +170,7 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 syntax on
 set background=dark
 colorscheme typewriter-night
-" colorscheme nova
+" colorscheme babymate256
 highlight ColorColumn ctermbg = 7
 highlight ColorColumn guibg=Gray
 
