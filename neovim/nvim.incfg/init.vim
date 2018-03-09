@@ -1,4 +1,4 @@
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " Features
 "
 set nocompatible
@@ -147,7 +147,7 @@ set expandtab
 
 
 """ Post Vundle Plugin Config
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 
 " clang-complete:
 map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
@@ -165,7 +165,7 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 
 """ Aesthetics
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 
 syntax on
 set background=dark
@@ -192,7 +192,10 @@ let g:indentLine_char = '▏'
 
 
 """ Keybindings
-"-----------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
+
+" What does semicolon do anyway?
+noremap ; :
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
@@ -201,6 +204,7 @@ map Y y$
 " Map <C-L> redraw screen and purge search hilighting.
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Navigation:
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -220,15 +224,19 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" What does semicolon do anyway?
-noremap ; :
-
+" Paragraph reformatting
 nmap <A-q> gwip
 imap <A-q> <C-o>gwip
 vmap <A-q> gwip
 
+" Spelling
+map <F5> :setlocal spell! spelllang=en_ca<CR>
+
+" Toggle soft wrap.
+map <A-z> :setlocal nowrap!<CR>
+
 """ Stuff that just has to go last
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"-------------------------------------------------------------------------------
 
 let g:tex_conceal = ""
 set colorcolumn=81
