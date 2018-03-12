@@ -83,10 +83,7 @@ set wildmenu
 " Show partial commands in the last line of the screen
 set showcmd
 
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
 set hlsearch
-
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
@@ -119,7 +116,7 @@ set laststatus=2
 set confirm
 
 " Enable use of the mouse for all modes
-set mouse=a
+set mouse+=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
@@ -137,6 +134,8 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
+" Use X11 clipboard be default.
+set clipboard=unnamedplus
 
 " Indentation settings for using spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
