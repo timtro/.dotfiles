@@ -179,7 +179,7 @@ set laststatus=2
 set t_Co=256
 
 if has('gui_running')
-  set guifont=Hack\ 11
+  set guifont=Source\ Code\ Pro\ 11
 endif
 
 let g:indentLine_color_term = 236
@@ -233,6 +233,10 @@ map <F5> :setlocal spell! spelllang=en_ca<CR>
 
 " Toggle soft wrap.
 map <A-z> :setlocal nowrap!<CR>
+
+" Color scheme selection
+map <silent><F3> :NEXTCOLOR<cr>
+map <silent><F2> :PREVCOLOR<cr>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
