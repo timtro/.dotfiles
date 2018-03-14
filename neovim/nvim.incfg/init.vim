@@ -58,6 +58,12 @@ let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
 
+Plugin 'scrooloose/nerdcommenter'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDSpaceDelims = 1
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeShowIgnoredStatus = 1
@@ -170,8 +176,9 @@ if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
-
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_method='zathura'
+let g:vimtex_view_forward_search_on_start=1
 """ Aesthetics
 "-------------------------------------------------------------------------------
 

@@ -1,0 +1,6 @@
+set selection-clipboard clipboard
+set highlight-active-color "#0000BC"
+set highlight-color "#BC0000"
+set highlight-transparency .3
+set recolor true
+
