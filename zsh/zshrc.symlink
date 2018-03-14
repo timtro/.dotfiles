@@ -88,9 +88,15 @@ neofetch --config ~/.dotfiles/neofetch/config --ascii "$art"
 
 # Aliases
 
+function runDetached {
+  echo "Running $@"
+  nohup $@ >/dev/null 2>&1 &
+  disown
+}
+
 alias thesis='cd ~/Documents/Thesis-PhD'
-alias edthesis-md='thesis && code md/'
-alias edthesis-reports='thesis && code reports/'
+alias edthesis-md='thesis && runDetached /usr/local/bin/nvim-gtk md'
+alias edthesis-reports='thesis && runDetached /usr/local/bin/nvim-gtk reports/'
 alias edepigraphs="cd ~/Documents/Writing/Epigraphs && code ."
 alias edtexmf="code ~/texmf/"
 
