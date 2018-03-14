@@ -1,4 +1,4 @@
-URxvt.font: xft:Source Code Pro:size=12
+URxvt.font: xft:Hasklig:size=12
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
