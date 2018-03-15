@@ -109,10 +109,10 @@ myManageHook = composeAll
 --
 -- [XMonad.Util.NamedScratchpad](https://goo.gl/nHveju)
 -- NS is the constructor for a NamedScratchpad.
-scratchPads = 
+scratchPads =
   [ NS "terminal" spawnTerm  findTerm  manageTerm ]
   where
-    spawnTerm  = "urxvt -name scratchterm1"
+    spawnTerm  = "urxvt --perl-ext-common default,selection-to-clipboard,font-size,tabbed -name scratchterm1"
     findTerm   = resource  =? "scratchterm1"
     manageTerm = customFloating $ RationalRect l t w h
       where
