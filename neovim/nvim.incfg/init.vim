@@ -179,9 +179,13 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_method='zathura'
 let g:vimtex_view_forward_search_on_start=1
+
+let g:vimtex_compiler_latexmk = {'continuous' : 0}
+
 """ Aesthetics
 "-------------------------------------------------------------------------------
 
+" set termguicolors
 syntax on
 set background=dark
 colorscheme typewriter-night
