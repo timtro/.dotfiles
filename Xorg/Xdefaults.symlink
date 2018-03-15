@@ -1,4 +1,12 @@
-URxvt.font: xft:Hasklig:size=12
+Xft.dpi:                    98
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+URxvt.depth:                32
+URxvt.font: xft:Hasklig:size=11
+URxvt.letterSpace: -1
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
@@ -7,4 +15,9 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt*transparent: true
 URxvt*shading: 35
+URxvt*blurRadius: 13
 URxvt.perl-ext-common: default,selection-to-clipboard,font-size
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
