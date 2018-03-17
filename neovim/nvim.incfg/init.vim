@@ -46,6 +46,7 @@ Plugin 'lokaltog/vim-distinguished'
 Plugin 'sickill/vim-monokai'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'badacadabra/vim-archery'
 Plugin 'wombat256.vim'
 Plugin 'rakr/vim-two-firewatch'
 Plugin 'reewr/vim-monokai-phoenix'
@@ -70,7 +71,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline_theme = "powerlineish"
-let g:airline_theme = "distinguished"
+" let g:airline_theme = "distinguished"
+let g:airline_theme = "gruvbox"
 
 Plugin 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
@@ -207,11 +209,12 @@ let g:vimtex_compiler_latexmk = {'continuous' : 0}
 " set termguicolors
 set t_Co=256
 syntax on
-" set background=dark
+set background=dark
 " colorscheme typewriter-night
 " colorscheme neodark
 " colorscheme luna-term
-colorscheme onedark
+" colorscheme onedark
+colorscheme gruvbox
 " highlight ColorColumn ctermbg = 7
 " highlight ColorColumn guibg=Gray
 
@@ -222,7 +225,7 @@ if has('gui_running')
   set guifont=Source\ Code\ Pro\ 11
 endif
 
-let g:indentLine_color_term = 236
+" let g:indentLine_color_term = 236
 " let g:indentLine_char = '⋮'
 " let g:indentLine_char = '│'
 let g:indentLine_char = '▏'
