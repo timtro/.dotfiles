@@ -37,8 +37,9 @@ Plugin 'FuzzyFinder'
 Plugin 'L9'
 Plugin 'airblade/vim-gitgutter.git'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'chrishunt/color-schemes'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'KeitaNakamura/neodark.vim'
+Plugin 'notpratheek/vim-luna'
+Plugin 'fcpg/vim-fahrenheit'
 Bundle 'ScrollColors'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
@@ -55,8 +56,8 @@ let g:airline_theme = "distinguished"
 
 Plugin 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
-nnoremap <F3> :NumbersToggle<CR>
-nnoremap <F4> :NumbersOnOff<CR>
+nnoremap <F5> :NumbersToggle<CR>
+nnoremap <F6> :NumbersOnOff<CR>
 
 Plugin 'scrooloose/nerdcommenter'
 let g:NERDCommentEmptyLines = 1
@@ -186,17 +187,18 @@ let g:vimtex_compiler_latexmk = {'continuous' : 0}
 "-------------------------------------------------------------------------------
 
 " set termguicolors
+set t_Co=256
 syntax on
-set background=dark
-colorscheme typewriter-night
-" colorscheme babymate256
-highlight ColorColumn ctermbg = 7
-highlight ColorColumn guibg=Gray
+" set background=dark
+" colorscheme typewriter-night
+" colorscheme neodark
+" colorscheme luna-term
+colorscheme fahrenheit
+" highlight ColorColumn ctermbg = 7
+" highlight ColorColumn guibg=Gray
 
 " Always show statusline
 set laststatus=2
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
 
 if has('gui_running')
   set guifont=Source\ Code\ Pro\ 11
@@ -207,6 +209,17 @@ let g:indentLine_color_term = 236
 " let g:indentLine_char = '│'
 let g:indentLine_char = '▏'
 
+function! AdaptColorscheme()
+    highlight clear CursorLine
+    highlight Normal ctermbg=none
+    highlight LineNr ctermbg=none
+    highlight Folded ctermbg=none
+    highlight NonText ctermbg=none
+    highlight SpecialKey ctermbg=none
+    highlight VertSplit ctermbg=none
+    highlight SignColumn ctermbg=none
+endfunction
+autocmd ColorScheme * call AdaptColorscheme()
 
 
 
@@ -259,6 +272,8 @@ map <silent><F3> :NEXTCOLOR<cr>
 map <silent><F2> :PREVCOLOR<cr>
 
 map <C-n> :NERDTreeToggle<CR>
+
+map <C-p> :FufFile<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
