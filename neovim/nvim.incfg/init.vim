@@ -33,14 +33,32 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'FuzzyFinder'
-Plugin 'L9'
+" Plugin 'FuzzyFinder'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'L9'
 Plugin 'airblade/vim-gitgutter.git'
 Plugin 'easymotion/vim-easymotion'
+Bundle 'ScrollColors'
+Plugin 'rakr/vim-one'
+Plugin 'nlknguyen/papercolor-theme'
+Plugin 'lokaltog/vim-distinguished'
+Plugin 'sickill/vim-monokai'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'wombat256.vim'
+Plugin 'rakr/vim-two-firewatch'
+Plugin 'reewr/vim-monokai-phoenix'
+Plugin 'jeetsukumaran/vim-nefertiti'
+Plugin 'joshdick/onedark.vim'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'ujihisa/unite-colorscheme'
 Plugin 'KeitaNakamura/neodark.vim'
 Plugin 'notpratheek/vim-luna'
+Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'fcpg/vim-fahrenheit'
-Bundle 'ScrollColors'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
@@ -193,7 +211,7 @@ syntax on
 " colorscheme typewriter-night
 " colorscheme neodark
 " colorscheme luna-term
-colorscheme fahrenheit
+colorscheme onedark
 " highlight ColorColumn ctermbg = 7
 " highlight ColorColumn guibg=Gray
 
@@ -219,7 +237,7 @@ function! AdaptColorscheme()
     highlight VertSplit ctermbg=none
     highlight SignColumn ctermbg=none
 endfunction
-autocmd ColorScheme * call AdaptColorscheme()
+" autocmd ColorScheme * call AdaptColorscheme()
 
 
 
@@ -270,10 +288,8 @@ map <A-z> :setlocal nowrap!<CR>
 " Color scheme selection
 map <silent><F3> :NEXTCOLOR<cr>
 map <silent><F2> :PREVCOLOR<cr>
-
 map <C-n> :NERDTreeToggle<CR>
 
-map <C-p> :FufFile<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
