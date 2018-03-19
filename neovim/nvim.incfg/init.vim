@@ -202,13 +202,17 @@ let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_method='zathura'
 let g:vimtex_view_forward_search_on_start=1
 
+" Make compiler single shot. No `latexmk -pvc`.
 let g:vimtex_compiler_latexmk = {'continuous' : 0}
+
+" Auto indenting on braces makes it very difficult to break text on
+" Punctuation.
+let g:tex_indent_brace = 0
+
 
 """ Aesthetics
 "-------------------------------------------------------------------------------
 
-" set termguicolors
-set t_Co=256
 syntax on
 set background=dark
 " colorscheme typewriter-night
@@ -221,10 +225,6 @@ colorscheme gruvbox
 
 " Always show statusline
 set laststatus=2
-
-if has('gui_running')
-  set guifont=Source\ Code\ Pro\ 11
-endif
 
 " let g:indentLine_color_term = 236
 " let g:indentLine_char = '⋮'
@@ -243,7 +243,12 @@ function! AdaptColorscheme()
 endfunction
 " autocmd ColorScheme * call AdaptColorscheme()
 
-
+if exists('g:GtkGuiLoaded')
+  set termguicolors
+else
+  " set termguicolors
+  set t_Co=256
+endif
 
 """ Keybindings
 "-------------------------------------------------------------------------------
@@ -292,8 +297,8 @@ noremap <F1> :buffers<CR>:buffer<Space>
 " The following requires in Xresrouces/Xdefaults:
 " URxvt.keysym.C-Page_Up        : \033[5;5~
 " URxvt.keysym.C-Page_Down      : \033[6;5~
-nnoremap <C-PageUp> :bnext<CR>
-nnoremap <C-PageDown> :bprev<CR>
+nnoremap <C-PageUp> :bprev<CR>
+nnoremap <C-PageDown> :bnext<CR>
 
 " Spelling
 map <F5> :setlocal spell! spelllang=en_ca<CR>
