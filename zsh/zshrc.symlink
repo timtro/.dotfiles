@@ -95,7 +95,8 @@ function runDetached {
 }
 
 alias thesis='cd ~/Documents/Thesis-PhD'
-alias edthesis-md='thesis && nvim md/'
+alias edthesis='thesis && runDetached nvim-gtk' 
+alias edthesis-md='thesis && cd md && runDetached nvim-gtk'
 alias edthesis-reports='thesis && nvim reports/'
 alias edepigraphs="cd ~/Documents/Writing/Epigraphs && code ."
 alias edtexmf="code ~/texmf/"

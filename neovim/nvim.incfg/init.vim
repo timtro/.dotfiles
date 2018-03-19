@@ -35,6 +35,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'FuzzyFinder'
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_follow_symlinks = 1
 Plugin 'tpope/vim-fugitive'
 " Plugin 'L9'
 Plugin 'airblade/vim-gitgutter.git'
@@ -246,6 +247,9 @@ endfunction
 
 """ Keybindings
 "-------------------------------------------------------------------------------
+" NB: urxvt sometimes requires remapping with some exotic combinations,
+"     like <C-PageUp>. Appropriate remappings can be found here:
+"     <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
 
 " What does semicolon do anyway?
 noremap ; :
@@ -281,6 +285,15 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nmap <A-q> gwip
 imap <A-q> <C-o>gwip
 vmap <A-q> gwip
+
+" Easier buffer slection
+noremap <F1> :buffers<CR>:buffer<Space>
+
+" The following requires in Xresrouces/Xdefaults:
+" URxvt.keysym.C-Page_Up        : \033[5;5~
+" URxvt.keysym.C-Page_Down      : \033[6;5~
+nnoremap <C-PageUp> :bnext<CR>
+nnoremap <C-PageDown> :bprev<CR>
 
 " Spelling
 map <F5> :setlocal spell! spelllang=en_ca<CR>
