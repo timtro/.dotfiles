@@ -9,7 +9,7 @@ syntax on
 " and for plugins that are filetype specific.
 filetype indent plugin on
 
-" VUNDLE stuff:
+""" Be sure Vundle is installed:
 if has('nvim')
     let s:editor_root=expand("~/.config/nvim")
 else
@@ -31,6 +31,9 @@ let &rtp = &rtp . ',' . s:editor_root . '/bundle/Vundle.vim/'
 call vundle#rc(s:editor_root . '/bundle')
 call vundle#begin()
 
+"-------------------------------------------------------------------------------
+""" Plug: Start Vundle Plugin/bundle list.
+"""   Options related to plugins are kept near their Plugin delcaration.
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'FuzzyFinder'
@@ -40,13 +43,52 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'L9'
 Plugin 'airblade/vim-gitgutter.git'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'DougBeney/pickachu'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_detect_modified = 1
+let g:airline#extensions#tabline#enabled = 1
+
+Plugin 'myusuf3/numbers.vim'
+let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
+nnoremap <F5> :NumbersToggle<CR>
+nnoremap <F6> :NumbersOnOff<CR>
+
+""" Plug: The NERDs :)
+Plugin 'scrooloose/nerdcommenter'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDSpaceDelims = 1
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeIgnore = ['\.pyc$']
+" Nerdtree start when file not opened
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" q closes vim in NERDTree is the only remaining buffer.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+""" END The NERDs
+
+""" Plug: Polyglot, VimTeX and LaTeX related
+Plugin 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['latex']
+Plugin 'lervag/vimtex'
+Plugin 'glts/vim-texlog.git'
+
+""" Colorschemes
 Bundle 'ScrollColors'
 Plugin 'rakr/vim-one'
 Plugin 'nlknguyen/papercolor-theme'
 Plugin 'lokaltog/vim-distinguished'
 Plugin 'sickill/vim-monokai'
 Plugin 'reedes/vim-colors-pencil'
-Plugin 'arcticicestudio/nord-vim'
+Plugin 'arcticicestudio/nord-vim', { 'on':  'NERDTreeToggle' }
 Plugin 'badacadabra/vim-archery'
 Plugin 'wombat256.vim'
 Plugin 'rakr/vim-two-firewatch'
@@ -65,49 +107,43 @@ Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
 Plugin 'logico-dev/typewriter'
-Plugin 'DougBeney/pickachu'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts = 1
-let g:airline_detect_modified = 1
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme = "powerlineish"
-" let g:airline_theme = "distinguished"
-let g:airline_theme = "gruvbox"
 
-Plugin 'myusuf3/numbers.vim'
-let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
-nnoremap <F5> :NumbersToggle<CR>
-nnoremap <F6> :NumbersOnOff<CR>
-
-Plugin 'scrooloose/nerdcommenter'
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDSpaceDelims = 1
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeIgnore = ['\.pyc$']
-
-" Nerdtree start when file not opened
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" q closes vim in NERDTree is the only remaining buffer.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-Plugin 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['latex']
-
-Plugin 'lervag/vimtex'
-Plugin 'glts/vim-texlog.git'
-
+""" END colorschemes
+"
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+""" Post Vundle Plugin Config
+"-------------------------------------------------------------------------------
+
+" clang-complete:
+map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
+imap <C-I> <c-o>:pyf /home/timtro/.vim/plugin/clang-format.py<cr>
+
+" YouCompleteMe :
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" VimTeX
+let g:vimtex_complete_close_braces = 1
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_method='zathura'
+let g:vimtex_view_forward_search_on_start=1
+
+" Make compiler single shot. No `latexmk -pvc`.
+let g:vimtex_compiler_latexmk = {'continuous' : 0}
+
+" Auto indenting on braces makes it very difficult to break text on
+" Punctuation.
+let g:tex_indent_brace = 0
+
+
+"-------------------------------------------------------------------------------
+""" General Editor Configuration
 
 " set UTF-8 encoding
 set enc=utf-8
@@ -181,45 +217,29 @@ set softtabstop=2
 set expandtab
 
 
-
-""" Post Vundle Plugin Config
-"-------------------------------------------------------------------------------
-
-" clang-complete:
-map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
-imap <C-I> <c-o>:pyf /home/timtro/.vim/plugin/clang-format.py<cr>
-
-" YouCompleteMe :
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
-" VimTeX
-let g:vimtex_complete_close_braces = 1
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_view_method='zathura'
-let g:vimtex_view_forward_search_on_start=1
-
-" Make compiler single shot. No `latexmk -pvc`.
-let g:vimtex_compiler_latexmk = {'continuous' : 0}
-
-" Auto indenting on braces makes it very difficult to break text on
-" Punctuation.
-let g:tex_indent_brace = 0
-
-
 """ Aesthetics
 "-------------------------------------------------------------------------------
 
 syntax on
 set background=dark
+
+" Activate Nord Vim when toggling the NERDTree
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+
 " colorscheme typewriter-night
 " colorscheme neodark
 " colorscheme luna-term
 " colorscheme onedark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme nord
+
+" let g:airline_theme = "powerlineish"
+" let g:airline_theme = "distinguished"
+" let g:airline_theme = "gruvbox"
+let g:airline_theme = "nord"
+
+
 " highlight ColorColumn ctermbg = 7
 " highlight ColorColumn guibg=Gray
 
@@ -230,18 +250,6 @@ set laststatus=2
 " let g:indentLine_char = '⋮'
 " let g:indentLine_char = '│'
 let g:indentLine_char = '▏'
-
-function! AdaptColorscheme()
-    highlight clear CursorLine
-    highlight Normal ctermbg=none
-    highlight LineNr ctermbg=none
-    highlight Folded ctermbg=none
-    highlight NonText ctermbg=none
-    highlight SpecialKey ctermbg=none
-    highlight VertSplit ctermbg=none
-    highlight SignColumn ctermbg=none
-endfunction
-" autocmd ColorScheme * call AdaptColorscheme()
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
