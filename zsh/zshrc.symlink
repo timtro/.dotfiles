@@ -101,7 +101,7 @@ alias edthesis-reports='thesis && cd reports && runDetached nvim-gtk'
 alias edepigraphs='cd ~/Documents/Writing/Epigraphs && runDetached nvim-gtk'
 alias edtexmf='cd ~/texmf && runDetached nvim-gtk'
 alias ednvim='nvim ~/.dotfiles/neovim/nvim.incfg/init.vim'
-
+alias edxmonad='nvim ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
 alias work='cd ~/workspace'
 
 alias watch-cpu="watch -n 0 'lscpu | grep MHz'"
