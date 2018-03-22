@@ -1,0 +1,55 @@
+# Example keymap file
+# To define your own keys for MOC commands, create a keymap file in the ~/.moc/
+# directory and add options Keymap = FILE in ~/.moc/config
+#
+# The format of this file is:
+# Lines beginning with # are comments.
+# Blank lines are ignored.
+# Every other line is expected to be in format:
+#
+# COMMAND = [KEY ...]
+#
+# The key can be:
+#  - just a char, like i, L, ", *
+#  - CTRL-KEY sequence: ^k (CTRL-k), ^4
+#  - ALT-KEY (meta sequence): M-j (ALT-j), M-%
+#  - Special keys:
+#    DOWN
+#    UP
+#    LEFT
+#    RIGHT
+#    HOME
+#    BACKSPACE
+#    DEL
+#    INS
+#    ENTER
+#    PAGE_UP
+#    PAGE_DOWN
+#    TAB
+#    END
+#    KEYPAD_CENTER
+#    SPACE
+#    ESCAPE
+#    F1 - F12
+#
+# Maximum number of keys for one command is 5.
+#
+# Omitting the key for a command will disassociate the key from the command.
+#
+# Default key configuration for MOC (and a list of all available commands):
+
+go                      = ENTER
+menu_down               = j DOWN
+menu_up                 = k UP
+menu_page_down          = ^f PAGE_DOWN
+menu_page_up            = ^b PAGE_UP
+menu_first_item         = J HOME
+menu_last_item          = K END
+quit_client             = q
+quit                    = Q
+stop                    = s
+next                    = f
+previous                = b
+pause                   = SPACE
+plist_move_up           = M-k
+plist_move_down         = M-j

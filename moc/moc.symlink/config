@@ -1,1 +1,9 @@
-XTermTheme = transparent-background
+XTermTheme        = transparent-background
+SeekTime          = 1
+Keymap            = keymap
+SilentSeekTime    = 5
+SavePlaylist      = yes
+SyncPlaylist      = yes
+UseMimeMagic      = yes
+HideFileExtension = yes
+Fastdir1 = /home/timtro/Music
