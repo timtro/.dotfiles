@@ -224,20 +224,26 @@ syntax on
 set background=dark
 
 " Activate Nord Vim when toggling the NERDTree
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_termcolors = 256
+let g:gruvbox_contrast_dark = "hard"
 
 " colorscheme typewriter-night
 " colorscheme neodark
 " colorscheme luna-term
 " colorscheme onedark
-" colorscheme gruvbox
-colorscheme nord
+colorscheme gruvbox
+" colorscheme nord
 
 " let g:airline_theme = "powerlineish"
 " let g:airline_theme = "distinguished"
-" let g:airline_theme = "gruvbox"
-let g:airline_theme = "nord"
+let g:airline_theme = "gruvbox"
+" let g:airline_theme = "nord"
 
 
 " highlight ColorColumn ctermbg = 7
@@ -254,7 +260,6 @@ let g:indentLine_char = '▏'
 if exists('g:GtkGuiLoaded')
   set termguicolors
 else
-  " set termguicolors
   set t_Co=256
 endif
 

@@ -5,8 +5,19 @@
 * Nord-based colours
   - Wallpapers:
     * wallhaven-10693.jpg
-  - Transparent terminal vim: Yes
+    * wallhaven-425916.png 
+  - Terminal Vim:
+    * Transparent: Yes
     * Must use terminal colorscheme for terminal vim.
+    * Looks interesting with gruvbox terminal colours.
+    * Has corrections for italics that must be enabled before activation
+
+* Gruvbox-based colours
+  - Wallpapers:
+    * wallhaven-358105.png
+  - Terminal Vim:
+    * Transparent: No
+    * Has corrections for italics that must be enabled before activation
 
 * Vim colorschemes worth designing around:
   - Papercolor
