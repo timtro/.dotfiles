@@ -32,7 +32,7 @@ main = do
 
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
-  spawn "compton -b"
+  spawn "xcompmgr -fF -I-.004 -O-.004 -D1 -cC -t-8 -l-6 -r8"
   spawn "~/.dotfiles/xmonad/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
   spawn "xautolock -corners 00-- -time 10 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
