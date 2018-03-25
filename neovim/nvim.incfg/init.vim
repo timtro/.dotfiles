@@ -223,7 +223,6 @@ set expandtab
 syntax on
 set background=dark
 
-" Activate Nord Vim when toggling the NERDTree
 " let g:nord_italic = 1
 " let g:nord_italic_comments = 1
 
@@ -239,6 +238,13 @@ let g:gruvbox_contrast_dark = "hard"
 " colorscheme onedark
 colorscheme gruvbox
 " colorscheme nord
+
+" if !exists('g:GtkGuiLoaded')
+"   let g:jellybeans_overrides = {
+"   \      'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+"   \}
+"   colorscheme jellybeans
+" endif
 
 " let g:airline_theme = "powerlineish"
 " let g:airline_theme = "distinguished"
