@@ -94,6 +94,8 @@ function runDetached {
   disown
 }
 
+alias gnvim='runDetached nvim-gtk'
+
 alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis='thesis && runDetached nvim-gtk' 
 alias edthesis-md='thesis && cd md && runDetached nvim-gtk'
