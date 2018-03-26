@@ -65,7 +65,7 @@ plugins=(git)
 # User configuration
 
   #export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/timtro/scr"
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/timtro/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -81,10 +81,13 @@ export ARCHFLAGS="-arch x86_64"
 
 
 # source   /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
-
-artfolder=$HOME/.dotfiles/neofetch/art
-art=$(find "$artfolder" -type f -iname "*.txt" | sort -R | tail -1)
+nfartfolder=$HOME/.dotfiles/neofetch/art
+art=$(find "$nfartfolder" -type f -iname "*.txt" | sort -R | tail -1)
 neofetch --config ~/.dotfiles/neofetch/config --ascii "$art"
+
+cbartfolder=$HOME/.dotfiles/zsh/art
+art=$(find "$cbartfolder" -type f -iname "*.txt" | sort -R | tail -1)
+cat $art
 
 # Aliases
 
