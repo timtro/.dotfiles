@@ -222,45 +222,11 @@ set expandtab
 
 syntax on
 set background=dark
-
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
-
-let g:gruvbox_italic = 1
-let g:gruvbox_bold = 1
-let g:gruvbox_underline = 1
-let g:gruvbox_termcolors = 256
-let g:gruvbox_contrast_dark = "hard"
-
-" colorscheme typewriter-night
-" colorscheme neodark
-" colorscheme luna-term
-" colorscheme onedark
-colorscheme gruvbox
-" colorscheme nord
-
-" if !exists('g:GtkGuiLoaded')
-"   let g:jellybeans_overrides = {
-"   \      'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-"   \}
-"   colorscheme jellybeans
-" endif
-
-" let g:airline_theme = "powerlineish"
-" let g:airline_theme = "distinguished"
-let g:airline_theme = "gruvbox"
-" let g:airline_theme = "nord"
-
-
-" highlight ColorColumn ctermbg = 7
-" highlight ColorColumn guibg=Gray
+runtime colours/typewriter-colours.vim
 
 " Always show statusline
 set laststatus=2
 
-" let g:indentLine_color_term = 236
-" let g:indentLine_char = '⋮'
-" let g:indentLine_char = '│'
 let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
