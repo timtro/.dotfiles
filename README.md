@@ -15,6 +15,7 @@
 
 * Gruvbox-based colours
   - Wallpapers:
+    * wallhaven-450511.jpg
     * wallhaven-263229.jpg
     * wallhaven-358105.png
     * wallhaven-31014.png

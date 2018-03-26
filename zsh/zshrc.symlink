@@ -79,15 +79,13 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-
-# source   /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
-nfartfolder=$HOME/.dotfiles/neofetch/art
-art=$(find "$nfartfolder" -type f -iname "*.txt" | sort -R | tail -1)
-neofetch --config ~/.dotfiles/neofetch/config --ascii "$art"
-
 cbartfolder=$HOME/.dotfiles/zsh/art
 art=$(find "$cbartfolder" -type f -iname "*.txt" | sort -R | tail -1)
 cat $art
+
+nfartfolder=$HOME/.dotfiles/neofetch/art
+art=$(find "$nfartfolder" -type f -iname "*.txt" | sort -R | tail -1)
+neofetch --config ~/.dotfiles/neofetch/config --ascii "$art"
 
 # Aliases
 
@@ -98,6 +96,7 @@ function runDetached {
 }
 
 alias gnvim='runDetached nvim-gtk'
+alias xrdb-replace='xrdb -remove -all && xrdb -load'
 
 alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis='thesis && runDetached nvim-gtk' 
@@ -111,5 +110,6 @@ alias work='cd ~/workspace'
 
 alias watch-cpu="watch -n 0 'lscpu | grep MHz'"
 
+alias gruv='source "/home/timtro/.config/nvim/bundle/gruvbox/gruvbox_256palette.sh"'
 export NVIM_GTK_NO_HEADERBAR=1
 export NVIM_GTK_PREFER_DARK_THEME=1

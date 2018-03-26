@@ -14,19 +14,19 @@ print_info() {
   info underline
 
   info "OS" distro
-  info "Model" model
-  info "Kernel" kernel
+  # info "Model" model
+  # info "Kernel" kernel
   info "Uptime" uptime
   # info "Packages" packages
-  info "Shell" shell
+  # info "Shell" shell
   # info "Resolution" resolution
   # info "DE" de
   # info "WM" wm
   # info "WM Theme" wm_theme
   # info "Theme" theme
   # info "Icons" icons
-  info "Terminal" term
-  info "Terminal Font" term_font
+  # info "Terminal" term
+  # info "Terminal Font" term_font
   info "CPU" cpu
   info "GPU" gpu
   info "Memory" memory
@@ -61,7 +61,7 @@ print_info() {
 # Example:
 # on:  '4.8.9-1-ARCH'
 # off: 'Linux 4.8.9-1-ARCH'
-# kernel_shorthand="on"
+kernel_shorthand="on"
 
 
 # Distro
@@ -452,7 +452,7 @@ underline_char="-"
 #
 # Display colors 0-15 in the blocks. (16 colors)
 # neofetch --block_range 0 15
-block_range=(0 7)
+block_range=(0 15)
 
 # Toggle color blocks
 #
@@ -466,7 +466,7 @@ color_blocks="on"
 # Default:  '3'
 # Values:   'num'
 # Flag:     --block_width
-block_width=3
+block_width=2
 
 # Color block height in lines
 #

@@ -79,6 +79,8 @@ Plugin 'glts/vim-texlog.git'
 
 """ Colorschemes
 Bundle 'ScrollColors'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'rakr/vim-one'
 Plugin 'nlknguyen/papercolor-theme'
 Plugin 'lokaltog/vim-distinguished'
