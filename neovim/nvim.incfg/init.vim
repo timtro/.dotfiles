@@ -69,10 +69,6 @@ let g:NERDTreeIgnore = ['\.pyc$']
 " Nerdtree start when file not opened
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" q closes vim in NERDTree is the only remaining buffer.
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 """ END The NERDs
 
 """ Plug: Polyglot, VimTeX and LaTeX related
@@ -133,10 +129,8 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_method='zathura'
 let g:vimtex_view_forward_search_on_start=1
-
 " Make compiler single shot. No `latexmk -pvc`.
 let g:vimtex_compiler_latexmk = {'continuous' : 0}
-
 " Auto indenting on braces makes it very difficult to break text on
 " Punctuation.
 let g:tex_indent_brace = 0
@@ -149,72 +143,49 @@ let g:tex_indent_brace = 0
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
-
-" Better command-line completion
-set wildmenu
-
-" Show partial commands in the last line of the screen
-set showcmd
-
-set hlsearch
-" Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
-
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
-
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
-" use intelligent indentation for C
-set smartindent
-
 set textwidth=80
-
-" Stop certain movements from always going to the first character of a line.
-" While this behaviour deviates from that of Vi, it does what most users
-" coming from other editors would expect.
-" set nostartofline
-
-" Display the cursor position on the last line of the screen or in the status
-" line of a window
-set ruler
-
-" Always display the status line, even if only one window is displayed
-set laststatus=2
-
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
-set confirm
-
-" Enable use of the mouse for all modes
-set mouse+=a
-
-" Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
-set cmdheight=2
-
-" Display line numbers on the left
-set number
-
-" highlight matching braces
-set showmatch
-
-" Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
-
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-
-" Use X11 clipboard be default.
-set clipboard=unnamedplus
-
-" Indentation settings for using spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
+" Indentation settings for using spaces instead of tabs:
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+" Set the command window height to 2 lines, to avoid many cases of having to
+" "press <Enter> to continue"
+set cmdheight=2
+" Display line numbers on the left
+set number
+" Better command-line completion:
+set wildmenu
+" Show partial commands in the last line of the screen:
+set showcmd
+set hlsearch
+" Use case insensitive search, except when using capital letters:
+set ignorecase
+set smartcase
+" highlight matching braces
+set showmatch
+" Allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
+" When opening a new line and no filetype-specific indenting is enabled, keep
+" the same indent as the line you're currently on. Useful for READMEs, etc.
+set autoindent
+" Always show statusline
+set laststatus=2
+" Display the cursor position on the last line of the screen or in the status
+" line of a window
+set ruler
+" Always display the status line, even if only one window is displayed
+set laststatus=2
+" Instead of failing a command because of unsaved changes, instead raise a
+" dialogue asking if you wish to save changed files.
+set confirm
+" Enable use of the mouse for all modes
+set mouse+=a
+" Quickly time out on keycodes, but never time out on mappings
+set notimeout ttimeout ttimeoutlen=200
+" Use <F11> to toggle between 'paste' and 'nopaste'
+set pastetoggle=<F11>
+" Use X11 clipboard be default.
+set clipboard=unnamedplus
 
 
 """ Aesthetics
@@ -222,10 +193,7 @@ set expandtab
 
 syntax on
 set background=dark
-runtime colours/typewriter-colours.vim
-
-" Always show statusline
-set laststatus=2
+runtime colours/gruvbox-colours.vim
 
 let g:indentLine_char = '▏'
 
