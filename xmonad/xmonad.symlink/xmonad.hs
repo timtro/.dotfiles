@@ -18,17 +18,18 @@ import XMonad.Hooks.DynamicLog (
   , ppUrgent
   , ppHidden
   , ppSep )
-import XMonad.Hooks.EwmhDesktops ( fullscreenEventHook )
+import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
 import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 import XMonad.ManageHook ( doFloat, doIgnore )
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet ( RationalRect( RationalRect ) )
 import Network.HostName ( getHostName )
+import XMonad.Hooks.ManageHelpers ( isFullscreen, doFullFloat )
 
 main = do
   hostname <- getHostName
   configWithBar <- statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
-  xmonad configWithBar
+  xmonad $ ewmh configWithBar
 
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
@@ -43,12 +44,12 @@ myConfig = defaultConfig
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
-  , handleEventHook    = fullscreenEventHook
+  , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
   , terminal           = "urxvt"
   , borderWidth        = 1
-  , normalBorderColor  = "#181715"
-  , focusedBorderColor = "#58C5F1"
+  , normalBorderColor  = "#282828"
+  , focusedBorderColor = "#d65d0e"
   , focusFollowsMouse  = False
   } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
@@ -103,6 +104,7 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Insync.py"      --> doFloat
+    , isFullscreen                  --> doFullFloat
     ]
 
 -- ## Scratchpads
@@ -116,7 +118,7 @@ scratchPads =
     findTerm   = resource  =? "scratchterm1"
     manageTerm = customFloating $ RationalRect l t w h
       where
-        h = 0.5            -- height, %/100 
-        w = 0.5            -- width
+        h = 0.512          -- height, %/100 
+        w = 0.51           -- width
         t = 0.1            -- bottom edge
         l = (1 - w) / 1.2  -- left endge
