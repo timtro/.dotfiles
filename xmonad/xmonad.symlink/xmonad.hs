@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Layout.Spacing ( spacing )
+import XMonad.Layout.BinarySpacePartition
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad (
     NamedScratchpad( NS )
@@ -42,7 +43,8 @@ myStartupHook = do
 myConfig = defaultConfig
   { modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
-  , layoutHook         = smartBorders $ spacing 5 $ layoutHook defaultConfig
+  , layoutHook         = smartBorders
+                          $ spacing 5 (emptyBSP ||| layoutHook defaultConfig)
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
@@ -72,6 +74,17 @@ myKeys =
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
   , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
   , ("M-`", namedScratchpadAction scratchPads "terminal")
+  -- Keys for Binary Space Partition Layout
+  , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
+  , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
+  , ("M-M1-<Up>",      sendMessage $ ExpandTowards U)
+  , ("M-M1-<Down>",    sendMessage $ ShrinkFrom U)
+  , ("M-M1-C-<Left>",  sendMessage $ ShrinkFrom R)
+  , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
+  , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
+  , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
+  , ("M-s",            sendMessage $ Swap)
+  , ("M-M1-s",         sendMessage $ Rotate)
   ]
 
 -- ## Desktop bar and tray config:
