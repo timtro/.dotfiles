@@ -44,7 +44,7 @@ myConfig = defaultConfig
   { modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders
-                          $ spacing 5 (emptyBSP ||| layoutHook defaultConfig)
+                          $ spacing 5 (layoutHook defaultConfig ||| emptyBSP)
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
@@ -117,6 +117,8 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Insync.py"      --> doFloat
+    , className =? "Pavucontrol"    --> doFloat
+    , className =? "Slack"          --> doFloat
     , isFullscreen                  --> doFullFloat
     ]
 
