@@ -114,12 +114,14 @@ toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
 -- [XMonad.ManageHook](https://goo.gl/cYgtp5)
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , className =? "Insync.py"      --> doFloat
-    , className =? "Pavucontrol"    --> doFloat
-    , className =? "Slack"          --> doFloat
-    , isFullscreen                  --> doFullFloat
+    [ className =? "MPlayer"          --> doFloat
+    , className =? "Gimp"             --> doFloat
+    , className =? "Insync.py"        --> doFloat
+    , className =? "Pavucontrol"      --> doFloat
+    , className =? "Slack"            --> doFloat
+    , className =? "Variety"          --> doFloat
+    , className =? "Transmission-gtk" --> doFloat
+    , isFullscreen                    --> doFullFloat
     ]
 
 -- ## Scratchpads
