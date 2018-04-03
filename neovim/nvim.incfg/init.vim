@@ -76,7 +76,8 @@ Plugin 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['latex']
 Plugin 'lervag/vimtex'
 Plugin 'glts/vim-texlog.git'
-
+Plugin 'rhysd/vim-clang-format'
+let g:clang_format#command = "clang-format-7"
 """ Colorschemes
 Bundle 'ScrollColors'
 Plugin 'altercation/vim-colors-solarized'
@@ -266,6 +267,11 @@ map <silent><F3> :NEXTCOLOR<cr>
 map <silent><F2> :PREVCOLOR<cr>
 map <C-n> :NERDTreeToggle<CR>
 
+" C++ stuff
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
