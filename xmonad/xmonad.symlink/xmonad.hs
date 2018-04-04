@@ -73,7 +73,10 @@ myKeys =
   , ("<XF86AudioPrev>"       , spawn "mocp --previous" )
   , ("<XF86AudioNext>"       , spawn "mocp --next" )
   , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
-  , ("M-`", namedScratchpadAction scratchPads "terminal")
+  -- Scratchpads
+  , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
+  , ("M-f", namedScratchpadAction scratchPads "scratchFileBrowser")
+  , ("M-d", namedScratchpadAction scratchPads "scratchSlack")
   -- Keys for Binary Space Partition Layout
   , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
   , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
@@ -118,7 +121,6 @@ myManageHook = composeAll
     , className =? "Gimp"             --> doFloat
     , className =? "Insync.py"        --> doFloat
     , className =? "Pavucontrol"      --> doFloat
-    , className =? "Slack"            --> doFloat
     , className =? "Variety"          --> doFloat
     , className =? "Transmission-gtk" --> doFloat
     , isFullscreen                    --> doFullFloat
@@ -129,7 +131,10 @@ myManageHook = composeAll
 -- [XMonad.Util.NamedScratchpad](https://goo.gl/nHveju)
 -- NS is the constructor for a NamedScratchpad.
 scratchPads =
-  [ NS "terminal" spawnTerm  findTerm  manageTerm ]
+  [ NS "scratchTerminal" spawnTerm  findTerm  manageTerm
+  , NS "scratchFileBrowser" spawnFileBrowser findFileBrowser manageFileBrowser
+  , NS "scratchSlack" spawnSlack findSlack manageSlack
+  ]
   where
     spawnTerm  = "urxvt --perl-ext-common default,selection-to-clipboard,font-size,tabbed -name scratchterm1"
     findTerm   = resource  =? "scratchterm1"
@@ -138,4 +143,19 @@ scratchPads =
         h = 0.512          -- height, %/100 
         w = 0.51           -- width
         t = 0.1            -- bottom edge
-        l = (1 - w) / 1.2  -- left endge
+        l = (1 - w) - 0.05 -- left endge
+
+    spawnFileBrowser = "nautilus --class scratchBrowser"
+    findFileBrowser = className  =? "scratchBrowser"
+    manageFileBrowser = auxScratchFloatRect
+
+    spawnSlack = "slack"
+    findSlack = className  =? "Slack"
+    manageSlack = auxScratchFloatRect
+
+auxScratchFloatRect = customFloating $ RationalRect l t w h
+    where
+      h = 1 - 2 * t      -- height, %/100 
+      w = 0.51           -- width
+      t = 0.05           -- bottom edge
+      l = 0.05           -- left endge
