@@ -123,7 +123,7 @@ myManageHook = composeAll
     , className =? "Pavucontrol"          --> doFloat
     , className =? "Variety"              --> doFloat
     , className =? "Transmission-gtk"     --> doFloat
-    , className =? "scp-dbus-service.py"  --> doFloat
+    , className =? "Scp-dbus-service.py"  --> doFloat
     , isFullscreen                        --> doFullFloat
     ]
 

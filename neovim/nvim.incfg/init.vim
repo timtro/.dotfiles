@@ -79,6 +79,7 @@ Plugin 'glts/vim-texlog.git'
 Plugin 'rhysd/vim-clang-format'
 let g:clang_format#command = "clang-format-7"
 """ Colorschemes
+Plugin 'xterm-color-table.vim'
 Bundle 'ScrollColors'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tyrannicaltoucan/vim-quantum'
@@ -205,6 +206,10 @@ if exists('g:GtkGuiLoaded')
 else
   set t_Co=256
 endif
+
+hi SpellBad cterm=underline ctermfg=9
+hi SpellRare cterm=underline ctermfg=12
+hi SpellLocal cterm=underline ctermfg=11
 
 """ Keybindings
 "-------------------------------------------------------------------------------
