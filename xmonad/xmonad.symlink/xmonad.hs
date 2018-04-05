@@ -141,20 +141,20 @@ scratchPads =
     findTerm   = resource  =? "scratchterm1"
     manageTerm = customFloating $ RationalRect l t w h
       where
-        h = 0.512          -- height, %/100 
+        h = 0.604          -- height, %/100 
         w = 0.51           -- width
         t = 0.1            -- bottom edge
         l = (1 - w) - 0.05 -- left endge
 
     spawnFileBrowser = "nautilus --class scratchBrowser"
     findFileBrowser = className  =? "scratchBrowser"
-    manageFileBrowser = auxScratchFloatRect
+    manageFileBrowser = scratchFloatRectA
 
     spawnSlack = "slack"
     findSlack = className  =? "Slack"
-    manageSlack = auxScratchFloatRect
+    manageSlack = scratchFloatRectA
 
-auxScratchFloatRect = customFloating $ RationalRect l t w h
+scratchFloatRectA = customFloating $ RationalRect l t w h
     where
       h = 1 - 2 * t      -- height, %/100 
       w = 0.51           -- width
