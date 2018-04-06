@@ -2,13 +2,14 @@ import XMonad
 import XMonad.Layout.Spacing ( spacing )
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
-import XMonad.Util.NamedScratchpad (
-    NamedScratchpad( NS )
+import XMonad.Util.NamedScratchpad
+  ( NamedScratchpad( NS )
   , customFloating
   , namedScratchpadAction
-  , namedScratchpadManageHook )
-import XMonad.Hooks.DynamicLog (
-    statusBar
+  , namedScratchpadManageHook
+  )
+import XMonad.Hooks.DynamicLog
+  ( statusBar
   , xmobarPP
   , xmobarColor
   , wrap
@@ -18,7 +19,8 @@ import XMonad.Hooks.DynamicLog (
   , ppVisible
   , ppUrgent
   , ppHidden
-  , ppSep )
+  , ppSep
+  )
 import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
 import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 import XMonad.ManageHook ( doFloat, doIgnore )
@@ -120,10 +122,11 @@ myManageHook = composeAll
     [ className =? "MPlayer"              --> doFloat
     , className =? "Gimp"                 --> doFloat
     , className =? "Insync.py"            --> doFloat
-    , className =? "Pavucontrol"          --> doFloat
     , className =? "Variety"              --> doFloat
     , className =? "Transmission-gtk"     --> doFloat
-    , className =? "Scp-dbus-service.py"  --> doFloat
+    , className =? "Xmessage"             --> doFloat
+    , className =? "Pavucontrol"          --> doFloatCornerBox
+    , className =? "Scp-dbus-service.py"  --> doFloatCornerBox
     , isFullscreen                        --> doFullFloat
     ]
 
@@ -148,15 +151,26 @@ scratchPads =
 
     spawnFileBrowser = "nautilus --class scratchBrowser"
     findFileBrowser = className  =? "scratchBrowser"
-    manageFileBrowser = scratchFloatRectA
+    manageFileBrowser = doFloatPaneLeft
 
     spawnSlack = "slack"
     findSlack = className  =? "Slack"
-    manageSlack = scratchFloatRectA
+    manageSlack = doFloatPaneLeft
 
-scratchFloatRectA = customFloating $ RationalRect l t w h
+
+screenMargin = 0.05
+
+doFloatPaneLeft = customFloating $ RationalRect l t w h
     where
       h = 1 - 2 * t      -- height, %/100 
       w = 0.51           -- width
-      t = 0.05           -- bottom edge
-      l = 0.05           -- left endge
+      t = screenMargin   -- top edge
+      l = screenMargin   -- left endge
+
+doFloatCornerBox = customFloating $ RationalRect l t w h
+    where
+      h = 0.33                    -- height, %/100 
+      w = 0.33                    -- width
+      t = screenMargin            -- top edge
+      l = (1 - w) - screenMargin  -- left endge
+
