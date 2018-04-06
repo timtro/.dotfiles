@@ -76,9 +76,12 @@ Plugin 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['latex']
 Plugin 'lervag/vimtex'
 Plugin 'glts/vim-texlog.git'
+
+""" Plug: Programming
 Plugin 'rhysd/vim-clang-format'
 let g:clang_format#command = "clang-format-7"
-""" Colorschemes
+
+""" Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
 Bundle 'ScrollColors'
 Plugin 'altercation/vim-colors-solarized'
