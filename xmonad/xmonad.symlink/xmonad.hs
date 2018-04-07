@@ -140,7 +140,7 @@ scratchPads =
   , NS "scratchSlack" spawnSlack findSlack manageSlack
   ]
   where
-    spawnTerm  = "urxvt --perl-ext-common default,selection-to-clipboard,font-size,tabbed -name scratchterm1"
+    spawnTerm  = "urxvt --perl-ext-common default,selection-to-clipboard,tabbed,keyboard-select -name scratchterm1"
     findTerm   = resource  =? "scratchterm1"
     manageTerm = customFloating $ RationalRect l t w h
       where
