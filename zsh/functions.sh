@@ -11,10 +11,15 @@ function print_greeting {
   echo "\n"
 }
 
-function runDetached {
+function run_detached {
   echo "Running $@"
   nohup $@ >/dev/null 2>&1 &
   disown
+}
+
+
+function term_size {
+  echo \(`tput cols` x `tput lines`\)
 }
 
 function svg2png {
