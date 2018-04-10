@@ -72,14 +72,17 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 """ END The NERDs
 
 """ Plug: Polyglot, VimTeX and LaTeX related
-Plugin 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['latex']
+" Plugin 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = ['latex']
 Plugin 'lervag/vimtex'
 Plugin 'glts/vim-texlog.git'
 
 """ Plug: Programming
 Plugin 'rhysd/vim-clang-format'
 let g:clang_format#command = "clang-format-7"
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
