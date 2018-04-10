@@ -1,48 +1,49 @@
-! Xft.dpi:                    10
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
+Xft.dpi         : 120
+Xft.antialias   : true
+Xft.rgba        : rgb
+Xft.hinting     : true
+Xft.hintstyle   : hintslight
 
-URxvt.depth:                32
-URxvt.font: xft:Hasklig:pixelsize=13
-URxvt.allow_bold: true
-URxvt.letterSpace: -1
-URxvt*scrollTtyOutput: false
-URxvt*scrollWithBuffer: true
-URxvt*scrollTtyKeypress: true
-URxvt.scrollBar: false
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
-URxvt.background: rgba:0000/0000/0200/9CCC
-! URxvt*transparent: true
-! URxvt*shading: 35
-URxvt*blurRadius: 13
+URxvt.depth             : 32
+URxvt.font              : xft:Hasklig:pixelsize=15
+URxvt.allow_bold        : true
+URxvt.letterSpace       : -1.75
+URxvt.scrollTtyOutput   : false
+URxvt.scrollWithBuffer  : true
+URxvt.scrollTtyKeypress : true
+URxvt.scrollBar         : false
+URxvt.secondaryScreen   : 1
+URxvt.secondaryScroll   : 0
+URxvt.background        : rgba:0000/0000/0200/AAAA
+URxvt*blurRadius        : 13
 
-URxvt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select
-URxvt.tabbed.tabbar-fg:     2
-URxvt.tabbed.tabbar-bg:     0
-URxvt.tabbed.tab-fg:        3
-URxvt.tabbed.tab-bg:        0
-URxvt.url-launcher:         firefox
-URxvt.matcher.button:       1
-URxvt.cutchars: 		`"()'*<>[]{|}
-URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.perl-ext-common   : default,selection-to-clipboard,matcher,keyboard-select
+URxvt.tabbed.tabbar-fg  : 2
+URxvt.tabbed.tabbar-bg  : 0
+URxvt.tabbed.tab-fg     : 3
+URxvt.tabbed.tab-bg     : 0
+URxvt.url-launcher      : firefox
+URxvt.matcher.button    : 1
+URxvt.cutchars          : `"()'*<>[]{|}
+URxvt.keysym.M-Escape   : perl:keyboard-select:activate
 
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+URxvt.iso14755    : false
+URxvt.iso14755_52 : false
 
 ! scale fonts
-URxvt.keysym.C-S-plus: font-size:increase
-URxvt.keysym.C-KP_Add: font-size:increase
-URxvt.keysym.C-S-underscore: font-size:decrease
-URxvt.keysym.C-KP_Subtract: font-size:decrease
-URxvt.keysym.C-0: font-size:reset
-URxvt.keysym.C-KP_0: font-size:reset
+URxvt.keysym.C-S-plus       : font-size:increase
+URxvt.keysym.C-KP_Add       : font-size:increase
+URxvt.keysym.C-S-underscore : font-size:decrease
+URxvt.keysym.C-KP_Subtract  : font-size:decrease
+URxvt.keysym.C-0            : font-size:reset
+URxvt.keysym.C-KP_0         : font-size:reset
 
 ! allow filepaths to select as one, otherwise delimit
-URxvt.cutchars: "\"(),<>[]{}|'`"
+URxvt.cutchars  : "\"(),<>[]{}|'`"
 
 ! For vim bindings:
 URxvt.keysym.C-Page_Up        : \033[5;5~
 URxvt.keysym.C-Page_Down      : \033[6;5~
+! For some reason, URxvt makes Alt_R into Multi_key, breaking compose.
+Urxvt.keysym.Multi_key        : Alt_R
+
