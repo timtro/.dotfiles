@@ -1,11 +1,11 @@
-Xft.dpi:                    96
+! Xft.dpi:                    10
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
 URxvt.depth:                32
-URxvt.font: xft:Hasklig:size=11
+URxvt.font: xft:Hasklig:pixelsize=13
 URxvt.allow_bold: true
 URxvt.letterSpace: -1
 URxvt*scrollTtyOutput: false
@@ -14,8 +14,9 @@ URxvt*scrollTtyKeypress: true
 URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
-URxvt*transparent: true
-URxvt*shading: 35
+URxvt.background: rgba:0000/0000/0200/9CCC
+! URxvt*transparent: true
+! URxvt*shading: 35
 URxvt*blurRadius: 13
 
 URxvt.perl-ext-common: default,selection-to-clipboard,matcher,keyboard-select
@@ -25,6 +26,7 @@ URxvt.tabbed.tab-fg:        3
 URxvt.tabbed.tab-bg:        0
 URxvt.url-launcher:         firefox
 URxvt.matcher.button:       1
+URxvt.cutchars: 		`"()'*<>[]{|}
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 
 URxvt.iso14755: false
