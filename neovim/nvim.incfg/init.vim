@@ -123,10 +123,6 @@ filetype plugin indent on    " required
 """ Post Vundle Plugin Config
 "-------------------------------------------------------------------------------
 
-" clang-complete:
-map <C-I> :pyf /home/timtro/.vim/plugin/clang-format.py<cr>
-imap <C-I> <c-o>:pyf /home/timtro/.vim/plugin/clang-format.py<cr>
-
 " YouCompleteMe :
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
