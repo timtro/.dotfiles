@@ -69,6 +69,19 @@ let g:NERDTreeIgnore = ['\.pyc$']
 " Nerdtree start when file not opened
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "~",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "~",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : "○",
+    \ "Unknown"   : "?"
+    \ }
 """ END The NERDs
 
 """ Plug: Polyglot, VimTeX and LaTeX related
