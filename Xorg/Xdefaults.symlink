@@ -15,7 +15,8 @@ URxvt.scrollBar         : false
 URxvt.secondaryScreen   : 1
 URxvt.secondaryScroll   : 0
 URxvt.background        : rgba:0000/0000/0200/AAAA
-URxvt*blurRadius        : 13
+URxvt.blurRadius        : 13
+URxvt.saveLines         : 4096
 
 URxvt.perl-ext-common   : default,selection-to-clipboard,matcher,keyboard-select
 URxvt.tabbed.tabbar-fg  : 2
