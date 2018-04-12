@@ -27,7 +27,15 @@ import XMonad.ManageHook ( doFloat, doIgnore )
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet ( RationalRect( RationalRect ) )
 import Network.HostName ( getHostName )
-import XMonad.Hooks.ManageHelpers ( isFullscreen, doFullFloat )
+import XMonad.Hooks.ManageHelpers
+  ( isFullscreen
+  , doFullFloat
+  , doFloatAt 
+  , Side( SC, NC, CE, CW, SE, SW, NE, NW, C )
+  , doSideFloat
+  )
+
+import Data.Ratio
 
 main = do
   hostname <- getHostName
@@ -140,14 +148,12 @@ scratchPads =
   , NS "scratchSlack" spawnSlack findSlack manageSlack
   ]
   where
-    spawnTerm  = "urxvt --perl-ext-common default,selection-to-clipboard,tabbed,keyboard-select -name scratchterm1"
+    spawnTerm  = "urxvt --geometry 108x34 --perl-ext-common default,selection-to-clipboard,tabbed,keyboard-select -name scratchterm1"
     findTerm   = resource  =? "scratchterm1"
-    manageTerm = customFloating $ RationalRect l t w h
+    manageTerm = doFloatAt l t
       where
-        h = 0.604          -- height, %/100 
-        w = 0.51           -- width
-        t = 0.1            -- bottom edge
-        l = (1 - w) - 0.05 -- left endge
+        l = 0.4  -- left edge, %/100
+        t = 0.1  -- top edge, %/100
 
     spawnFileBrowser = "nautilus --class scratchBrowser"
     findFileBrowser = className  =? "scratchBrowser"
