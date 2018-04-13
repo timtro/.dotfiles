@@ -43,7 +43,9 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'L9'
 Plugin 'airblade/vim-gitgutter.git'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'DougBeney/pickachu'
+Plugin 'blindFS/vim-colorpicker'
+let g:color_picker_version = 3
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
@@ -54,8 +56,6 @@ Plugin 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
 nnoremap <F5> :NumbersToggle<CR>
 nnoremap <F6> :NumbersOnOff<CR>
-
-Plugin 'Zuckonit/vim-airline-tomato'
 
 """ Plug: The NERDs :)
 Plugin 'scrooloose/nerdcommenter'
