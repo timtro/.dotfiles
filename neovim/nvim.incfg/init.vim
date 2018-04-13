@@ -105,7 +105,7 @@ Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'rakr/vim-one'
 Plugin 'nlknguyen/papercolor-theme'
 Plugin 'lokaltog/vim-distinguished'
-Plugin 'sickill/vim-monokai'
+Plugin 'crusoexia/vim-monokai'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'arcticicestudio/nord-vim', { 'on':  'NERDTreeToggle' }
 Plugin 'badacadabra/vim-archery'
@@ -210,16 +210,16 @@ set clipboard=unnamedplus
 """ Aesthetics
 "-------------------------------------------------------------------------------
 
-syntax on
 set background=dark
-runtime colours/gruvbox-colours.vim
 
 let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
+  runtime colours/molokai-colours.vim
 else
   set t_Co=256
+  runtime colours/gruvbox-colours.vim
 endif
 
 hi SpellBad cterm=underline ctermfg=9
