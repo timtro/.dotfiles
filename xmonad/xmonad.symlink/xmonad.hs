@@ -152,8 +152,8 @@ scratchPads =
     findTerm   = resource  =? "scratchterm1"
     manageTerm = doFloatAt l t
       where
-        l = 0.4  -- left edge, %/100
-        t = 0.1  -- top edge, %/100
+        l = 0.45 -- left edge, %/100
+        t = 0.10 -- top edge, %/100
 
     spawnFileBrowser = "nautilus --class scratchBrowser"
     findFileBrowser = className  =? "scratchBrowser"
