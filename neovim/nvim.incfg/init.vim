@@ -55,6 +55,8 @@ let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
 nnoremap <F5> :NumbersToggle<CR>
 nnoremap <F6> :NumbersOnOff<CR>
 
+Plugin 'Zuckonit/vim-airline-tomato'
+
 """ Plug: The NERDs :)
 Plugin 'scrooloose/nerdcommenter'
 let g:NERDCommentEmptyLines = 1
@@ -109,7 +111,6 @@ Plugin 'crusoexia/vim-monokai'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'arcticicestudio/nord-vim', { 'on':  'NERDTreeToggle' }
 Plugin 'badacadabra/vim-archery'
-Plugin 'wombat256.vim'
 Plugin 'rakr/vim-two-firewatch'
 Plugin 'reewr/vim-monokai-phoenix'
 Plugin 'jeetsukumaran/vim-nefertiti'
@@ -216,7 +217,7 @@ let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime colours/molokai-colours.vim
+  runtime colours/nord-colours.vim
 else
   set t_Co=256
   runtime colours/gruvbox-colours.vim
@@ -302,3 +303,5 @@ highlight ColorColumn ctermbg=236
 
 " For a snappier git gutter:
 set updatetime=100
+
+let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
