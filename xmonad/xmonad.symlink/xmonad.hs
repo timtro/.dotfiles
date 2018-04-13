@@ -30,6 +30,7 @@ import Network.HostName ( getHostName )
 import XMonad.Hooks.ManageHelpers
   ( isFullscreen
   , doFullFloat
+  , doCenterFloat
   , doFloatAt 
   , Side( SC, NC, CE, CW, SE, SW, NE, NW, C )
   , doSideFloat
@@ -61,7 +62,7 @@ myConfig = defaultConfig
   , terminal           = "urxvt"
   , borderWidth        = 1
   , normalBorderColor  = "#282828"
-  , focusedBorderColor = "#d65d0e"
+  , focusedBorderColor = "#49789A"
   , focusFollowsMouse  = False
   } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
@@ -135,6 +136,9 @@ myManageHook = composeAll
     , className =? "Xmessage"             --> doFloat
     , className =? "Pavucontrol"          --> doFloatCornerBox
     , className =? "Scp-dbus-service.py"  --> doFloatCornerBox
+    , className =? "Colorpicker2.py"      --> doFloat
+    , className =? "Colorpicker3.py"      --> doFloat
+    , className =? "Tk"                   --> doCenterFloat
     , isFullscreen                        --> doFullFloat
     ]
 
