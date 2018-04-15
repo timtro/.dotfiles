@@ -98,6 +98,7 @@ let g:clang_format#command = "clang-format-7"
 
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -213,11 +214,12 @@ set clipboard=unnamedplus
 
 set background=dark
 
+" let g:indentLine_char = '⎸'
 let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime colours/nord-colours.vim
+  runtime colours/typewriter-colours.vim
 else
   set t_Co=256
   runtime colours/gruvbox-colours.vim
@@ -226,6 +228,11 @@ endif
 hi SpellBad cterm=underline ctermfg=9
 hi SpellRare cterm=underline ctermfg=12
 hi SpellLocal cterm=underline ctermfg=11
+hi ColorColumn ctermbg=236
+
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#4B4B4B'
+
 
 """ Keybindings
 "-------------------------------------------------------------------------------
@@ -299,7 +306,6 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 let g:tex_conceal = ""
 set colorcolumn=81
-highlight ColorColumn ctermbg=236
 
 " For a snappier git gutter:
 set updatetime=100
