@@ -138,6 +138,8 @@ myManageHook = composeAll
     , className =? "Scp-dbus-service.py"  --> doFloatCornerBox
     , className =? "Colorpicker2.py"      --> doFloat
     , className =? "Colorpicker3.py"      --> doFloat
+    , className =? "Blueman-manager"      --> doCenterFloat
+    , className =? "Blueman-assistant"    --> doCenterFloat
     , className =? "Tk"                   --> doCenterFloat
     , isFullscreen                        --> doFullFloat
     ]
