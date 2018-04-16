@@ -99,8 +99,10 @@ let g:clang_format#command = "clang-format-7"
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'kien/rainbow_parentheses.vim'
-
+" Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'junegunn/rainbow_parentheses.vim'
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -228,7 +230,7 @@ if exists('g:GtkGuiLoaded')
   runtime colours/turtles-colours.vim
 else
   set t_Co=256
-  runtime colours/gruvbox-colours.vim
+  runtime colours/turtles-colours.vim
 endif
 
 hi SpellBad cterm=underline ctermfg=9
