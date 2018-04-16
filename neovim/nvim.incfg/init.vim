@@ -99,6 +99,8 @@ let g:clang_format#command = "clang-format-7"
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'kien/rainbow_parentheses.vim'
+
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -128,6 +130,10 @@ Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
 Plugin 'logico-dev/typewriter'
+Plugin 'Alvarocz/vim-fresh'
+Plugin 'skielbasa/vim-material-monokai'
+Plugin 'beigebrucewayne/Turtles'
+
 
 """ END colorschemes
 "
@@ -219,7 +225,7 @@ let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime colours/typewriter-colours.vim
+  runtime colours/turtles-colours.vim
 else
   set t_Co=256
   runtime colours/gruvbox-colours.vim
