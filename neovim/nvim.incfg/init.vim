@@ -225,28 +225,16 @@ set clipboard=unnamedplus
 """ Aesthetics
 "-------------------------------------------------------------------------------
 
-set background=dark
-
 " let g:indentLine_char = '⎸'
 let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  " runtime colours/turtles-colours.vim
-  colorscheme vimspectr270-dark
+  runtime colours/gruvbox-dark-colours.vim
 else
   set t_Co=256
-  runtime colours/gruvbox-colours.vim
+  runtime colours/gruvbox-dark-colours.vim
 endif
-
-hi SpellBad cterm=underline ctermfg=9
-hi SpellRare cterm=underline ctermfg=12
-hi SpellLocal cterm=underline ctermfg=11
-hi ColorColumn ctermbg=236
-
-let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#4B4B4B'
-
 
 """ Keybindings
 "-------------------------------------------------------------------------------

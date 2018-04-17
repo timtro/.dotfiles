@@ -1,11 +1,15 @@
+" For morhetz/gruvbox
 
 set background=dark
 
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_termcolors = 256
+let g:gruvbox_contrast_dark = "hard"
 
-colorscheme nord
-let g:airline_theme = "nord"
+colorscheme gruvbox
+let g:airline_theme = "gruvbox"
 
 hi SpellBad cterm=underline ctermfg=9
 hi SpellRare cterm=underline ctermfg=12
