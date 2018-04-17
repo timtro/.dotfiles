@@ -45,6 +45,8 @@ URxvt.color250: #d5c4a1
 ! Last Modified: 6 Sep 2014
 ! -----------------------------------------------------------------------------
 
+*cursorColor: #fb4934
+
 ! hard contrast: *background: #1d2021
 *background: #282828
 ! soft contrast: *background: #32302f
