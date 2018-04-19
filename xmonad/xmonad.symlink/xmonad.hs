@@ -70,6 +70,7 @@ myConfig = defaultConfig
 myKeys =
   [ ("M-S-r",
       spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
+  , ("M-S-x"                 , spawn "xkill" )
   , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
   , ("M-p"                   , spawn "rofi -combi-modi run,drun -show combi" )
   , ("M-<XF86AudioNext>"     , spawn "variety --next" )
@@ -141,6 +142,10 @@ myManageHook = composeAll
     , className =? "Blueman-manager"      --> doCenterFloat
     , className =? "Blueman-assistant"    --> doCenterFloat
     , className =? "Tk"                   --> doCenterFloat
+    , className =? "vlc"                  --> doCenterFloat
+    , className =? "Totem"                --> doCenterFloat
+    , className =? "Gnuplot"              --> doCenterFloat
+    , className =? "gnuplot_qt"           --> doCenterFloat
     , isFullscreen                        --> doFullFloat
     ]
 
