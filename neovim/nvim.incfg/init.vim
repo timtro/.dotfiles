@@ -225,16 +225,21 @@ set clipboard=unnamedplus
 """ Aesthetics
 "-------------------------------------------------------------------------------
 
+
+" Set the vertical split character
+:set fillchars+=vert:\┃
+
 " let g:indentLine_char = '⎸'
 let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime colours/gruvbox-dark-colours.vim
+  runtime colours/hydrangea-colours.vim
 else
   set t_Co=256
   runtime colours/gruvbox-dark-colours.vim
 endif
+
 
 """ Keybindings
 "-------------------------------------------------------------------------------

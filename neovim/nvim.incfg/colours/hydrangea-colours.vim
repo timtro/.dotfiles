@@ -13,4 +13,4 @@ hi ColorColumn ctermbg=236
 hi ColorColumn guibg=#303030
 
 let g:indentLine_color_term = 236
-let g:indentLine_color_gui = '#4B4B4B'
+let g:indentLine_color_gui = '#303030'
