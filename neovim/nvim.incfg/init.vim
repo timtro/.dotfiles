@@ -57,6 +57,8 @@ let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
 nnoremap <F5> :NumbersToggle<CR>
 nnoremap <F6> :NumbersOnOff<CR>
 
+Plugin 'qpkorr/vim-bufkill'
+
 """ Plug: The NERDs :)
 Plugin 'scrooloose/nerdcommenter'
 let g:NERDCommentEmptyLines = 1
