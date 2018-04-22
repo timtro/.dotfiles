@@ -135,11 +135,10 @@ Plugin 'logico-dev/typewriter'
 Plugin 'Alvarocz/vim-fresh'
 Plugin 'skielbasa/vim-material-monokai'
 Plugin 'beigebrucewayne/Turtles'
-
 Plugin 'yuttie/hydrangea-vim'
 Plugin 'nightsense/vimspectr'
-Plugin 'YorickPeterse/happy_hacking.vim'
-Plugin 'dracula/vim'
+Plugin 'atelierbram/Base2Tone-vim'
+
 
 
 """ END colorschemes
@@ -234,10 +233,10 @@ let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime colours/hydrangea-colours.vim
+  runtime ./colours/Base2Tone-dark-colours.vim
 else
   set t_Co=256
-  runtime colours/gruvbox-dark-colours.vim
+  runtime ./colours/gruvbox-dark-colours.vim
 endif
 
 
