@@ -235,10 +235,10 @@ let g:indentLine_char = '▏'
 
 if exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime ./colours/Base2Tone-dark-colours.vim
+  runtime ./colours/dejour-gui.vim
 else
   set t_Co=256
-  runtime ./colours/gruvbox-dark-colours.vim
+  runtime ./colours/dejour.vim
 endif
 
 
