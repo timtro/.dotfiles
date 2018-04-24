@@ -153,6 +153,10 @@ myManageHook = composeAll
 --
 -- [XMonad.Util.NamedScratchpad](https://goo.gl/nHveju)
 -- NS is the constructor for a NamedScratchpad.
+
+hMargin = 0.03
+vMargin = 0.05
+
 scratchPads =
   [ NS "scratchTerminal" spawnTerm  findTerm  manageTerm
   , NS "scratchFileBrowser" spawnFileBrowser findFileBrowser manageFileBrowser
@@ -161,10 +165,12 @@ scratchPads =
   where
     spawnTerm  = "kitty --class scratchterm1"
     findTerm   = className  =? "scratchterm1"
-    manageTerm = doFloatAt l t
+    manageTerm = customFloating $ RationalRect l t w h
       where
-        l = 0.45 -- left edge, %/100
-        t = 0.10 -- top edge, %/100
+        w = 0.5                        -- width, %/100
+        h = 0.80                       -- height, %/100
+        l = 0.5 - (w - 0.5) - hMargin  -- left edge, %/100
+        t = vMargin                    -- top edge, %/100
 
     spawnFileBrowser = "nautilus --class scratchBrowser"
     findFileBrowser = className  =? "scratchBrowser"
@@ -175,19 +181,17 @@ scratchPads =
     manageSlack = doFloatPaneLeft
 
 
-screenMargin = 0.05
-
 doFloatPaneLeft = customFloating $ RationalRect l t w h
     where
-      h = 1 - 2 * t      -- height, %/100 
       w = 0.51           -- width
-      t = screenMargin   -- top edge
-      l = screenMargin   -- left endge
+      h = 1 - 2 * t      -- height, %/100 
+      l = hMargin        -- left endge
+      t = vMargin        -- top edge
 
 doFloatCornerBox = customFloating $ RationalRect l t w h
     where
-      h = 0.33                    -- height, %/100 
       w = 0.33                    -- width
-      t = screenMargin            -- top edge
-      l = (1 - w) - screenMargin  -- left endge
+      h = 0.33                    -- height, %/100 
+      l = (1 - w) - hMargin       -- left endge
+      t = vMargin                 -- top edge
 
