@@ -11,6 +11,7 @@ alias ednvim='nvim ~/.dotfiles/neovim/nvim.incfg/init.vim'
 alias edxmonad='nvim ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
 alias edzsh='nvim ~/.dotfiles/zsh/zshrc.symlink'
 alias edXdefaults='nvim -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
+alias edkitty='nvim ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
 alias work='cd ~/workspace'
 
 

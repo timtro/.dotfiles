@@ -59,7 +59,7 @@ myConfig = defaultConfig
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
-  , terminal           = "urxvt"
+  , terminal           = "kitty"
   , borderWidth        = 1
   , normalBorderColor  = "#282828"
   , focusedBorderColor = "#49789A"
@@ -159,8 +159,8 @@ scratchPads =
   , NS "scratchSlack" spawnSlack findSlack manageSlack
   ]
   where
-    spawnTerm  = "urxvt --geometry 108x34 --perl-ext-common default,selection-to-clipboard,tabbed,keyboard-select -name scratchterm1"
-    findTerm   = resource  =? "scratchterm1"
+    spawnTerm  = "kitty --class scratchterm1"
+    findTerm   = className  =? "scratchterm1"
     manageTerm = doFloatAt l t
       where
         l = 0.45 -- left edge, %/100
