@@ -40,6 +40,14 @@
   - colorer
   - dante
 
+## Repositories that I manually install
+
+Hopefully, I will get fed up and write these properly into the install scripts.
+
+ * pip3 install terminal-colours # from https://github.com/eikenb/terminal-colors
+ * https://pipeseroni.github.io/, or specifically https://github.com/pipeseroni/pipes.sh
+
+
 ## TODO:
 * Write system to link `.cfg_symlink` files into `~/.config/`.
 * Add option to install vs code. Link: https://go.microsoft.com/fwlink/?LinkID=760868
