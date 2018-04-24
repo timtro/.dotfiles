@@ -41,6 +41,9 @@
     expect
   htop
   iftop
+  figlet
+  lolcat
+  cowsay
 
 # Text editing
   texlive-full
@@ -86,6 +89,16 @@
   python-autopep8
   flake8
   yapf
+  # For Kitty/harfbuzz terminal compilation
+    libxrandr-dev
+    libxi-dev
+    libgl1-mesa-dev
+    libxkbcommon-x11-dev
+    # libgirepository1.0-dev
+    libxcursor-dev
+    libpng-dev
+    libglfw3-dev
+    uim-xim
 
 # Compilers, Dev tools and building
   git
