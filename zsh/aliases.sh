@@ -18,6 +18,7 @@ alias work='cd ~/workspace'
 # Utility aliases
 alias watch_cpu="watch -n 0 'lscpu | grep MHz'"
 alias xrdb-replace='xrdb -remove -all && xrdb -load'
+alias Clear="clear && print_greeting"
 
 # Theme switching
 alias gruv='source "/home/timtro/.config/nvim/bundle/gruvbox/gruvbox_256palette.sh"'

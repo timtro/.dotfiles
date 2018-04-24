@@ -59,10 +59,16 @@ plugins=(git)
 ### User configuration
 #-------------------------------------------------------------------------------
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/timtro/.local/bin"
-
 source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
+
+# vi mode!
+set -o vi
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/scr"
+# For manually installed local cargo
+source $HOME/.cargo/env
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -84,6 +90,3 @@ PERL5LIB="/home/timtro/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LI
 PERL_LOCAL_LIB_ROOT="/home/timtro/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/timtro/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/timtro/perl5"; export PERL_MM_OPT;
-
-# For manually installed local cargo
-source $HOME/.cargo/env
