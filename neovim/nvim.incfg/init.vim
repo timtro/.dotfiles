@@ -108,7 +108,6 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
-Bundle 'ScrollColors'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'rakr/vim-one'
@@ -238,6 +237,8 @@ if exists('g:GtkGuiLoaded')
   runtime ./colours/dejour-gui.vim
 else
   set t_Co=256
+  " set termguicolors
+  set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
   runtime ./colours/dejour.vim
 endif
 
