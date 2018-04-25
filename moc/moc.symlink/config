@@ -1,4 +1,4 @@
-XTermTheme        = transparent-background
+Theme             = darkdot_theme
 SeekTime          = 1
 Keymap            = keymap
 SilentSeekTime    = 5
