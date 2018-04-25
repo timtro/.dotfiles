@@ -71,6 +71,8 @@ myKeys =
   [ ("M-S-r",
       spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
   , ("M-S-x"                 , spawn "xkill" )
+  , ("M-M1-r"                , spawn "reboot")
+  , ("M-M1-p"                , spawn "shutdown -P now")
   , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
   , ("M-p"                   , spawn "rofi -combi-modi run,drun -show combi" )
   , ("M-<XF86AudioNext>"     , spawn "variety --next" )
