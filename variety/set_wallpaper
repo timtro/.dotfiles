@@ -31,9 +31,14 @@ WP=$1
 
 
 # Gnome 3, Unity
+# I use gsettings in the get_wallpaper script, so this needs to happen.
 gsettings set org.gnome.desktop.background picture-uri "file://$WP" 2> /dev/null
 if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" ]; then
     gsettings set org.gnome.desktop.background picture-options 'zoom'
 fi
 
-feh --bg-fill "$WP" 2> /dev/null
+if command -v wal; then
+  wal -gi "$WP" 2>/dev/null
+else
+  feh --bg-fill "$WP" 2> /dev/null
+fi
