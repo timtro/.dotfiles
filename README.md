@@ -46,7 +46,8 @@ Hopefully, I will get fed up and write these properly into the install scripts.
 
  * pip3 install terminal-colours # from https://github.com/eikenb/terminal-colors
  * https://pipeseroni.github.io/, or specifically https://github.com/pipeseroni/pipes.sh
-
+ * pip3 install pywal
+ * https://github.com/andmarti1424/sc-im
 
 ## TODO:
 * Write system to link `.cfg_symlink` files into `~/.config/`.
