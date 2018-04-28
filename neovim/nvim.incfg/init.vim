@@ -139,7 +139,7 @@ Plugin 'beigebrucewayne/Turtles'
 Plugin 'yuttie/hydrangea-vim'
 Plugin 'nightsense/vimspectr'
 Plugin 'atelierbram/Base2Tone-vim'
-
+Plugin 'dylanaraps/wal.vim'
 
 
 """ END colorschemes
@@ -232,7 +232,7 @@ set pastetoggle=<F11>
 " let g:indentLine_char = '⎸'
 let g:indentLine_char = '▏'
 
-if exists('g:GtkGuiLoaded')
+if has("gui_running") || exists('g:GtkGuiLoaded')
   set termguicolors
   runtime ./colours/dejour-gui.vim
 else
