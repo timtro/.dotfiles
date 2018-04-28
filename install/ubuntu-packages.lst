@@ -118,6 +118,10 @@
   libboost-all-dev
   valgrind
   kcachegrind
+  # For building sc-im
+    bison
+    libncurses-dev
+    libncursesw5-dev
 
 # Gnome
   gnome-shell-extension-caffeine
