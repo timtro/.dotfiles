@@ -86,6 +86,7 @@ Plugin 'lervag/vimtex'
 Plugin 'glts/vim-texlog.git'
 
 """ Programming
+Plugin 'tomtom/tcomment_vim'
 Plugin 'rhysd/vim-clang-format'
   let g:clang_format#command = "clang-format-7"
 Plugin 'godlygeek/tabular'
