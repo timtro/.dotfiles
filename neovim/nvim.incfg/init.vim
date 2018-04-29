@@ -36,75 +36,64 @@ call vundle#begin()
 """   Options related to plugins are kept near their Plugin delcaration.
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'FuzzyFinder'
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_follow_symlinks = 1
 Plugin 'tpope/vim-fugitive'
-" Plugin 'L9'
 Plugin 'airblade/vim-gitgutter.git'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'blindFS/vim-colorpicker'
-let g:color_picker_version = 3
-
+  let g:color_picker_version = 3
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts = 1
-let g:airline_detect_modified = 1
-let g:airline#extensions#tabline#enabled = 1
-
+  let g:airline_powerline_fonts = 1
+  let g:airline_detect_modified = 1
+  let g:airline#extensions#tabline#enabled = 1
 Plugin 'myusuf3/numbers.vim'
-let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
-nnoremap <F5> :NumbersToggle<CR>
-nnoremap <F6> :NumbersOnOff<CR>
-
+  let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl', 'nerdtree']
+  nnoremap <F5> :NumbersToggle<CR>
+  nnoremap <F6> :NumbersOnOff<CR>
 Plugin 'qpkorr/vim-bufkill'
 
 """ Plug: The NERDs :)
 Plugin 'scrooloose/nerdcommenter'
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDSpaceDelims = 1
-
+  let g:NERDCommentEmptyLines = 1
+  let g:NERDTrimTrailingWhitespace = 1
+  let g:NERDDefaultAlign = 'left'
+  let g:NERDSpaceDelims = 1
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeIgnore = ['\.pyc$']
-" Nerdtree start when file not opened
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "~",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "~",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : "○",
-    \ "Unknown"   : "?"
-    \ }
+  let g:NERDTreeShowIgnoredStatus = 1
+  let g:NERDTreeIgnore = ['\.pyc$']
+  " Nerdtree start when file not opened
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "~",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "~",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : "○",
+      \ "Unknown"   : "?"
+      \ }
 """ END The NERDs
 
-""" Plug: Polyglot, VimTeX and LaTeX related
-" Plugin 'sheerun/vim-polyglot'
-" let g:polyglot_disabled = ['latex']
+""" LaTeX related
 Plugin 'lervag/vimtex'
 Plugin 'glts/vim-texlog.git'
 
-""" Plug: Programming
+""" Programming
 Plugin 'rhysd/vim-clang-format'
-let g:clang_format#command = "clang-format-7"
-
+  let g:clang_format#command = "clang-format-7"
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-" Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'junegunn/rainbow_parentheses.vim'
-let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+  let g:rainbow#max_level = 16
+  let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -141,34 +130,11 @@ Plugin 'nightsense/vimspectr'
 Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'dylanaraps/wal.vim'
 
-
 """ END colorschemes
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-""" Post Vundle Plugin Config
-"-------------------------------------------------------------------------------
-
-" YouCompleteMe :
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
-" VimTeX
-let g:vimtex_complete_close_braces = 1
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_view_method='zathura'
-let g:vimtex_view_forward_search_on_start=1
-" Make compiler single shot. No `latexmk -pvc`.
-let g:vimtex_compiler_latexmk = {'continuous' : 0}
-" Auto indenting on braces makes it very difficult to break text on
-" Punctuation.
-let g:tex_indent_brace = 0
-
 
 "-------------------------------------------------------------------------------
 """ General Editor Configuration
@@ -220,6 +186,27 @@ set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
 " Use X11 clipboard be default.
 " set clipboard=unnamedplus
+
+""" Post Vundle Plugin Config
+"-------------------------------------------------------------------------------
+
+" YouCompleteMe :
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" VimTeX
+let g:vimtex_complete_close_braces = 1
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_method='zathura'
+let g:vimtex_view_forward_search_on_start=1
+" Make compiler single shot. No `latexmk -pvc`.
+let g:vimtex_compiler_latexmk = {'continuous' : 0}
+" Auto indenting on braces makes it very difficult to break text on
+" Punctuation.
+let g:tex_indent_brace = 0
 
 
 """ Aesthetics
