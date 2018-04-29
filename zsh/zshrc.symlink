@@ -4,10 +4,10 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, set to "random".
 
-# ZSH_THEME="agnoster"
+ZSH_THEME="timtros-agnoster"
 # ZSH_THEME="bira"
 # ZSH_THEME="bureau"
-ZSH_THEME="gnzh"
+# ZSH_THEME="gnzh"
 
 DEFAULT_USER="timtro"
 
