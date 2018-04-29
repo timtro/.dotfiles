@@ -1,6 +1,8 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
-# agnoster's Theme - https://gist.github.com/3712874
+# Timtro's slight modification to agnoster's theme.
+#
+# Based on agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
 # # README
@@ -73,7 +75,7 @@ prompt_end() {
   echo -n "%{%f%}"
   CURRENT_BG=''
   echo -n '
-╰─%F{red}>%F{yellow}>%F{blue}> '
+╰─%F{red}>%F{yellow}>%F{green}> '
   echo -n "%{%f%}"
 }
 
