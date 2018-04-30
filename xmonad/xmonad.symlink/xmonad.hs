@@ -146,6 +146,7 @@ myManageHook = composeAll
     , className =? "Tk"                   --> doCenterFloat
     , className =? "vlc"                  --> doCenterFloat
     , className =? "Totem"                --> doCenterFloat
+    , className =? "Eog"                  --> doCenterFloat
     , className =? "Gnuplot"              --> doCenterFloat
     , className =? "gnuplot_qt"           --> doCenterFloat
     , isFullscreen                        --> doFullFloat
