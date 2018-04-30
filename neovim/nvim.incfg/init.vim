@@ -65,8 +65,11 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
   let g:NERDTreeShowIgnoredStatus = 1
   let g:NERDTreeIgnore = ['\.pyc$']
   " Nerdtree start when file not opened
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  augroup NERDTreeAU
+    autocmd!
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  augroup END
   let g:NERDTreeIndicatorMapCustom = {
       \ "Modified"  : "~",
       \ "Staged"    : "✚",
@@ -95,6 +98,12 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+
+augroup rainbow_langs
+  autocmd!
+  autocmd FileType c,cpp,haskell,python RainbowParentheses
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -187,6 +196,12 @@ set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
 " Use X11 clipboard be default.
 " set clipboard=unnamedplus
+
+augroup general
+  autocmd!
+  " Automatically deletes all tralling whitespace on save.
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
 
 """ Post Vundle Plugin Config
 "-------------------------------------------------------------------------------
@@ -293,10 +308,20 @@ map <silent><F2> :PREVCOLOR<cr>
 map <C-n> :NERDTreeToggle<CR>
 
 " C++ stuff
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+augroup cpp_stuff
+  autocmd!
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+augroup END
+
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+" Navigating with guides
+inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+map <Space><Tab> <Esc>/<++><Enter>"_c4l
+inoremap ;gui <++>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
