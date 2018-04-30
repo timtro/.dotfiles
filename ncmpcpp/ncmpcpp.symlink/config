@@ -1,0 +1,25 @@
+
+user               "timtro"
+bind_to_address    "localhost"
+port               "6600"
+follow_outside_symlinks "yes"
+follow_inside_symlinks "yes"
+music_directory   "/home/timtro/Music"
+playlist_directory "/home/timtro/Music/playlists"
+db_file            "/home/timtro/.mpd/mpd.db"
+log_file           "/home/timtro/.mpd/mpd.log"
+pid_file           "/home/timtro/.mpd/mpd.pid"
+state_file         "/home/timtro/.mpd/mpdstate"
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"
+
+audio_output {
+    type  "pulse"
+    name  "MPD"
+}
+

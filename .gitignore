@@ -54,3 +54,12 @@ emacs/emacs.d.symlink/tramp
 
 # Symbolic link to define the colorscheme without modifying xmonad.hs
 colours/Xresources/dejour
+
+# MPD
+mpd/mpd.symlink/mpd.db
+mpd/mpd.symlink/mpd.log
+mpd/mpd.symlink/mpd.pid
+mpd/mpd.symlink/mpdstate
+
+#Ncmpcpp
+ncmpcpp/ncmpcpp.symlink/error.log
