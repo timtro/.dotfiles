@@ -17,6 +17,8 @@ alias work='cd ~/workspace'
 
 # Utility aliases
 alias watch_cpu="watch -n 0 'lscpu | grep MHz'"
+alias lsport="netstat -tulpn"
+alias lssock="ss"
 alias xrdb-replace='xrdb -remove -all && xrdb -load'
 alias Clear="clear && print_greeting"
 
