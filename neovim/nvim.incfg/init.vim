@@ -318,10 +318,10 @@ augroup END
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 " Navigating with guides
-inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-map <Space><Tab> <Esc>/<++><Enter>"_c4l
-inoremap ;gui <++>
+" inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+" vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+" map <Space><Tab> <Esc>/<++><Enter>"_c4l
+" inoremap ;gui <++>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
