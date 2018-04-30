@@ -1,10 +1,11 @@
-BasedOnStyle: LLVM
+BasedOnStyle: Google
 IndentWidth: 2
 TabWidth: 2
 UseTab: Never
 ---
 Language: Cpp
 Standard: Auto
+BreakBeforeBinaryOperators: NonAssignment 
 AlwaysBreakTemplateDeclarations: true
 BinPackArguments: true
 BinPackParameters: true
