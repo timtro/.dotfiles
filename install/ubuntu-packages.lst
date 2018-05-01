@@ -34,7 +34,6 @@
   w3m-img
   guake
   neofetch
-  moc
   ranger
   tree
   # expect provides unbuffer command for color with GNU/less.
@@ -44,6 +43,9 @@
   figlet
   lolcat
   cowsay
+  mpd
+  mpc
+  ncmpcpp
 
 # Text editing
   texlive-full
