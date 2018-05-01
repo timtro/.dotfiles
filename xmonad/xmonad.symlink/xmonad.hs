@@ -74,7 +74,7 @@ myKeys =
   , ("M-M1-r"                , spawn "reboot")
   , ("M-M1-p"                , spawn "shutdown -P now")
   , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
-  , ("M-p"                   , spawn "rofi -combi-modi run,drun -show combi" )
+  , ("M-p"                   , spawn "rofi -show combi" )
   , ("M-<XF86AudioNext>"     , spawn "variety --next" )
   , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
   , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
