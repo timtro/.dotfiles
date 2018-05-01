@@ -31,7 +31,7 @@ import XMonad.Hooks.ManageHelpers
   ( isFullscreen
   , doFullFloat
   , doCenterFloat
-  , doFloatAt 
+  , doFloatAt
   , Side( SC, NC, CE, CW, SE, SW, NE, NW, C )
   , doSideFloat
   )
@@ -61,8 +61,8 @@ myConfig = defaultConfig
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
   , terminal           = "kitty"
   , borderWidth        = 1
-  , normalBorderColor  = "#282828"
-  , focusedBorderColor = "#49789A"
+  , normalBorderColor  = bg
+  , focusedBorderColor = dkBlue
   , focusFollowsMouse  = False
   } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
@@ -118,12 +118,12 @@ hostBarCmd host
 
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP = xmobarPP
-  { ppCurrent = xmobarColor "#181715" "#58C5F1" . wrap "[" "]"
-  , ppTitle   = xmobarColor "#14FF08" "" . shorten 120
-  , ppVisible = xmobarColor "#58C5F1" "#181715" . wrap "(" ")"
-  , ppUrgent  = xmobarColor "#181715" "#D81816"
-  , ppHidden  = xmobarColor "#58C5F1" "#181715"
-  , ppSep     = "  •  "
+  { ppCurrent = xmobarColor blue "" . wrap "[" "]"
+  , ppTitle   = xmobarColor ltGreen "" . shorten 120
+  , ppVisible = xmobarColor blue "" . wrap "(" ")"
+  , ppUrgent  = xmobarColor red ""
+  , ppHidden  = xmobarColor blue ""
+  , ppSep     = xmobarColor yellow "" "  •  "
   }
 
   -- keybinding for toggling the gap for the statusbar
@@ -187,14 +187,50 @@ scratchPads =
 doFloatPaneLeft = customFloating $ RationalRect l t w h
     where
       w = 0.51           -- width
-      h = 1 - 2 * t      -- height, %/100 
+      h = 1 - 2 * t      -- height, %/100
       l = hMargin        -- left endge
       t = vMargin        -- top edge
 
 doFloatCornerBox = customFloating $ RationalRect l t w h
     where
       w = 0.33                    -- width
-      h = 0.33                    -- height, %/100 
+      h = 0.33                    -- height, %/100
       l = (1 - w) - hMargin       -- left endge
       t = vMargin                 -- top edge
 
+-- Gruvbox colours:
+fg         = "#ebdbb2"
+bg         = "#282828"
+dkRed      = "#9d0006"
+red        = "#cc241d"
+ltRed      = "#fb4934"
+dkGreen    = "#79740e"
+green      = "#98971a"
+ltGreen    = "#b8bb26"
+dkYellow   = "#b57614"
+yellow     = "#d79921"
+ltYellow   = "#fabd2f"
+dkBlue     = "#076678"
+blue       = "#458588"
+ltBlue     = "#83a598"
+dkPurple   = "#8f3f71"
+purple     = "#b16286"
+ltPurple   = "#d3869b"
+dkCyan     = "#427b58"
+cyan       = "#689d6a"
+ltCyan     = "#8ec07c"
+dkOrange   = "#af3a03"
+orange     = "#d65d0e"
+ltOrange   = "#fe8019"
+ltGrey     = "#a89984"
+bg_h       = "#1d2021"
+bg_s       = "#32302f"
+bg1        = "#3c3836"
+bg2        = "#504945"
+bg3        = "#665c54"
+bg4        = "#7c6f64"
+fg0        = "#fbf1c7"
+fg1        = "#ebdbb2"
+fg2        = "#d5c4a1"
+fg3        = "#bdae93"
+fg4        = "#a89984"
