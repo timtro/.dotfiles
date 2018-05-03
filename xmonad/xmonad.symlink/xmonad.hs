@@ -46,9 +46,14 @@ main = do
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
   spawn "xcompmgr -fF -I-.01 -O-.01 -D1"
-  spawn "~/.dotfiles/xmonad/XmonadStartup.sh"
+  spawn "~/.xmonad/scr/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
-  spawn "xautolock -corners 00-- -time 10 -locker \"gnome-screensaver-command -l\" -notify 10 -notifier \"notify-send -t 5000 -i gtk-dialog-info \'Locking in 10 seconds\'\""
+  spawn $ "xautolock "
+              ++ "-corners 00-- "
+              ++ "-time 10 "
+              ++ "-locker \"gnome-screensaver-command -l\" -notify 10 "
+              ++ "-notifier \"notify-send -t 5000 "
+              ++ "-i gtk-dialog-info \'Locking in 10 seconds\'\" "
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/dejour"
 
 myConfig = defaultConfig
@@ -69,7 +74,11 @@ myConfig = defaultConfig
 -- ## Keybindings. NB: using `additionalKeysP` for Emacs style notation.
 myKeys =
   [ ("M-S-r",
-      spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
+      spawn $ "if type xmonad; then "
+          ++    "xmonad --recompile &&"
+          ++    "xmonad --restart; "
+          ++  "else"
+          ++    "xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
   , ("M-S-x"                 , spawn "xkill" )
   , ("M-M1-r"                , spawn "reboot")
   , ("M-M1-p"                , spawn "shutdown -P now")
@@ -86,6 +95,7 @@ myKeys =
   , ("<XF86AudioStop>"       , spawn "mpc --no-status stop" )
   , ("<XF86AudioPrev>"       , spawn "mpc --no-status prev" )
   , ("<XF86AudioNext>"       , spawn "mpc --no-status next" )
+  , ("<XF86Search>"          , spawn "~/.xmonad/scr/display-mirror.sh" )
   , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
   -- Scratchpads
   , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
