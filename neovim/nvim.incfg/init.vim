@@ -224,6 +224,11 @@ let g:vimtex_compiler_latexmk = {'continuous' : 0}
 " Punctuation.
 let g:tex_indent_brace = 0
 
+augroup tex
+  autocmd!
+  autocmd FileType tex set foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
+  "foldtext=vimtex#fold#text)
+augroup END
 
 """ Aesthetics
 "-------------------------------------------------------------------------------
@@ -317,15 +322,10 @@ augroup END
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
-" Navigating with guides
-" inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-" vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-" map <Space><Tab> <Esc>/<++><Enter>"_c4l
-" inoremap ;gui <++>
-
+" Easymotion searching:
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-
+"
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
