@@ -44,6 +44,9 @@
   lolcat
   cowsay
   mpd
+  # Don't forget to disable mpd in systemctl:
+  #   sudo systemctl disable mpd
+  #   sudo systemctl disable mpd.socket
   mpc
   ncmpcpp
 

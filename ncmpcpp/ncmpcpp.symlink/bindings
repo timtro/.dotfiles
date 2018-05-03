@@ -18,7 +18,8 @@ def_key "G"
   move_end
 def_key "ctrl-g"
   jump_to_position_in_song
-
+def_key "ctrl-v"
+  toggle_visualization_type
 
 ## All bindings from the doc:
 #
