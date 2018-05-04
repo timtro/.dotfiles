@@ -54,3 +54,7 @@ Hopefully, I will get fed up and write these properly into the install scripts.
 * Add option to install vs code. Link: https://go.microsoft.com/fwlink/?LinkID=760868
 * cabal update && cabal install hostname
 * perhaps pake a pacakge manger instance for cabal?
+* After installation, the mpd deamon needs to be disabled so that it can be run
+    locally by users:
+      - `sudo systemctl disable mpd`
+      - `sudo systemctl disable mpd.socket`

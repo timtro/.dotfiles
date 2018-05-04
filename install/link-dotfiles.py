@@ -23,6 +23,10 @@ def main():
             home / ".vim/bundle/Vundle.vim"]
         local['vim']["+PluginInstall", "+qall"]
 
+    # TODO:
+    # * ln -s $HOME/.dotfiles/zsh/themes/timtros-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/.
+    # *
+
 
 def link_a_linkable(tgt):
     dest = local.env.home / (

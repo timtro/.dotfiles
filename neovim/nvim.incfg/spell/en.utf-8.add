@@ -80,3 +80,8 @@ analysed
 analyse
 3
 started
+functor
+unary
+fmap
+catamorphism
+anamorphism
