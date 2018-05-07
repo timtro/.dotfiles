@@ -82,6 +82,12 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
       \ 'Ignored'   : "○",
       \ "Unknown"   : "?"
       \ }
+
+  " Show markers for ignored files?
+  " let g:NERDTreeShowIgnoredStatus = 0
+  " If yes, make them the colorschemes comment colour:
+  hi def link NERDTreeGitStatusIgnored Comment
+
 """ END The NERDs
 
 """ LaTeX related
