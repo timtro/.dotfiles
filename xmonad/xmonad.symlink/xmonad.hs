@@ -185,7 +185,7 @@ scratchPads =
         l = 0.5 - (w - 0.5) - hMargin  -- left edge, %/100
         t = vMargin                    -- top edge, %/100
 
-    spawnFileBrowser = "nautilus --class scratchBrowser"
+    spawnFileBrowser = "nautilus --new-window --class scratchBrowser"
     findFileBrowser = className  =? "scratchBrowser"
     manageFileBrowser = doFloatPaneLeft
 
