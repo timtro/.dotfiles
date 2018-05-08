@@ -1,4 +1,6 @@
 import XMonad
+import Data.Map.Strict as Map
+import Data.Maybe ( fromJust )
 import XMonad.Layout.Spacing ( spacing )
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
@@ -216,38 +218,48 @@ doFloatCornerBox = customFloating $ RationalRect l t w h
       t = vMargin                 -- top edge
 
 -- Gruvbox colours:
-fg         = "#ebdbb2"
-bg         = "#282828"
-dkRed      = "#9d0006"
-red        = "#cc241d"
-ltRed      = "#fb4934"
-dkGreen    = "#79740e"
-green      = "#98971a"
-ltGreen    = "#b8bb26"
-dkYellow   = "#b57614"
-yellow     = "#d79921"
-ltYellow   = "#fabd2f"
-dkBlue     = "#076678"
-blue       = "#458588"
-ltBlue     = "#83a598"
-dkPurple   = "#8f3f71"
-purple     = "#b16286"
-ltPurple   = "#d3869b"
-dkCyan     = "#427b58"
-cyan       = "#689d6a"
-ltCyan     = "#8ec07c"
-dkOrange   = "#af3a03"
-orange     = "#d65d0e"
-ltOrange   = "#fe8019"
-ltGrey     = "#a89984"
-bg_h       = "#1d2021"
-bg_s       = "#32302f"
-bg1        = "#3c3836"
-bg2        = "#504945"
-bg3        = "#665c54"
-bg4        = "#7c6f64"
-fg0        = "#fbf1c7"
-fg1        = "#ebdbb2"
-fg2        = "#d5c4a1"
-fg3        = "#bdae93"
-fg4        = "#a89984"
+
+bg = fromJust $ Map.lookup "bg" gruvColours
+red = fromJust $ Map.lookup "red" gruvColours
+yellow = fromJust $ Map.lookup "yellow" gruvColours
+blue = fromJust $ Map.lookup "blue" gruvColours
+dkBlue = fromJust $ Map.lookup "dkBlue" gruvColours
+ltGreen = fromJust $ Map.lookup "ltGreen" gruvColours
+
+gruvColours = Map.fromList
+  [ ("fg"       , "#ebdbb2")
+  , ("bg"       , "#282828")
+  , ("dkRed"    , "#9d0006")
+  , ("red"      , "#cc241d")
+  , ("ltRed"    , "#fb4934")
+  , ("dkGreen"  , "#79740e")
+  , ("green"    , "#98971a")
+  , ("ltGreen"  , "#b8bb26")
+  , ("dkYellow" , "#b57614")
+  , ("yellow"   , "#d79921")
+  , ("ltYellow" , "#fabd2f")
+  , ("dkBlue"   , "#076678")
+  , ("blue"     , "#458588")
+  , ("ltBlue"   , "#83a598")
+  , ("dkPurple" , "#8f3f71")
+  , ("purple"   , "#b16286")
+  , ("ltPurple" , "#d3869b")
+  , ("dkCyan"   , "#427b58")
+  , ("cyan"     , "#689d6a")
+  , ("ltCyan"   , "#8ec07c")
+  , ("dkOrange" , "#af3a03")
+  , ("orange"   , "#d65d0e")
+  , ("ltOrange" , "#fe8019")
+  , ("ltGrey"   , "#a89984")
+  , ("bg_h"     , "#1d2021")
+  , ("bg_s"     , "#32302f")
+  , ("bg1"      , "#3c3836")
+  , ("bg2"      , "#504945")
+  , ("bg3"      , "#665c54")
+  , ("bg4"      , "#7c6f64")
+  , ("fg0"      , "#fbf1c7")
+  , ("fg1"      , "#ebdbb2")
+  , ("fg2"      , "#d5c4a1")
+  , ("fg3"      , "#bdae93")
+  , ("fg4"      , "#a89984")
+  ]
