@@ -104,6 +104,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'Shougo/vimproc.vim'
 
 augroup rainbow_langs
   autocmd!
