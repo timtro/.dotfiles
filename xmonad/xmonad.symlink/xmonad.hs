@@ -9,7 +9,8 @@ import XMonad.Util.NamedScratchpad
   , namedScratchpadManageHook
   )
 import XMonad.Hooks.DynamicLog
-  ( statusBar
+  ( PP
+  , statusBar
   , xmobarPP
   , xmobarColor
   , wrap
@@ -38,11 +39,13 @@ import XMonad.Hooks.ManageHelpers
 
 import Data.Ratio
 
+main :: IO ()
 main = do
   hostname <- getHostName
   configWithBar <- statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
   xmonad $ ewmh configWithBar
 
+myStartupHook :: X ()
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
   spawn "xcompmgr -fF -I-.01 -O-.01 -D1"
@@ -72,6 +75,7 @@ myConfig = defaultConfig
   } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
 -- ## Keybindings. NB: using `additionalKeysP` for Emacs style notation.
+myKeys :: [( [Char], X () )]
 myKeys =
   [ ("M-S-r",
       spawn $ "if type xmonad; then "
@@ -127,6 +131,7 @@ hostBarCmd host
     baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
 
 -- [xmobarPP](https://goo.gl/8djnRu)
+myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
   { ppCurrent = xmobarColor blue "" . wrap "[" "]"
   , ppTitle   = xmobarColor ltGreen "" . shorten 120
@@ -170,6 +175,7 @@ myManageHook = composeAll
 hMargin = 0.03
 vMargin = 0.05
 
+scratchPads :: [NamedScratchpad]
 scratchPads =
   [ NS "scratchTerminal" spawnTerm  findTerm  manageTerm
   , NS "scratchFileBrowser" spawnFileBrowser findFileBrowser manageFileBrowser
@@ -193,7 +199,7 @@ scratchPads =
     findSlack = className  =? "Slack"
     manageSlack = doFloatPaneLeft
 
-
+doFloatPaneLeft :: ManageHook
 doFloatPaneLeft = customFloating $ RationalRect l t w h
     where
       w = 0.51           -- width
@@ -201,6 +207,7 @@ doFloatPaneLeft = customFloating $ RationalRect l t w h
       l = hMargin        -- left endge
       t = vMargin        -- top edge
 
+doFloatCornerBox :: ManageHook
 doFloatCornerBox = customFloating $ RationalRect l t w h
     where
       w = 0.33                    -- width
