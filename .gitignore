@@ -61,5 +61,9 @@ mpd/mpd.symlink/mpd.log
 mpd/mpd.symlink/mpd.pid
 mpd/mpd.symlink/mpdstate
 
-#Ncmpcpp
+# Ncmpcpp
 ncmpcpp/ncmpcpp.symlink/error.log
+
+# Inkscape
+inkscape/inscape.incfg/extension-errors.log
+inkscape/inscape.incfg/preferences.xml
