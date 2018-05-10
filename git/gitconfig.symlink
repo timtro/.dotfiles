@@ -1,0 +1,15 @@
+[user]
+  name = timtro
+  email = timtro@gmail.com
+[colour]
+  ui = true
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+  tool = nvimmerge
+[mergetool]
+  prompt = true
+[mergetool "nvimmerge"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
