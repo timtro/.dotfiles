@@ -47,6 +47,9 @@ main = do
   configWithBar <- statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
   xmonad $ ewmh configWithBar
 
+ -- The X monad, ReaderT and StateT transformers over IO encapsulating the
+ --   window manager configuration and state, respectively.
+ -- https://hackage.haskell.org/package/xmonad-0.13/docs/XMonad-Core.html#t:X
 myStartupHook :: X ()
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
@@ -144,11 +147,13 @@ myPP = xmobarPP
   }
 
   -- keybinding for toggling the gap for the statusbar
+toggleGapsKey :: XConfig t -> (KeyMask, KeySym)
 toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
 -- [XMonad.ManageHook](https://goo.gl/cYgtp5)
 myManageHook = composeAll
-    [ className =? "MPlayer"              --> doFloat
+    [ isFullscreen                        --> doFullFloat
+    , className =? "MPlayer"              --> doFloat
     , className =? "Gimp"                 --> doFloat
     , className =? "Insync.py"            --> doFloat
     , className =? "Variety"              --> doFloat
@@ -156,8 +161,6 @@ myManageHook = composeAll
     , className =? "Xmessage"             --> doFloat
     , className =? "Pavucontrol"          --> doFloatCornerBox
     , className =? "Scp-dbus-service.py"  --> doFloatCornerBox
-    , className =? "Colorpicker2.py"      --> doFloat
-    , className =? "Colorpicker3.py"      --> doFloat
     , className =? "Blueman-manager"      --> doCenterFloat
     , className =? "Blueman-assistant"    --> doCenterFloat
     , className =? "Tk"                   --> doCenterFloat
@@ -166,7 +169,8 @@ myManageHook = composeAll
     , className =? "Eog"                  --> doCenterFloat
     , className =? "Gnuplot"              --> doCenterFloat
     , className =? "gnuplot_qt"           --> doCenterFloat
-    , isFullscreen                        --> doFullFloat
+    , className =? "Firefox"
+                  <&&> title =? "Library" --> doCenterFloat
     ]
 
 -- ## Scratchpads
@@ -174,7 +178,10 @@ myManageHook = composeAll
 -- [XMonad.Util.NamedScratchpad](https://goo.gl/nHveju)
 -- NS is the constructor for a NamedScratchpad.
 
+hMargin :: Rational
 hMargin = 0.03
+
+vMargin :: Rational
 vMargin = 0.05
 
 scratchPads :: [NamedScratchpad]
@@ -219,13 +226,25 @@ doFloatCornerBox = customFloating $ RationalRect l t w h
 
 -- Gruvbox colours:
 
+bg :: [Char]
 bg = fromJust $ Map.lookup "bg" gruvColours
+
+red :: [Char]
 red = fromJust $ Map.lookup "red" gruvColours
+
+yellow :: [Char]
 yellow = fromJust $ Map.lookup "yellow" gruvColours
+
+blue :: [Char]
 blue = fromJust $ Map.lookup "blue" gruvColours
+
+dkBlue :: [Char]
 dkBlue = fromJust $ Map.lookup "dkBlue" gruvColours
+
+ltGreen :: [Char]
 ltGreen = fromJust $ Map.lookup "ltGreen" gruvColours
 
+gruvColours :: Map [Char] [Char]
 gruvColours = Map.fromList
   [ ("fg"       , "#ebdbb2")
   , ("bg"       , "#282828")
