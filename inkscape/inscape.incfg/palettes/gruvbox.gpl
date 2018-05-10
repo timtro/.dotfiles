@@ -1,0 +1,53 @@
+GIMP Palette
+Name: Gruvbox
+# By Tim Teatro
+# Based on https://github.com/morhetz/gruvbox
+157   0   6	dk red
+204  36  29	red
+251  73  52	lt red
+175  58   3	dkorange
+214  93  14	orange
+254 128  25	lt orange
+181 118  20	dk yellow
+215 153  33	yellow
+250 189  47	lt yellow
+121 116  14	dk green
+152 151  26	green
+184 187  38	lt green
+  7 102 120	dk blue
+ 69 133 136	blue
+131 165 152	lt blue
+ 66 123  88	dk aqua
+104 157 106	aqua
+142 192 124	lt aqua
+143  63 113	dk purple
+177  98 134	purple
+211 134 155	lt purple
+ 40  40  40	dk bg
+251 241 199	lt bg
+ 29  32  33	dk bg0_h
+ 40  40  40	dk bg0
+ 60  56  54	dk bg1
+ 80  73  69	dk bg2
+102  92  84	dk bg3
+124 111 100	dk bg4
+146 131 116	dk gray
+ 50  48  47	dk bg0_s
+168 153 132	dk fg4
+189 174 147	dk fg 3
+213 196 161	dk fg 2
+235 219 178	dk fg 1
+251 241 199	dk fg0
+249 245 215	lt bg0_h
+251 241 199	lt bg0
+235 219 178	lt bg1
+213 196 161	lt bg2
+189 174 147	lt bg3
+168 153 132	lt bg4
+146 131 116	lt gray
+242 229 188	lt bg0_s
+124 111 100	lt fg4
+102  92  84	lt fg3
+ 80  73  69	lt fg2
+ 60  56  54	lt fg1
+ 40  40  40	lt fg0
