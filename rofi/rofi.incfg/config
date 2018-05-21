@@ -1,5 +1,5 @@
 rofi.font: Hasklig Medium 11
-rofi.theme: gruvbox-dark
+rofi.theme: arthur
 rofi.combi-modi: run,drun
 rofi.modi: combi
 #include "/usr/share/rofi/themes//gruvbox-dark.theme"

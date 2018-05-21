@@ -67,7 +67,7 @@ set -o vi
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/games"
 export PATH="$PATH:$HOME/.local/bin:$HOME/scr:$HOME/.cabal/bin"
 # For manually installed local cargo
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
