@@ -12,6 +12,8 @@
 
 # Desktop
   xmonad
+  stalonetray
+  xcompmgr
   pcmanfm
   libghc-xmonad-contrib-dev
   suckless-tools
@@ -90,10 +92,10 @@
   python3-sympy
   python3-pip
   python3-pandas
-  python3-pylint
   python-autopep8
   flake8
   yapf
+  python-testresources
   # For Kitty/harfbuzz terminal compilation
     libxrandr-dev
     libxi-dev
@@ -115,11 +117,6 @@
   ghc-mod
 
 # Programming dev libraries
-  libplplot-c++11
-  plplot12-driver-qt
-  plplot12-driver-wxwidgets
-  plplot12-driver-cairo
-  plplot12-driver-xwin
   libboost-all-dev
   valgrind
   kcachegrind
@@ -127,6 +124,7 @@
     bison
     libncurses-dev
     libncursesw5-dev
+  libeigen3-dev
 
 # Gnome
   gnome-shell-extension-caffeine
@@ -135,3 +133,6 @@
 # Required later by Google-Chrome
   libappindicator1
   libindicator7
+
+# Node stuff
+  npm

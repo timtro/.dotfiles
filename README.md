@@ -48,13 +48,8 @@ Hopefully, I will get fed up and write these properly into the install scripts.
  * https://pipeseroni.github.io/, or specifically https://github.com/pipeseroni/pipes.sh
  * pip3 install pywal
  * https://github.com/andmarti1424/sc-im
+ * npm install gtop -g
 
 ## TODO:
-* Write system to link `.cfg_symlink` files into `~/.config/`.
 * Add option to install vs code. Link: https://go.microsoft.com/fwlink/?LinkID=760868
-* cabal update && cabal install hostname
 * perhaps pake a pacakge manger instance for cabal?
-* After installation, the mpd deamon needs to be disabled so that it can be run
-    locally by users:
-      - `sudo systemctl disable mpd`
-      - `sudo systemctl disable mpd.socket`

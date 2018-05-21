@@ -49,6 +49,11 @@ def main(pkgs, pkmgr, pymgr):
         mgr.ppa_install('ppa:webupd8team/atom', 'atom')
         local['apm']['stars', '--install'] & FG
 
+    if user_says_yes("Install Neovim stable via ppa?")
+        pkmgr.ppa_install('ppa:neovim-ppa/stable', 'neovim')
+        local['nvim']['+PluginInstall', '+qall']
+        sh[scripts / "setup_YCM.sh"]
+
     if user_says_yes("Would you like to install oh-my-zsh?"):
         sh[scripts / "install_zsh.sh"]
 
