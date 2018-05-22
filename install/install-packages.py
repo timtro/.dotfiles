@@ -14,7 +14,7 @@ from modules.ScriptHelpers import throw_if_nonexistant, user_says_yes, \
 
 def main(pkgs, pkmgr, pymgr):
 
-    scripts = local.cwd / "scr"
+    scripts = local.home / ".dotfiles" / "install" / "scripts"
 
     if pkgs:
         files = list(map(throw_if_nonexistant, map(local.path, pkgs)))
@@ -60,6 +60,7 @@ def main(pkgs, pkmgr, pymgr):
     if user_says_yes("Would you like to install gtk3 themes?"):
         git["-C", "/home/timtro/", "clone", "--verbose",
             "https://github.com/tliron/install-gnome-themes"] & FG
+        local['/home/timtro/install-gnome-themes/install-requirements-debian'] & FG
         local['/home/timtro/install-gnome-themes/install-gnome-themes'] & FG
 
     if user_says_yes("Would you like to install the papirus icons?"):
