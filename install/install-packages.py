@@ -14,7 +14,7 @@ from modules.ScriptHelpers import throw_if_nonexistant, user_says_yes, \
 
 def main(pkgs, pkmgr, pymgr):
 
-    scripts = local.home / ".dotfiles" / "install" / "scripts"
+    scripts = local.env.home / ".dotfiles" / "install" / "scripts"
 
     if pkgs:
         files = list(map(throw_if_nonexistant, map(local.path, pkgs)))
