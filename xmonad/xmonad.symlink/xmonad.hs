@@ -130,7 +130,7 @@ hostBarCmd :: String -> String
 hostBarCmd host
   | host == "photon"      = baseCmd ++ "laptop"
   | host == "qubit"       = baseCmd ++ "desktop"
-  | host == "johnny-five" = baseCmd ++ "desktop"
+  | host == "johnny5"     = baseCmd ++ "desktop"
   | otherwise             = baseCmd ++ "desktop"
   where
     baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
