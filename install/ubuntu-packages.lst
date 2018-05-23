@@ -21,6 +21,7 @@
   hlint
   compton
   xautolock
+  i3lock
   libnotify-bin
   lxappearance
   pnmixer

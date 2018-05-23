@@ -38,7 +38,6 @@ import XMonad.Hooks.ManageHelpers
   , Side( SC, NC, CE, CW, SE, SW, NE, NW, C )
   , doSideFloat
   )
-
 import Data.Ratio
 
 main :: IO ()
@@ -59,7 +58,7 @@ myStartupHook = do
   spawn $ "xautolock "
               ++ "-corners 00-- "
               ++ "-time 10 "
-              ++ "-locker \"gnome-screensaver-command -l\" -notify 10 "
+              ++ "-locker \"" ++ lockerCmd ++ "\" -notify 10 "
               ++ "-notifier \"notify-send -t 5000 "
               ++ "-i gtk-dialog-info \'Locking in 10 seconds\'\" "
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/dejour"
@@ -91,7 +90,7 @@ myKeys =
   , ("M-S-x"                 , spawn "xkill" )
   , ("M-M1-r"                , spawn "reboot")
   , ("M-M1-p"                , spawn "shutdown -P now")
-  , ("M-S-l"                 , spawn "gnome-screensaver-command -l" )
+  , ("M-M1-l"                , spawn $ lockerCmd )
   , ("M-p"                   , spawn "rofi -show combi" )
   , ("M-<XF86AudioNext>"     , spawn "variety --next" )
   , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
@@ -122,6 +121,11 @@ myKeys =
   , ("M-s",            sendMessage $ Swap)
   , ("M-M1-s",         sendMessage $ Rotate)
   ]
+
+lockerCmd :: [Char]
+lockerCmd = "i3lock --color 000000 --tiling "
+                ++ "--image ~/Pictures/wallpaper/custom/lockscreen.svg.png"
+
 
 -- ## Desktop bar and tray config:
 
