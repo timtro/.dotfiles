@@ -123,9 +123,10 @@ myKeys =
   ]
 
 lockerCmd :: [Char]
-lockerCmd = "i3lock --color 000000 --tiling "
-                ++ "--image ~/Pictures/wallpaper/custom/lockscreen.svg.png"
-
+lockerCmd = "i3lock"
+                ++ " --color 000000"
+                ++ " --tiling"
+                ++ " --image ~/Pictures/wallpaper/custom/lockscreen.svg.png"
 
 -- ## Desktop bar and tray config:
 
@@ -200,7 +201,7 @@ scratchPads =
     manageTerm = customFloating $ RationalRect l t w h
       where
         w = 0.5                        -- width, %/100
-        h = 0.80                       -- height, %/100
+        h = 1 - 2 * vMargin            -- height, %/100
         l = 0.5 - (w - 0.5) - hMargin  -- left edge, %/100
         t = vMargin                    -- top edge, %/100
 
