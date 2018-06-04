@@ -1,7 +1,6 @@
 " FOR: https://github.com/lifepillar/vim-solarized8
 " NOT For altercation/vim-colors-solarized
 
-let g:airline_theme = "solarized"
 set background=dark
 
 let g:solarized_bold = 1
@@ -12,6 +11,10 @@ let g:solarized_extra_hi_groups = 1
 let g:solarized_termtrans = 0
 
 colorscheme solarized8_high
+let g:airline_theme = "zenburn"
+" let g:airline_theme = "luna"
+" let g:airline_theme = "materialmonokai"
+" let g:airline_theme = "serene"
 
 let g:solarizedColours =
 \ { 'fg': '#ebdbb2'

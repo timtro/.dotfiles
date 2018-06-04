@@ -53,6 +53,7 @@ Plugin 'myusuf3/numbers.vim'
   nnoremap <F5> :NumbersToggle<CR>
   nnoremap <F6> :NumbersOnOff<CR>
 Plugin 'qpkorr/vim-bufkill'
+Plugin 'junegunn/limelight.vim'
 
 """ Plug: The NERDs :)
 Plugin 'scrooloose/nerdcommenter'

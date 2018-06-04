@@ -12,6 +12,8 @@ alias edxmonad='nvim ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
 alias edzsh='nvim ~/.dotfiles/zsh/zshrc.symlink'
 alias edXdefaults='nvim -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
 alias edkitty='nvim ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
+alias edrofi='nvim ~/.dotfiles/rofi/rofi.incfg/config'
+alias edrofi-flat='nvim ~/.dotfiles/rofi/rofi.incfg/themes/flat.rasi'
 alias work='cd ~/workspace'
 
 

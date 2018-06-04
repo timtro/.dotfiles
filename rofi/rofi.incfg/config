@@ -1,5 +1,5 @@
 rofi.font: Hasklig Medium 11
-rofi.theme: arthur
+// rofi.theme: gruvbox
 rofi.combi-modi: run,drun
 rofi.modi: combi
-#include "/usr/share/rofi/themes//gruvbox-dark.theme"
+rofi.theme: /home/timtro/.config/rofi/themes/flat.rasi
