@@ -23,7 +23,8 @@ if !filereadable(vundle_readme)
     echo ""
     " silent execute "! mkdir -p ~/." . s:editor_path_name . "/bundle"
     silent call mkdir(s:editor_root . '/bundle', "p")
-    silent execute "!git clone https://github.com/VundleVim/Vundle.vim " . s:editor_root . "/bundle/Vundle.vim"
+    silent execute "!git clone https://github.com/VundleVim/Vundle.vim "
+        \ . s:editor_root . "/bundle/Vundle.vim"
     let vundle_installed=0
 endif
 filetype off
@@ -105,14 +106,15 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'Shougo/vimproc.vim'
-
 augroup rainbow_langs
   autocmd!
   autocmd FileType c,cpp,haskell,python RainbowParentheses
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'thaerkh/vim-workspace'
+nnoremap <leader>s :ToggleWorkspace<CR>
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
