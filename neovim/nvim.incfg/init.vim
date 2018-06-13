@@ -55,6 +55,7 @@ Plugin 'myusuf3/numbers.vim'
   nnoremap <F6> :NumbersOnOff<CR>
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'junegunn/limelight.vim'
+Plugin 'shime/vim-livedown'
 
 """ Plug: The NERDs :)
 Plugin 'scrooloose/nerdcommenter'
