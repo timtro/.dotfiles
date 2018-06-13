@@ -68,11 +68,11 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
   let g:NERDTreeShowIgnoredStatus = 1
   let g:NERDTreeIgnore = ['\.pyc$']
   " Nerdtree start when file not opened
-  augroup NERDTreeAU
-    autocmd!
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  augroup END
+  " augroup NERDTreeAU
+  "   autocmd!
+  "   autocmd StdinReadPre * let s:std_in=1
+  "   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  " augroup END
   let g:NERDTreeIndicatorMapCustom = {
       \ "Modified"  : "~",
       \ "Staged"    : "✚",
