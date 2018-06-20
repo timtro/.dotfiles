@@ -1,7 +1,7 @@
 import XMonad
 import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
-import XMonad.Layout.Spacing ( spacing )
+import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing)
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad
@@ -67,12 +67,12 @@ myConfig = defaultConfig
   { modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders
-                          $ spacing 5 (layoutHook defaultConfig ||| emptyBSP)
+                          $ spacingWithEdge 10 (layoutHook defaultConfig ||| emptyBSP)
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
   , terminal           = "kitty"
-  , borderWidth        = 1
+  , borderWidth        = 2
   , normalBorderColor  = bg
   , focusedBorderColor = dkBlue
   , focusFollowsMouse  = False
@@ -109,6 +109,10 @@ myKeys =
   , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
   , ("M-f", namedScratchpadAction scratchPads "scratchFileBrowser")
   , ("M-d", namedScratchpadAction scratchPads "scratchSlack")
+  -- Gaps/spacing
+  , ("M-S-="                 , incSpacing(2) )
+  , ("M-S--"                 , incSpacing(-2) )
+  , ("M-S-0"                 , setSpacing(5) )
   -- Keys for Binary Space Partition Layout
   , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
   , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
@@ -174,6 +178,7 @@ myManageHook = composeAll
     , className =? "Eog"                  --> doCenterFloat
     , className =? "Gnuplot"              --> doCenterFloat
     , className =? "gnuplot_qt"           --> doCenterFloat
+    , className =? "Gnome-calculator"     --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
     ]
