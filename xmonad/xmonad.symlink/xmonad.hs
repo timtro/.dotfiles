@@ -112,7 +112,7 @@ myKeys =
   -- Gaps/spacing
   , ("M-S-="                 , incSpacing(2) )
   , ("M-S--"                 , incSpacing(-2) )
-  , ("M-S-0"                 , setSpacing(5) )
+  , ("M-S-0"                 , setSpacing(10) )
   -- Keys for Binary Space Partition Layout
   , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
   , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
