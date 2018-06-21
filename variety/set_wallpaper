@@ -38,8 +38,8 @@ if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" 
 fi
 
 if command -v wal; then
-  # wal -gi "$WP" 2>/dev/null
-  feh --bg-fill "$WP" 2> /dev/null
+  wal -gi "$WP" 2>/dev/null
+  # feh --bg-fill "$WP" 2> /dev/null
 else
   feh --bg-fill "$WP" 2> /dev/null
 fi
