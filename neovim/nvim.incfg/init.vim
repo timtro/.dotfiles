@@ -254,10 +254,7 @@ if has("gui_running") || exists('g:GtkGuiLoaded')
   set termguicolors
   runtime ./colours/dejour-gui.vim
 else
-  set termguicolors
-  let &t_8f = "\e[38;2;%lu;%lu;%lum"
-  let &t_8b = "\e[48;2;%lu;%lu;%lum"
-  let &t_ut=''
+  " set termguicolors
   set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
   runtime ./colours/dejour.vim
 endif
