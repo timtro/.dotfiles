@@ -41,6 +41,7 @@ Plugin 'kien/ctrlp.vim'
   let g:ctrlp_follow_symlinks = 1
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
+  let g:gitgutter_override_sign_column_highlight = 0
 Plugin 'easymotion/vim-easymotion'
 Plugin 'blindFS/vim-colorpicker'
   let g:color_picker_version = 3
@@ -149,6 +150,7 @@ Plugin 'nightsense/vimspectr'
 Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'icymind/NeoSolarized'
 
 """ END colorschemes
 "
@@ -254,7 +256,7 @@ if has("gui_running") || exists('g:GtkGuiLoaded')
   set termguicolors
   runtime ./colours/dejour-gui.vim
 else
-  " set termguicolors
+  set termguicolors
   set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
   runtime ./colours/dejour.vim
 endif
