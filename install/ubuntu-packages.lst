@@ -3,6 +3,7 @@
 
 # System
   p7zip-full
+  unrar
   gparted
   openssh-server
   net-tools

@@ -1,7 +1,7 @@
 " For dylanaraps/wal.vim, which uses current pywal colours, which are set based
 " on current wallpaper.
 
-set background=dark
+set notermguicolors
 
 colorscheme wal
 let g:airline_theme = "monochrome"
