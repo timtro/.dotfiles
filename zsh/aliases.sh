@@ -26,3 +26,6 @@ alias Clear="clear && print_greeting"
 
 # Theme switching
 alias gruv='source "/home/timtro/.config/nvim/bundle/gruvbox/gruvbox_256palette.sh"'
+
+# Required for kitty to ssh properly:
+alias ssh="kitty +kitten ssh"
