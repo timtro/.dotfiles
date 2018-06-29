@@ -1,4 +1,0 @@
-:eval fm.source(fm.confpath('rc.conf'))
-eval fm.source(fm.confpath('rc.conf'))
-xx
-

@@ -67,3 +67,8 @@ ncmpcpp/ncmpcpp.symlink/error.log
 # Inkscape
 inkscape/inkscape.incfg/extension-errors.log
 inkscape/inkscape.incfg/preferences.xml
+
+# Ranger
+ranger/ranger.incfg/bookmarks
+ranger/ranger.incfg/history
+ranger/ranger.incfg/tagged
