@@ -54,6 +54,8 @@ emacs/emacs.d.symlink/tramp
 
 # Symbolic link to define the colorscheme without modifying xmonad.hs
 colours/Xresources/dejour
+colours/kitty/dejour.conf
+colours/osc/dejour.seq
 
 # MPD
 mpd/mpd.symlink/mpd.db

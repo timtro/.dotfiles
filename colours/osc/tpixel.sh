@@ -5,38 +5,38 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $dir/colourtools.sh
 
 # special
-# *.foreground:   #ffffff
-# *.background:   #141414
-# *.cursorColor:  #e33962
+set_term_fg "#ffffff"
+set_term_bg "#141414"
+set_term_cursor "#e33962"
 
 # black
-cset 0 "00/00/00"
-cset 8 "70/73/6d"
+cset 0 "#000000"
+cset 8 "#70736d"
 
 # red
-cset 1 "a9/2a/49"
-cset 9 "e3/39/62"
+cset 1 "#a92a49"
+cset 9 "#e33962"
 
 # green
-cset 2 "8a/b5/44"
-cset 10 "a7/e3/46"
+cset 2 "#8ab544"
+cset 10 "#a7e346"
 
 # yellow
-cset 3 "f3/9a/26"
-cset 11 "f1/c5/8b"
+cset 3 "#f39a26"
+cset 11 "#f1c58b"
 
 # blue
-cset 4 "51/8b/a3"
-cset 12 "73/b9/d6"
+cset 4 "#518ba3"
+cset 12 "#73b9d6"
 
 # magenta
-cset 5 "97/70/b3"
-cset 13 "c5/98/e6"
+cset 5 "#9770b3"
+cset 13 "#c598e6"
 
 # cyan
-cset 6 "5b/a6/a5"
-cset 14 "82/d9/d8"
+cset 6 "#5ba6a5"
+cset 14 "#82d9d8"
 
 # white
-cset 7 "d3/d7/cf"
-cset 15 "ee/ee/ec"
+cset 7 "#d3d7cf"
+cset 15 "#eeeeec"

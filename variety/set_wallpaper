@@ -39,6 +39,9 @@ fi
 
 if command -v wal; then
   wal -gi "$WP" 2>/dev/null
+  for f in /dev/pts/*; do
+    [ -w $f ] && cat ~/.dotfiles/colours/osc/dejour.seq > $f
+  done
   # feh --bg-fill "$WP" 2> /dev/null
 else
   feh --bg-fill "$WP" 2> /dev/null
