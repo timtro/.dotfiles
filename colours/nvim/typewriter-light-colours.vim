@@ -4,7 +4,7 @@ set background=light
 colorscheme typewriter
 let g:airline_theme = "typewriter"
 
-runtime ./colours/palette.vim
+source ~/.dotfiles/colours/nvim/palette.vim
 
 exe "hi SpellBad cterm=underline ctermfg=9 guifg=".g:palette['gruv:red']
 exe "hi SpellRare cterm=underline ctermfg=12 guifg=".g:palette['gruv:blue']

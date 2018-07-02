@@ -10,7 +10,7 @@ let g:gruvbox_underline = 1
 colorscheme gruvbox
 let g:airline_theme = "gruvbox"
 
-runtime ./colours/palette.vim
+source ~/.dotfiles/colours/nvim/palette.vim
 
 exe "hi SpellBad cterm=underline ctermfg=9 guifg=".g:palette['gruv:ltRed']
 exe "hi SpellRare cterm=underline ctermfg=12 guifg=".g:palette['gruv:ltBlue']

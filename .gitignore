@@ -20,8 +20,6 @@ vim/vim.symlink/bundle/*
 
 # Neovim Packages
 neovim/nvim.incfg/bundle/*
-neovim/nvim.incfg/colours/dejour.vim
-neovim/nvim.incfg/colours/dejour-gui.vim
 
 # Xmonad compilation/working files
 xmonad/xmonad.symlink/xmonad-x86_64-linux
@@ -56,6 +54,8 @@ emacs/emacs.d.symlink/tramp
 colours/Xresources/dejour
 colours/kitty/dejour.conf
 colours/osc/dejour.seq
+colours/nvim/dejour.vim
+colours/nvim/dejour-gui.vim
 
 # MPD
 mpd/mpd.symlink/mpd.db
