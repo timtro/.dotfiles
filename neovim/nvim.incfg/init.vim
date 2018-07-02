@@ -254,11 +254,11 @@ let g:indentLine_char = '▏'
 
 if has("gui_running") || exists('g:GtkGuiLoaded')
   set termguicolors
-  runtime ./colours/dejour-gui.vim
+  source ~/.dotfiles/colours/nvim/dejour-gui.vim
 else
   set termguicolors
   set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
-  runtime ./colours/dejour.vim
+  source ~/.dotfiles/colours/nvim/dejour.vim
 endif
 
 
