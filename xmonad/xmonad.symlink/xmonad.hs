@@ -26,6 +26,7 @@ import XMonad.Hooks.DynamicLog
   )
 import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
 import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
+import XMonad.Hooks.SetWMName
 import XMonad.ManageHook ( doFloat, doIgnore )
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet ( RationalRect( RationalRect ) )
@@ -62,6 +63,9 @@ myStartupHook = do
               ++ "-notifier \"notify-send -t 5000 "
               ++ "-i gtk-dialog-info \'Locking in 10 seconds\'\" "
   spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/dejour"
+  spawn "herp"
+  spawn "derp"
+  setWMName "LG3D"
 
 myConfig = defaultConfig
   { modMask            = mod4Mask -- Use Super instead of Alt
