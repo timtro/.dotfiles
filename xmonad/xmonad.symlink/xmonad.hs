@@ -183,6 +183,7 @@ myManageHook = composeAll
     , className =? "Gnuplot"              --> doCenterFloat
     , className =? "gnuplot_qt"           --> doCenterFloat
     , className =? "Gnome-calculator"     --> doCenterFloat
+    , className =? "MATLAB R2018a"        --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
     ]
