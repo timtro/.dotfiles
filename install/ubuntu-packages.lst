@@ -53,6 +53,7 @@
   #   sudo systemctl disable mpd.socket
   mpc
   ncmpcpp
+  yad
 
 # Text editing
   texlive-full

@@ -43,8 +43,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
   let g:gitgutter_override_sign_column_highlight = 0
 Plugin 'easymotion/vim-easymotion'
-Plugin 'blindFS/vim-colorpicker'
-  let g:color_picker_version = 3
+Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
   let g:airline_powerline_fonts = 1
