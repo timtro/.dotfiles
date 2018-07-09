@@ -39,6 +39,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
   let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|build$',
+  \ 'file': '\v\.(exe|so|dll)$'
+  \ }
+" Can also have 'link' in above dict to match symbolic link names.
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
   let g:gitgutter_override_sign_column_highlight = 0
@@ -114,8 +121,6 @@ augroup rainbow_langs
 augroup END
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'thaerkh/vim-workspace'
-nnoremap <leader>s :ToggleWorkspace<CR>
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -150,6 +155,8 @@ Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'icymind/NeoSolarized'
+Plugin 'challenger-deep-theme/vim'
+Plugin 'ajmwagar/vim-deus'
 
 """ END colorschemes
 "
