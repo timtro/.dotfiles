@@ -132,7 +132,6 @@ Plugin 'crusoexia/vim-monokai'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'arcticicestudio/nord-vim', { 'on':  'NERDTreeToggle' }
 Plugin 'badacadabra/vim-archery'
-Plugin 'rakr/vim-two-firewatch'
 Plugin 'reewr/vim-monokai-phoenix'
 Plugin 'jeetsukumaran/vim-nefertiti'
 Plugin 'tpope/vim-vividchalk'
@@ -157,6 +156,11 @@ Plugin 'lifepillar/vim-solarized8'
 Plugin 'icymind/NeoSolarized'
 Plugin 'challenger-deep-theme/vim'
 Plugin 'ajmwagar/vim-deus'
+Plugin 'dikiaap/minimalist'
+Plugin 'cseelus/vim-colors-lucid'
+Plugin 'liuchengxu/space-vim-dark'
+Plugin 'jacoborus/tender.vim'
+Plugin 'rakr/vim-two-firewatch'
 
 """ END colorschemes
 "
