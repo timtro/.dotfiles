@@ -24,13 +24,8 @@
 # /home/username/Pictures/Wallpapers/Nature/green-tunnel-1920x1080-wallpaper-861.jpg
 
 
-# Here you may apply some additional custom operations on the wallpaper before
-# it is applied. In the end put the path to the actual final wallpaper image
-# file in the WP variable. The default is to simply set WP=$1.
 WP=$1
 
-
-# Gnome 3, Unity
 # I use gsettings in the get_wallpaper script, so this needs to happen.
 gsettings set org.gnome.desktop.background picture-uri "file://$WP" 2> /dev/null
 if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" ]; then
@@ -38,11 +33,10 @@ if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" 
 fi
 
 if command -v wal; then
-  wal -i "$WP" --backend haishoku --saturate 0.9 2>/dev/null
+  wal -i "$WP" --backend schemer2 --saturate 0.5 2>/dev/null
   for f in /dev/pts/*; do
     [ -w $f ] && cat ~/.dotfiles/colours/osc/dejour.seq > $f
   done
-  # feh --bg-fill "$WP" 2> /dev/null
 else
   feh --bg-fill "$WP" 2> /dev/null
 fi
