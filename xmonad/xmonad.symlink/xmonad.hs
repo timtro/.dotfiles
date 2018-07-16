@@ -185,6 +185,7 @@ myManageHook = composeAll
     , className =? "Gnome-calculator"     --> doCenterFloat
     , className =? "MATLAB R2018a"        --> doCenterFloat
     , className =? "Yad"                  --> doCenterFloat
+    , className =? "Qalculate-gtk"        --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
     ]
