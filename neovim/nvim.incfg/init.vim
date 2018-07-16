@@ -110,6 +110,9 @@ Plugin 'rhysd/vim-clang-format'
   let g:clang_format#command = "clang-format-7"
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+  let g:vim_markdown_folding_disabled = 1
+  let g:vim_markdown_conceal = 0
+  let g:vim_markdown_math = 1
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
@@ -220,12 +223,6 @@ set pastetoggle=<F11>
 " Use X11 clipboard be default.
 " set clipboard=unnamedplus
 
-augroup general
-  autocmd!
-  " Automatically deletes all tralling whitespace on save.
-  autocmd BufWritePre * %s/\s\+$//e
-augroup END
-
 """ Post Vundle Plugin Config
 "-------------------------------------------------------------------------------
 
@@ -247,15 +244,56 @@ let g:vimtex_compiler_latexmk = {'continuous' : 0}
 " Punctuation.
 let g:tex_indent_brace = 0
 
+function SoftWrap()
+  " https://agilesysadmin.net/how-to-manage-long-lines-in-vim/
+  setlocal colorcolumn=0
+  setlocal textwidth=0
+  setlocal linebreak
+  setlocal showbreak=↪…
+  setlocal wrap
+
+  " Navigation:
+  nnoremap <buffer> j gj
+  nnoremap <buffer> k gk
+  vnoremap <buffer> j gj
+  vnoremap <buffer> k gk
+  nnoremap <buffer> <Down> gj
+  nnoremap <buffer> <Up> gk
+  vnoremap <buffer> <Down> gj
+  vnoremap <buffer> <Up> gk
+  inoremap <buffer> <Down> <C-o>gj
+  inoremap <buffer> <Up> <C-o>gk
+endfunction
+
+augroup general
+  autocmd!
+  " Automatically deletes all tralling whitespace on save.
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
+
 augroup tex
   autocmd!
   autocmd FileType tex set foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
   "foldtext=vimtex#fold#text)
 augroup END
 
+augroup mardown
+  autocmd!
+  autocmd Filetype markdown
+                    \   call SoftWrap()
+                    \ | set conceallevel=0
+  autocmd VimResized * if (&columns > 80) | set columns=80 | endif
+augroup END
+
+augroup cpp_stuff
+  autocmd!
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+augroup END
+
+
 """ Aesthetics
 "-------------------------------------------------------------------------------
-
 
 " Set the vertical split character
 :set fillchars+=vert:\┃
@@ -289,18 +327,6 @@ map Y y$
 " Map <C-L> redraw screen and purge search hilighting.
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Navigation:
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
 " Move lines around with alt+…
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -333,13 +359,6 @@ map <A-z> :setlocal nowrap!<CR>
 map <silent><F3> :NEXTCOLOR<cr>
 map <silent><F2> :PREVCOLOR<cr>
 map <C-n> :NERDTreeToggle<CR>
-
-" C++ stuff
-augroup cpp_stuff
-  autocmd!
-  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
-  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
-augroup END
 
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
