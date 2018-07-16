@@ -31,5 +31,7 @@ fi
 if [ -d "$HOME/.cabal/bin" ] ; then
     PATH="$HOME/.cabal/bin:$PATH"
 fi
-
-# export PATH
+export GOPATH=$HOME/go
+if [ -d "$HOME/go" ] ; then
+  PATH="${GOPATH//://bin:}/bin:$PATH"
+fi
