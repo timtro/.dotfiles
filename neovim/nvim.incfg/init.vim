@@ -145,6 +145,7 @@ Plugin 'fcpg/vim-fahrenheit'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
+  let g:indentLine_fileTypeExclude = ['markdown']
 Plugin 'logico-dev/typewriter'
 Plugin 'skielbasa/vim-material-monokai'
 Plugin 'beigebrucewayne/Turtles'
