@@ -3,6 +3,8 @@ import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
 import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing)
 import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad
   ( NamedScratchpad( NS )
@@ -71,6 +73,7 @@ myConfig = defaultConfig
   { modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders
+                          $ mkToggle (NOBORDERS ?? FULL ?? EOT)
                           $ spacingWithEdge 10 (layoutHook defaultConfig ||| emptyBSP)
   , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
@@ -117,6 +120,7 @@ myKeys =
   , ("M-S-="                 , incSpacing(2) )
   , ("M-S--"                 , incSpacing(-2) )
   , ("M-S-0"                 , setSpacing(10) )
+  , ("M-M1-<Space>",   sendMessage $ Toggle FULL)
   -- Keys for Binary Space Partition Layout
   , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
   , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
