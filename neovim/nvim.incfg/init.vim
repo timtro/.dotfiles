@@ -113,6 +113,8 @@ Plugin 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
   let g:vim_markdown_conceal = 0
   let g:vim_markdown_math = 1
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
@@ -124,6 +126,8 @@ augroup rainbow_langs
 augroup END
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'kristijanhusak/vim-carbon-now-sh'
+
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -277,13 +281,13 @@ augroup tex
   "foldtext=vimtex#fold#text)
 augroup END
 
-augroup mardown
-  autocmd!
-  autocmd Filetype markdown
-                    \   call SoftWrap()
-                    \ | set conceallevel=0
-  autocmd VimResized * if (&columns > 80) | set columns=80 | endif
-augroup END
+" augroup mardown
+"   autocmd!
+"   autocmd Filetype markdown
+"                     \   call SoftWrap()
+"                     \ | set conceallevel=0
+"   autocmd VimResized * if (&columns > 80) | set columns=80 | endif
+" augroup END
 
 augroup cpp_stuff
   autocmd!
@@ -326,6 +330,10 @@ map Y y$
 
 " Map <C-L> redraw screen and purge search hilighting.
 nnoremap <C-L> :nohl<CR><C-L>
+
+" Insert blank space below or above cursor staing in normal mode.
+nnoremap <A-o> o<Esc>
+nnoremap <A-O> O<Esc>
 
 " Move lines around with alt+…
 nnoremap <A-j> :m .+1<CR>==
