@@ -281,13 +281,13 @@ augroup tex
   "foldtext=vimtex#fold#text)
 augroup END
 
-" augroup mardown
-"   autocmd!
-"   autocmd Filetype markdown
-"                     \   call SoftWrap()
-"                     \ | set conceallevel=0
-"   autocmd VimResized * if (&columns > 80) | set columns=80 | endif
-" augroup END
+augroup mardown
+  autocmd!
+  autocmd Filetype markdown
+                    \   call SoftWrap()
+                    \ | set conceallevel=0
+  " autocmd VimResized * if (&columns > 80) | set columns=80 | endif
+augroup END
 
 augroup cpp_stuff
   autocmd!
