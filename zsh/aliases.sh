@@ -3,6 +3,7 @@
 alias gnvim='run_detached nvim-gtk'
 alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis='thesis && $EDITOR'
+alias edthesis-tex='thesis && cd tex && $EDITOR'
 alias edthesis-md='thesis && cd md && $EDITOR'
 alias edthesis-reports='thesis && cd reports && $EDITOR'
 alias edepigraphs='cd ~/Documents/Writing/Epigraphs && $EDITOR'
