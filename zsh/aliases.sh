@@ -24,9 +24,12 @@ alias lsport="netstat -tulpn"
 alias lssock="ss"
 alias xrdb-replace='xrdb -remove -all && xrdb -load'
 alias Clear="clear && print_greeting"
+alias seecompose="nvim /usr/share/X11/locale/en_US.UTF-8/Compose"
+
 
 # Theme switching
 alias gruv='source "/home/timtro/.config/nvim/bundle/gruvbox/gruvbox_256palette.sh"'
+
 
 # Required for kitty to ssh properly:
 alias ssh="kitty +kitten ssh"
