@@ -40,16 +40,12 @@ let g:airline_theme='Base2Tone_EveningDark'
 " colorscheme Base2Tone_CaveDark
 " let g:airline_theme='Base2Tone_CaveDark'
 
+source ~/.dotfiles/colours/nvim/palette.vim
 
-" hi SpellBad cterm=underline ctermfg=9
-" hi SpellRare cterm=underline ctermfg=12
-" hi SpellLocal cterm=underline ctermfg=11
-" hi ColorColumn ctermbg=236
-"
+exe "hi SpellBad cterm=underline ctermfg=9 guifg=".g:palette['gruv:ltRed']
+exe "hi SpellRare cterm=underline ctermfg=12 guifg=".g:palette['gruv:ltBlue']
+exe "hi SpellLocal cterm=underline ctermfg=11 guifg=".g:palette['gruv:ltYellow']
+exe "hi ColorColumn ctermbg=236 guifg=".g:palette['gruv:bg1']
+
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#303030'
-
-" if has('nvim')
-"   " https://github.com/neovim/neovim/wiki/FAQ
-"   set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-" endif

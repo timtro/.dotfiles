@@ -16,7 +16,8 @@ alias edkitty='nvim ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
 alias edrofi='nvim ~/.dotfiles/rofi/rofi.incfg/config'
 alias edrofi-flat='nvim ~/.dotfiles/rofi/rofi.incfg/themes/flat.rasi'
 alias work='cd ~/workspace'
-
+alias sofe='cd ~/Documents/teaching/SOFE-2850U/'
+alias edsofe='sofe && $EDITOR'
 
 # Utility aliases
 alias watch_cpu="watch -n 0 'lscpu | grep MHz'"
