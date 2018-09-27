@@ -171,7 +171,6 @@ toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 -- [XMonad.ManageHook](https://goo.gl/cYgtp5)
 myManageHook = composeAll
     [ isFullscreen                        --> doFullFloat
-    , className =? "Minecraft 1.13.1"     --> doFloat
     , className =? "MPlayer"              --> doFloat
     , className =? "Gimp-2.8"             --> doFloat
     , className =? "Insync.py"            --> doFloat

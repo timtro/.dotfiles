@@ -115,6 +115,7 @@ Plugin 'plasticboy/vim-markdown'
   let g:vim_markdown_math = 1
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
+  let g:mkdp_path_to_chrome = "google-chrome"
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
