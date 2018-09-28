@@ -248,6 +248,7 @@ let g:vimtex_compiler_latexmk = {'continuous' : 0}
 " Auto indenting on braces makes it very difficult to break text on
 " Punctuation.
 let g:tex_indent_brace = 0
+let g:vimtex_indent_enabled = 0
 
 function SoftWrap()
   " https://agilesysadmin.net/how-to-manage-long-lines-in-vim/
