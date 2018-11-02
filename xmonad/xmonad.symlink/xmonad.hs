@@ -27,7 +27,7 @@ import XMonad.Hooks.DynamicLog
   , ppSep
   )
 import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
-import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
+-- import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 import XMonad.Hooks.SetWMName
 import XMonad.ManageHook ( doFloat, doIgnore )
 import XMonad.Layout.NoBorders (smartBorders)
@@ -54,8 +54,10 @@ main = do
  -- https://hackage.haskell.org/package/xmonad-0.13/docs/XMonad-Core.html#t:X
 myStartupHook :: X ()
 myStartupHook = do
+  spawn "hsetroot -solid \"#000000\""
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
-  spawn "xcompmgr -fF -I-.01 -O-.01 -D1"
+  -- spawn "xcompmgr -fF -I-.01 -O-.01 -D1 -r10 -o0.2"
+  spawn "xcompmgr -cC -t-9 -l-9 -r10 -o0.75 -fF -I-.01 -O-.01 -D1"
   spawn "~/.xmonad/scr/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
   spawn $ "xautolock "
@@ -75,13 +77,13 @@ myConfig = defaultConfig
   , layoutHook         = smartBorders
                           $ mkToggle (NOBORDERS ?? FULL ?? EOT)
                           $ spacingWithEdge 10 (layoutHook defaultConfig ||| emptyBSP)
-  , logHook            = fadeInactiveLogHook 0.9
+  -- , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
   , terminal           = "kitty"
-  , borderWidth        = 2
+  , borderWidth        = 3
   , normalBorderColor  = bg
-  , focusedBorderColor = dkBlue
+  , focusedBorderColor = windowBorderColour
   , focusFollowsMouse  = False
   } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
 
@@ -157,7 +159,7 @@ hostBarCmd host
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
   { ppCurrent = xmobarColor blue "" . wrap "[" "]"
-  , ppTitle   = xmobarColor ltGreen "" . shorten 120
+  , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
   , ppVisible = xmobarColor blue "" . wrap "(" ")"
   , ppUrgent  = xmobarColor red ""
   , ppHidden  = xmobarColor blue ""
@@ -262,6 +264,9 @@ blue = fromJust $ Map.lookup "blue" gruvColours
 
 dkBlue :: [Char]
 dkBlue = fromJust $ Map.lookup "dkBlue" gruvColours
+
+windowBorderColour :: [Char]
+windowBorderColour = fromJust $ Map.lookup "dkPurple" gruvColours
 
 ltGreen :: [Char]
 ltGreen = fromJust $ Map.lookup "ltGreen" gruvColours

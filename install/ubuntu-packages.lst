@@ -14,6 +14,7 @@
 # Desktop
   xmonad
   stalonetray
+  hsetroot
   xcompmgr
   pcmanfm
   libghc-xmonad-contrib-dev
