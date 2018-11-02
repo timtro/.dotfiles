@@ -35,3 +35,10 @@ export GOPATH=$HOME/go
 if [ -d "$HOME/go" ] ; then
   PATH="${GOPATH//://bin:}/bin:$PATH"
 fi
+if [ -d "$HOME/Android/Sdk" ] ; then
+  export ANDROID_HOME="$HOME/Android/Sdk"
+  PATH="${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+fi
+if [ -d "/usr/lib/jvm/java-8-oracle" ] ; then
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+fi

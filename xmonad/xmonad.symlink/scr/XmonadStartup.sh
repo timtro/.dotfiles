@@ -9,7 +9,7 @@ function main {
     /home/timtro/.screenlayout/default.sh
     stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.2HD"
   elif [[ "$host" == "photon" ]]; then
-    xinput set-prop 12 281 1 # Enable tap-to-click
+    xinput set-prop 20 299 1 # Enable tap-to-click
     stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.HD"
   else
     notify-send "WARNING: Tim, your custom Xmonad script doesn't know this host: '$host'."
