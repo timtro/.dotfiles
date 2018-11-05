@@ -219,3 +219,5 @@ Lambek's
 endomorphism
 homomorphisms
 nullopt
+monad
+dereference

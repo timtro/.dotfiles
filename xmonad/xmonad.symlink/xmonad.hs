@@ -57,7 +57,8 @@ myStartupHook = do
   spawn "hsetroot -solid \"#000000\""
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
   -- spawn "xcompmgr -fF -I-.01 -O-.01 -D1 -r10 -o0.2"
-  spawn "xcompmgr -cC -t-9 -l-9 -r10 -o0.75 -fF -I-.01 -O-.01 -D1"
+  -- spawn "xcompmgr -cC -t-9 -l-9 -r10 -o0.75 -fF -I-.01 -O-.01 -D1"
+  spawn "compton"
   spawn "~/.xmonad/scr/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
   spawn $ "xautolock "
