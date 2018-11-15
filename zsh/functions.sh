@@ -17,7 +17,6 @@ function run_detached {
   disown
 }
 
-
 function term_size {
   echo \(`tput cols` x `tput lines`\)
 }
@@ -27,7 +26,7 @@ function svg2png {
 }
 
 function term_fonts_test {
-  echo -e "\e[1mbold\e[0m"            
+  echo -e "\e[1mbold\e[0m"
   echo -e "\e[3mitalic\e[0m"
   echo -e "\e[1m\e[3mBolditalic\e[0m"
   echo -e "\e[4munderline\e[0m"
@@ -43,3 +42,15 @@ function underline { ansi 4 "$@"; }
 function strikethrough { ansi 9 "$@"; }
 function red { ansi 31 "$@"; }
 
+## Git related
+# Some borrowed from https://stackoverflow.com/a/2658301/1827360
+
+# Returns "*" if the current git branch is dirty.
+function is_git_dirty {
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
+}
+
+
+function is_git_num_untracked_files {
+  expr `git status --porcelain 2>/dev/null| grep "^??" | wc -l`
+}
