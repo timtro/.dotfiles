@@ -221,3 +221,6 @@ homomorphisms
 nullopt
 monad
 dereference
+anamorphisms
+dualise
+coalgebra
