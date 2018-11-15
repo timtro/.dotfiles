@@ -35,10 +35,20 @@ export GOPATH=$HOME/go
 if [ -d "$HOME/go" ] ; then
   PATH="${GOPATH//://bin:}/bin:$PATH"
 fi
+if [ -d "$HOME/android/tools" ] ; then
+  export ANDROID_HOME="$HOME/android/tools"
+  PATH="${PATH}:$ANDROID_HOME"
+fi
 if [ -d "$HOME/Android/Sdk" ] ; then
-  export ANDROID_HOME="$HOME/Android/Sdk"
-  PATH="${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+  export ANDROID_HOME="${HOME}/Android/Sdk"
+  export ANDROID_SDK_ROOT=$ANDROID_HOME
+  export ANDROID_PLATFORM_TOOLS="${HOME}/platform-tools"
+  export PATH="${ANDROID_HOME}/tools:${PATH}"
+  export PATH="${ANDROID_HOME}/emulator:${PATH}"
+  export PATH="${ANDROID_HOME}/platform-tools:${PATH}"
 fi
 if [ -d "/usr/lib/jvm/java-8-oracle" ] ; then
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 fi
+
+export JWT_SECRET="824ba19901722b16b7ff33fd5ba18bcab0e0098df4256e9002cacd1266b8a1a4"
