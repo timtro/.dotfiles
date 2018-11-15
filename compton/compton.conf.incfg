@@ -81,7 +81,6 @@ shadow-opacity = 0.5;
 shadow-exclude = [
     "! name~=''",
     "name = 'Notification'",
-    "name = 'Plank'",
     "name *= 'compton'",
     "class_g = 'stalonetray'",
     "class_g = 'xmobar'"
@@ -113,8 +112,8 @@ blur-background-frame = false;
 # Do not let blur radius adjust based on window opacity.
 blur-background-fixed = false;
 blur-background-exclude = [
-    "window_type = 'dock'"
-    # "window_type = 'desktop'"
+    "window_type = 'dock'",
+    "window_type = 'desktop'"
 ];
 
 #################################
