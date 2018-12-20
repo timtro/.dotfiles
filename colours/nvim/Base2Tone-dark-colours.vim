@@ -1,8 +1,8 @@
 
 set background=dark
 
-colorscheme Base2Tone_EveningDark
-let g:airline_theme='Base2Tone_EveningDark'
+" colorscheme Base2Tone_EveningDark
+" let g:airline_theme='Base2Tone_EveningDark'
 
 " colorscheme Base2Tone_MorningDark
 " let g:airline_theme='Base2Tone_MorningDark'
@@ -28,8 +28,8 @@ let g:airline_theme='Base2Tone_EveningDark'
 " colorscheme Base2Tone_MeadowDark
 " let g:airline_theme='Base2Tone_MeadowDark'
 
-" colorscheme Base2Tone_DrawbridgeDark
-" let g:airline_theme='Base2Tone_DrawbridgeDark'
+colorscheme Base2Tone_DrawbridgeDark
+let g:airline_theme='Base2Tone_DrawbridgeDark'
 
 " colorscheme Base2Tone_PoolDark
 " let g:airline_theme='Base2Tone_PoolDark'

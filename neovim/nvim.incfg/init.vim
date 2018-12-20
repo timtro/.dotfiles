@@ -385,6 +385,24 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+let t:is_transparent = 0
+function Toggle_transparent()
+    if t:is_transparent == 0
+        hi! Normal ctermbg=NONE guibg=NONE
+        hi! NonText ctermbg=NONE guibg=NONE
+        hi! Conceal ctermbg=NONE guibg=NONE
+        hi clear SignColumn
+        hi! GitGutterAdd ctermbg=NONE guibg=NONE
+        hi! GitGutterChange ctermbg=NONE guibg=NONE
+        hi! GitGutterDelete ctermbg=NONE guibg=NONE
+        hi! GitGutterChangeDelete ctermbg=NONE guibg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_tranparent = 0
+    endif
+endfunction
+nnoremap <C-t> : call Toggle_transparent()<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------

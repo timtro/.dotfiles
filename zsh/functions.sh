@@ -42,6 +42,10 @@ function underline { ansi 4 "$@"; }
 function strikethrough { ansi 9 "$@"; }
 function red { ansi 31 "$@"; }
 
+function setnvimcolor {
+  ln -sf $1 ~/.dotfiles/colours/nvim/dejour.vim
+}
+
 # Tablet
 function wacom_left {
   for i in `xsetwacom --list | awk '{print $8}'`; do

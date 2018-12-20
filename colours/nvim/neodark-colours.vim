@@ -1,6 +1,6 @@
 " For KeitaNakamura/neodark.vim
 
-" let g:neodark#background = '#202020'
+let g:neodark#background = '#202020'
 
 set background=dark
 
