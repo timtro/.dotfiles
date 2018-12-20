@@ -42,6 +42,19 @@ function underline { ansi 4 "$@"; }
 function strikethrough { ansi 9 "$@"; }
 function red { ansi 31 "$@"; }
 
+# Tablet
+function wacom_left {
+  for i in `xsetwacom --list | awk '{print $8}'`; do
+    xsetwacom set $i MapToOutput 1920x1200+0+0
+  done
+}
+
+function wacom_right {
+  for i in `xsetwacom --list | awk '{print $8}'`; do
+    xsetwacom set $i MapToOutput 1920x1200+1920+0
+  done
+}
+
 ## Git related
 # Some borrowed from https://stackoverflow.com/a/2658301/1827360
 

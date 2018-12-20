@@ -102,6 +102,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 """ LaTeX related
 Plugin 'lervag/vimtex'
+let g:tex_flavor = "latex"
+
 Plugin 'glts/vim-texlog.git'
 
 """ Programming
