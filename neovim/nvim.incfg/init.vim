@@ -118,7 +118,9 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
   let g:mkdp_path_to_chrome = "google-chrome"
-Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
+" Trying bfrg's as alternative with C++20 support
+Plugin 'bfrg/vim-cpp-modern'
 Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#max_level = 16
   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
@@ -152,7 +154,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'fcpg/vim-fahrenheit'
-Plugin 'trevordmiller/nova-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
   let g:indentLine_fileTypeExclude = ['markdown']
@@ -172,6 +173,13 @@ Plugin 'cseelus/vim-colors-lucid'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'jacoborus/tender.vim'
 Plugin 'rakr/vim-two-firewatch'
+Plugin 'wolf-dog/nighted.vim'
+Plugin 'treycucco/vim-monotonic'
+Plugin 'fxn/vim-monochrome'
+Plugin 'szorfein/fromthehell.vim'
+Plugin 'andreypopp/vim-colors-plain'
+Plugin 'widatama/vim-phoenix'
+Plugin 'ninja/sky'
 
 """ END colorschemes
 "
@@ -403,6 +411,7 @@ function Toggle_transparent()
     endif
 endfunction
 nnoremap <C-t> : call Toggle_transparent()<CR>
+
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
