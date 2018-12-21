@@ -59,6 +59,18 @@ function wacom_right {
   done
 }
 
+function search_compose {
+  local locale=`locale | awk -F"=" '/LANG/{print $2}'`
+  local composeKeysFileCmd='cat "/usr/share/X11/locale/compose.dir" | grep $locale | tail -n1 | awk '"'"'{print $1}'"'"' | sed s'"'"'/.$//'"'"
+  local composeKeysFile=/usr/share/X11/locale/`eval $composeKeysFileCmd`
+
+  if [[ "$1" == "ALL" ]]; then
+    less "$composeKeysFile"
+  else
+    grep $1 "$composeKeysFile"
+  fi
+}
+
 ## Git related
 # Some borrowed from https://stackoverflow.com/a/2658301/1827360
 
