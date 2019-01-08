@@ -180,6 +180,7 @@ myManageHook = composeAll
     , className =? "Variety"              --> doFloat
     , className =? "Transmission-gtk"     --> doFloat
     , className =? "Xmessage"             --> doFloat
+    , className =? "Ekiga"                --> doFloat
     , className =? "Pavucontrol"          --> doFloatCornerBox
     , className =? "Scp-dbus-service.py"  --> doFloatCornerBox
     , className =? "Blueman-manager"      --> doCenterFloat
