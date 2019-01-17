@@ -2,7 +2,7 @@ Config {
 -- appearance
   font        =  "xft:Hasklig-10:Medium,FontAwesome-9",
   bgColor     =  "#282828",
-  fgColor     =  "#ebdbb2",
+  fgColor     =  "#ebebeb",
   position    =  Top,
   textOffset  =  13,
   border      =  TopB,

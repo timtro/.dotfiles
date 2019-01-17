@@ -253,25 +253,25 @@ doFloatCornerBox = customFloating $ RationalRect l t w h
 -- Gruvbox colours:
 
 bg :: [Char]
-bg = fromJust $ Map.lookup "bg" gruvColours
+bg = fromJust $ Map.lookup "bg" tpixelColours
+
+fg :: [Char]
+fg = fromJust $ Map.lookup "fg" tpixelColours
 
 red :: [Char]
-red = fromJust $ Map.lookup "red" gruvColours
+red = fromJust $ Map.lookup "red" tpixelColours
 
 yellow :: [Char]
-yellow = fromJust $ Map.lookup "yellow" gruvColours
+yellow = fromJust $ Map.lookup "yellow" tpixelColours
 
 blue :: [Char]
-blue = fromJust $ Map.lookup "blue" gruvColours
-
-dkBlue :: [Char]
-dkBlue = fromJust $ Map.lookup "dkBlue" gruvColours
+blue = fromJust $ Map.lookup "blue" tpixelColours
 
 windowBorderColour :: [Char]
-windowBorderColour = fromJust $ Map.lookup "dkPurple" gruvColours
+windowBorderColour = fromJust $ Map.lookup "red" tpixelColours
 
 ltGreen :: [Char]
-ltGreen = fromJust $ Map.lookup "ltGreen" gruvColours
+ltGreen = fromJust $ Map.lookup "green" tpixelColours
 
 gruvColours :: Map [Char] [Char]
 gruvColours = Map.fromList
@@ -310,4 +310,22 @@ gruvColours = Map.fromList
   , ("fg2"      , "#d5c4a1")
   , ("fg3"      , "#bdae93")
   , ("fg4"      , "#a89984")
+  ]
+
+tpixelColours :: Map [Char] [Char]
+tpixelColours = Map.fromList
+  [ ("fg"       , "#ebebeb")
+  , ("bg"       , "#282828")
+  , ("red"       , "#a92a49")
+  , ("ltRed"     , "#e33962")
+  , ("green"     , "#8ab544")
+  , ("ltGreen"   , "#a7e346")
+  , ("yellow"    , "#f39a26")
+  , ("ltYellow"  , "#f1c58b")
+  , ("blue"      , "#518ba3")
+  , ("ltBlue"    , "#73b9d6")
+  , ("magenta"   , "#9770b3")
+  , ("ltMagenta" , "#c598e6")
+  , ("cyan"      , "#5ba6a5")
+  , ("ltCyan"    , "#82d9d8")
   ]

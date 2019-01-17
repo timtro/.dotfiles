@@ -33,7 +33,7 @@ if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" 
 fi
 
 if command -v wal; then
-  wal -i "$WP" --backend schemer2 --saturate 0.23 2>/dev/null
+  wal -i "$WP" --backend wal --saturate 0.20 2>/dev/null
   for f in /dev/pts/*; do
     [ -w $f ] && cat ~/.dotfiles/colours/osc/dejour.seq > $f
   done
