@@ -111,14 +111,14 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'rhysd/vim-clang-format'
   let g:clang_format#command = "clang-format-7"
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-  let g:vim_markdown_folding_disabled = 1
-  let g:vim_markdown_conceal = 0
-  let g:vim_markdown_math = 1
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'iamcco/markdown-preview.vim'
-  let g:mkdp_path_to_chrome = "google-chrome"
-" Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'plasticboy/vim-markdown'
+"   let g:vim_markdown_folding_disabled = 1
+"   let g:vim_markdown_conceal = 0
+"   let g:vim_markdown_math = 1
+" Plugin 'iamcco/mathjax-support-for-mkdp'
+" Plugin 'iamcco/markdown-preview.vim'
+"   let g:mkdp_path_to_chrome = "google-chrome"
+
 " Trying bfrg's as alternative with C++20 support
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'junegunn/rainbow_parentheses.vim'
@@ -180,6 +180,12 @@ Plugin 'szorfein/fromthehell.vim'
 Plugin 'andreypopp/vim-colors-plain'
 Plugin 'widatama/vim-phoenix'
 Plugin 'ninja/sky'
+
+Plugin 'arakashic/chromatica.nvim'
+let g:chromatica#libclang_path='/usr/lib/llvm-7/lib/'
+
+Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+let g:mkdp_browser = 'google-chrome'
 
 """ END colorschemes
 "
