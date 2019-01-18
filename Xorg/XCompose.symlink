@@ -64,6 +64,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <minus> <asciitilde>                : "≃"
 <Multi_key> <p> <r> <o> <p>                     : "∝" U221D # PROPORTIONAL TO
 <Multi_key> <bar> <minus> <greater>             : "↦" U21A6 # RIGHTWARDS ARROW FROM BAR
+<Multi_key> <bar> <minus> <slash> <greater>     : "↛" U219B # RIGHTWARDS ARROW WITH STROKE
 <Multi_key> <i> <n>                             : "∈" U2208 # ELEMENT OF
 <Multi_key> <exclam> <i> <n>                    : "∉" U2209 # NOT AN ELEMENT OF
 <Multi_key> <U2208> <slash>                     : "∉" U2209 # NOT AN ELEMENT OF (I have ∈ on my keyboard...)
