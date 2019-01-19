@@ -399,24 +399,31 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-let t:is_transparent = 0
-function Toggle_transparent()
-    if t:is_transparent == 0
-        hi! Normal ctermbg=NONE guibg=NONE
-        hi! NonText ctermbg=NONE guibg=NONE
-        hi! Conceal ctermbg=NONE guibg=NONE
-        hi clear SignColumn
-        hi! GitGutterAdd ctermbg=NONE guibg=NONE
-        hi! GitGutterChange ctermbg=NONE guibg=NONE
-        hi! GitGutterDelete ctermbg=NONE guibg=NONE
-        hi! GitGutterChangeDelete ctermbg=NONE guibg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_tranparent = 0
-    endif
+function Make_bg_transparent()
+  hi! Normal ctermbg=NONE guibg=NONE
+  hi! NonText ctermbg=NONE guibg=NONE
+  hi! Conceal ctermbg=NONE guibg=NONE
+  " hi clear SignColumn
+  " hi! GitGutterAdd ctermbg=NONE guibg=NONE
+  " hi! GitGutterChange ctermbg=NONE guibg=NONE
+  " hi! GitGutterDelete ctermbg=NONE guibg=NONE
+  " hi! GitGutterChangeDelete ctermbg=NONE guibg=NONE
 endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
+
+function Make_bg_default()
+  set background=dark
+endfunction
+
+function! Toggle_transparent()
+  if g:is_transparent
+    call Make_bg_default()
+  else
+    call Make_bg_transparent()
+  endif
+  let g:is_transparent = !g:is_transparent
+endfunction
+
+nnoremap <C-t> :call Toggle_transparent()<CR>
 
 
 """ Stuff that just has to go last
@@ -429,3 +436,7 @@ set colorcolumn=81
 set updatetime=100
 
 let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
+
+
+let g:is_transparent=1
+call Make_bg_transparent()
