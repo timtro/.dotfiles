@@ -204,7 +204,6 @@ myManageHook = composeAll
     , className =? "Qalculate-gtk"        --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
-    , className =? "Minecraft 1.13.2"     --> (doRectFloat $ RationalRect 0 0 1 1)
     ]
 
 -- ## Scratchpads
