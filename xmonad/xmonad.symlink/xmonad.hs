@@ -1,10 +1,12 @@
 import XMonad
 import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
+import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing)
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad
   ( NamedScratchpad( NS )
@@ -12,6 +14,7 @@ import XMonad.Util.NamedScratchpad
   , namedScratchpadAction
   , namedScratchpadManageHook
   )
+import XMonad.Hooks.ManageDocks( ToggleStruts(ToggleStruts) )
 import XMonad.Hooks.DynamicLog
   ( PP
   , statusBar
@@ -30,7 +33,6 @@ import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
 -- import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 import XMonad.Hooks.SetWMName
 import XMonad.ManageHook ( doFloat, doIgnore )
-import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet ( RationalRect( RationalRect ) )
 import Network.HostName ( getHostName )
 import XMonad.Hooks.ManageHelpers
@@ -40,6 +42,7 @@ import XMonad.Hooks.ManageHelpers
   , doFloatAt
   , Side( SC, NC, CE, CW, SE, SW, NE, NW, C )
   , doSideFloat
+  , doRectFloat
   )
 import Data.Ratio
 
@@ -76,7 +79,7 @@ myConfig = defaultConfig
   { modMask            = mod4Mask -- Use Super instead of Alt
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders
-                          $ mkToggle (NOBORDERS ?? FULL ?? EOT)
+                          $ mkToggle (single NBFULL)
                           $ spacingWithEdge 10 (layoutHook defaultConfig ||| emptyBSP)
   -- , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
@@ -124,7 +127,11 @@ myKeys =
   , ("M-S-="                 , incSpacing(2) )
   , ("M-S--"                 , incSpacing(-2) )
   , ("M-S-0"                 , setSpacing(10) )
-  , ("M-M1-<Space>",   sendMessage $ Toggle FULL)
+  , ("M-M1-<Space>"          , sendMessage $ Toggle NBFULL )
+  , ("M-M1-b"                , sequence_
+                                [ sendMessage ToggleStruts
+                                , sendMessage $ Toggle NBFULL
+                                ])
   -- Keys for Binary Space Partition Layout
   , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
   , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
@@ -197,6 +204,7 @@ myManageHook = composeAll
     , className =? "Qalculate-gtk"        --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
+    , className =? "Minecraft 1.13.2"     --> (doRectFloat $ RationalRect 0 0 1 1)
     ]
 
 -- ## Scratchpads
@@ -314,8 +322,8 @@ gruvColours = Map.fromList
 
 tpixelColours :: Map [Char] [Char]
 tpixelColours = Map.fromList
-  [ ("fg"       , "#ebebeb")
-  , ("bg"       , "#282828")
+  [ ("fg"        , "#ebebeb")
+  , ("bg"        , "#282828")
   , ("red"       , "#a92a49")
   , ("ltRed"     , "#e33962")
   , ("green"     , "#8ab544")
@@ -328,4 +336,7 @@ tpixelColours = Map.fromList
   , ("ltMagenta" , "#c598e6")
   , ("cyan"      , "#5ba6a5")
   , ("ltCyan"    , "#82d9d8")
+  , ("dkOrange"  , "#af3a03")
+  , ("orange"    , "#DB622B")
+  , ("ltOrange"  , "#fe8019")
   ]
