@@ -65,10 +65,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <p> <r> <o> <p>                     : "∝" U221D # PROPORTIONAL TO
 <Multi_key> <bar> <minus> <greater>             : "↦" U21A6 # RIGHTWARDS ARROW FROM BAR
 <Multi_key> <bar> <minus> <slash> <greater>     : "↛" U219B # RIGHTWARDS ARROW WITH STROKE
-<Multi_key> <i> <n>                             : "∈" U2208 # ELEMENT OF
+<Multi_key> <c> <minus>                         : "∈" U2208 # ELEMENT OF
+<Multi_key> <minus> <c>                         : "∈" U2208 # ELEMENT OF
 <Multi_key> <exclam> <i> <n>                    : "∉" U2209 # NOT AN ELEMENT OF
 <Multi_key> <U2208> <slash>                     : "∉" U2209 # NOT AN ELEMENT OF (I have ∈ on my keyboard...)
 <Multi_key> <n> <i>                             : "∋" U220B # CONTAINS AS MEMBER  (I hope this doesn't conflict)
+<Multi_key> <slash> <backslash>                 : "∧" U2227 # LOGICAL AND
+<Multi_key> <backslash> <slash>                 : "∨" U2228 # LOGICAL OR
 <Multi_key> <slash> <n> <i>                     : "∌" U220C # DOES NOT CONTAIN AS MEMBER
 <Multi_key> <braceleft> <U>                     : "∪" U222A # UNION
 <Multi_key> <braceleft> <asciicircum>           : "∩" U2229 # INTERSECTION
@@ -102,7 +105,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <slash> <u>                         : "µ" U00B5 # MICRO SIGN
 <Multi_key> <d> <e> <l>                         : "∇" U2207 # NABLA
 <Multi_key> <i> <n> <c>                         : "∆" U2206 # INCREMENT
-<Multi_key> <p> <a> <r> <t>                     : "∂" U2202 # PARTIAL DIFFERENTIAL
+<Multi_key> <p> <d> <i> <f>                     : "∂" U2202 # PARTIAL DIFFERENTIAL
 <Multi_key> <asterisk> <period> <period> <d>    : "∂" U2202 # PARTIAL DIFFERENTIAL
 
 <Multi_key> <R> <e>                             : "ℜ" U211C # BLACK-LETTER CAPITAL R (Real Part)
