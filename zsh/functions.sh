@@ -2,7 +2,15 @@
 function print_greeting {
   echo "\n"
   artfolder=$HOME/.dotfiles/zsh/art
-  art=$(find "$artfolder" -type f -iname "*.txt" | sort -R | tail -1)
+
+  if [[ "$HOST" == "johnny5" ]]; then
+    art="$artfolder/johnny-5-head.ansi.txt"
+  elif [[ "$HOST" == "qubit" ]]; then
+    art="$artfolder/pacman.txt"
+  else
+    art=$(find "$artfolder" -type f -iname "*.txt" | sort -R | tail -1)
+  fi
+
   cat $art
 
   # artfolder=$HOME/.dotfiles/neofetch/art
