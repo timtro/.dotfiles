@@ -12,6 +12,7 @@
   xdotool
   exfat-fuse
   exfat-utils
+  bluez-tools
 
 # Desktop
   xmonad
