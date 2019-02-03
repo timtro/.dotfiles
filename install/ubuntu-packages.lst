@@ -35,6 +35,8 @@
   blueman
   dunst
   feh
+  redshift
+#  redshift-gtk
 
 # Console tools
   rxvt-unicode-256color

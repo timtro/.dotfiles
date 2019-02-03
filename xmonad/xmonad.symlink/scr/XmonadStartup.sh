@@ -15,12 +15,14 @@ function main {
     notify-send "WARNING: Tim, your custom Xmonad script doesn't know this host: '$host'."
   fi
 
+  start_uniquely compton
   start_uniquely stalonetray -c "$stalonetray_cfg"
   start_uniquely insync start
   start_uniquely variety
   start_uniquely pnmixer
   start_uniquely nm-applet
   start_uniquely blueman-applet
+  start_uniquely redshift
   start_printer_applet
 }
 
