@@ -22,7 +22,6 @@ function main {
   start_uniquely pnmixer
   start_uniquely nm-applet
   start_uniquely blueman-applet
-  start_uniquely redshift
   start_printer_applet
 }
 

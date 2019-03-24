@@ -123,6 +123,7 @@ myKeys =
   , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
   , ("M-f", namedScratchpadAction scratchPads "scratchFileBrowser")
   , ("M-d", namedScratchpadAction scratchPads "scratchSlack")
+  , ("M-g", namedScratchpadAction scratchPads "scratchZeegaree")
   -- Gaps/spacing
   , ("M-S-="                 , incSpacing(2) )
   , ("M-S--"                 , incSpacing(-2) )
@@ -142,7 +143,10 @@ myKeys =
   , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
   , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
   , ("M-s",            sendMessage $ Swap)
-  , ("M-M1-s",         sendMessage $ Rotate)
+  , ("M-S-s",          sendMessage $ Rotate)
+  , ("M-n",            sendMessage $ FocusParent)
+  , ("M-M1-n",         sendMessage $ SelectNode)
+  , ("M-S-n",          sendMessage $ MoveNode)
   ]
 
 lockerCmd :: [Char]
@@ -202,6 +206,7 @@ myManageHook = composeAll
     , className =? "MATLAB R2018a"        --> doCenterFloat
     , className =? "Yad"                  --> doCenterFloat
     , className =? "Qalculate-gtk"        --> doCenterFloat
+    , className =? "Zeegaree.py"          --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
     ]
@@ -222,6 +227,7 @@ scratchPads =
   [ NS "scratchTerminal" spawnTerm  findTerm  manageTerm
   , NS "scratchFileBrowser" spawnFileBrowser findFileBrowser manageFileBrowser
   , NS "scratchSlack" spawnSlack findSlack manageSlack
+  , NS "scratchZeegaree" spawnZeegaree findZeegaree manageZeegaree
   ]
   where
     spawnTerm  = "kitty --class scratchterm1"
@@ -240,6 +246,10 @@ scratchPads =
     spawnSlack = "slack"
     findSlack = className  =? "Slack"
     manageSlack = doFloatPaneLeft
+
+    spawnZeegaree = "python3 /home/timtro/git/Zeegaree/zeegaree.py"
+    findZeegaree = className  =? "Zeegaree.py"
+    manageZeegaree = doCenterFloat
 
 doFloatPaneLeft :: ManageHook
 doFloatPaneLeft = customFloating $ RationalRect l t w h

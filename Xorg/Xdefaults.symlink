@@ -1,3 +1,4 @@
+Xcursor.size: 12
 Xft.dpi         : 120
 Xft.antialias   : true
 Xft.rgba        : rgb
@@ -25,7 +26,6 @@ URxvt.tabbed.tab-fg     : 3
 URxvt.tabbed.tab-bg     : 0
 URxvt.url-launcher      : firefox
 URxvt.matcher.button    : 1
-URxvt.cutchars          : `"()'*<>[]{|}
 URxvt.keysym.M-Escape   : perl:keyboard-select:activate
 
 URxvt.iso14755    : false
