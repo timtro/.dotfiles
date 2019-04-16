@@ -207,9 +207,13 @@ myManageHook = composeAll
     , className =? "Yad"                  --> doCenterFloat
     , className =? "Qalculate-gtk"        --> doCenterFloat
     , className =? "Zeegaree.py"          --> doCenterFloat
+    , isRole    =? "pop-up"               --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
     ]
+      where
+        isRole = stringProperty "WM_WINDOW_ROLE"
+
 
 -- ## Scratchpads
 --

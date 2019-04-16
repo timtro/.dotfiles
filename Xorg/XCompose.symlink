@@ -72,6 +72,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <n> <i>                             : "∋" U220B # CONTAINS AS MEMBER  (I hope this doesn't conflict)
 <Multi_key> <slash> <backslash>                 : "∧" U2227 # LOGICAL AND
 <Multi_key> <backslash> <slash>                 : "∨" U2228 # LOGICAL OR
+<Multi_key> <slash><underscore><backslash>      : "△" U25B3 # WHITE UP-POINTING TRIANGLE
+<Multi_key> <backslash><underscore><slash>      : "▽" U25BD # WHITE DOWN-POINTING TRIANGLE
 <Multi_key> <slash> <n> <i>                     : "∌" U220C # DOES NOT CONTAIN AS MEMBER
 <Multi_key> <braceleft> <U>                     : "∪" U222A # UNION
 <Multi_key> <braceleft> <asciicircum>           : "∩" U2229 # INTERSECTION
