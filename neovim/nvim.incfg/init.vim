@@ -451,3 +451,5 @@ let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
 
 let g:is_transparent=1
 call Make_bg_transparent()
+
+let g:vim_json_syntax_conceal = 0
