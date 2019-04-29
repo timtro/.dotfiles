@@ -67,7 +67,7 @@ function wacom_right {
   done
 }
 
-function search_compose {
+function compose_search {
   local locale=`locale | awk -F"=" '/LANG/{print $2}'`
   local composeKeysFileCmd='cat "/usr/share/X11/locale/compose.dir" | grep $locale | tail -n1 | awk '"'"'{print $1}'"'"' | sed s'"'"'/.$//'"'"
   local composeKeysFile=/usr/share/X11/locale/`eval $composeKeysFileCmd`
@@ -76,6 +76,10 @@ function search_compose {
     less "$composeKeysFile"
   else
     grep $1 "$composeKeysFile"
+    if [[ -e "$HOME/.XCompose" ]]; then
+      echo "\nIn user .XCompose:\n\n"
+      grep $1 "$HOME/.XCompose"
+    fi
   fi
 }
 

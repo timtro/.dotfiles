@@ -2,7 +2,6 @@
 " Features
 "
 set nocompatible
-syntax on
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -103,6 +102,15 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 """ LaTeX related
 Plugin 'lervag/vimtex'
 let g:tex_flavor = "latex"
+let g:vimtex_quickfix_latexlog = {
+      \ 'overfull' : 0,
+      \ 'underfull' : 0,
+      \ 'packages' : {
+      \   'default' : 0,
+      \ },
+      \}
+let g:vimtex_quickfix_autoclose_after_keystrokes = 1
+
 
 Plugin 'glts/vim-texlog.git'
 
@@ -428,6 +436,9 @@ nnoremap <C-t> :call Toggle_transparent()<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
+
+syntax on
+
 
 let g:tex_conceal = ""
 set colorcolumn=81
