@@ -96,6 +96,7 @@ myKeys :: [( [Char], X () )]
 myKeys =
   [ ("M-S-r",
       spawn $ "if type xmonad; then "
+          ++    "killall compton &&"
           ++    "xmonad --recompile &&"
           ++    "xmonad --restart; "
           ++  "else"
@@ -142,11 +143,13 @@ myKeys =
   , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
   , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
   , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
-  , ("M-s",            sendMessage $ Swap)
-  , ("M-S-s",          sendMessage $ Rotate)
-  , ("M-n",            sendMessage $ FocusParent)
-  , ("M-M1-n",         sendMessage $ SelectNode)
-  , ("M-S-n",          sendMessage $ MoveNode)
+  , ("M-s",            sendMessage Swap)
+  , ("M-S-s",          sendMessage Rotate)
+  , ("M-n",            sendMessage FocusParent)
+  , ("M-S-n",          sendMessage MoveNode)
+  , ("M-M1-n",         sendMessage SelectNode)
+  , ("M-a",            sendMessage Balance)
+  , ("M-M1-a",         sendMessage Equalize)
   ]
 
 lockerCmd :: [Char]
