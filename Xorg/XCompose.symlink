@@ -66,10 +66,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <minus> <greater>             : "↦" U21A6 # RIGHTWARDS ARROW FROM BAR
 <Multi_key> <bar> <minus> <slash> <greater>     : "↛" U219B # RIGHTWARDS ARROW WITH STROKE
 <Multi_key> <c> <minus>                         : "∈" U2208 # ELEMENT OF
-<Multi_key> <minus> <c>                         : "∈" U2208 # ELEMENT OF
-<Multi_key> <exclam> <i> <n>                    : "∉" U2209 # NOT AN ELEMENT OF
-<Multi_key> <U2208> <slash>                     : "∉" U2209 # NOT AN ELEMENT OF (I have ∈ on my keyboard...)
-<Multi_key> <n> <i>                             : "∋" U220B # CONTAINS AS MEMBER  (I hope this doesn't conflict)
+<Multi_key> <exclam> <c> <minus>                : "∉" U2209 # NOT AN ELEMENT OF
+<Multi_key> <minus> <c>                         : "∋" U220B # CONTAINS AS MEMBER
+<Multi_key> <exclam> <minus> <c>                : "∌" U220C # DOES NOT CONTAIN AS MEMBER
 <Multi_key> <slash> <backslash>                 : "∧" U2227 # LOGICAL AND
 <Multi_key> <backslash> <slash>                 : "∨" U2228 # LOGICAL OR
 <Multi_key> <slash><underscore><backslash>      : "△" U25B3 # WHITE UP-POINTING TRIANGLE
@@ -115,7 +114,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <0> <slash>                         : "∅" U2205 # EMPTY SET
 <Multi_key> <slash> <0>                         : "∅" U2205 # EMPTY SET
 <Multi_key> <0> <period> <period>               : "◌" U25CC # DOTTED CIRCLE
-<Multi_key> <period> <period> <0>               : "◌" U25CC # DOTTED CIRCLE
 
 <Multi_key> <v> <period> <period>               : "⋮" U22EE # VERTICAL ELLIPSIS
 <Multi_key> <minus> <2> <M>                     : "⸺" U2E3A # TWO-EM DASH
