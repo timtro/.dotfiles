@@ -18,6 +18,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <n>                             : "ν" U03BD # GREEK SMALL LETTER NU
 <Multi_key> <g> <o>                             : "ο" U03BF # GREEK SMALL LETTER OMICRON
 <Multi_key> <g> <p>                             : "π" U03C0 # GREEK SMALL LETTER PI
+<Multi_key> <g> <W>                             : "ϖ" U03D6 # GREEK PI SYMBOL
 <Multi_key> <g> <r>                             : "ρ" U03C1 # GREEK SMALL LETTER RHO
 <Multi_key> <g> <s>                             : "σ" U03C3 # GREEK SMALL LETTER SIGMA
 <Multi_key> <g> <t>                             : "τ" U03C4 # GREEK SMALL LETTER TAU
