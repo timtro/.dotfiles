@@ -131,6 +131,12 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <braceright>                  : "⦄" U2984 # RIGHT WHITE CURLY BRACKET
 <Multi_key> <bar> <parenleft>                   : "⦇" U2987 # Z NOTATION LEFT IMAGE BRACKET
 <Multi_key> <bar> <parenright>                  : "⦈" U2988 # Z NOTATION RIGHT IMAGE BRACKET
+<Multi_key> <parenleft> <parenleft>             : "⦅" U2985 # LEFT WHITE PARENTHESIS
+<Multi_key> <parenright> <parenright>           : "⦆" U2986 # RIGHT WHITE PARENTHESIS
+<Multi_key> <bar> <bar> <bracketleft>           : "⟬" U27EC # MATHEMATICAL LEFT WHITE TORTOISE SHELL BRACKET
+<Multi_key> <bar> <bar> <bracketright>          : "⟭" U27ED # MATHEMATICAL RIGHT WHITE TORTOISE SHELL BRACKET
+<Multi_key> <bar> <less>                        : "⦉" U2989 # Z NOTATION LEFT BINDING BRACKET
+<Multi_key> <bar> <greater>                     : "⦊" U298B # Z NOTATION RIGHT BINDING BRACKET
 
 <Multi_key> <minus> <0>                         : "₀" U2080 # SUBSCRIPT ZERO
 <Multi_key> <minus> <1>                         : "₁" U2081 # SUBSCRIPT ONE
@@ -642,17 +648,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <x> : "𝕩" U1d569
 <Multi_key> <bar> <y> : "𝕪" U1d56a
 <Multi_key> <bar> <z> : "𝕫" U1d56b
-<Multi_key> <bar> <bar> <bracketleft>   : "⟬" U27EC # MATHEMATICAL LEFT WHITE TORTOISE SHELL BRACKET
-<Multi_key> <bar> <bar> <bracketright>  : "⟭" U27ED # MATHEMATICAL RIGHT WHITE TORTOISE SHELL BRACKET
-<Multi_key> <bar> <braceleft>  : "⦃" U2983 # LEFT WHITE CURLY BRACKET
-<Multi_key> <bar> <braceright> : "⦄" U2984 # RIGHT WHITE CURLY BRACKET
-<Multi_key> <parenleft> <parenleft>   : "⦅" U2985 # LEFT WHITE PARENTHESIS
-<Multi_key> <parenright> <parenright> : "⦆" U2986 # RIGHT WHITE PARENTHESIS
-<Multi_key> <bar> <parenleft>  : "⦇" U2987 # Z NOTATION LEFT IMAGE BRACKET
-<Multi_key> <bar> <parenright> : "⦈" U2988 # Z NOTATION RIGHT IMAGE BRACKET
-<Multi_key> <bar> <less>       : "⦉" U2989 # Z NOTATION LEFT BINDING BRACKET
-<Multi_key> <bar> <greater>    : "⦊" U298B # Z NOTATION RIGHT BINDING BRACKET
-
 
 <Multi_key> <F> <A> : "𝕬" U1d56c
 <Multi_key> <F> <B> : "𝕭" U1d56d

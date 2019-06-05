@@ -114,9 +114,11 @@ channels = mono
 # or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
 # not able to restore color definitions on exit, simply restart your terminal to restore colors.
 gradient = 1
-gradient_count = 2
-gradient_color_1 = '#2D1F42'
-gradient_color_2 = '#E58439'
+# gradient_count = 2
+# gradient_color_1 = '#34592F'
+# gradient_color_2 = '#C5E9DD'
+# gradient_color_1 = '#00335C' # Blues
+# gradient_color_2 = '#0094FF'
 # gradient_color_1 = '#457D4D' # Green leafy
 # gradient_color_2 = '#F9E74E'
 # gradient_color_1 = '#0C2941'
@@ -124,7 +126,32 @@ gradient_color_2 = '#E58439'
 # gradient_color_1 = '#0099ff'
 # gradient_color_2 = '#ff3399'
 
+# Plasma:
+# gradient_count = 8
+# gradient_color_1 = '#0d0887'
+# gradient_color_2 = '#7e03a8'
+# gradient_color_3 = '#aa2395'
+# gradient_color_4 = '#cc4778'
+# gradient_color_5 = '#e66c5c'
+# gradient_color_6 = '#f89540'
+# gradient_color_7 = '#fdc527'
+# gradient_color_8 = '#f0f921'
 
+# BW
+gradient_count = 2
+gradient_color_1 = '#555555'
+gradient_color_2 = '#ffffff'
+
+# Viridis
+# gradient_count = 8
+# gradient_color_1 = '#440154'
+# gradient_color_2 = '#3b518b'
+# gradient_color_3 = '#2c718e'
+# gradient_color_4 = '#21908d'
+# gradient_color_5 = '#27ad81'
+# gradient_color_6 = '#5cc863'
+# gradient_color_7 = '#aadc32'
+# gradient_color_8 = '#fde725'
 
 [smoothing]
 
