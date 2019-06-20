@@ -72,8 +72,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <exclam> <minus> <c>                : "∌" U220C # DOES NOT CONTAIN AS MEMBER
 <Multi_key> <slash> <backslash>                 : "∧" U2227 # LOGICAL AND
 <Multi_key> <backslash> <slash>                 : "∨" U2228 # LOGICAL OR
+<Multi_key> <backslash> <parenright>            : "⌢" U2322 # FROWN
 <Multi_key> <slash><underscore><backslash>      : "△" U25B3 # WHITE UP-POINTING TRIANGLE
 <Multi_key> <backslash><underscore><slash>      : "▽" U25BD # WHITE DOWN-POINTING TRIANGLE
+<Multi_key> <less> <parenright>                 : "⊲" U22B2 # NORMAL SUBGROUP OF
+<Multi_key> <greater> <parenleft>               : "⊳" U22B3 # CONTAINS AS NORMAL SUBGROUP
+<Multi_key> <equal> <less> <parenright>         : "⊴" U22B4 # NORMAL SUBGROUP OF OR EQUAL TO
+<Multi_key> <equal> <greater> <parenleft>       : "⊵" U22B5 # CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
 <Multi_key> <slash> <n> <i>                     : "∌" U220C # DOES NOT CONTAIN AS MEMBER
 <Multi_key> <braceleft> <U>                     : "∪" U222A # UNION
 <Multi_key> <braceleft> <asciicircum>           : "∩" U2229 # INTERSECTION
@@ -436,6 +441,60 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <I> <x> : "𝒙" U1d499
 <Multi_key> <I> <y> : "𝒚" U1d49a
 <Multi_key> <I> <z> : "𝒛" U1d49b
+
+# Bold, italic greek
+<Multi_key> <at> <a> : "𝜶" U1D736 # MATHEMATICAL BOLD ITALIC SMALL ALPHA
+<Multi_key> <at> <b> : "𝜷" U1D737 # MATHEMATICAL BOLD ITALIC SMALL BETA
+<Multi_key> <at> <c> : "𝝍" U1D74D # MATHEMATICAL BOLD ITALIC SMALL PSI
+<Multi_key> <at> <d> : "𝜹" U1D739 # MATHEMATICAL BOLD ITALIC SMALL DELTA
+<Multi_key> <at> <e> : "𝜺" U1D73A # MATHEMATICAL BOLD ITALIC SMALL EPSILON
+<Multi_key> <at> <f> : "𝝓" U1D753 # MATHEMATICAL BOLD ITALIC SMALL PHI
+<Multi_key> <at> <g> : "𝜸" U1D738 # MATHEMATICAL BOLD ITALIC SMALL GAMMA
+<Multi_key> <at> <h> : "𝜼" U1D73C # MATHEMATICAL BOLD ITALIC SMALL ΕΤΑ
+<Multi_key> <at> <i> : "𝜾" U1D73E # MATHEMATICAL BOLD ITALIC SMALL ΙΟΤΑ
+<Multi_key> <at> <j> : "𝝃" U1D743 # MATHEMATICAL BOLD ITALIC SMALL XI
+<Multi_key> <at> <k> : "𝜿" U1D73F # MATHEMATICAL BOLD ITALIC SMALL KAPPA
+<Multi_key> <at> <l> : "𝝀" U1D740 # MATHEMATICAL BOLD ITALIC SMALL LAMBDA
+<Multi_key> <at> <m> : "𝝁" U1D741 # MATHEMATICAL BOLD ITALIC SMALL MU
+<Multi_key> <at> <n> : "𝝂" U1D742 # MATHEMATICAL BOLD ITALIC SMALL NU
+<Multi_key> <at> <o> : "𝝄" U1D744 # MATHEMATICAL BOLD ITALIC SMALL OMICRON
+<Multi_key> <at> <p> : "𝝅" U1D745 # MATHEMATICAL BOLD ITALIC SMALL PI
+<Multi_key> <at> <W> : "𝝕" U1D755 # MATHEMATICAL BOLD ITALIC PI SYMBOL
+<Multi_key> <at> <r> : "𝝆" U1D746 # MATHEMATICAL BOLD ITALIC SMALL RHO
+<Multi_key> <at> <s> : "𝝈" U1D748 # MATHEMATICAL BOLD ITALIC SMALL SIGMA
+<Multi_key> <at> <t> : "𝝉" U1D749 # MATHEMATICAL BOLD ITALIC SMALL TAU
+<Multi_key> <at> <u> : "𝜽" U1D73D # MATHEMATICAL BOLD ITALIC SMALL THETA
+<Multi_key> <at> <v> : "𝝎" U1D74E # MATHEMATICAL BOLD ITALIC SMALL OMEGA
+<Multi_key> <at> <w> : "𝝇" U1D747 # MATHEMATICAL BOLD ITALIC SMALL FINAL SIGMA
+<Multi_key> <at> <x> : "𝝌" U1D74C # MATHEMATICAL BOLD ITALIC SMALL CHI
+<Multi_key> <at> <y> : "𝝊" U1D74A # MATHEMATICAL BOLD ITALIC SMALL UPSILON
+<Multi_key> <at> <z> : "𝜻" U1D73B # MATHEMATICAL BOLD ITALIC SMALL ZETA
+
+# Bold, Italic Capital Greek letters
+<Multi_key> <at> <A> : "𝜜" U1D71C # MATHEMATICAL BOLD ITALIC CAPITAL ALPHA
+<Multi_key> <at> <B> : "𝜝" U1D71D # MATHEMATICAL BOLD ITALIC CAPITAL BETA
+<Multi_key> <at> <C> : "𝜳" U1D733 # MATHEMATICAL BOLD ITALIC CAPITAL PSI
+<Multi_key> <at> <D> : "𝜟" U1D71F # MATHEMATICAL BOLD ITALIC CAPITAL DELTA
+<Multi_key> <at> <E> : "𝜠" U1D720 # MATHEMATICAL BOLD ITALIC CAPITAL EPSILON
+<Multi_key> <at> <F> : "𝜱" U1D731 # MATHEMATICAL BOLD ITALIC CAPITAL PHI
+<Multi_key> <at> <G> : "𝜞" U1D71E # MATHEMATICAL BOLD ITALIC CAPITAL GAMMA
+<Multi_key> <at> <H> : "𝜢" U1D722 # MATHEMATICAL BOLD ITALIC CAPITAL ΕΤΑ
+<Multi_key> <at> <I> : "𝜤" U1D724 # MATHEMATICAL BOLD ITALIC CAPITAL ΙΟΤΑ
+<Multi_key> <at> <J> : "𝜩" U1D729 # MATHEMATICAL BOLD ITALIC CAPITAL XI
+<Multi_key> <at> <K> : "𝜥" U1D725 # MATHEMATICAL BOLD ITALIC CAPITAL KAPPA
+<Multi_key> <at> <L> : "𝜦" U1D726 # MATHEMATICAL BOLD ITALIC CAPITAL LAMBDA
+<Multi_key> <at> <M> : "𝜧" U1D727 # MATHEMATICAL BOLD ITALIC CAPITAL MU
+<Multi_key> <at> <N> : "𝜨" U1D728 # MATHEMATICAL BOLD ITALIC CAPITAL NU
+<Multi_key> <at> <O> : "𝜪" U1D72A # MATHEMATICAL BOLD ITALIC CAPITAL OMICRON
+<Multi_key> <at> <P> : "𝜫" U1D72B # MATHEMATICAL BOLD ITALIC CAPITAL PI
+<Multi_key> <at> <R> : "𝜬" U1D72C # MATHEMATICAL BOLD ITALIC CAPITAL RHO
+<Multi_key> <at> <S> : "𝜮" U1D72E # MATHEMATICAL BOLD ITALIC CAPITAL SIGMA
+<Multi_key> <at> <T> : "𝜯" U1D72F # MATHEMATICAL BOLD ITALIC CAPITAL TAU
+<Multi_key> <at> <U> : "𝜣" U1D723 # MATHEMATICAL BOLD ITALIC CAPITAL THETA
+<Multi_key> <at> <V> : "𝜴" U1D734 # MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
+<Multi_key> <at> <X> : "𝜲" U1D732 # MATHEMATICAL BOLD ITALIC CAPITAL CHI
+<Multi_key> <at> <Y> : "𝜰" U1D730 # MATHEMATICAL BOLD ITALIC CAPITAL UPSILON
+<Multi_key> <at> <Z> : "𝜡" U1D721 # MATHEMATICAL BOLD ITALIC CAPITAL ZETA
 
 <Multi_key> <q> <A> : "𝒜" U1d49c
 <Multi_key> <q> <B> : "ℬ" U1d49d
