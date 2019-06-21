@@ -55,6 +55,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <G> <Y>                             : "Υ" U03A5 # GREEK CAPITAL LETTER UPSILON
 <Multi_key> <G> <Z>                             : "Ζ" U0396 # GREEK CAPITAL LETTER ZETA
 
+<Multi_key> <equal> <Left> <Right>              : "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <Right> <Left>              : "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
 <Multi_key> <asciitilde> <asciitilde>           : "≈" U2248 # ALMOST EQUAL TO
 <Multi_key> <asciitilde> <equal>                : "≅" U2245 # APPROXIMATELY EQUAL TO
 <Multi_key> <equal> <asciitilde>                : "≌" U2245 # APPROXIMATELY EQUAL TO
