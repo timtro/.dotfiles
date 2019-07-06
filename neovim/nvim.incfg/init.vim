@@ -397,6 +397,10 @@ map <C-n> :NERDTreeToggle<CR>
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 
+" Move last word in line to next indented line, and reverse
+nmap <C-s> $diw"_xj^hpa<Space><Esc>
+nmap <C-A-s> ^diw"_xk$a<Space><Esc>pj^
+
 " Easymotion searching:
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -450,6 +454,6 @@ let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
 
 
 let g:is_transparent=1
-call Make_bg_transparent()
+" call Make_bg_transparent()
 
 let g:vim_json_syntax_conceal = 0
