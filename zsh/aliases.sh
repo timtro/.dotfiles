@@ -27,6 +27,7 @@ alias xrdb-replace='xrdb -remove -all && xrdb -load'
 alias Clear="clear && print_greeting"
 alias seecompose="nvim /usr/share/X11/locale/en_US.UTF-8/Compose"
 alias seekeys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
+alias bat="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 # Theme switching
 alias gruv='source "/home/timtro/.config/nvim/bundle/gruvbox/gruvbox_256palette.sh"'

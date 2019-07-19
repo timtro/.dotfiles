@@ -7,6 +7,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <d>                             : "δ" U03B4 # GREEK SMALL LETTER DELTA
 <Multi_key> <g> <e>                             : "ε" U03B5 # GREEK SMALL LETTER EPSILON
 <Multi_key> <g> <f>                             : "φ" U03C6 # GREEK SMALL LETTER PHI
+<Multi_key> <g> <F>                             : "ᵠ" U1D60 # MODIFIER LETTER SMALL GREEK PHI
 <Multi_key> <g> <g>                             : "γ" U03B3 # GREEK SMALL LETTER GAMMA
 <Multi_key> <g> <h>                             : "η" U03B7 # GREEK SMALL LETTER ΕΤΑ
 <Multi_key> <g> <i>                             : "ι" U03B9 # GREEK SMALL LETTER ΙΟΤΑ
@@ -454,6 +455,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <at> <d> : "𝜹" U1D739 # MATHEMATICAL BOLD ITALIC SMALL DELTA
 <Multi_key> <at> <e> : "𝜺" U1D73A # MATHEMATICAL BOLD ITALIC SMALL EPSILON
 <Multi_key> <at> <f> : "𝝓" U1D753 # MATHEMATICAL BOLD ITALIC SMALL PHI
+<Multi_key> <at> <at> <f> : "𝝋" U1D74B # MATHEMATICAL BOLD ITALIC SMALL PHI
 <Multi_key> <at> <g> : "𝜸" U1D738 # MATHEMATICAL BOLD ITALIC SMALL GAMMA
 <Multi_key> <at> <h> : "𝜼" U1D73C # MATHEMATICAL BOLD ITALIC SMALL ΕΤΑ
 <Multi_key> <at> <i> : "𝜾" U1D73E # MATHEMATICAL BOLD ITALIC SMALL ΙΟΤΑ
