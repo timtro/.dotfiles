@@ -322,24 +322,6 @@ augroup cpp_stuff
 augroup END
 
 
-""" Aesthetics
-"-------------------------------------------------------------------------------
-
-" Set the vertical split character
-:set fillchars+=vert:\┃
-
-" let g:indentLine_char = '⎸'
-let g:indentLine_char = '▏'
-
-if has("gui_running") || exists('g:GtkGuiLoaded')
-  set termguicolors
-  source ~/.dotfiles/colours/nvim/dejour-gui.vim
-else
-  set termguicolors
-  set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
-  source ~/.dotfiles/colours/nvim/dejour.vim
-endif
-
 
 """ Keybindings
 "-------------------------------------------------------------------------------
@@ -457,3 +439,23 @@ let g:is_transparent=1
 " call Make_bg_transparent()
 
 let g:vim_json_syntax_conceal = 0
+
+
+
+""" Aesthetics
+"-------------------------------------------------------------------------------
+
+" Set the vertical split character
+:set fillchars+=vert:\┃
+
+" let g:indentLine_char = '⎸'
+let g:indentLine_char = '▏'
+
+if has("gui_running") || exists('g:GtkGuiLoaded')
+  set termguicolors
+  source ~/.dotfiles/colours/nvim/dejour-gui.vim
+else
+  set termguicolors
+  set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+  source ~/.dotfiles/colours/nvim/dejour.vim
+endif
