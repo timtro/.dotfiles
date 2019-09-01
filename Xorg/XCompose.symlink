@@ -7,7 +7,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <d>                             : "δ" U03B4 # GREEK SMALL LETTER DELTA
 <Multi_key> <g> <e>                             : "ε" U03B5 # GREEK SMALL LETTER EPSILON
 <Multi_key> <g> <f>                             : "φ" U03C6 # GREEK SMALL LETTER PHI
-<Multi_key> <g> <F>                             : "ᵠ" U1D60 # MODIFIER LETTER SMALL GREEK PHI
+<Multi_key> <g> <F>                             : "φ" U1D60 # MODIFIER LETTER SMALL GREEK PHI
 <Multi_key> <g> <g>                             : "γ" U03B3 # GREEK SMALL LETTER GAMMA
 <Multi_key> <g> <h>                             : "η" U03B7 # GREEK SMALL LETTER ΕΤΑ
 <Multi_key> <g> <i>                             : "ι" U03B9 # GREEK SMALL LETTER ΙΟΤΑ
