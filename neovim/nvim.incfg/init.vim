@@ -35,7 +35,7 @@ call vundle#begin()
 """ Plug: Start Vundle Plugin/bundle list.
 """   Options related to plugins are kept near their Plugin delcaration.
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
   let g:ctrlp_follow_symlinks = 1
   let g:ctrlp_working_path_mode = 'ra'
@@ -63,12 +63,14 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'junegunn/limelight.vim'
 Plugin 'shime/vim-livedown'
 
+Plugin 'tpope/vim-commentary'
+
 """ Plug: The NERDs :)
-Plugin 'scrooloose/nerdcommenter'
-  let g:NERDCommentEmptyLines = 1
-  let g:NERDTrimTrailingWhitespace = 1
-  let g:NERDDefaultAlign = 'left'
-  let g:NERDSpaceDelims = 1
+" Plugin 'scrooloose/nerdcommenter'
+"   let g:NERDCommentEmptyLines = 1
+"   let g:NERDTrimTrailingWhitespace = 1
+"   let g:NERDDefaultAlign = 'left'
+"   let g:NERDSpaceDelims = 1
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
   let g:NERDTreeShowIgnoredStatus = 1
