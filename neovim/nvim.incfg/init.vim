@@ -62,8 +62,12 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'junegunn/limelight.vim'
 Plugin 'shime/vim-livedown'
-
 Plugin 'tpope/vim-commentary'
+
+""" Plug: Kana's DIY text objects, and objects based thereon.
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-line'
+Plugin 'michaeljsmith/vim-indent-object'
 
 """ Plug: The NERDs :)
 " Plugin 'scrooloose/nerdcommenter'
