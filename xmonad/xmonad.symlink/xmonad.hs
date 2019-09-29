@@ -14,7 +14,7 @@ import XMonad.Util.NamedScratchpad
   , namedScratchpadAction
   , namedScratchpadManageHook
   )
-import XMonad.Hooks.ManageDocks( ToggleStruts(ToggleStruts) )
+import XMonad.Hooks.ManageDocks( ToggleStruts(ToggleStruts), Direction1D(Prev, Next) )
 import XMonad.Hooks.DynamicLog
   ( PP
   , statusBar
@@ -143,6 +143,8 @@ myKeys =
   , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
   , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
   , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
+  , ("M-S-C-j",         sendMessage $ SplitShift Prev)
+  , ("M-S-C-k",         sendMessage $ SplitShift Next)
   , ("M-s",            sendMessage Swap)
   , ("M-S-s",          sendMessage Rotate)
   , ("M-n",            sendMessage FocusParent)
