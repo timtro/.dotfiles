@@ -136,6 +136,10 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <at> <slash>                        : "✓" U2713 # CHECK MARK
 <Multi_key> <at> <x>                            : "✗" U2717 # BALLOT X
 
+<Multi_key> <bar> <bar> <B>                     : "𝐁" U1D401 # MATHEMATICAL BOLD CAPITAL B
+<Multi_key> <bar> <bar> <C>                     : "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
+<Multi_key> <bar> <bar> <R>                     : "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
+
 <Multi_key> <bar> <bracketleft>                 : "⟦" U27E6 # MATHEMATICAL LEFT WHITE SQUARE BRACKET
 <Multi_key> <bar> <bracketright>                : "⟧" U27E7 # MATHEMATICAL RIGHT WHITE SQUARE BRACKET
 <Multi_key> <bar> <braceleft>                   : "⦃" U2983 # LEFT WHITE CURLY BRACKET
@@ -714,6 +718,16 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <x> : "𝕩" U1d569
 <Multi_key> <bar> <y> : "𝕪" U1d56a
 <Multi_key> <bar> <z> : "𝕫" U1d56b
+<Multi_key> <bar> <0> : "𝟘" U1D7D8
+<Multi_key> <bar> <1> : "𝟙" U1D7D9
+<Multi_key> <bar> <2> : "𝟚" U1D7DA
+<Multi_key> <bar> <3> : "𝟛" U1D7DB
+<Multi_key> <bar> <4> : "𝟜" U1D7DC
+<Multi_key> <bar> <5> : "𝟝" U1D7DD
+<Multi_key> <bar> <6> : "𝟞" U1D7DE
+<Multi_key> <bar> <7> : "𝟟" U1D7DF
+<Multi_key> <bar> <8> : "𝟠" U1D7E0
+<Multi_key> <bar> <9> : "𝟡" U1D7E1
 
 <Multi_key> <F> <A> : "𝕬" U1d56c
 <Multi_key> <F> <B> : "𝕭" U1d56d
