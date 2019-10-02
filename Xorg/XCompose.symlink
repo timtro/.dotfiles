@@ -728,6 +728,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <7> : "𝟟" U1D7DF
 <Multi_key> <bar> <8> : "𝟠" U1D7E0
 <Multi_key> <bar> <9> : "𝟡" U1D7E1
+<Multi_key> <bar> <semicolon> : "⨾" U2A3E # Z NOTATION RELATIONAL COMPOSITION
 
 <Multi_key> <F> <A> : "𝕬" U1d56c
 <Multi_key> <F> <B> : "𝕭" U1d56d
