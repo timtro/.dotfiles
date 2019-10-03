@@ -258,6 +258,13 @@ set pastetoggle=<F11>
 " Use X11 clipboard be default.
 " set clipboard=unnamedplus
 
+" Persistent undo
+set undofile
+set undodir=$HOME/tmp/vimundo
+
+set undolevels=1000
+set undoreload=10000
+
 """ Post Vundle Plugin Config
 "-------------------------------------------------------------------------------
 
