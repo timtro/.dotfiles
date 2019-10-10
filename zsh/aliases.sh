@@ -1,12 +1,7 @@
 
 # Editing and movement shortcuts
 alias g$EDITOR='run_detached $EDITOR-gtk'
-alias thesis='cd ~/Documents/Thesis-PhD'
-alias edthesis='thesis && $EDITOR'
-alias edthesis-tex='thesis && cd tex && $EDITOR'
-alias edthesis-md='thesis && cd md && $EDITOR'
-alias edthesis-reports='thesis && cd reports && $EDITOR'
-alias edepigraphs='cd ~/Documents/Writing/Epigraphs && $EDITOR'
+alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf'
 alias edbib='cd ~/texmf/bibtex/bib && $EDITOR library.bib'
 alias edtexmf='cd ~/texmf && $EDITOR'
 alias ed$EDITOR='$EDITOR ~/.dotfiles/neovim/$EDITOR.incfg/init.vim'
@@ -17,6 +12,12 @@ alias edcompose='$EDITOR ~/.XCompose'
 alias edkitty='$EDITOR ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
 alias edrofi='$EDITOR ~/.dotfiles/rofi/rofi.incfg/config'
 alias edrofi-flat='$EDITOR ~/.dotfiles/rofi/rofi.incfg/themes/flat.rasi'
+alias thesis='cd ~/Documents/Thesis-PhD'
+alias edthesis='thesis && $EDITOR'
+alias edthesis-tex='thesis && cd tex && $EDITOR'
+alias edthesis-md='thesis && cd md && $EDITOR'
+alias edthesis-reports='thesis && cd reports && $EDITOR'
+alias edepigraphs='cd ~/Documents/Writing/Epigraphs && $EDITOR'
 alias work='cd ~/workspace'
 
 # Utility aliases
