@@ -2,7 +2,7 @@ import XMonad
 import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
 import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing)
+import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing, toggleScreenSpacingEnabled )
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances

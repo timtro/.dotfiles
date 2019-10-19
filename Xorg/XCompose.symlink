@@ -57,10 +57,14 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 #
 <Multi_key> <slash><underscore><backslash>       : "△" U25B3 # WHITE UP-POINTING TRIANGLE
 <Multi_key> <backslash><underscore><slash>       : "▽" U25BD # WHITE DOWN-POINTING TRIANGLE
-<Multi_key> <less> <parenright>                  : "⊲" U22B2 # NORMAL SUBGROUP OF
-<Multi_key> <greater> <parenleft>                : "⊳" U22B3 # CONTAINS AS NORMAL SUBGROUP
-<Multi_key> <equal> <less> <parenright>          : "⊴" U22B4 # NORMAL SUBGROUP OF OR EQUAL TO
-<Multi_key> <equal> <greater> <parenleft>        : "⊵" U22B5 # CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
+<Multi_key> <less> <braceright>                  : "⊲" U22B2 # NORMAL SUBGROUP OF
+<Multi_key> <braceleft> <greater>                : "⊳" U22B3 # CONTAINS AS NORMAL SUBGROUP
+<Multi_key> <equal> <less> <braceright>          : "⊴" U22B4 # NORMAL SUBGROUP OF OR EQUAL TO
+<Multi_key> <equal> <braceleft> <greater>        : "⊵" U22B5 # CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
+<Multi_key> <less> <parenright>                  : "⪦" U2AA6
+<Multi_key> <parenleft> <greater>                : "⪧" U2AA7
+# <Multi_key> : "⪪" U2AAA
+# <Multi_key> : "⪫" U2AAB
 <Multi_key> <parenleft> <plus> <parenright>      : "⊕" U2295 # CIRCLED PLUS
 <Multi_key> <parenleft> <minus> <parenright>     : "⊖" U2296 # CIRCLED MINUS
 <Multi_key> <parenleft> <x> <x> <parenright>     : "⊗" U2297 # CIRCLED TIMES
@@ -71,6 +75,12 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bracketleft> <minus> <bracketright> : "⊟" U229F # SQUARED MINUS
 <Multi_key> <bracketleft> <x> <x> <bracketright> : "⊠" U22A0 # SQUARED TIMES
 <Multi_key> <bracketleft> <period> <bracketright>: "⊡" U22A1 # SQUARED DOT OPERATOR
+
+## Shapes
+#
+# <Multi_key>   : "►" U #
+# <Multi_key>   : "◄" U #
+# <Multi_key>   : "◄" U #
 
 # Decorators
 #
