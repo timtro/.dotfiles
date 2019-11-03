@@ -71,10 +71,12 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <parenleft> <period> <parenright>    : "⊙" U2299 # CIRCLED DOT OPERATOR
 <Multi_key> <parenleft> <slash> <parenright>     : "⊘" U2298 # CIRCLED DIVISION SLASH
 <Multi_key> <parenleft> <asterisk> <parenright>  : "⊛" U229B # CIRCLED ASTERISK OPERATOR
+<Multi_key> <parenleft> <parenright>             : "○" U25CB # WHITE CIRCLE
 <Multi_key> <bracketleft> <plus> <bracketright>  : "⊞" U229E # SQUARED PLUS
 <Multi_key> <bracketleft> <minus> <bracketright> : "⊟" U229F # SQUARED MINUS
 <Multi_key> <bracketleft> <x> <x> <bracketright> : "⊠" U22A0 # SQUARED TIMES
 <Multi_key> <bracketleft> <period> <bracketright>: "⊡" U22A1 # SQUARED DOT OPERATOR
+# <Multi_kay>                                      : "⋄" U22C4 # DIAMOND OPERATOR
 
 ## Shapes
 #
@@ -86,6 +88,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 #
 <Multi_key> <asciicircum> <apostrophe> : "′" U2032 # PRIME
 <Multi_key> <v> <period> <period>      : "⋮" U22EE # VERTICAL ELLIPSIS
+<Multi_key> <asciicircum> <period> <period> : "⋯" U22EF # MIDLINE HORIZONTAL ELLIPSIS
 <Multi_key> <period> <quotedbl>        : "∴" U2234 # THEREFORE
 <Multi_key> <quotedbl> <period>        : "∵" U2235 # BECAUSE
 <Multi_key> <at> <slash>               : "✓" U2713 # CHECK MARK
@@ -102,6 +105,11 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <bar> <B>       : "𝐁" U1D401 # MATHEMATICAL BOLD CAPITAL B
 <Multi_key> <bar> <bar> <C>       : "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
 <Multi_key> <bar> <bar> <R>       : "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
+
+
+# Special symbols
+#
+<Multi_key> <l> <l> : "ℓ" U2113 # SCRIPT SMALL L
 
 # Unitary operators
 #

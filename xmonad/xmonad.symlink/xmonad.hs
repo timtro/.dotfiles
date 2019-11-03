@@ -80,12 +80,12 @@ myConfig = defaultConfig
   , startupHook        = myStartupHook
   , layoutHook         = smartBorders
                           $ mkToggle (single NBFULL)
-                          $ spacingWithEdge 10 (layoutHook defaultConfig ||| emptyBSP)
+                          $ spacingWithEdge 0 (layoutHook defaultConfig ||| emptyBSP)
   -- , logHook            = fadeInactiveLogHook 0.9
   , handleEventHook    = handleEventHook def <+> fullscreenEventHook
   , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
   , terminal           = "kitty"
-  , borderWidth        = 3
+  , borderWidth        = 1
   , normalBorderColor  = bg
   , focusedBorderColor = windowBorderColour
   , focusFollowsMouse  = False

@@ -343,7 +343,7 @@ augroup END
 "     <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
 
 " What does semicolon do anyway?
-noremap ; :
+" noremap ; :
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
