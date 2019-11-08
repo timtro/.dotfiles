@@ -103,7 +103,7 @@ myKeys =
           ++    "xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
   , ("M-S-x"                 , spawn "xkill" )
   , ("M-M1-r"                , spawn "reboot")
-  , ("M-M1-p"                , spawn "shutdown -P now")
+  , ("M-M1-p"                , spawn "shutdown -P now" )
   , ("M-M1-l"                , spawn $ lockerCmd )
   , ("M-p"                   , spawn "rofi -show combi" )
   , ("M-<XF86AudioNext>"     , spawn "variety --next" )
@@ -152,6 +152,8 @@ myKeys =
   , ("M-M1-n",         sendMessage SelectNode)
   , ("M-a",            sendMessage Balance)
   , ("M-M1-a",         sendMessage Equalize)
+  -- Job helpers
+  , ("M-u", spawn "xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown" )
   ]
 
 lockerCmd :: [Char]
