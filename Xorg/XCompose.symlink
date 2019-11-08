@@ -12,6 +12,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <Right> <greater> <greater> : "⤖" U2916 # RIGHTWARDS TWO-HEADED ARROW WITH TAIL
 <Multi_key> <equal> <Right> <Right>     : "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
 <Multi_key> <Left> <Left>               : "←" U2190 # LEFTWARDS ARROW
+<Multi_key> <Left> <bar>                : "↤" U21A4 # LEFTWARDS ARROW FROM BAR
 <Multi_key> <less> <less> <Left>        : "↞" U2192 # LEFTWARDS TWO HEADED ARROW
 <Multi_key> <less> <Left>               : "↢" U2192 # LEFTWARDS ARROW WITH TAIL
 <Multi_key> <c> <Left>                  : "↩" U21A9 # RIGHTWARDS ARROW WITH HOOK
@@ -105,11 +106,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <bar> <B>       : "𝐁" U1D401 # MATHEMATICAL BOLD CAPITAL B
 <Multi_key> <bar> <bar> <C>       : "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
 <Multi_key> <bar> <bar> <R>       : "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
+<Multi_key> <bar> <bar> <Z>       : "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
 
 
 # Special symbols
 #
 <Multi_key> <l> <l> : "ℓ" U2113 # SCRIPT SMALL L
+
 
 # Unitary operators
 #
@@ -123,6 +126,11 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <p> <d> <i> <f>   : "∂" U2202 # PARTIAL DIFFERENTIAL
 <Multi_key> <R> <e>           : "ℜ" U211C # BLACK-LETTER CAPITAL R (Real Part)
 <Multi_key> <I> <m>           : "ℑ" U2111 # BLACK-LETTER CAPTIAL I (Imaginary Part)
+
+# Scripts
+#
+<Multi_key> <asciicircum> <underscore> <k> : "ᵏ" U1D4F # MODIFIER LETTER SMALL K
+<Multi_key> <asciicircum> <underscore> <m> : "ᵐ" U1D50 # MODIFIER LETTER SMALL M
 
 # Special delimeters
 #
