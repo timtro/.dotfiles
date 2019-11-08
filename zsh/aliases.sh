@@ -1,7 +1,7 @@
 
 # Editing and movement shortcuts
 alias g$EDITOR='run_detached $EDITOR-gtk'
-alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf'
+alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown'
 alias edbib='cd ~/texmf/bibtex/bib && $EDITOR library.bib'
 alias edtexmf='cd ~/texmf && $EDITOR'
 alias ed$EDITOR='$EDITOR ~/.dotfiles/neovim/$EDITOR.incfg/init.vim'
