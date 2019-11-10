@@ -133,6 +133,10 @@ Plugin 'godlygeek/tabular'
 " Plugin 'iamcco/markdown-preview.vim'
 "   let g:mkdp_path_to_chrome = "google-chrome"
 
+" Python
+Plugin 'nvie/vim-flake8'
+Plugin 'tell-k/vim-autopep8'
+
 " Trying bfrg's as alternative with C++20 support
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'junegunn/rainbow_parentheses.vim'
