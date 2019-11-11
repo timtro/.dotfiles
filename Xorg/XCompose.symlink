@@ -1,83 +1,87 @@
 include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 
+
 # Arrows
 #
-<Multi_key> <Right> <Right>             : "→" U2192 # RIGHTWARDS ARROW
-<Multi_key> <greater> <greater> <Right> : "↠" U2192 # RIGHTWARDS TWO HEADED ARROW
-<Multi_key> <greater> <Right>           : "↣" U2192 # RIGHTWARDS ARROW WITH TAIL
-<Multi_key> <bar> <Right>               : "↦" U21A6 # RIGHTWARDS ARROW FROM BAR
-<Multi_key> <asciitilde> <Right>        : "⥲" U2972 # TILDE OPERATOR ABOVE RIGHTWARDS ARROW
-<Multi_key> <c> <Right>                 : "↪" U21AA # RIGHTWARDS ARROW WITH HOOK
-<Multi_key> <slash> <Right>             : "↛" U219B # RIGHTWARDS ARROW WITH STROKE
-<Multi_key> <Right> <greater> <greater> : "⤖" U2916 # RIGHTWARDS TWO-HEADED ARROW WITH TAIL
-<Multi_key> <equal> <Right> <Right>     : "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
-<Multi_key> <Left> <Left>               : "←" U2190 # LEFTWARDS ARROW
-<Multi_key> <Left> <bar>                : "↤" U21A4 # LEFTWARDS ARROW FROM BAR
-<Multi_key> <less> <less> <Left>        : "↞" U2192 # LEFTWARDS TWO HEADED ARROW
-<Multi_key> <less> <Left>               : "↢" U2192 # LEFTWARDS ARROW WITH TAIL
-<Multi_key> <c> <Left>                  : "↩" U21A9 # RIGHTWARDS ARROW WITH HOOK
-<Multi_key> <Left> <less> <less>        : "⬻" U2B3B # LEFTWARDS TWO-HEADED ARROW WITH TAIL
-<Multi_key> <equal> <Left> <Right>      : "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
-<Multi_key> <equal> <Right> <Left>      : "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <Right> <Right>: "→" U2192 # RIGHTWARDS ARROW
+<Multi_key> <greater> <greater> <Right>: "↠" U21A0 # RIGHTWARDS TWO HEADED ARROW
+<Multi_key> <greater> <Right>: "↣" U21A3 # RIGHTWARDS ARROW WITH TAIL
+<Multi_key> <bar> <Right>: "↦" U21A6 # RIGHTWARDS ARROW FROM BAR
+<Multi_key> <asciitilde> <Right>: "⥲" U2972 # TILDE OPERATOR ABOVE RIGHTWARDS ARROW
+<Multi_key> <c> <Right>: "↪" U21AA # RIGHTWARDS ARROW WITH HOOK
+<Multi_key> <slash> <Right>: "↛" U219B # RIGHTWARDS ARROW WITH STROKE
+<Multi_key> <Right> <greater> <greater>: "⤖" U2916 # RIGHTWARDS TWO-HEADED ARROW WITH TAIL
+<Multi_key> <equal> <Right> <Right>: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <Left> <Left>: "←" U2190 # LEFTWARDS ARROW
+<Multi_key> <Left> <bar>: "↤" U21A4 # LEFTWARDS ARROW FROM BAR
+<Multi_key> <less> <less> <Left>: "↞" U219E # LEFTWARDS TWO HEADED ARROW
+<Multi_key> <less> <Left>: "↢" U21A2 # LEFTWARDS ARROW WITH TAIL
+<Multi_key> <c> <Left>: "↩" U21A9 # LEFTWARDS ARROW WITH HOOK
+<Multi_key> <Left> <less> <less>: "⬻" U2B3B # LEFTWARDS TWO-HEADED ARROW WITH TAIL
+<Multi_key> <equal> <Left> <Right>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <Right> <Left>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+
 
 # Conventional binary operators
 #
-<Multi_key> <asciitilde> <asciitilde>        : "≈" U2248 # ALMOST EQUAL TO
-<Multi_key> <asciitilde> <equal>             : "≅" U2245 # APPROXIMATELY EQUAL TO
-<Multi_key> <equal> <asciitilde>             : "≌" U2245 # APPROXIMATELY EQUAL TO
-<Multi_key> <equal> <d> <e> <f>              : "≝" U225D # EQUAL TO BY DEFINITION
-<Multi_key> <equal> <equal>                  : "≡" U2261 # IDENTICAL TO
-<Multi_key> <colon> <equal>                  : "≔" U2254 # COLON EQUALS
-<Multi_key> <equal> <colon>                  : "≕" U2255 # EQUALS COLON
-<Multi_key> <minus> <asciitilde>             : "≃"
-<Multi_key> <c> <minus>                      : "∈" U2208 # ELEMENT OF
-<Multi_key> <exclam> <c> <minus>             : "∉" U2209 # NOT AN ELEMENT OF
-<Multi_key> <minus> <c>                      : "∋" U220B # CONTAINS AS MEMBER
-<Multi_key> <exclam> <minus> <c>             : "∌" U220C # DOES NOT CONTAIN AS MEMBER
-<Multi_key> <slash> <backslash>              : "∧" U2227 # LOGICAL AND
-<Multi_key> <backslash> <slash>              : "∨" U2228 # LOGICAL OR
-<Multi_key> <backslash> <parenright>         : "⌢" U2322 # FROWN
-<Multi_key> <p> <r> <o> <p>                  : "∝" U221D # PROPORTIONAL TO
-<Multi_key> <braceleft> <U>                  : "∪" U222A # UNION
-<Multi_key> <bar> <plus> <bar>               : "⊔" U2294 # SQUARE CUP
-<Multi_key> <braceleft> <asciicircum>        : "∩" U2229 # INTERSECTION
-<Multi_key> <bar> <underscore> <bar>         : "⊓" U2293 # SQUARE CAP
-<Multi_key> <braceleft> <parenleft>          : "⊂" U2282 # SUBSET OF
-<Multi_key> <braceleft> <equal> <parenleft>  : "⊆" U2286 # SUBSET OF OR EQUAL TO
-<Multi_key> <exclam> <braceleft> <parenleft> : "⊄" U2284 # NOT A SUBSET OF
-<Multi_key> <slash> <braceleft> <parenleft>  : "⊄" U2284 # NOT A SUBSET OF
-<Multi_key> <braceleft>    <parenright>      : "⊃" U2283 # SUPERSET OF
-<Multi_key> <braceleft> <equal> <parenright> : "⊇" U2287 # SUPERSET OF OR EQUAL TO
-<Multi_key> <period> <o>                     : "∘" U2218 # RING OPERATOR
-<Multi_key> <bar> <semicolon>                : "⨾" U2A3E # Z NOTATION RELATIONAL COMPOSITION
-<Multi_key> <bar> <colon>                    : "⦂" U2982 # Z NOTATION TYPE COLON
-<Multi_key> <plus> <plus>                    : "⧺" U29FA # DOUBLE PLUS
-<Multi_key> <Multi_key> <asterisk> <x>       : "⨯" U2A2F # CROSS PRODUCT
+<Multi_key> <asciitilde> <asciitilde>: "≈" U2248 # ALMOST EQUAL TO
+<Multi_key> <asciitilde> <equal>: "≅" U2245 # APPROXIMATELY EQUAL TO
+<Multi_key> <equal> <asciitilde>: "≅" U2245 # APPROXIMATELY EQUAL TO
+<Multi_key> <equal> <d> <e> <f>: "≝" U225D # EQUAL TO BY DEFINITION
+<Multi_key> <equal> <equal>: "≡" U2261 # IDENTICAL TO
+<Multi_key> <colon> <equal>: "≔" U2254 # COLON EQUALS
+<Multi_key> <equal> <colon>: "≕" U2255 # EQUALS COLON
+<Multi_key> <minus> <asciitilde>: "≃" U2243 # ASYMPTOTICALLY EQUAL TO
+<Multi_key> <c> <minus>: "∈" U2208 # ELEMENT OF
+<Multi_key> <exclam> <c> <minus>: "∉" U2209 # NOT AN ELEMENT OF
+<Multi_key> <minus> <c>: "∋" U220B # CONTAINS AS MEMBER
+<Multi_key> <exclam> <minus> <c>: "∌" U220C # DOES NOT CONTAIN AS MEMBER
+<Multi_key> <slash> <backslash>: "∧" U2227 # LOGICAL AND
+<Multi_key> <backslash> <slash>: "∨" U2228 # LOGICAL OR
+<Multi_key> <backslash> <parenright>: "⌢" U2322 # FROWN
+<Multi_key> <p> <r> <o> <p>: "∝" U221D # PROPORTIONAL TO
+<Multi_key> <braceleft> <U>: "∪" U222A # UNION
+<Multi_key> <bar> <plus> <bar>: "⊔" U2294 # SQUARE CUP
+<Multi_key> <braceleft> <asciicircum>: "∩" U2229 # INTERSECTION
+<Multi_key> <bar> <underscore> <bar>: "⊓" U2293 # SQUARE CAP
+<Multi_key> <braceleft> <parenleft>: "⊂" U2282 # SUBSET OF
+<Multi_key> <braceleft> <equal> <parenleft>: "⊆" U2286 # SUBSET OF OR EQUAL TO
+<Multi_key> <exclam> <braceleft> <parenleft>: "⊄" U2284 # NOT A SUBSET OF
+<Multi_key> <slash> <braceleft> <parenleft>: "⊄" U2284 # NOT A SUBSET OF
+<Multi_key> <braceleft> <parenright>: "⊃" U2283 # SUPERSET OF
+<Multi_key> <braceleft> <equal> <parenright>: "⊇" U2287 # SUPERSET OF OR EQUAL TO
+<Multi_key> <period> <o>: "∘" U2218 # RING OPERATOR
+<Multi_key> <bar> <semicolon>: "⨾" U2A3E # Z NOTATION RELATIONAL COMPOSITION
+<Multi_key> <bar> <colon>: "⦂" U2982 # Z NOTATION TYPE COLON
+<Multi_key> <plus> <plus>: "⧺" U29FA # DOUBLE PLUS
+<Multi_key> <Multi_key> <asterisk> <x>: "⨯" U2A2F # VECTOR OR CROSS PRODUCT
+
 
 # Abstract binary operators
 #
-<Multi_key> <slash><underscore><backslash>       : "△" U25B3 # WHITE UP-POINTING TRIANGLE
-<Multi_key> <backslash><underscore><slash>       : "▽" U25BD # WHITE DOWN-POINTING TRIANGLE
-<Multi_key> <less> <braceright>                  : "⊲" U22B2 # NORMAL SUBGROUP OF
-<Multi_key> <braceleft> <greater>                : "⊳" U22B3 # CONTAINS AS NORMAL SUBGROUP
-<Multi_key> <equal> <less> <braceright>          : "⊴" U22B4 # NORMAL SUBGROUP OF OR EQUAL TO
-<Multi_key> <equal> <braceleft> <greater>        : "⊵" U22B5 # CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
-<Multi_key> <less> <parenright>                  : "⪦" U2AA6
-<Multi_key> <parenleft> <greater>                : "⪧" U2AA7
+<Multi_key> <slash><underscore><backslash>: "△" U25B3 # WHITE UP-POINTING TRIANGLE
+<Multi_key> <backslash><underscore><slash>: "▽" U25BD # WHITE DOWN-POINTING TRIANGLE
+<Multi_key> <less> <braceright>: "⊲" U22B2 # NORMAL SUBGROUP OF
+<Multi_key> <braceleft> <greater>: "⊳" U22B3 # CONTAINS AS NORMAL SUBGROUP
+<Multi_key> <equal> <less> <braceright>: "⊴" U22B4 # NORMAL SUBGROUP OF OR EQUAL TO
+<Multi_key> <equal> <braceleft> <greater>: "⊵" U22B5 # CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
+<Multi_key> <less> <parenright>: "⪦" U2AA6 # LESS-THAN CLOSED BY CURVE
+<Multi_key> <parenleft> <greater>: "⪧" U2AA7 # GREATER-THAN CLOSED BY CURVE
 # <Multi_key> : "⪪" U2AAA
 # <Multi_key> : "⪫" U2AAB
-<Multi_key> <parenleft> <plus> <parenright>      : "⊕" U2295 # CIRCLED PLUS
-<Multi_key> <parenleft> <minus> <parenright>     : "⊖" U2296 # CIRCLED MINUS
-<Multi_key> <parenleft> <x> <x> <parenright>     : "⊗" U2297 # CIRCLED TIMES
-<Multi_key> <parenleft> <period> <parenright>    : "⊙" U2299 # CIRCLED DOT OPERATOR
-<Multi_key> <parenleft> <slash> <parenright>     : "⊘" U2298 # CIRCLED DIVISION SLASH
-<Multi_key> <parenleft> <asterisk> <parenright>  : "⊛" U229B # CIRCLED ASTERISK OPERATOR
-<Multi_key> <parenleft> <parenright>             : "○" U25CB # WHITE CIRCLE
-<Multi_key> <bracketleft> <plus> <bracketright>  : "⊞" U229E # SQUARED PLUS
-<Multi_key> <bracketleft> <minus> <bracketright> : "⊟" U229F # SQUARED MINUS
-<Multi_key> <bracketleft> <x> <x> <bracketright> : "⊠" U22A0 # SQUARED TIMES
+<Multi_key> <parenleft> <plus> <parenright>: "⊕" U2295 # CIRCLED PLUS
+<Multi_key> <parenleft> <minus> <parenright>: "⊖" U2296 # CIRCLED MINUS
+<Multi_key> <parenleft> <x> <x> <parenright>: "⊗" U2297 # CIRCLED TIMES
+<Multi_key> <parenleft> <period> <parenright>: "⊙" U2299 # CIRCLED DOT OPERATOR
+<Multi_key> <parenleft> <slash> <parenright>: "⊘" U2298 # CIRCLED DIVISION SLASH
+<Multi_key> <parenleft> <asterisk> <parenright>: "⊛" U229B # CIRCLED ASTERISK OPERATOR
+<Multi_key> <parenleft> <parenright>: "○" U25CB # WHITE CIRCLE
+<Multi_key> <bracketleft> <plus> <bracketright>: "⊞" U229E # SQUARED PLUS
+<Multi_key> <bracketleft> <minus> <bracketright>: "⊟" U229F # SQUARED MINUS
+<Multi_key> <bracketleft> <x> <x> <bracketright>: "⊠" U22A0 # SQUARED TIMES
 <Multi_key> <bracketleft> <period> <bracketright>: "⊡" U22A1 # SQUARED DOT OPERATOR
 # <Multi_kay>                                      : "⋄" U22C4 # DIAMOND OPERATOR
+
 
 ## Shapes
 #
@@ -85,769 +89,792 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 # <Multi_key>   : "◄" U #
 # <Multi_key>   : "◄" U #
 
+
 # Decorators
 #
-<Multi_key> <asciicircum> <apostrophe> : "′" U2032 # PRIME
-<Multi_key> <v> <period> <period>      : "⋮" U22EE # VERTICAL ELLIPSIS
-<Multi_key> <asciicircum> <period> <period> : "⋯" U22EF # MIDLINE HORIZONTAL ELLIPSIS
-<Multi_key> <period> <quotedbl>        : "∴" U2234 # THEREFORE
-<Multi_key> <quotedbl> <period>        : "∵" U2235 # BECAUSE
-<Multi_key> <at> <slash>               : "✓" U2713 # CHECK MARK
-<Multi_key> <at> <x>                   : "✗" U2717 # BALLOT X
+<Multi_key> <asciicircum> <apostrophe>: "′" U2032 # PRIME
+<Multi_key> <v> <period> <period>: "⋮" U22EE # VERTICAL ELLIPSIS
+<Multi_key> <asciicircum> <period> <period>: "⋯" U22EF # MIDLINE HORIZONTAL ELLIPSIS
+<Multi_key> <period> <quotedbl>: "∴" U2234 # THEREFORE
+<Multi_key> <quotedbl> <period>: "∵" U2235 # BECAUSE
+<Multi_key> <at> <slash>: "✓" U2713 # CHECK MARK
+<Multi_key> <at> <x>: "✗" U2717 # BALLOT X
+
 
 # Special objects
 #
-<Multi_key> <0> <slash>           : "∅" U2205 # EMPTY SET
-<Multi_key> <slash> <0>           : "∅" U2205 # EMPTY SET
-<Multi_key> <0> <period> <period> : "◌" U25CC # DOTTED CIRCLE
-<Multi_key> <underscore> <space>  : "␣" U2423 # OPEN BOX
+<Multi_key> <0> <slash>: "∅" U2205 # EMPTY SET
+<Multi_key> <slash> <0>: "∅" U2205 # EMPTY SET
+<Multi_key> <0> <period> <period>: "◌" U25CC # DOTTED CIRCLE
+<Multi_key> <underscore> <space>: "␣" U2423 # OPEN BOX
 # <Multi_key> <minus> <2> <M>       : "⸺" U2E3A # TWO-EM DASH
 # <Multi_key> <minus> <3> <M>       : "⸻" U2E3B # THREE-EM DASH
-<Multi_key> <bar> <bar> <B>       : "𝐁" U1D401 # MATHEMATICAL BOLD CAPITAL B
-<Multi_key> <bar> <bar> <C>       : "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
-<Multi_key> <bar> <bar> <R>       : "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
-<Multi_key> <bar> <bar> <Z>       : "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
+<Multi_key> <bar> <bar> <B>: "𝐁" U1D401 # MATHEMATICAL BOLD CAPITAL B
+<Multi_key> <bar> <bar> <C>: "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
+<Multi_key> <bar> <bar> <R>: "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
+<Multi_key> <bar> <bar> <Z>: "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
+
+
 
 
 # Special symbols
 #
-<Multi_key> <l> <l> : "ℓ" U2113 # SCRIPT SMALL L
+<Multi_key> <l> <l>: "ℓ" U2113 # SCRIPT SMALL L
+
+
 
 
 # Unitary operators
 #
-<Multi_key> <dollar> <dollar> : "∫" U222B # INTEGRAL
-<Multi_key> <E> <E>           : "∃" U2203 # THERE EXISTS
-<Multi_key> <slash> <E> <E>   : "∄" U2204 # THERE DOES NOT EXIST
-<Multi_key> <A> <A>           : "∀" U2200 # FOR ALL
-<Multi_key> <slash> <u>       : "µ" U00B5 # MICRO SIGN
-<Multi_key> <d> <e> <l>       : "∇" U2207 # NABLA
-<Multi_key> <i> <n> <c>       : "∆" U2206 # INCREMENT
-<Multi_key> <p> <d> <i> <f>   : "∂" U2202 # PARTIAL DIFFERENTIAL
-<Multi_key> <R> <e>           : "ℜ" U211C # BLACK-LETTER CAPITAL R (Real Part)
-<Multi_key> <I> <m>           : "ℑ" U2111 # BLACK-LETTER CAPTIAL I (Imaginary Part)
+<Multi_key> <dollar> <dollar>: "∫" U222B # INTEGRAL
+<Multi_key> <E> <E>: "∃" U2203 # THERE EXISTS
+<Multi_key> <slash> <E> <E>: "∄" U2204 # THERE DOES NOT EXIST
+<Multi_key> <A> <A>: "∀" U2200 # FOR ALL
+<Multi_key> <slash> <u>: "µ" U00B5 # MICRO SIGN
+<Multi_key> <d> <e> <l>: "∇" U2207 # NABLA
+<Multi_key> <i> <n> <c>: "∆" U2206 # INCREMENT
+<Multi_key> <p> <d> <i> <f>: "∂" U2202 # PARTIAL DIFFERENTIAL
+<Multi_key> <R> <e>: "ℜ" U211C # BLACK-LETTER CAPITAL R
+<Multi_key> <I> <m>: "ℑ" U2111 # BLACK-LETTER CAPITAL I
+
 
 # Scripts
 #
-<Multi_key> <asciicircum> <underscore> <k> : "ᵏ" U1D4F # MODIFIER LETTER SMALL K
-<Multi_key> <asciicircum> <underscore> <m> : "ᵐ" U1D50 # MODIFIER LETTER SMALL M
+<Multi_key> <asciicircum> <underscore> <k>: "ᵏ" U1D4F # MODIFIER LETTER SMALL K
+<Multi_key> <asciicircum> <underscore> <m>: "ᵐ" U1D50 # MODIFIER LETTER SMALL M
+
 
 # Special delimeters
 #
-<Multi_key> <bar> <bracketleft>        : "⟦" U27E6 # MATHEMATICAL LEFT WHITE SQUARE BRACKET
-<Multi_key> <bar> <bracketright>       : "⟧" U27E7 # MATHEMATICAL RIGHT WHITE SQUARE BRACKET
-<Multi_key> <bar> <braceleft>          : "⦃" U2983 # LEFT WHITE CURLY BRACKET
-<Multi_key> <bar> <braceright>         : "⦄" U2984 # RIGHT WHITE CURLY BRACKET
-<Multi_key> <bar> <parenleft>          : "⦇" U2987 # Z NOTATION LEFT IMAGE BRACKET
-<Multi_key> <bar> <parenright>         : "⦈" U2988 # Z NOTATION RIGHT IMAGE BRACKET
-<Multi_key> <parenleft> <parenleft>    : "⦅" U2985 # LEFT WHITE PARENTHESIS
-<Multi_key> <parenright> <parenright>  : "⦆" U2986 # RIGHT WHITE PARENTHESIS
-<Multi_key> <bar> <bar> <bracketleft>  : "⟬" U27EC # MATHEMATICAL LEFT WHITE TORTOISE SHELL BRACKET
-<Multi_key> <bar> <bar> <bracketright> : "⟭" U27ED # MATHEMATICAL RIGHT WHITE TORTOISE SHELL BRACKET
-<Multi_key> <bar> <less>               : "⦉" U2989 # Z NOTATION LEFT BINDING BRACKET
-<Multi_key> <bar> <greater>            : "⦊" U298B # Z NOTATION RIGHT BINDING BRACKET
+<Multi_key> <bar> <bracketleft>: "⟦" U27E6 # MATHEMATICAL LEFT WHITE SQUARE BRACKET
+<Multi_key> <bar> <bracketright>: "⟧" U27E7 # MATHEMATICAL RIGHT WHITE SQUARE BRACKET
+<Multi_key> <bar> <braceleft>: "⦃" U2983 # LEFT WHITE CURLY BRACKET
+<Multi_key> <bar> <braceright>: "⦄" U2984 # RIGHT WHITE CURLY BRACKET
+<Multi_key> <bar> <parenleft>: "⦇" U2987 # Z NOTATION LEFT IMAGE BRACKET
+<Multi_key> <bar> <parenright>: "⦈" U2988 # Z NOTATION RIGHT IMAGE BRACKET
+<Multi_key> <parenleft> <parenleft>: "⦅" U2985 # LEFT WHITE PARENTHESIS
+<Multi_key> <parenright> <parenright>: "⦆" U2986 # RIGHT WHITE PARENTHESIS
+<Multi_key> <bar> <bar> <bracketleft>: "⟬" U27EC # MATHEMATICAL LEFT WHITE TORTOISE SHELL BRACKET
+<Multi_key> <bar> <bar> <bracketright>: "⟭" U27ED # MATHEMATICAL RIGHT WHITE TORTOISE SHELL BRACKET
+<Multi_key> <bar> <less>: "⦉" U2989 # Z NOTATION LEFT BINDING BRACKET
+<Multi_key> <bar> <greater>: "⦊" U298A # Z NOTATION RIGHT BINDING BRACKET
+
 
 # Subscripts
 #
-<Multi_key> <minus> <0>          : "₀" U2080 # SUBSCRIPT ZERO
-<Multi_key> <minus> <1>          : "₁" U2081 # SUBSCRIPT ONE
-<Multi_key> <minus> <2>          : "₂" U2082 # SUBSCRIPT TWO
-<Multi_key> <minus> <3>          : "₃" U2083 # SUBSCRIPT THREE
-<Multi_key> <minus> <4>          : "₄" U2084 # SUBSCRIPT FOUR
-<Multi_key> <minus> <5>          : "₅" U2085 # SUBSCRIPT FIVE
-<Multi_key> <minus> <6>          : "₆" U2086 # SUBSCRIPT SIX
-<Multi_key> <minus> <7>          : "₇" U2087 # SUBSCRIPT SEVEN
-<Multi_key> <minus> <8>          : "₈" U2088 # SUBSCRIPT EIGHT
-<Multi_key> <minus> <9>          : "₉" U2089 # SUBSCRIPT NINE
-<Multi_key> <minus> <plus>       : "₊" U208A # SUBSCRIPT PLUS
-<Multi_key> <minus> <minus>      : "₋" U208B # SUBSCRIPT MINUS
-<Multi_key> <minus> <equal>      : "₌" U208C # SUBSCRIPT EQUALS
-<Multi_key> <minus> <parenleft>  : "₍" U208D # SUBSCRIPT LEFT PAREN
-<Multi_key> <minus> <parenright> : "₎" U208E # SUBSCRIPT RIGHT PAREN
-<Multi_key> <minus> <i>          : "ᵢ" U1D62 # LATIN SUBSCRIPT SMALL LETTER I
-<Multi_key> <minus> <r>          : "ᵣ" U1D63 # LATIN SUBSCRIPT SMALL LETTER R
-<Multi_key> <minus> <u>          : "ᵤ" U1D64 # LATIN SUBSCRIPT SMALL LETTER U
-<Multi_key> <minus> <v>          : "ᵥ" U1D65 # LATIN SUBSCRIPT SMALL LETTER V
-<Multi_key> <minus> <a>          : "ₐ" U2090 # LATIN SUBSCRIPT SMALL LETTER A
-<Multi_key> <minus> <e>          : "ₑ" U2091 # LATIN SUBSCRIPT SMALL LETTER E
-<Multi_key> <minus> <o>          : "ₒ" U2092 # LATIN SUBSCRIPT SMALL LETTER O
-<Multi_key> <minus> <x>          : "ₓ" U2093 # LATIN SUBSCRIPT SMALL LETTER X
-<Multi_key> <minus> <h>          : "ₕ" U2095 # LATIN SUBSCRIPT SMALL LETTER H
-<Multi_key> <minus> <k>          : "ₖ" U2096 # LATIN SUBSCRIPT SMALL LETTER K
-<Multi_key> <minus> <l>          : "ₗ" U2097 # LATIN SUBSCRIPT SMALL LETTER L
-<Multi_key> <minus> <m>          : "ₘ" U2098 # LATIN SUBSCRIPT SMALL LETTER M
-<Multi_key> <minus> <n>          : "ₙ" U2099 # LATIN SUBSCRIPT SMALL LETTER N
-<Multi_key> <minus> <p>          : "ₚ" U209A # LATIN SUBSCRIPT SMALL LETTER P
-<Multi_key> <minus> <s>          : "ₛ" U209B # LATIN SUBSCRIPT SMALL LETTER S
-<Multi_key> <minus> <t>          : "ₜ" U209C # LATIN SUBSCRIPT SMALL LETTER T
-<Multi_key> <minus> <j>          : "ⱼ" U2C7C # LATIN SUBSCRIPT SMALL LETTER J
+<Multi_key> <minus> <0>: "₀" U2080 # SUBSCRIPT ZERO
+<Multi_key> <minus> <1>: "₁" U2081 # SUBSCRIPT ONE
+<Multi_key> <minus> <2>: "₂" U2082 # SUBSCRIPT TWO
+<Multi_key> <minus> <3>: "₃" U2083 # SUBSCRIPT THREE
+<Multi_key> <minus> <4>: "₄" U2084 # SUBSCRIPT FOUR
+<Multi_key> <minus> <5>: "₅" U2085 # SUBSCRIPT FIVE
+<Multi_key> <minus> <6>: "₆" U2086 # SUBSCRIPT SIX
+<Multi_key> <minus> <7>: "₇" U2087 # SUBSCRIPT SEVEN
+<Multi_key> <minus> <8>: "₈" U2088 # SUBSCRIPT EIGHT
+<Multi_key> <minus> <9>: "₉" U2089 # SUBSCRIPT NINE
+<Multi_key> <minus> <plus>: "₊" U208A # SUBSCRIPT PLUS SIGN
+<Multi_key> <minus> <minus>: "₋" U208B # SUBSCRIPT MINUS
+<Multi_key> <minus> <equal>: "₌" U208C # SUBSCRIPT EQUALS SIGN
+<Multi_key> <minus> <parenleft>: "₍" U208D # SUBSCRIPT LEFT PARENTHESIS
+<Multi_key> <minus> <parenright>: "₎" U208E # SUBSCRIPT RIGHT PARENTHESIS
+<Multi_key> <minus> <i>: "ᵢ" U1D62 # LATIN SUBSCRIPT SMALL LETTER I
+<Multi_key> <minus> <r>: "ᵣ" U1D63 # LATIN SUBSCRIPT SMALL LETTER R
+<Multi_key> <minus> <u>: "ᵤ" U1D64 # LATIN SUBSCRIPT SMALL LETTER U
+<Multi_key> <minus> <v>: "ᵥ" U1D65 # LATIN SUBSCRIPT SMALL LETTER V
+<Multi_key> <minus> <a>: "ₐ" U2090 # LATIN SUBSCRIPT SMALL LETTER A
+<Multi_key> <minus> <e>: "ₑ" U2091 # LATIN SUBSCRIPT SMALL LETTER E
+<Multi_key> <minus> <o>: "ₒ" U2092 # LATIN SUBSCRIPT SMALL LETTER O
+<Multi_key> <minus> <x>: "ₓ" U2093 # LATIN SUBSCRIPT SMALL LETTER X
+<Multi_key> <minus> <h>: "ₕ" U2095 # LATIN SUBSCRIPT SMALL LETTER H
+<Multi_key> <minus> <k>: "ₖ" U2096 # LATIN SUBSCRIPT SMALL LETTER K
+<Multi_key> <minus> <l>: "ₗ" U2097 # LATIN SUBSCRIPT SMALL LETTER L
+<Multi_key> <minus> <m>: "ₘ" U2098 # LATIN SUBSCRIPT SMALL LETTER M
+<Multi_key> <minus> <n>: "ₙ" U2099 # LATIN SUBSCRIPT SMALL LETTER N
+<Multi_key> <minus> <p>: "ₚ" U209A # LATIN SUBSCRIPT SMALL LETTER P
+<Multi_key> <minus> <s>: "ₛ" U209B # LATIN SUBSCRIPT SMALL LETTER S
+<Multi_key> <minus> <t>: "ₜ" U209C # LATIN SUBSCRIPT SMALL LETTER T
+<Multi_key> <minus> <j>: "ⱼ" U2C7C # LATIN SUBSCRIPT SMALL LETTER J
+
 
 # Italic sans
 #
-<Multi_key> <slash> <A> : "𝘈" U1d608
-<Multi_key> <slash> <B> : "𝘉" U1d609
-<Multi_key> <slash> <C> : "𝘊" U1d60a
-<Multi_key> <slash> <D> : "𝘋" U1d60b
-<Multi_key> <slash> <E> : "𝘌" U1d60c
-<Multi_key> <slash> <F> : "𝘍" U1d60d
-<Multi_key> <slash> <G> : "𝘎" U1d60e
-<Multi_key> <slash> <H> : "𝘏" U1d60f
-<Multi_key> <slash> <I> : "𝘐" U1d610
-<Multi_key> <slash> <J> : "𝘑" U1d611
-<Multi_key> <slash> <K> : "𝘒" U1d612
-<Multi_key> <slash> <L> : "𝘓" U1d613
-<Multi_key> <slash> <M> : "𝘔" U1d614
-<Multi_key> <slash> <N> : "𝘕" U1d615
-<Multi_key> <slash> <O> : "𝘖" U1d616
-<Multi_key> <slash> <P> : "𝘗" U1d617
-<Multi_key> <slash> <Q> : "𝘘" U1d618
-<Multi_key> <slash> <R> : "𝘙" U1d619
-<Multi_key> <slash> <S> : "𝘚" U1d61a
-<Multi_key> <slash> <T> : "𝘛" U1d61b
-<Multi_key> <slash> <U> : "𝘜" U1d61c
-<Multi_key> <slash> <V> : "𝘝" U1d61d
-<Multi_key> <slash> <W> : "𝘞" U1d61e
-<Multi_key> <slash> <X> : "𝘟" U1d61f
-<Multi_key> <slash> <Y> : "𝘠" U1d620
-<Multi_key> <slash> <Z> : "𝘡" U1d621
-<Multi_key> <slash> <a> : "𝘢" U1d622
-<Multi_key> <slash> <b> : "𝘣" U1d623
-<Multi_key> <slash> <c> : "𝘤" U1d624
-<Multi_key> <slash> <d> : "𝘥" U1d625
-<Multi_key> <slash> <e> : "𝘦" U1d626
-<Multi_key> <slash> <f> : "𝘧" U1d627
-<Multi_key> <slash> <g> : "𝘨" U1d628
-<Multi_key> <slash> <h> : "𝘩" U1d629
-<Multi_key> <slash> <i> : "𝘪" U1d62a
-<Multi_key> <slash> <j> : "𝘫" U1d62b
-<Multi_key> <slash> <k> : "𝘬" U1d62c
-<Multi_key> <slash> <l> : "𝘭" U1d62d
-<Multi_key> <slash> <m> : "𝘮" U1d62e
-<Multi_key> <slash> <n> : "𝘯" U1d62f
-<Multi_key> <slash> <o> : "𝘰" U1d630
-<Multi_key> <slash> <p> : "𝘱" U1d631
-<Multi_key> <slash> <q> : "𝘲" U1d632
-<Multi_key> <slash> <r> : "𝘳" U1d633
-<Multi_key> <slash> <s> : "𝘴" U1d634
-<Multi_key> <slash> <t> : "𝘵" U1d635
-<Multi_key> <slash> <u> : "𝘶" U1d636
-<Multi_key> <slash> <v> : "𝘷" U1d637
-<Multi_key> <slash> <w> : "𝘸" U1d638
-<Multi_key> <slash> <x> : "𝘹" U1d639
-<Multi_key> <slash> <y> : "𝘺" U1d63a
-<Multi_key> <slash> <z> : "𝘻" U1d63b
+<Multi_key> <slash> <A>: "𝘈" U1D608 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL A
+<Multi_key> <slash> <B>: "𝘉" U1D609 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL B
+<Multi_key> <slash> <C>: "𝘊" U1D60A # MATHEMATICAL SANS-SERIF ITALIC CAPITAL C
+<Multi_key> <slash> <D>: "𝘋" U1D60B # MATHEMATICAL SANS-SERIF ITALIC CAPITAL D
+<Multi_key> <slash> <E>: "𝘌" U1D60C # MATHEMATICAL SANS-SERIF ITALIC CAPITAL E
+<Multi_key> <slash> <F>: "𝘍" U1D60D # MATHEMATICAL SANS-SERIF ITALIC CAPITAL F
+<Multi_key> <slash> <G>: "𝘎" U1D60E # MATHEMATICAL SANS-SERIF ITALIC CAPITAL G
+<Multi_key> <slash> <H>: "𝘏" U1D60F # MATHEMATICAL SANS-SERIF ITALIC CAPITAL H
+<Multi_key> <slash> <I>: "𝘐" U1D610 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL I
+<Multi_key> <slash> <J>: "𝘑" U1D611 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL J
+<Multi_key> <slash> <K>: "𝘒" U1D612 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL K
+<Multi_key> <slash> <L>: "𝘓" U1D613 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL L
+<Multi_key> <slash> <M>: "𝘔" U1D614 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL M
+<Multi_key> <slash> <N>: "𝘕" U1D615 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL N
+<Multi_key> <slash> <O>: "𝘖" U1D616 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL O
+<Multi_key> <slash> <P>: "𝘗" U1D617 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL P
+<Multi_key> <slash> <Q>: "𝘘" U1D618 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL Q
+<Multi_key> <slash> <R>: "𝘙" U1D619 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL R
+<Multi_key> <slash> <S>: "𝘚" U1D61A # MATHEMATICAL SANS-SERIF ITALIC CAPITAL S
+<Multi_key> <slash> <T>: "𝘛" U1D61B # MATHEMATICAL SANS-SERIF ITALIC CAPITAL T
+<Multi_key> <slash> <U>: "𝘜" U1D61C # MATHEMATICAL SANS-SERIF ITALIC CAPITAL U
+<Multi_key> <slash> <V>: "𝘝" U1D61D # MATHEMATICAL SANS-SERIF ITALIC CAPITAL V
+<Multi_key> <slash> <W>: "𝘞" U1D61E # MATHEMATICAL SANS-SERIF ITALIC CAPITAL W
+<Multi_key> <slash> <X>: "𝘟" U1D61F # MATHEMATICAL SANS-SERIF ITALIC CAPITAL X
+<Multi_key> <slash> <Y>: "𝘠" U1D620 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL Y
+<Multi_key> <slash> <Z>: "𝘡" U1D621 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL Z
+<Multi_key> <slash> <a>: "𝘢" U1D622 # MATHEMATICAL SANS-SERIF ITALIC SMALL A
+<Multi_key> <slash> <b>: "𝘣" U1D623 # MATHEMATICAL SANS-SERIF ITALIC SMALL B
+<Multi_key> <slash> <c>: "𝘤" U1D624 # MATHEMATICAL SANS-SERIF ITALIC SMALL C
+<Multi_key> <slash> <d>: "𝘥" U1D625 # MATHEMATICAL SANS-SERIF ITALIC SMALL D
+<Multi_key> <slash> <e>: "𝘦" U1D626 # MATHEMATICAL SANS-SERIF ITALIC SMALL E
+<Multi_key> <slash> <f>: "𝘧" U1D627 # MATHEMATICAL SANS-SERIF ITALIC SMALL F
+<Multi_key> <slash> <g>: "𝘨" U1D628 # MATHEMATICAL SANS-SERIF ITALIC SMALL G
+<Multi_key> <slash> <h>: "𝘩" U1D629 # MATHEMATICAL SANS-SERIF ITALIC SMALL H
+<Multi_key> <slash> <i>: "𝘪" U1D62A # MATHEMATICAL SANS-SERIF ITALIC SMALL I
+<Multi_key> <slash> <j>: "𝘫" U1D62B # MATHEMATICAL SANS-SERIF ITALIC SMALL J
+<Multi_key> <slash> <k>: "𝘬" U1D62C # MATHEMATICAL SANS-SERIF ITALIC SMALL K
+<Multi_key> <slash> <l>: "𝘭" U1D62D # MATHEMATICAL SANS-SERIF ITALIC SMALL L
+<Multi_key> <slash> <m>: "𝘮" U1D62E # MATHEMATICAL SANS-SERIF ITALIC SMALL M
+<Multi_key> <slash> <n>: "𝘯" U1D62F # MATHEMATICAL SANS-SERIF ITALIC SMALL N
+<Multi_key> <slash> <o>: "𝘰" U1D630 # MATHEMATICAL SANS-SERIF ITALIC SMALL O
+<Multi_key> <slash> <p>: "𝘱" U1D631 # MATHEMATICAL SANS-SERIF ITALIC SMALL P
+<Multi_key> <slash> <q>: "𝘲" U1D632 # MATHEMATICAL SANS-SERIF ITALIC SMALL Q
+<Multi_key> <slash> <r>: "𝘳" U1D633 # MATHEMATICAL SANS-SERIF ITALIC SMALL R
+<Multi_key> <slash> <s>: "𝘴" U1D634 # MATHEMATICAL SANS-SERIF ITALIC SMALL S
+<Multi_key> <slash> <t>: "𝘵" U1D635 # MATHEMATICAL SANS-SERIF ITALIC SMALL T
+<Multi_key> <slash> <u>: "𝘶" U1D636 # MATHEMATICAL SANS-SERIF ITALIC SMALL U
+<Multi_key> <slash> <v>: "𝘷" U1D637 # MATHEMATICAL SANS-SERIF ITALIC SMALL V
+<Multi_key> <slash> <w>: "𝘸" U1D638 # MATHEMATICAL SANS-SERIF ITALIC SMALL W
+<Multi_key> <slash> <x>: "𝘹" U1D639 # MATHEMATICAL SANS-SERIF ITALIC SMALL X
+<Multi_key> <slash> <y>: "𝘺" U1D63A # MATHEMATICAL SANS-SERIF ITALIC SMALL Y
+<Multi_key> <slash> <z>: "𝘻" U1D63B # MATHEMATICAL SANS-SERIF ITALIC SMALL Z
+
 
 # Bold italic sans
 #
-<Multi_key> <question> <A> : "𝘼" U1d63c
-<Multi_key> <question> <B> : "𝘽" U1d63d
-<Multi_key> <question> <C> : "𝘾" U1d63e
-<Multi_key> <question> <D> : "𝘿" U1d63f
-<Multi_key> <question> <E> : "𝙀" U1d640
-<Multi_key> <question> <F> : "𝙁" U1d641
-<Multi_key> <question> <G> : "𝙂" U1d642
-<Multi_key> <question> <H> : "𝙃" U1d643
-<Multi_key> <question> <I> : "𝙄" U1d644
-<Multi_key> <question> <J> : "𝙅" U1d645
-<Multi_key> <question> <K> : "𝙆" U1d646
-<Multi_key> <question> <L> : "𝙇" U1d647
-<Multi_key> <question> <M> : "𝙈" U1d648
-<Multi_key> <question> <N> : "𝙉" U1d649
-<Multi_key> <question> <O> : "𝙊" U1d64a
-<Multi_key> <question> <P> : "𝙋" U1d64b
-<Multi_key> <question> <Q> : "𝙌" U1d64c
-<Multi_key> <question> <R> : "𝙍" U1d64d
-<Multi_key> <question> <S> : "𝙎" U1d64e
-<Multi_key> <question> <T> : "𝙏" U1d64f
-<Multi_key> <question> <U> : "𝙐" U1d650
-<Multi_key> <question> <V> : "𝙑" U1d651
-<Multi_key> <question> <W> : "𝙒" U1d652
-<Multi_key> <question> <X> : "𝙓" U1d653
-<Multi_key> <question> <Y> : "𝙔" U1d654
-<Multi_key> <question> <Z> : "𝙕" U1d655
-<Multi_key> <question> <a> : "𝙖" U1d656
-<Multi_key> <question> <b> : "𝙗" U1d657
-<Multi_key> <question> <c> : "𝙘" U1d658
-<Multi_key> <question> <d> : "𝙙" U1d659
-<Multi_key> <question> <e> : "𝙚" U1d65a
-<Multi_key> <question> <f> : "𝙛" U1d65b
-<Multi_key> <question> <g> : "𝙜" U1d65c
-<Multi_key> <question> <h> : "𝙝" U1d65d
-<Multi_key> <question> <i> : "𝙞" U1d65e
-<Multi_key> <question> <j> : "𝙟" U1d65f
-<Multi_key> <question> <k> : "𝙠" U1d660
-<Multi_key> <question> <l> : "𝙡" U1d661
-<Multi_key> <question> <m> : "𝙢" U1d662
-<Multi_key> <question> <n> : "𝙣" U1d663
-<Multi_key> <question> <o> : "𝙤" U1d664
-<Multi_key> <question> <p> : "𝙥" U1d665
-<Multi_key> <question> <q> : "𝙦" U1d666
-<Multi_key> <question> <r> : "𝙧" U1d667
-<Multi_key> <question> <s> : "𝙨" U1d668
-<Multi_key> <question> <t> : "𝙩" U1d669
-<Multi_key> <question> <u> : "𝙪" U1d66a
-<Multi_key> <question> <v> : "𝙫" U1d66b
-<Multi_key> <question> <w> : "𝙬" U1d66c
-<Multi_key> <question> <x> : "𝙭" U1d66d
-<Multi_key> <question> <y> : "𝙮" U1d66e
-<Multi_key> <question> <z> : "𝙯" U1d66f
+<Multi_key> <question> <A>: "𝘼" U1D63C # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL A
+<Multi_key> <question> <B>: "𝘽" U1D63D # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL B
+<Multi_key> <question> <C>: "𝘾" U1D63E # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL C
+<Multi_key> <question> <D>: "𝘿" U1D63F # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL D
+<Multi_key> <question> <E>: "𝙀" U1D640 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL E
+<Multi_key> <question> <F>: "𝙁" U1D641 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL F
+<Multi_key> <question> <G>: "𝙂" U1D642 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL G
+<Multi_key> <question> <H>: "𝙃" U1D643 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL H
+<Multi_key> <question> <I>: "𝙄" U1D644 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL I
+<Multi_key> <question> <J>: "𝙅" U1D645 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL J
+<Multi_key> <question> <K>: "𝙆" U1D646 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL K
+<Multi_key> <question> <L>: "𝙇" U1D647 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL L
+<Multi_key> <question> <M>: "𝙈" U1D648 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL M
+<Multi_key> <question> <N>: "𝙉" U1D649 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL N
+<Multi_key> <question> <O>: "𝙊" U1D64A # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL O
+<Multi_key> <question> <P>: "𝙋" U1D64B # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL P
+<Multi_key> <question> <Q>: "𝙌" U1D64C # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Q
+<Multi_key> <question> <R>: "𝙍" U1D64D # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL R
+<Multi_key> <question> <S>: "𝙎" U1D64E # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL S
+<Multi_key> <question> <T>: "𝙏" U1D64F # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL T
+<Multi_key> <question> <U>: "𝙐" U1D650 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL U
+<Multi_key> <question> <V>: "𝙑" U1D651 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL V
+<Multi_key> <question> <W>: "𝙒" U1D652 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL W
+<Multi_key> <question> <X>: "𝙓" U1D653 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL X
+<Multi_key> <question> <Y>: "𝙔" U1D654 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Y
+<Multi_key> <question> <Z>: "𝙕" U1D655 # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL Z
+<Multi_key> <question> <a>: "𝙖" U1D656 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL A
+<Multi_key> <question> <b>: "𝙗" U1D657 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL B
+<Multi_key> <question> <c>: "𝙘" U1D658 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL C
+<Multi_key> <question> <d>: "𝙙" U1D659 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL D
+<Multi_key> <question> <e>: "𝙚" U1D65A # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL E
+<Multi_key> <question> <f>: "𝙛" U1D65B # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL F
+<Multi_key> <question> <g>: "𝙜" U1D65C # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL G
+<Multi_key> <question> <h>: "𝙝" U1D65D # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL H
+<Multi_key> <question> <i>: "𝙞" U1D65E # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL I
+<Multi_key> <question> <j>: "𝙟" U1D65F # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL J
+<Multi_key> <question> <k>: "𝙠" U1D660 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL K
+<Multi_key> <question> <l>: "𝙡" U1D661 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL L
+<Multi_key> <question> <m>: "𝙢" U1D662 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL M
+<Multi_key> <question> <n>: "𝙣" U1D663 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL N
+<Multi_key> <question> <o>: "𝙤" U1D664 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL O
+<Multi_key> <question> <p>: "𝙥" U1D665 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL P
+<Multi_key> <question> <q>: "𝙦" U1D666 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Q
+<Multi_key> <question> <r>: "𝙧" U1D667 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL R
+<Multi_key> <question> <s>: "𝙨" U1D668 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL S
+<Multi_key> <question> <t>: "𝙩" U1D669 # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL T
+<Multi_key> <question> <u>: "𝙪" U1D66A # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL U
+<Multi_key> <question> <v>: "𝙫" U1D66B # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL V
+<Multi_key> <question> <w>: "𝙬" U1D66C # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL W
+<Multi_key> <question> <x>: "𝙭" U1D66D # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL X
+<Multi_key> <question> <y>: "𝙮" U1D66E # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Y
+<Multi_key> <question> <z>: "𝙯" U1D66F # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Z
+
 
 # Typewriter
 #
-<Multi_key> <underscore> <A> : "𝙰" U1d670
-<Multi_key> <underscore> <B> : "𝙱" U1d671
-<Multi_key> <underscore> <C> : "𝙲" U1d672
-<Multi_key> <underscore> <D> : "𝙳" U1d673
-<Multi_key> <underscore> <E> : "𝙴" U1d674
-<Multi_key> <underscore> <F> : "𝙵" U1d675
-<Multi_key> <underscore> <G> : "𝙶" U1d676
-<Multi_key> <underscore> <H> : "𝙷" U1d677
-<Multi_key> <underscore> <I> : "𝙸" U1d678
-<Multi_key> <underscore> <J> : "𝙹" U1d679
-<Multi_key> <underscore> <K> : "𝙺" U1d67a
-<Multi_key> <underscore> <L> : "𝙻" U1d67b
-<Multi_key> <underscore> <M> : "𝙼" U1d67c
-<Multi_key> <underscore> <N> : "𝙽" U1d67d
-<Multi_key> <underscore> <O> : "𝙾" U1d67e
-<Multi_key> <underscore> <P> : "𝙿" U1d67f
-<Multi_key> <underscore> <Q> : "𝚀" U1d680
-<Multi_key> <underscore> <R> : "𝚁" U1d681
-<Multi_key> <underscore> <S> : "𝚂" U1d682
-<Multi_key> <underscore> <T> : "𝚃" U1d683
-<Multi_key> <underscore> <U> : "𝚄" U1d684
-<Multi_key> <underscore> <V> : "𝚅" U1d685
-<Multi_key> <underscore> <W> : "𝚆" U1d686
-<Multi_key> <underscore> <X> : "𝚇" U1d687
-<Multi_key> <underscore> <Y> : "𝚈" U1d688
-<Multi_key> <underscore> <Z> : "𝚉" U1d689
-<Multi_key> <underscore> <a> : "𝚊" U1d68a
-<Multi_key> <underscore> <b> : "𝚋" U1d68b
-<Multi_key> <underscore> <c> : "𝚌" U1d68c
-<Multi_key> <underscore> <d> : "𝚍" U1d68d
-<Multi_key> <underscore> <e> : "𝚎" U1d68e
-<Multi_key> <underscore> <f> : "𝚏" U1d68f
-<Multi_key> <underscore> <g> : "𝚐" U1d690
-<Multi_key> <underscore> <h> : "𝚑" U1d691
-<Multi_key> <underscore> <i> : "𝚒" U1d692
-<Multi_key> <underscore> <j> : "𝚓" U1d693
-<Multi_key> <underscore> <k> : "𝚔" U1d694
-<Multi_key> <underscore> <l> : "𝚕" U1d695
-<Multi_key> <underscore> <m> : "𝚖" U1d696
-<Multi_key> <underscore> <n> : "𝚗" U1d697
-<Multi_key> <underscore> <o> : "𝚘" U1d698
-<Multi_key> <underscore> <p> : "𝚙" U1d699
-<Multi_key> <underscore> <q> : "𝚚" U1d69a
-<Multi_key> <underscore> <r> : "𝚛" U1d69b
-<Multi_key> <underscore> <s> : "𝚜" U1d69c
-<Multi_key> <underscore> <t> : "𝚝" U1d69d
-<Multi_key> <underscore> <u> : "𝚞" U1d69e
-<Multi_key> <underscore> <v> : "𝚟" U1d69f
-<Multi_key> <underscore> <w> : "𝚠" U1d6a0
-<Multi_key> <underscore> <x> : "𝚡" U1d6a1
-<Multi_key> <underscore> <y> : "𝚢" U1d6a2
-<Multi_key> <underscore> <z> : "𝚣" U1d6a3
+<Multi_key> <underscore> <A>: "𝙰" U1D670 # MATHEMATICAL MONOSPACE CAPITAL A
+<Multi_key> <underscore> <B>: "𝙱" U1D671 # MATHEMATICAL MONOSPACE CAPITAL B
+<Multi_key> <underscore> <C>: "𝙲" U1D672 # MATHEMATICAL MONOSPACE CAPITAL C
+<Multi_key> <underscore> <D>: "𝙳" U1D673 # MATHEMATICAL MONOSPACE CAPITAL D
+<Multi_key> <underscore> <E>: "𝙴" U1D674 # MATHEMATICAL MONOSPACE CAPITAL E
+<Multi_key> <underscore> <F>: "𝙵" U1D675 # MATHEMATICAL MONOSPACE CAPITAL F
+<Multi_key> <underscore> <G>: "𝙶" U1D676 # MATHEMATICAL MONOSPACE CAPITAL G
+<Multi_key> <underscore> <H>: "𝙷" U1D677 # MATHEMATICAL MONOSPACE CAPITAL H
+<Multi_key> <underscore> <I>: "𝙸" U1D678 # MATHEMATICAL MONOSPACE CAPITAL I
+<Multi_key> <underscore> <J>: "𝙹" U1D679 # MATHEMATICAL MONOSPACE CAPITAL J
+<Multi_key> <underscore> <K>: "𝙺" U1D67A # MATHEMATICAL MONOSPACE CAPITAL K
+<Multi_key> <underscore> <L>: "𝙻" U1D67B # MATHEMATICAL MONOSPACE CAPITAL L
+<Multi_key> <underscore> <M>: "𝙼" U1D67C # MATHEMATICAL MONOSPACE CAPITAL M
+<Multi_key> <underscore> <N>: "𝙽" U1D67D # MATHEMATICAL MONOSPACE CAPITAL N
+<Multi_key> <underscore> <O>: "𝙾" U1D67E # MATHEMATICAL MONOSPACE CAPITAL O
+<Multi_key> <underscore> <P>: "𝙿" U1D67F # MATHEMATICAL MONOSPACE CAPITAL P
+<Multi_key> <underscore> <Q>: "𝚀" U1D680 # MATHEMATICAL MONOSPACE CAPITAL Q
+<Multi_key> <underscore> <R>: "𝚁" U1D681 # MATHEMATICAL MONOSPACE CAPITAL R
+<Multi_key> <underscore> <S>: "𝚂" U1D682 # MATHEMATICAL MONOSPACE CAPITAL S
+<Multi_key> <underscore> <T>: "𝚃" U1D683 # MATHEMATICAL MONOSPACE CAPITAL T
+<Multi_key> <underscore> <U>: "𝚄" U1D684 # MATHEMATICAL MONOSPACE CAPITAL U
+<Multi_key> <underscore> <V>: "𝚅" U1D685 # MATHEMATICAL MONOSPACE CAPITAL V
+<Multi_key> <underscore> <W>: "𝚆" U1D686 # MATHEMATICAL MONOSPACE CAPITAL W
+<Multi_key> <underscore> <X>: "𝚇" U1D687 # MATHEMATICAL MONOSPACE CAPITAL X
+<Multi_key> <underscore> <Y>: "𝚈" U1D688 # MATHEMATICAL MONOSPACE CAPITAL Y
+<Multi_key> <underscore> <Z>: "𝚉" U1D689 # MATHEMATICAL MONOSPACE CAPITAL Z
+<Multi_key> <underscore> <a>: "𝚊" U1D68A # MATHEMATICAL MONOSPACE SMALL A
+<Multi_key> <underscore> <b>: "𝚋" U1D68B # MATHEMATICAL MONOSPACE SMALL B
+<Multi_key> <underscore> <c>: "𝚌" U1D68C # MATHEMATICAL MONOSPACE SMALL C
+<Multi_key> <underscore> <d>: "𝚍" U1D68D # MATHEMATICAL MONOSPACE SMALL D
+<Multi_key> <underscore> <e>: "𝚎" U1D68E # MATHEMATICAL MONOSPACE SMALL E
+<Multi_key> <underscore> <f>: "𝚏" U1D68F # MATHEMATICAL MONOSPACE SMALL F
+<Multi_key> <underscore> <g>: "𝚐" U1D690 # MATHEMATICAL MONOSPACE SMALL G
+<Multi_key> <underscore> <h>: "𝚑" U1D691 # MATHEMATICAL MONOSPACE SMALL H
+<Multi_key> <underscore> <i>: "𝚒" U1D692 # MATHEMATICAL MONOSPACE SMALL I
+<Multi_key> <underscore> <j>: "𝚓" U1D693 # MATHEMATICAL MONOSPACE SMALL J
+<Multi_key> <underscore> <k>: "𝚔" U1D694 # MATHEMATICAL MONOSPACE SMALL K
+<Multi_key> <underscore> <l>: "𝚕" U1D695 # MATHEMATICAL MONOSPACE SMALL L
+<Multi_key> <underscore> <m>: "𝚖" U1D696 # MATHEMATICAL MONOSPACE SMALL M
+<Multi_key> <underscore> <n>: "𝚗" U1D697 # MATHEMATICAL MONOSPACE SMALL N
+<Multi_key> <underscore> <o>: "𝚘" U1D698 # MATHEMATICAL MONOSPACE SMALL O
+<Multi_key> <underscore> <p>: "𝚙" U1D699 # MATHEMATICAL MONOSPACE SMALL P
+<Multi_key> <underscore> <q>: "𝚚" U1D69A # MATHEMATICAL MONOSPACE SMALL Q
+<Multi_key> <underscore> <r>: "𝚛" U1D69B # MATHEMATICAL MONOSPACE SMALL R
+<Multi_key> <underscore> <s>: "𝚜" U1D69C # MATHEMATICAL MONOSPACE SMALL S
+<Multi_key> <underscore> <t>: "𝚝" U1D69D # MATHEMATICAL MONOSPACE SMALL T
+<Multi_key> <underscore> <u>: "𝚞" U1D69E # MATHEMATICAL MONOSPACE SMALL U
+<Multi_key> <underscore> <v>: "𝚟" U1D69F # MATHEMATICAL MONOSPACE SMALL V
+<Multi_key> <underscore> <w>: "𝚠" U1D6A0 # MATHEMATICAL MONOSPACE SMALL W
+<Multi_key> <underscore> <x>: "𝚡" U1D6A1 # MATHEMATICAL MONOSPACE SMALL X
+<Multi_key> <underscore> <y>: "𝚢" U1D6A2 # MATHEMATICAL MONOSPACE SMALL Y
+<Multi_key> <underscore> <z>: "𝚣" U1D6A3 # MATHEMATICAL MONOSPACE SMALL Z
+
 
 # Italic serif
 #
-<Multi_key> <i> <A> : "𝐴" U1d434
-<Multi_key> <i> <B> : "𝐵" U1d435
-<Multi_key> <i> <C> : "𝐶" U1d436
-<Multi_key> <i> <D> : "𝐷" U1d437
-<Multi_key> <i> <E> : "𝐸" U1d438
-<Multi_key> <i> <F> : "𝐹" U1d439
-<Multi_key> <i> <G> : "𝐺" U1d43a
-<Multi_key> <i> <H> : "𝐻" U1d43b
-<Multi_key> <i> <I> : "𝐼" U1d43c
-<Multi_key> <i> <J> : "𝐽" U1d43d
-<Multi_key> <i> <K> : "𝐾" U1d43e
-<Multi_key> <i> <L> : "𝐿" U1d43f
-<Multi_key> <i> <M> : "𝑀" U1d440
-<Multi_key> <i> <N> : "𝑁" U1d441
-<Multi_key> <i> <O> : "𝑂" U1d442
-<Multi_key> <i> <P> : "𝑃" U1d443
-<Multi_key> <i> <Q> : "𝑄" U1d444
-<Multi_key> <i> <R> : "𝑅" U1d445
-<Multi_key> <i> <S> : "𝑆" U1d446
-<Multi_key> <i> <T> : "𝑇" U1d447
-<Multi_key> <i> <U> : "𝑈" U1d448
-<Multi_key> <i> <V> : "𝑉" U1d449
-<Multi_key> <i> <W> : "𝑊" U1d44a
-<Multi_key> <i> <X> : "𝑋" U1d44b
-<Multi_key> <i> <Y> : "𝑌" U1d44c
-<Multi_key> <i> <Z> : "𝑍" U1d44d
-<Multi_key> <i> <a> : "𝑎" U1d44e
-<Multi_key> <i> <b> : "𝑏" U1d44f
-<Multi_key> <i> <c> : "𝑐" U1d450
-<Multi_key> <i> <d> : "𝑑" U1d451
-<Multi_key> <i> <e> : "𝑒" U1d452
-<Multi_key> <i> <f> : "𝑓" U1d453
-<Multi_key> <i> <g> : "𝑔" U1d454
-<Multi_key> <i> <h> : "ℎ" U1d455
-<Multi_key> <i> <i> : "𝑖" U1d456
-<Multi_key> <i> <j> : "𝑗" U1d457
-<Multi_key> <i> <k> : "𝑘" U1d458
-<Multi_key> <i> <l> : "𝑙" U1d459
-<Multi_key> <i> <m> : "𝑚" U1d45a
-<Multi_key> <i> <n> : "𝑛" U1d45b
-<Multi_key> <i> <o> : "𝑜" U1d45c
-<Multi_key> <i> <p> : "𝑝" U1d45d
-<Multi_key> <i> <q> : "𝑞" U1d45e
-<Multi_key> <i> <r> : "𝑟" U1d45f
-<Multi_key> <i> <s> : "𝑠" U1d460
-<Multi_key> <i> <t> : "𝑡" U1d461
-<Multi_key> <i> <u> : "𝑢" U1d462
-<Multi_key> <i> <v> : "𝑣" U1d463
-<Multi_key> <i> <w> : "𝑤" U1d464
-<Multi_key> <i> <x> : "𝑥" U1d465
-<Multi_key> <i> <y> : "𝑦" U1d466
-<Multi_key> <i> <z> : "𝑧" U1d467
+<Multi_key> <i> <A>: "𝐴" U1D434 # MATHEMATICAL ITALIC CAPITAL A
+<Multi_key> <i> <B>: "𝐵" U1D435 # MATHEMATICAL ITALIC CAPITAL B
+<Multi_key> <i> <C>: "𝐶" U1D436 # MATHEMATICAL ITALIC CAPITAL C
+<Multi_key> <i> <D>: "𝐷" U1D437 # MATHEMATICAL ITALIC CAPITAL D
+<Multi_key> <i> <E>: "𝐸" U1D438 # MATHEMATICAL ITALIC CAPITAL E
+<Multi_key> <i> <F>: "𝐹" U1D439 # MATHEMATICAL ITALIC CAPITAL F
+<Multi_key> <i> <G>: "𝐺" U1D43A # MATHEMATICAL ITALIC CAPITAL G
+<Multi_key> <i> <H>: "𝐻" U1D43B # MATHEMATICAL ITALIC CAPITAL H
+<Multi_key> <i> <I>: "𝐼" U1D43C # MATHEMATICAL ITALIC CAPITAL I
+<Multi_key> <i> <J>: "𝐽" U1D43D # MATHEMATICAL ITALIC CAPITAL J
+<Multi_key> <i> <K>: "𝐾" U1D43E # MATHEMATICAL ITALIC CAPITAL K
+<Multi_key> <i> <L>: "𝐿" U1D43F # MATHEMATICAL ITALIC CAPITAL L
+<Multi_key> <i> <M>: "𝑀" U1D440 # MATHEMATICAL ITALIC CAPITAL M
+<Multi_key> <i> <N>: "𝑁" U1D441 # MATHEMATICAL ITALIC CAPITAL N
+<Multi_key> <i> <O>: "𝑂" U1D442 # MATHEMATICAL ITALIC CAPITAL O
+<Multi_key> <i> <P>: "𝑃" U1D443 # MATHEMATICAL ITALIC CAPITAL P
+<Multi_key> <i> <Q>: "𝑄" U1D444 # MATHEMATICAL ITALIC CAPITAL Q
+<Multi_key> <i> <R>: "𝑅" U1D445 # MATHEMATICAL ITALIC CAPITAL R
+<Multi_key> <i> <S>: "𝑆" U1D446 # MATHEMATICAL ITALIC CAPITAL S
+<Multi_key> <i> <T>: "𝑇" U1D447 # MATHEMATICAL ITALIC CAPITAL T
+<Multi_key> <i> <U>: "𝑈" U1D448 # MATHEMATICAL ITALIC CAPITAL U
+<Multi_key> <i> <V>: "𝑉" U1D449 # MATHEMATICAL ITALIC CAPITAL V
+<Multi_key> <i> <W>: "𝑊" U1D44A # MATHEMATICAL ITALIC CAPITAL W
+<Multi_key> <i> <X>: "𝑋" U1D44B # MATHEMATICAL ITALIC CAPITAL X
+<Multi_key> <i> <Y>: "𝑌" U1D44C # MATHEMATICAL ITALIC CAPITAL Y
+<Multi_key> <i> <Z>: "𝑍" U1D44D # MATHEMATICAL ITALIC CAPITAL Z
+<Multi_key> <i> <a>: "𝑎" U1D44E # MATHEMATICAL ITALIC SMALL A
+<Multi_key> <i> <b>: "𝑏" U1D44F # MATHEMATICAL ITALIC SMALL B
+<Multi_key> <i> <c>: "𝑐" U1D450 # MATHEMATICAL ITALIC SMALL C
+<Multi_key> <i> <d>: "𝑑" U1D451 # MATHEMATICAL ITALIC SMALL D
+<Multi_key> <i> <e>: "𝑒" U1D452 # MATHEMATICAL ITALIC SMALL E
+<Multi_key> <i> <f>: "𝑓" U1D453 # MATHEMATICAL ITALIC SMALL F
+<Multi_key> <i> <g>: "𝑔" U1D454 # MATHEMATICAL ITALIC SMALL G
+<Multi_key> <i> <h>: "𝑕" U1D455 # Not well supported, consider Planck's constant.
+<Multi_key> <i> <i>: "𝑖" U1D456 # MATHEMATICAL ITALIC SMALL I
+<Multi_key> <i> <j>: "𝑗" U1D457 # MATHEMATICAL ITALIC SMALL J
+<Multi_key> <i> <k>: "𝑘" U1D458 # MATHEMATICAL ITALIC SMALL K
+<Multi_key> <i> <l>: "𝑙" U1D459 # MATHEMATICAL ITALIC SMALL L
+<Multi_key> <i> <m>: "𝑚" U1D45A # MATHEMATICAL ITALIC SMALL M
+<Multi_key> <i> <n>: "𝑛" U1D45B # MATHEMATICAL ITALIC SMALL N
+<Multi_key> <i> <o>: "𝑜" U1D45C # MATHEMATICAL ITALIC SMALL O
+<Multi_key> <i> <p>: "𝑝" U1D45D # MATHEMATICAL ITALIC SMALL P
+<Multi_key> <i> <q>: "𝑞" U1D45E # MATHEMATICAL ITALIC SMALL Q
+<Multi_key> <i> <r>: "𝑟" U1D45F # MATHEMATICAL ITALIC SMALL R
+<Multi_key> <i> <s>: "𝑠" U1D460 # MATHEMATICAL ITALIC SMALL S
+<Multi_key> <i> <t>: "𝑡" U1D461 # MATHEMATICAL ITALIC SMALL T
+<Multi_key> <i> <u>: "𝑢" U1D462 # MATHEMATICAL ITALIC SMALL U
+<Multi_key> <i> <v>: "𝑣" U1D463 # MATHEMATICAL ITALIC SMALL V
+<Multi_key> <i> <w>: "𝑤" U1D464 # MATHEMATICAL ITALIC SMALL W
+<Multi_key> <i> <x>: "𝑥" U1D465 # MATHEMATICAL ITALIC SMALL X
+<Multi_key> <i> <y>: "𝑦" U1D466 # MATHEMATICAL ITALIC SMALL Y
+<Multi_key> <i> <z>: "𝑧" U1D467 # MATHEMATICAL ITALIC SMALL Z
+
 
 # Bold italic serif
 #
-<Multi_key> <I> <A> : "𝑨" U1d468
-<Multi_key> <I> <B> : "𝑩" U1d469
-<Multi_key> <I> <C> : "𝑪" U1d46a
-<Multi_key> <I> <D> : "𝑫" U1d46b
-<Multi_key> <I> <E> : "𝑬" U1d46c
-<Multi_key> <I> <F> : "𝑭" U1d46d
-<Multi_key> <I> <G> : "𝑮" U1d46e
-<Multi_key> <I> <H> : "𝑯" U1d46f
-<Multi_key> <I> <I> : "𝑰" U1d470
-<Multi_key> <I> <J> : "𝑱" U1d471
-<Multi_key> <I> <K> : "𝑲" U1d472
-<Multi_key> <I> <L> : "𝑳" U1d473
-<Multi_key> <I> <M> : "𝑴" U1d474
-<Multi_key> <I> <N> : "𝑵" U1d475
-<Multi_key> <I> <O> : "𝑶" U1d476
-<Multi_key> <I> <P> : "𝑷" U1d477
-<Multi_key> <I> <Q> : "𝑸" U1d478
-<Multi_key> <I> <R> : "𝑹" U1d479
-<Multi_key> <I> <S> : "𝑺" U1d47a
-<Multi_key> <I> <T> : "𝑻" U1d47b
-<Multi_key> <I> <U> : "𝑼" U1d47c
-<Multi_key> <I> <V> : "𝑽" U1d47d
-<Multi_key> <I> <W> : "𝑾" U1d47e
-<Multi_key> <I> <X> : "𝑿" U1d47f
-<Multi_key> <I> <Y> : "𝒀" U1d480
-<Multi_key> <I> <Z> : "𝒁" U1d481
-<Multi_key> <I> <a> : "𝒂" U1d482
-<Multi_key> <I> <b> : "𝒃" U1d483
-<Multi_key> <I> <c> : "𝒄" U1d484
-<Multi_key> <I> <d> : "𝒅" U1d485
-<Multi_key> <I> <e> : "𝒆" U1d486
-<Multi_key> <I> <f> : "𝒇" U1d487
-<Multi_key> <I> <g> : "𝒈" U1d488
-<Multi_key> <I> <h> : "𝒉" U1d489
-<Multi_key> <I> <i> : "𝒊" U1d48a
-<Multi_key> <I> <j> : "𝒋" U1d48b
-<Multi_key> <I> <k> : "𝒌" U1d48c
-<Multi_key> <I> <l> : "𝒍" U1d48d
-<Multi_key> <I> <m> : "𝒎" U1d48e
-<Multi_key> <I> <n> : "𝒏" U1d48f
-<Multi_key> <I> <o> : "𝒐" U1d490
-<Multi_key> <I> <p> : "𝒑" U1d491
-<Multi_key> <I> <q> : "𝒒" U1d492
-<Multi_key> <I> <r> : "𝒓" U1d493
-<Multi_key> <I> <s> : "𝒔" U1d494
-<Multi_key> <I> <t> : "𝒕" U1d495
-<Multi_key> <I> <u> : "𝒖" U1d496
-<Multi_key> <I> <v> : "𝒗" U1d497
-<Multi_key> <I> <w> : "𝒘" U1d498
-<Multi_key> <I> <x> : "𝒙" U1d499
-<Multi_key> <I> <y> : "𝒚" U1d49a
-<Multi_key> <I> <z> : "𝒛" U1d49b
+<Multi_key> <I> <A>: "𝑨" U1D468 # MATHEMATICAL BOLD ITALIC CAPITAL A
+<Multi_key> <I> <B>: "𝑩" U1D469 # MATHEMATICAL BOLD ITALIC CAPITAL B
+<Multi_key> <I> <C>: "𝑪" U1D46A # MATHEMATICAL BOLD ITALIC CAPITAL C
+<Multi_key> <I> <D>: "𝑫" U1D46B # MATHEMATICAL BOLD ITALIC CAPITAL D
+<Multi_key> <I> <E>: "𝑬" U1D46C # MATHEMATICAL BOLD ITALIC CAPITAL E
+<Multi_key> <I> <F>: "𝑭" U1D46D # MATHEMATICAL BOLD ITALIC CAPITAL F
+<Multi_key> <I> <G>: "𝑮" U1D46E # MATHEMATICAL BOLD ITALIC CAPITAL G
+<Multi_key> <I> <H>: "𝑯" U1D46F # MATHEMATICAL BOLD ITALIC CAPITAL H
+<Multi_key> <I> <I>: "𝑰" U1D470 # MATHEMATICAL BOLD ITALIC CAPITAL I
+<Multi_key> <I> <J>: "𝑱" U1D471 # MATHEMATICAL BOLD ITALIC CAPITAL J
+<Multi_key> <I> <K>: "𝑲" U1D472 # MATHEMATICAL BOLD ITALIC CAPITAL K
+<Multi_key> <I> <L>: "𝑳" U1D473 # MATHEMATICAL BOLD ITALIC CAPITAL L
+<Multi_key> <I> <M>: "𝑴" U1D474 # MATHEMATICAL BOLD ITALIC CAPITAL M
+<Multi_key> <I> <N>: "𝑵" U1D475 # MATHEMATICAL BOLD ITALIC CAPITAL N
+<Multi_key> <I> <O>: "𝑶" U1D476 # MATHEMATICAL BOLD ITALIC CAPITAL O
+<Multi_key> <I> <P>: "𝑷" U1D477 # MATHEMATICAL BOLD ITALIC CAPITAL P
+<Multi_key> <I> <Q>: "𝑸" U1D478 # MATHEMATICAL BOLD ITALIC CAPITAL Q
+<Multi_key> <I> <R>: "𝑹" U1D479 # MATHEMATICAL BOLD ITALIC CAPITAL R
+<Multi_key> <I> <S>: "𝑺" U1D47A # MATHEMATICAL BOLD ITALIC CAPITAL S
+<Multi_key> <I> <T>: "𝑻" U1D47B # MATHEMATICAL BOLD ITALIC CAPITAL T
+<Multi_key> <I> <U>: "𝑼" U1D47C # MATHEMATICAL BOLD ITALIC CAPITAL U
+<Multi_key> <I> <V>: "𝑽" U1D47D # MATHEMATICAL BOLD ITALIC CAPITAL V
+<Multi_key> <I> <W>: "𝑾" U1D47E # MATHEMATICAL BOLD ITALIC CAPITAL W
+<Multi_key> <I> <X>: "𝑿" U1D47F # MATHEMATICAL BOLD ITALIC CAPITAL X
+<Multi_key> <I> <Y>: "𝒀" U1D480 # MATHEMATICAL BOLD ITALIC CAPITAL Y
+<Multi_key> <I> <Z>: "𝒁" U1D481 # MATHEMATICAL BOLD ITALIC CAPITAL Z
+<Multi_key> <I> <a>: "𝒂" U1D482 # MATHEMATICAL BOLD ITALIC SMALL A
+<Multi_key> <I> <b>: "𝒃" U1D483 # MATHEMATICAL BOLD ITALIC SMALL B
+<Multi_key> <I> <c>: "𝒄" U1D484 # MATHEMATICAL BOLD ITALIC SMALL C
+<Multi_key> <I> <d>: "𝒅" U1D485 # MATHEMATICAL BOLD ITALIC SMALL D
+<Multi_key> <I> <e>: "𝒆" U1D486 # MATHEMATICAL BOLD ITALIC SMALL E
+<Multi_key> <I> <f>: "𝒇" U1D487 # MATHEMATICAL BOLD ITALIC SMALL F
+<Multi_key> <I> <g>: "𝒈" U1D488 # MATHEMATICAL BOLD ITALIC SMALL G
+<Multi_key> <I> <h>: "𝒉" U1D489 # MATHEMATICAL BOLD ITALIC SMALL H
+<Multi_key> <I> <i>: "𝒊" U1D48A # MATHEMATICAL BOLD ITALIC SMALL I
+<Multi_key> <I> <j>: "𝒋" U1D48B # MATHEMATICAL BOLD ITALIC SMALL J
+<Multi_key> <I> <k>: "𝒌" U1D48C # MATHEMATICAL BOLD ITALIC SMALL K
+<Multi_key> <I> <l>: "𝒍" U1D48D # MATHEMATICAL BOLD ITALIC SMALL L
+<Multi_key> <I> <m>: "𝒎" U1D48E # MATHEMATICAL BOLD ITALIC SMALL M
+<Multi_key> <I> <n>: "𝒏" U1D48F # MATHEMATICAL BOLD ITALIC SMALL N
+<Multi_key> <I> <o>: "𝒐" U1D490 # MATHEMATICAL BOLD ITALIC SMALL O
+<Multi_key> <I> <p>: "𝒑" U1D491 # MATHEMATICAL BOLD ITALIC SMALL P
+<Multi_key> <I> <q>: "𝒒" U1D492 # MATHEMATICAL BOLD ITALIC SMALL Q
+<Multi_key> <I> <r>: "𝒓" U1D493 # MATHEMATICAL BOLD ITALIC SMALL R
+<Multi_key> <I> <s>: "𝒔" U1D494 # MATHEMATICAL BOLD ITALIC SMALL S
+<Multi_key> <I> <t>: "𝒕" U1D495 # MATHEMATICAL BOLD ITALIC SMALL T
+<Multi_key> <I> <u>: "𝒖" U1D496 # MATHEMATICAL BOLD ITALIC SMALL U
+<Multi_key> <I> <v>: "𝒗" U1D497 # MATHEMATICAL BOLD ITALIC SMALL V
+<Multi_key> <I> <w>: "𝒘" U1D498 # MATHEMATICAL BOLD ITALIC SMALL W
+<Multi_key> <I> <x>: "𝒙" U1D499 # MATHEMATICAL BOLD ITALIC SMALL X
+<Multi_key> <I> <y>: "𝒚" U1D49A # MATHEMATICAL BOLD ITALIC SMALL Y
+<Multi_key> <I> <z>: "𝒛" U1D49B # MATHEMATICAL BOLD ITALIC SMALL Z
+
 
 # Greek letters
 #
-<Multi_key> <G> <A> : "Α" U0391 # GREEK CAPITAL LETTER ALPHA
-<Multi_key> <G> <B> : "Β" U0392 # GREEK CAPITAL LETTER BETA
-<Multi_key> <G> <C> : "Ψ" U03A8 # GREEK CAPITAL LETTER PSI
-<Multi_key> <G> <D> : "Δ" U0394 # GREEK CAPITAL LETTER DELTA
-<Multi_key> <G> <E> : "Ε" U0395 # GREEK CAPITAL LETTER EPSILON
-<Multi_key> <G> <F> : "Φ" U03A6 # GREEK CAPITAL LETTER PHI
-<Multi_key> <G> <G> : "Γ" U0393 # GREEK CAPITAL LETTER GAMMA
-<Multi_key> <G> <H> : "Η" U0397 # GREEK CAPITAL LETTER ΕΤΑ
-<Multi_key> <G> <I> : "Ι" U0399 # GREEK CAPITAL LETTER ΙΟΤΑ
-<Multi_key> <G> <J> : "Ξ" U039E # GREEK CAPITAL LETTER XI
-<Multi_key> <G> <K> : "Κ" U039A # GREEK CAPITAL LETTER KAPPA
-<Multi_key> <G> <L> : "Λ" U039B # GREEK CAPITAL LETTER LAMBDA
-<Multi_key> <G> <M> : "Μ" U039C # GREEK CAPITAL LETTER MU
-<Multi_key> <G> <N> : "Ν" U039D # GREEK CAPITAL LETTER NU
-<Multi_key> <G> <O> : "Ο" U039F # GREEK CAPITAL LETTER OMICRON
-<Multi_key> <G> <P> : "Π" U03A0 # GREEK CAPITAL LETTER PI
-<Multi_key> <G> <R> : "Ρ" U03A1 # GREEK CAPITAL LETTER RHO
-<Multi_key> <G> <S> : "Σ" U03A3 # GREEK CAPITAL LETTER SIGMA
-<Multi_key> <G> <T> : "Τ" U03A4 # GREEK CAPITAL LETTER TAU
-<Multi_key> <G> <U> : "Θ" U0398 # GREEK CAPITAL LETTER THETA
-<Multi_key> <G> <V> : "Ω" U03A9 # GREEK CAPITAL LETTER OMEGA
-<Multi_key> <G> <X> : "Χ" U03A7 # GREEK CAPITAL LETTER CHI
-<Multi_key> <G> <Y> : "Υ" U03A5 # GREEK CAPITAL LETTER UPSILON
-<Multi_key> <G> <Z> : "Ζ" U0396 # GREEK CAPITAL LETTER ZETA
-<Multi_key> <g> <a> : "α" U03B1 # GREEK SMALL LETTER ALPHA
-<Multi_key> <g> <b> : "β" U03B2 # GREEK SMALL LETTER BETA
-<Multi_key> <g> <c> : "ψ" U03C8 # GREEK SMALL LETTER PSI
-<Multi_key> <g> <d> : "δ" U03B4 # GREEK SMALL LETTER DELTA
-<Multi_key> <g> <e> : "ε" U03B5 # GREEK SMALL LETTER EPSILON
-<Multi_key> <g> <f> : "φ" U03C6 # GREEK SMALL LETTER PHI
-<Multi_key> <g> <F> : "φ" U1D60 # MODIFIER LETTER SMALL GREEK PHI
-<Multi_key> <g> <g> : "γ" U03B3 # GREEK SMALL LETTER GAMMA
-<Multi_key> <g> <h> : "η" U03B7 # GREEK SMALL LETTER ΕΤΑ
-<Multi_key> <g> <i> : "ι" U03B9 # GREEK SMALL LETTER ΙΟΤΑ
-<Multi_key> <g> <j> : "ξ" U03BE # GREEK SMALL LETTER XI
-<Multi_key> <g> <k> : "κ" U03BA # GREEK SMALL LETTER KAPPA
-<Multi_key> <g> <l> : "λ" U03BB # GREEK SMALL LETTER LAMBDA
-<Multi_key> <g> <m> : "μ" U03BC # GREEK SMALL LETTER MU
-<Multi_key> <g> <n> : "ν" U03BD # GREEK SMALL LETTER NU
-<Multi_key> <g> <o> : "ο" U03BF # GREEK SMALL LETTER OMICRON
-<Multi_key> <g> <p> : "π" U03C0 # GREEK SMALL LETTER PI
-<Multi_key> <g> <W> : "ϖ" U03D6 # GREEK PI SYMBOL
-<Multi_key> <g> <r> : "ρ" U03C1 # GREEK SMALL LETTER RHO
-<Multi_key> <g> <s> : "σ" U03C3 # GREEK SMALL LETTER SIGMA
-<Multi_key> <g> <t> : "τ" U03C4 # GREEK SMALL LETTER TAU
-<Multi_key> <g> <u> : "θ" U03B8 # GREEK SMALL LETTER THETA
-<Multi_key> <g> <v> : "ω" U03C9 # GREEK SMALL LETTER OMEGA
-<Multi_key> <g> <w> : "ς" U03C2 # GREEK SMALL LETTER FINAL SIGMA
-<Multi_key> <g> <x> : "χ" U03C7 # GREEK SMALL LETTER CHI
-<Multi_key> <g> <y> : "υ" U03C5 # GREEK SMALL LETTER UPSILON
-<Multi_key> <g> <z> : "ζ" U03B6 # GREEK SMALL LETTER ZETA
+<Multi_key> <G> <A>: "Α" U0391 # GREEK CAPITAL LETTER ALPHA
+<Multi_key> <G> <B>: "Β" U0392 # GREEK CAPITAL LETTER BETA
+<Multi_key> <G> <C>: "Ψ" U03A8 # GREEK CAPITAL LETTER PSI
+<Multi_key> <G> <D>: "Δ" U0394 # GREEK CAPITAL LETTER DELTA
+<Multi_key> <G> <E>: "Ε" U0395 # GREEK CAPITAL LETTER EPSILON
+<Multi_key> <G> <F>: "Φ" U03A6 # GREEK CAPITAL LETTER PHI
+<Multi_key> <G> <G>: "Γ" U0393 # GREEK CAPITAL LETTER GAMMA
+<Multi_key> <G> <H>: "Η" U0397 # GREEK CAPITAL LETTER ETA
+<Multi_key> <G> <I>: "Ι" U0399 # GREEK CAPITAL LETTER IOTA
+<Multi_key> <G> <J>: "Ξ" U039E # GREEK CAPITAL LETTER XI
+<Multi_key> <G> <K>: "Κ" U039A # GREEK CAPITAL LETTER KAPPA
+<Multi_key> <G> <L>: "Λ" U039B # GREEK CAPITAL LETTER LAMDA
+<Multi_key> <G> <M>: "Μ" U039C # GREEK CAPITAL LETTER MU
+<Multi_key> <G> <N>: "Ν" U039D # GREEK CAPITAL LETTER NU
+<Multi_key> <G> <O>: "Ο" U039F # GREEK CAPITAL LETTER OMICRON
+<Multi_key> <G> <P>: "Π" U03A0 # GREEK CAPITAL LETTER PI
+<Multi_key> <G> <R>: "Ρ" U03A1 # GREEK CAPITAL LETTER RHO
+<Multi_key> <G> <S>: "Σ" U03A3 # GREEK CAPITAL LETTER SIGMA
+<Multi_key> <G> <T>: "Τ" U03A4 # GREEK CAPITAL LETTER TAU
+<Multi_key> <G> <U>: "Θ" U0398 # GREEK CAPITAL LETTER THETA
+<Multi_key> <G> <V>: "Ω" U03A9 # GREEK CAPITAL LETTER OMEGA
+<Multi_key> <G> <X>: "Χ" U03A7 # GREEK CAPITAL LETTER CHI
+<Multi_key> <G> <Y>: "Υ" U03A5 # GREEK CAPITAL LETTER UPSILON
+<Multi_key> <G> <Z>: "Ζ" U0396 # GREEK CAPITAL LETTER ZETA
+<Multi_key> <g> <a>: "α" U03B1 # GREEK SMALL LETTER ALPHA
+<Multi_key> <g> <b>: "β" U03B2 # GREEK SMALL LETTER BETA
+<Multi_key> <g> <c>: "ψ" U03C8 # GREEK SMALL LETTER PSI
+<Multi_key> <g> <d>: "δ" U03B4 # GREEK SMALL LETTER DELTA
+<Multi_key> <g> <e>: "ε" U03B5 # GREEK SMALL LETTER EPSILON
+<Multi_key> <g> <f>: "φ" U03C6 # GREEK SMALL LETTER PHI
+<Multi_key> <g> <F>: "ᵠ" U1D60 # MODIFIER LETTER SMALL GREEK PHI
+<Multi_key> <g> <g>: "γ" U03B3 # GREEK SMALL LETTER GAMMA
+<Multi_key> <g> <h>: "η" U03B7 # GREEK SMALL LETTER ETA
+<Multi_key> <g> <i>: "ι" U03B9 # GREEK SMALL LETTER IOTA
+<Multi_key> <g> <j>: "ξ" U03BE # GREEK SMALL LETTER XI
+<Multi_key> <g> <k>: "κ" U03BA # GREEK SMALL LETTER KAPPA
+<Multi_key> <g> <l>: "λ" U03BB # GREEK SMALL LETTER LAMDA
+<Multi_key> <g> <m>: "μ" U03BC # GREEK SMALL LETTER MU
+<Multi_key> <g> <n>: "ν" U03BD # GREEK SMALL LETTER NU
+<Multi_key> <g> <o>: "ο" U03BF # GREEK SMALL LETTER OMICRON
+<Multi_key> <g> <p>: "π" U03C0 # GREEK SMALL LETTER PI
+<Multi_key> <g> <W>: "ϖ" U03D6 # GREEK PI SYMBOL
+<Multi_key> <g> <r>: "ρ" U03C1 # GREEK SMALL LETTER RHO
+<Multi_key> <g> <s>: "σ" U03C3 # GREEK SMALL LETTER SIGMA
+<Multi_key> <g> <t>: "τ" U03C4 # GREEK SMALL LETTER TAU
+<Multi_key> <g> <u>: "θ" U03B8 # GREEK SMALL LETTER THETA
+<Multi_key> <g> <v>: "ω" U03C9 # GREEK SMALL LETTER OMEGA
+<Multi_key> <g> <w>: "ς" U03C2 # GREEK SMALL LETTER FINAL SIGMA
+<Multi_key> <g> <x>: "χ" U03C7 # GREEK SMALL LETTER CHI
+<Multi_key> <g> <y>: "υ" U03C5 # GREEK SMALL LETTER UPSILON
+<Multi_key> <g> <z>: "ζ" U03B6 # GREEK SMALL LETTER ZETA
+
 
 # Bold italic greek
 #
-<Multi_key> <at> <A>      : "𝜜" U1D71C # MATHEMATICAL BOLD ITALIC CAPITAL ALPHA
-<Multi_key> <at> <B>      : "𝜝" U1D71D # MATHEMATICAL BOLD ITALIC CAPITAL BETA
-<Multi_key> <at> <C>      : "𝜳" U1D733 # MATHEMATICAL BOLD ITALIC CAPITAL PSI
-<Multi_key> <at> <D>      : "𝜟" U1D71F # MATHEMATICAL BOLD ITALIC CAPITAL DELTA
-<Multi_key> <at> <E>      : "𝜠" U1D720 # MATHEMATICAL BOLD ITALIC CAPITAL EPSILON
-<Multi_key> <at> <F>      : "𝜱" U1D731 # MATHEMATICAL BOLD ITALIC CAPITAL PHI
-<Multi_key> <at> <G>      : "𝜞" U1D71E # MATHEMATICAL BOLD ITALIC CAPITAL GAMMA
-<Multi_key> <at> <H>      : "𝜢" U1D722 # MATHEMATICAL BOLD ITALIC CAPITAL ΕΤΑ
-<Multi_key> <at> <I>      : "𝜤" U1D724 # MATHEMATICAL BOLD ITALIC CAPITAL ΙΟΤΑ
-<Multi_key> <at> <J>      : "𝜩" U1D729 # MATHEMATICAL BOLD ITALIC CAPITAL XI
-<Multi_key> <at> <K>      : "𝜥" U1D725 # MATHEMATICAL BOLD ITALIC CAPITAL KAPPA
-<Multi_key> <at> <L>      : "𝜦" U1D726 # MATHEMATICAL BOLD ITALIC CAPITAL LAMBDA
-<Multi_key> <at> <M>      : "𝜧" U1D727 # MATHEMATICAL BOLD ITALIC CAPITAL MU
-<Multi_key> <at> <N>      : "𝜨" U1D728 # MATHEMATICAL BOLD ITALIC CAPITAL NU
-<Multi_key> <at> <O>      : "𝜪" U1D72A # MATHEMATICAL BOLD ITALIC CAPITAL OMICRON
-<Multi_key> <at> <P>      : "𝜫" U1D72B # MATHEMATICAL BOLD ITALIC CAPITAL PI
-<Multi_key> <at> <R>      : "𝜬" U1D72C # MATHEMATICAL BOLD ITALIC CAPITAL RHO
-<Multi_key> <at> <S>      : "𝜮" U1D72E # MATHEMATICAL BOLD ITALIC CAPITAL SIGMA
-<Multi_key> <at> <T>      : "𝜯" U1D72F # MATHEMATICAL BOLD ITALIC CAPITAL TAU
-<Multi_key> <at> <U>      : "𝜣" U1D723 # MATHEMATICAL BOLD ITALIC CAPITAL THETA
-<Multi_key> <at> <V>      : "𝜴" U1D734 # MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
-<Multi_key> <at> <X>      : "𝜲" U1D732 # MATHEMATICAL BOLD ITALIC CAPITAL CHI
-<Multi_key> <at> <Y>      : "𝜰" U1D730 # MATHEMATICAL BOLD ITALIC CAPITAL UPSILON
-<Multi_key> <at> <Z>      : "𝜡" U1D721 # MATHEMATICAL BOLD ITALIC CAPITAL ZETA
-<Multi_key> <at> <a>      : "𝜶" U1D736 # MATHEMATICAL BOLD ITALIC SMALL ALPHA
-<Multi_key> <at> <b>      : "𝜷" U1D737 # MATHEMATICAL BOLD ITALIC SMALL BETA
-<Multi_key> <at> <c>      : "𝝍" U1D74D # MATHEMATICAL BOLD ITALIC SMALL PSI
-<Multi_key> <at> <d>      : "𝜹" U1D739 # MATHEMATICAL BOLD ITALIC SMALL DELTA
-<Multi_key> <at> <e>      : "𝜺" U1D73A # MATHEMATICAL BOLD ITALIC SMALL EPSILON
-<Multi_key> <at> <f>      : "𝝓" U1D753 # MATHEMATICAL BOLD ITALIC SMALL PHI
-<Multi_key> <at> <at> <f> : "𝝋" U1D74B # MATHEMATICAL BOLD ITALIC SMALL PHI
-<Multi_key> <at> <g>      : "𝜸" U1D738 # MATHEMATICAL BOLD ITALIC SMALL GAMMA
-<Multi_key> <at> <h>      : "𝜼" U1D73C # MATHEMATICAL BOLD ITALIC SMALL ΕΤΑ
-<Multi_key> <at> <i>      : "𝜾" U1D73E # MATHEMATICAL BOLD ITALIC SMALL ΙΟΤΑ
-<Multi_key> <at> <j>      : "𝝃" U1D743 # MATHEMATICAL BOLD ITALIC SMALL XI
-<Multi_key> <at> <k>      : "𝜿" U1D73F # MATHEMATICAL BOLD ITALIC SMALL KAPPA
-<Multi_key> <at> <l>      : "𝝀" U1D740 # MATHEMATICAL BOLD ITALIC SMALL LAMBDA
-<Multi_key> <at> <m>      : "𝝁" U1D741 # MATHEMATICAL BOLD ITALIC SMALL MU
-<Multi_key> <at> <n>      : "𝝂" U1D742 # MATHEMATICAL BOLD ITALIC SMALL NU
-<Multi_key> <at> <o>      : "𝝄" U1D744 # MATHEMATICAL BOLD ITALIC SMALL OMICRON
-<Multi_key> <at> <p>      : "𝝅" U1D745 # MATHEMATICAL BOLD ITALIC SMALL PI
-<Multi_key> <at> <W>      : "𝝕" U1D755 # MATHEMATICAL BOLD ITALIC PI SYMBOL
-<Multi_key> <at> <r>      : "𝝆" U1D746 # MATHEMATICAL BOLD ITALIC SMALL RHO
-<Multi_key> <at> <s>      : "𝝈" U1D748 # MATHEMATICAL BOLD ITALIC SMALL SIGMA
-<Multi_key> <at> <t>      : "𝝉" U1D749 # MATHEMATICAL BOLD ITALIC SMALL TAU
-<Multi_key> <at> <u>      : "𝜽" U1D73D # MATHEMATICAL BOLD ITALIC SMALL THETA
-<Multi_key> <at> <v>      : "𝝎" U1D74E # MATHEMATICAL BOLD ITALIC SMALL OMEGA
-<Multi_key> <at> <w>      : "𝝇" U1D747 # MATHEMATICAL BOLD ITALIC SMALL FINAL SIGMA
-<Multi_key> <at> <x>      : "𝝌" U1D74C # MATHEMATICAL BOLD ITALIC SMALL CHI
-<Multi_key> <at> <y>      : "𝝊" U1D74A # MATHEMATICAL BOLD ITALIC SMALL UPSILON
-<Multi_key> <at> <z>      : "𝜻" U1D73B # MATHEMATICAL BOLD ITALIC SMALL ZETA
+<Multi_key> <at> <A>: "𝜜" U1D71C # MATHEMATICAL BOLD ITALIC CAPITAL ALPHA
+<Multi_key> <at> <B>: "𝜝" U1D71D # MATHEMATICAL BOLD ITALIC CAPITAL BETA
+<Multi_key> <at> <C>: "𝜳" U1D733 # MATHEMATICAL BOLD ITALIC CAPITAL PSI
+<Multi_key> <at> <D>: "𝜟" U1D71F # MATHEMATICAL BOLD ITALIC CAPITAL DELTA
+<Multi_key> <at> <E>: "𝜠" U1D720 # MATHEMATICAL BOLD ITALIC CAPITAL EPSILON
+<Multi_key> <at> <F>: "𝜱" U1D731 # MATHEMATICAL BOLD ITALIC CAPITAL PHI
+<Multi_key> <at> <G>: "𝜞" U1D71E # MATHEMATICAL BOLD ITALIC CAPITAL GAMMA
+<Multi_key> <at> <H>: "𝜢" U1D722 # MATHEMATICAL BOLD ITALIC CAPITAL ETA
+<Multi_key> <at> <I>: "𝜤" U1D724 # MATHEMATICAL BOLD ITALIC CAPITAL IOTA
+<Multi_key> <at> <J>: "𝜩" U1D729 # MATHEMATICAL BOLD ITALIC CAPITAL XI
+<Multi_key> <at> <K>: "𝜥" U1D725 # MATHEMATICAL BOLD ITALIC CAPITAL KAPPA
+<Multi_key> <at> <L>: "𝜦" U1D726 # MATHEMATICAL BOLD ITALIC CAPITAL LAMDA
+<Multi_key> <at> <M>: "𝜧" U1D727 # MATHEMATICAL BOLD ITALIC CAPITAL MU
+<Multi_key> <at> <N>: "𝜨" U1D728 # MATHEMATICAL BOLD ITALIC CAPITAL NU
+<Multi_key> <at> <O>: "𝜪" U1D72A # MATHEMATICAL BOLD ITALIC CAPITAL OMICRON
+<Multi_key> <at> <P>: "𝜫" U1D72B # MATHEMATICAL BOLD ITALIC CAPITAL PI
+<Multi_key> <at> <R>: "𝜬" U1D72C # MATHEMATICAL BOLD ITALIC CAPITAL RHO
+<Multi_key> <at> <S>: "𝜮" U1D72E # MATHEMATICAL BOLD ITALIC CAPITAL SIGMA
+<Multi_key> <at> <T>: "𝜯" U1D72F # MATHEMATICAL BOLD ITALIC CAPITAL TAU
+<Multi_key> <at> <U>: "𝜣" U1D723 # MATHEMATICAL BOLD ITALIC CAPITAL THETA
+<Multi_key> <at> <V>: "𝜴" U1D734 # MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
+<Multi_key> <at> <X>: "𝜲" U1D732 # MATHEMATICAL BOLD ITALIC CAPITAL CHI
+<Multi_key> <at> <Y>: "𝜰" U1D730 # MATHEMATICAL BOLD ITALIC CAPITAL UPSILON
+<Multi_key> <at> <Z>: "𝜡" U1D721 # MATHEMATICAL BOLD ITALIC CAPITAL ZETA
+<Multi_key> <at> <a>: "𝜶" U1D736 # MATHEMATICAL BOLD ITALIC SMALL ALPHA
+<Multi_key> <at> <b>: "𝜷" U1D737 # MATHEMATICAL BOLD ITALIC SMALL BETA
+<Multi_key> <at> <c>: "𝝍" U1D74D # MATHEMATICAL BOLD ITALIC SMALL PSI
+<Multi_key> <at> <d>: "𝜹" U1D739 # MATHEMATICAL BOLD ITALIC SMALL DELTA
+<Multi_key> <at> <e>: "𝜺" U1D73A # MATHEMATICAL BOLD ITALIC SMALL EPSILON
+<Multi_key> <at> <f>: "𝝓" U1D753 # MATHEMATICAL BOLD ITALIC PHI SYMBOL
+<Multi_key> <at> <at> <f>: "𝝋" U1D74B # MATHEMATICAL BOLD ITALIC SMALL PHI
+<Multi_key> <at> <g>: "𝜸" U1D738 # MATHEMATICAL BOLD ITALIC SMALL GAMMA
+<Multi_key> <at> <h>: "𝜼" U1D73C # MATHEMATICAL BOLD ITALIC SMALL ETA
+<Multi_key> <at> <i>: "𝜾" U1D73E # MATHEMATICAL BOLD ITALIC SMALL IOTA
+<Multi_key> <at> <j>: "𝝃" U1D743 # MATHEMATICAL BOLD ITALIC SMALL XI
+<Multi_key> <at> <k>: "𝜿" U1D73F # MATHEMATICAL BOLD ITALIC SMALL KAPPA
+<Multi_key> <at> <l>: "𝝀" U1D740 # MATHEMATICAL BOLD ITALIC SMALL LAMDA
+<Multi_key> <at> <m>: "𝝁" U1D741 # MATHEMATICAL BOLD ITALIC SMALL MU
+<Multi_key> <at> <n>: "𝝂" U1D742 # MATHEMATICAL BOLD ITALIC SMALL NU
+<Multi_key> <at> <o>: "𝝄" U1D744 # MATHEMATICAL BOLD ITALIC SMALL OMICRON
+<Multi_key> <at> <p>: "𝝅" U1D745 # MATHEMATICAL BOLD ITALIC SMALL PI
+<Multi_key> <at> <W>: "𝝕" U1D755 # MATHEMATICAL BOLD ITALIC PI SYMBOL
+<Multi_key> <at> <r>: "𝝆" U1D746 # MATHEMATICAL BOLD ITALIC SMALL RHO
+<Multi_key> <at> <s>: "𝝈" U1D748 # MATHEMATICAL BOLD ITALIC SMALL SIGMA
+<Multi_key> <at> <t>: "𝝉" U1D749 # MATHEMATICAL BOLD ITALIC SMALL TAU
+<Multi_key> <at> <u>: "𝜽" U1D73D # MATHEMATICAL BOLD ITALIC SMALL THETA
+<Multi_key> <at> <v>: "𝝎" U1D74E # MATHEMATICAL BOLD ITALIC SMALL OMEGA
+<Multi_key> <at> <w>: "𝝇" U1D747 # MATHEMATICAL BOLD ITALIC SMALL FINAL SIGMA
+<Multi_key> <at> <x>: "𝝌" U1D74C # MATHEMATICAL BOLD ITALIC SMALL CHI
+<Multi_key> <at> <y>: "𝝊" U1D74A # MATHEMATICAL BOLD ITALIC SMALL UPSILON
+<Multi_key> <at> <z>: "𝜻" U1D73B # MATHEMATICAL BOLD ITALIC SMALL ZETA
+
 
 # Normal weight caligraphical
 #
-<Multi_key> <c> <A> : "𝓐" U1d4d0
-<Multi_key> <c> <B> : "𝓑" U1d4d1
-<Multi_key> <c> <C> : "𝓒" U1d4d2
-<Multi_key> <c> <D> : "𝓓" U1d4d3
-<Multi_key> <c> <E> : "𝓔" U1d4d4
-<Multi_key> <c> <F> : "𝓕" U1d4d5
-<Multi_key> <c> <G> : "𝓖" U1d4d6
-<Multi_key> <c> <H> : "𝓗" U1d4d7
-<Multi_key> <c> <I> : "𝓘" U1d4d8
-<Multi_key> <c> <J> : "𝓙" U1d4d9
-<Multi_key> <c> <K> : "𝓚" U1d4da
-<Multi_key> <c> <L> : "𝓛" U1d4db
-<Multi_key> <c> <M> : "𝓜" U1d4dc
-<Multi_key> <c> <N> : "𝓝" U1d4dd
-<Multi_key> <c> <O> : "𝓞" U1d4de
-<Multi_key> <c> <P> : "𝓟" U1d4df
-<Multi_key> <c> <Q> : "𝓠" U1d4e0
-<Multi_key> <c> <R> : "𝓡" U1d4e1
-<Multi_key> <c> <S> : "𝓢" U1d4e2
-<Multi_key> <c> <T> : "𝓣" U1d4e3
-<Multi_key> <c> <U> : "𝓤" U1d4e4
-<Multi_key> <c> <V> : "𝓥" U1d4e5
-<Multi_key> <c> <W> : "𝓦" U1d4e6
-<Multi_key> <c> <X> : "𝓧" U1d4e7
-<Multi_key> <c> <Y> : "𝓨" U1d4e8
-<Multi_key> <c> <Z> : "𝓩" U1d4e9
-<Multi_key> <c> <a> : "𝓪" U1d4ea
-<Multi_key> <c> <b> : "𝓫" U1d4eb
-<Multi_key> <c> <c> : "𝓬" U1d4ec
-<Multi_key> <c> <d> : "𝓭" U1d4ed
-<Multi_key> <c> <e> : "𝓮" U1d4ee
-<Multi_key> <c> <f> : "𝓯" U1d4ef
-<Multi_key> <c> <g> : "𝓰" U1d4f0
-<Multi_key> <c> <h> : "𝓱" U1d4f1
-<Multi_key> <c> <i> : "𝓲" U1d4f2
-<Multi_key> <c> <j> : "𝓳" U1d4f3
-<Multi_key> <c> <k> : "𝓴" U1d4f4
-<Multi_key> <c> <l> : "𝓵" U1d4f5
-<Multi_key> <c> <m> : "𝓶" U1d4f6
-<Multi_key> <c> <n> : "𝓷" U1d4f7
-<Multi_key> <c> <o> : "𝓸" U1d4f8
-<Multi_key> <c> <p> : "𝓹" U1d4f9
-<Multi_key> <c> <q> : "𝓺" U1d4fa
-<Multi_key> <c> <r> : "𝓻" U1d4fb
-<Multi_key> <c> <s> : "𝓼" U1d4fc
-<Multi_key> <c> <t> : "𝓽" U1d4fd
-<Multi_key> <c> <u> : "𝓾" U1d4fe
-<Multi_key> <c> <v> : "𝓿" U1d4ff
-<Multi_key> <c> <w> : "𝔀" U1d500
-<Multi_key> <c> <x> : "𝔁" U1d501
-<Multi_key> <c> <y> : "𝔂" U1d502
-<Multi_key> <c> <z> : "𝔃" U1d503
+<Multi_key> <c> <A>: "𝓐" U1D4D0 # MATHEMATICAL BOLD SCRIPT CAPITAL A
+<Multi_key> <c> <B>: "𝓑" U1D4D1 # MATHEMATICAL BOLD SCRIPT CAPITAL B
+<Multi_key> <c> <C>: "𝓒" U1D4D2 # MATHEMATICAL BOLD SCRIPT CAPITAL C
+<Multi_key> <c> <D>: "𝓓" U1D4D3 # MATHEMATICAL BOLD SCRIPT CAPITAL D
+<Multi_key> <c> <E>: "𝓔" U1D4D4 # MATHEMATICAL BOLD SCRIPT CAPITAL E
+<Multi_key> <c> <F>: "𝓕" U1D4D5 # MATHEMATICAL BOLD SCRIPT CAPITAL F
+<Multi_key> <c> <G>: "𝓖" U1D4D6 # MATHEMATICAL BOLD SCRIPT CAPITAL G
+<Multi_key> <c> <H>: "𝓗" U1D4D7 # MATHEMATICAL BOLD SCRIPT CAPITAL H
+<Multi_key> <c> <I>: "𝓘" U1D4D8 # MATHEMATICAL BOLD SCRIPT CAPITAL I
+<Multi_key> <c> <J>: "𝓙" U1D4D9 # MATHEMATICAL BOLD SCRIPT CAPITAL J
+<Multi_key> <c> <K>: "𝓚" U1D4DA # MATHEMATICAL BOLD SCRIPT CAPITAL K
+<Multi_key> <c> <L>: "𝓛" U1D4DB # MATHEMATICAL BOLD SCRIPT CAPITAL L
+<Multi_key> <c> <M>: "𝓜" U1D4DC # MATHEMATICAL BOLD SCRIPT CAPITAL M
+<Multi_key> <c> <N>: "𝓝" U1D4DD # MATHEMATICAL BOLD SCRIPT CAPITAL N
+<Multi_key> <c> <O>: "𝓞" U1D4DE # MATHEMATICAL BOLD SCRIPT CAPITAL O
+<Multi_key> <c> <P>: "𝓟" U1D4DF # MATHEMATICAL BOLD SCRIPT CAPITAL P
+<Multi_key> <c> <Q>: "𝓠" U1D4E0 # MATHEMATICAL BOLD SCRIPT CAPITAL Q
+<Multi_key> <c> <R>: "𝓡" U1D4E1 # MATHEMATICAL BOLD SCRIPT CAPITAL R
+<Multi_key> <c> <S>: "𝓢" U1D4E2 # MATHEMATICAL BOLD SCRIPT CAPITAL S
+<Multi_key> <c> <T>: "𝓣" U1D4E3 # MATHEMATICAL BOLD SCRIPT CAPITAL T
+<Multi_key> <c> <U>: "𝓤" U1D4E4 # MATHEMATICAL BOLD SCRIPT CAPITAL U
+<Multi_key> <c> <V>: "𝓥" U1D4E5 # MATHEMATICAL BOLD SCRIPT CAPITAL V
+<Multi_key> <c> <W>: "𝓦" U1D4E6 # MATHEMATICAL BOLD SCRIPT CAPITAL W
+<Multi_key> <c> <X>: "𝓧" U1D4E7 # MATHEMATICAL BOLD SCRIPT CAPITAL X
+<Multi_key> <c> <Y>: "𝓨" U1D4E8 # MATHEMATICAL BOLD SCRIPT CAPITAL Y
+<Multi_key> <c> <Z>: "𝓩" U1D4E9 # MATHEMATICAL BOLD SCRIPT CAPITAL Z
+<Multi_key> <c> <a>: "𝓪" U1D4EA # MATHEMATICAL BOLD SCRIPT SMALL A
+<Multi_key> <c> <b>: "𝓫" U1D4EB # MATHEMATICAL BOLD SCRIPT SMALL B
+<Multi_key> <c> <c>: "𝓬" U1D4EC # MATHEMATICAL BOLD SCRIPT SMALL C
+<Multi_key> <c> <d>: "𝓭" U1D4ED # MATHEMATICAL BOLD SCRIPT SMALL D
+<Multi_key> <c> <e>: "𝓮" U1D4EE # MATHEMATICAL BOLD SCRIPT SMALL E
+<Multi_key> <c> <f>: "𝓯" U1D4EF # MATHEMATICAL BOLD SCRIPT SMALL F
+<Multi_key> <c> <g>: "𝓰" U1D4F0 # MATHEMATICAL BOLD SCRIPT SMALL G
+<Multi_key> <c> <h>: "𝓱" U1D4F1 # MATHEMATICAL BOLD SCRIPT SMALL H
+<Multi_key> <c> <i>: "𝓲" U1D4F2 # MATHEMATICAL BOLD SCRIPT SMALL I
+<Multi_key> <c> <j>: "𝓳" U1D4F3 # MATHEMATICAL BOLD SCRIPT SMALL J
+<Multi_key> <c> <k>: "𝓴" U1D4F4 # MATHEMATICAL BOLD SCRIPT SMALL K
+<Multi_key> <c> <l>: "𝓵" U1D4F5 # MATHEMATICAL BOLD SCRIPT SMALL L
+<Multi_key> <c> <m>: "𝓶" U1D4F6 # MATHEMATICAL BOLD SCRIPT SMALL M
+<Multi_key> <c> <n>: "𝓷" U1D4F7 # MATHEMATICAL BOLD SCRIPT SMALL N
+<Multi_key> <c> <o>: "𝓸" U1D4F8 # MATHEMATICAL BOLD SCRIPT SMALL O
+<Multi_key> <c> <p>: "𝓹" U1D4F9 # MATHEMATICAL BOLD SCRIPT SMALL P
+<Multi_key> <c> <q>: "𝓺" U1D4FA # MATHEMATICAL BOLD SCRIPT SMALL Q
+<Multi_key> <c> <r>: "𝓻" U1D4FB # MATHEMATICAL BOLD SCRIPT SMALL R
+<Multi_key> <c> <s>: "𝓼" U1D4FC # MATHEMATICAL BOLD SCRIPT SMALL S
+<Multi_key> <c> <t>: "𝓽" U1D4FD # MATHEMATICAL BOLD SCRIPT SMALL T
+<Multi_key> <c> <u>: "𝓾" U1D4FE # MATHEMATICAL BOLD SCRIPT SMALL U
+<Multi_key> <c> <v>: "𝓿" U1D4FF # MATHEMATICAL BOLD SCRIPT SMALL V
+<Multi_key> <c> <w>: "𝔀" U1D500 # MATHEMATICAL BOLD SCRIPT SMALL W
+<Multi_key> <c> <x>: "𝔁" U1D501 # MATHEMATICAL BOLD SCRIPT SMALL X
+<Multi_key> <c> <y>: "𝔂" U1D502 # MATHEMATICAL BOLD SCRIPT SMALL Y
+<Multi_key> <c> <z>: "𝔃" U1D503 # MATHEMATICAL BOLD SCRIPT SMALL Z
+
+
 
 
 # Bold caligraphical
 #
-<Multi_key> <q> <A> : "𝒜" U1d49c
-<Multi_key> <q> <B> : "ℬ" U1d49d
-<Multi_key> <q> <C> : "𝒞" U1d49e
-<Multi_key> <q> <D> : "𝒟" U1d49f
-<Multi_key> <q> <E> : "ℰ" U1d4a0
-<Multi_key> <q> <F> : "ℱ" U1d4a1
-<Multi_key> <q> <G> : "𝒢" U1d4a2
-<Multi_key> <q> <H> : "ℋ" U1d4a3
-<Multi_key> <q> <I> : "ℐ" U1d4a4
-<Multi_key> <q> <J> : "𝒥" U1d4a5
-<Multi_key> <q> <K> : "𝒦" U1d4a6
-<Multi_key> <q> <L> : "ℒ" U1d4a7
-<Multi_key> <q> <M> : "ℳ" U1d4a8
-<Multi_key> <q> <N> : "𝒩" U1d4a9
-<Multi_key> <q> <O> : "𝒪" U1d4aa
-<Multi_key> <q> <P> : "𝒫" U1d4ab
-<Multi_key> <q> <Q> : "𝒬" U1d4ac
-<Multi_key> <q> <R> : "ℛ" U1d4ad
-<Multi_key> <q> <S> : "𝒮" U1d4ae
-<Multi_key> <q> <T> : "𝒯" U1d4af
-<Multi_key> <q> <U> : "𝒰" U1d4b0
-<Multi_key> <q> <V> : "𝒱" U1d4b1
-<Multi_key> <q> <W> : "𝒲" U1d4b2
-<Multi_key> <q> <X> : "𝒳" U1d4b3
-<Multi_key> <q> <Y> : "𝒴" U1d4b4
-<Multi_key> <q> <Z> : "𝒵" U1d4b5
-<Multi_key> <q> <a> : "𝒶" U1d4b6
-<Multi_key> <q> <b> : "𝒷" U1d4b7
-<Multi_key> <q> <c> : "𝒸" U1d4b8
-<Multi_key> <q> <d> : "𝒹" U1d4b9
-<Multi_key> <q> <e> : "ℯ" U1d4ba
-<Multi_key> <q> <f> : "𝒻" U1d4bb
-<Multi_key> <q> <g> : "ℊ" U1d4bc
-<Multi_key> <q> <h> : "𝒽" U1d4bd
-<Multi_key> <q> <i> : "𝒾" U1d4be
-<Multi_key> <q> <j> : "𝒿" U1d4bf
-<Multi_key> <q> <k> : "𝓀" U1d4c0
-<Multi_key> <q> <l> : "𝓁" U1d4c1
-<Multi_key> <q> <m> : "𝓂" U1d4c2
-<Multi_key> <q> <n> : "𝓃" U1d4c3
-<Multi_key> <q> <o> : "ℴ" U1d4c4
-<Multi_key> <q> <p> : "𝓅" U1d4c5
-<Multi_key> <q> <q> : "𝓆" U1d4c6
-<Multi_key> <q> <r> : "𝓇" U1d4c7
-<Multi_key> <q> <s> : "𝓈" U1d4c8
-<Multi_key> <q> <t> : "𝓉" U1d4c9
-<Multi_key> <q> <u> : "𝓊" U1d4ca
-<Multi_key> <q> <v> : "𝓋" U1d4cb
-<Multi_key> <q> <w> : "𝓌" U1d4cc
-<Multi_key> <q> <x> : "𝓍" U1d4cd
-<Multi_key> <q> <y> : "𝓎" U1d4ce
-<Multi_key> <q> <z> : "𝓏" U1d4cf
+<Multi_key> <q> <A>: "𝒜" U1D49C # MATHEMATICAL SCRIPT CAPITAL A
+<Multi_key> <q> <B>: "ℬ" U212C # SCRIPT CAPITAL B
+<Multi_key> <q> <C>: "𝒞" U1D49E # MATHEMATICAL SCRIPT CAPITAL C
+<Multi_key> <q> <D>: "𝒟" U1D49F # MATHEMATICAL SCRIPT CAPITAL D
+<Multi_key> <q> <E>: "ℰ" U2130 # SCRIPT CAPITAL E
+<Multi_key> <q> <F>: "ℱ" U2131 # SCRIPT CAPITAL F
+<Multi_key> <q> <G>: "𝒢" U1D4A2 # MATHEMATICAL SCRIPT CAPITAL G
+<Multi_key> <q> <H>: "ℋ" U210B # SCRIPT CAPITAL H
+<Multi_key> <q> <I>: "ℐ" U2110 # SCRIPT CAPITAL I
+<Multi_key> <q> <J>: "𝒥" U1D4A5 # MATHEMATICAL SCRIPT CAPITAL J
+<Multi_key> <q> <K>: "𝒦" U1D4A6 # MATHEMATICAL SCRIPT CAPITAL K
+<Multi_key> <q> <L>: "ℒ" U2112 # SCRIPT CAPITAL L
+<Multi_key> <q> <M>: "ℳ" U2133 # SCRIPT CAPITAL M
+<Multi_key> <q> <N>: "𝒩" U1D4A9 # MATHEMATICAL SCRIPT CAPITAL N
+<Multi_key> <q> <O>: "𝒪" U1D4AA # MATHEMATICAL SCRIPT CAPITAL O
+<Multi_key> <q> <P>: "𝒫" U1D4AB # MATHEMATICAL SCRIPT CAPITAL P
+<Multi_key> <q> <Q>: "𝒬" U1D4AC # MATHEMATICAL SCRIPT CAPITAL Q
+<Multi_key> <q> <R>: "ℛ" U211B # SCRIPT CAPITAL R
+<Multi_key> <q> <S>: "𝒮" U1D4AE # MATHEMATICAL SCRIPT CAPITAL S
+<Multi_key> <q> <T>: "𝒯" U1D4AF # MATHEMATICAL SCRIPT CAPITAL T
+<Multi_key> <q> <U>: "𝒰" U1D4B0 # MATHEMATICAL SCRIPT CAPITAL U
+<Multi_key> <q> <V>: "𝒱" U1D4B1 # MATHEMATICAL SCRIPT CAPITAL V
+<Multi_key> <q> <W>: "𝒲" U1D4B2 # MATHEMATICAL SCRIPT CAPITAL W
+<Multi_key> <q> <X>: "𝒳" U1D4B3 # MATHEMATICAL SCRIPT CAPITAL X
+<Multi_key> <q> <Y>: "𝒴" U1D4B4 # MATHEMATICAL SCRIPT CAPITAL Y
+<Multi_key> <q> <Z>: "𝒵" U1D4B5 # MATHEMATICAL SCRIPT CAPITAL Z
+<Multi_key> <q> <a>: "𝒶" U1D4B6 # MATHEMATICAL SCRIPT SMALL A
+<Multi_key> <q> <b>: "𝒷" U1D4B7 # MATHEMATICAL SCRIPT SMALL B
+<Multi_key> <q> <c>: "𝒸" U1D4B8 # MATHEMATICAL SCRIPT SMALL C
+<Multi_key> <q> <d>: "𝒹" U1D4B9 # MATHEMATICAL SCRIPT SMALL D
+<Multi_key> <q> <e>: "ℯ" U212F # SCRIPT SMALL E
+<Multi_key> <q> <f>: "𝒻" U1D4BB # MATHEMATICAL SCRIPT SMALL F
+<Multi_key> <q> <g>: "ℊ" U210A # SCRIPT SMALL G
+<Multi_key> <q> <h>: "𝒽" U1D4BD # MATHEMATICAL SCRIPT SMALL H
+<Multi_key> <q> <i>: "𝒾" U1D4BE # MATHEMATICAL SCRIPT SMALL I
+<Multi_key> <q> <j>: "𝒿" U1D4BF # MATHEMATICAL SCRIPT SMALL J
+<Multi_key> <q> <k>: "𝓀" U1D4C0 # MATHEMATICAL SCRIPT SMALL K
+<Multi_key> <q> <l>: "𝓁" U1D4C1 # MATHEMATICAL SCRIPT SMALL L
+<Multi_key> <q> <m>: "𝓂" U1D4C2 # MATHEMATICAL SCRIPT SMALL M
+<Multi_key> <q> <n>: "𝓃" U1D4C3 # MATHEMATICAL SCRIPT SMALL N
+<Multi_key> <q> <o>: "ℴ" U2134 # SCRIPT SMALL O
+<Multi_key> <q> <p>: "𝓅" U1D4C5 # MATHEMATICAL SCRIPT SMALL P
+<Multi_key> <q> <q>: "𝓆" U1D4C6 # MATHEMATICAL SCRIPT SMALL Q
+<Multi_key> <q> <r>: "𝓇" U1D4C7 # MATHEMATICAL SCRIPT SMALL R
+<Multi_key> <q> <s>: "𝓈" U1D4C8 # MATHEMATICAL SCRIPT SMALL S
+<Multi_key> <q> <t>: "𝓉" U1D4C9 # MATHEMATICAL SCRIPT SMALL T
+<Multi_key> <q> <u>: "𝓊" U1D4CA # MATHEMATICAL SCRIPT SMALL U
+<Multi_key> <q> <v>: "𝓋" U1D4CB # MATHEMATICAL SCRIPT SMALL V
+<Multi_key> <q> <w>: "𝓌" U1D4CC # MATHEMATICAL SCRIPT SMALL W
+<Multi_key> <q> <x>: "𝓍" U1D4CD # MATHEMATICAL SCRIPT SMALL X
+<Multi_key> <q> <y>: "𝓎" U1D4CE # MATHEMATICAL SCRIPT SMALL Y
+<Multi_key> <q> <z>: "𝓏" U1D4CF # MATHEMATICAL SCRIPT SMALL Z
+
 
 # Frak
 #
-<Multi_key> <f> <A> : "𝔄" U1d504
-<Multi_key> <f> <B> : "𝔅" U1d505
-<Multi_key> <f> <C> : "ℭ" U1d506
-<Multi_key> <f> <D> : "𝔇" U1d507
-<Multi_key> <f> <E> : "𝔈" U1d508
-<Multi_key> <f> <F> : "𝔉" U1d509
-<Multi_key> <f> <G> : "𝔊" U1d50a
-<Multi_key> <f> <H> : "ℌ" U1d50b
-<Multi_key> <f> <I> : "ℑ" U1d50c
-<Multi_key> <f> <J> : "𝔍" U1d50d
-<Multi_key> <f> <K> : "𝔎" U1d50e
-<Multi_key> <f> <L> : "𝔏" U1d50f
-<Multi_key> <f> <M> : "𝔐" U1d510
-<Multi_key> <f> <N> : "𝔑" U1d511
-<Multi_key> <f> <O> : "𝔒" U1d512
-<Multi_key> <f> <P> : "𝔓" U1d513
-<Multi_key> <f> <Q> : "𝔔" U1d514
-<Multi_key> <f> <R> : "ℜ" U1d515
-<Multi_key> <f> <S> : "𝔖" U1d516
-<Multi_key> <f> <T> : "𝔗" U1d517
-<Multi_key> <f> <U> : "𝔘" U1d518
-<Multi_key> <f> <V> : "𝔙" U1d519
-<Multi_key> <f> <W> : "𝔚" U1d51a
-<Multi_key> <f> <X> : "𝔛" U1d51b
-<Multi_key> <f> <Y> : "𝔜" U1d51c
-<Multi_key> <f> <Z> : "ℨ" U1d51d
-<Multi_key> <f> <a> : "𝔞" U1d51e
-<Multi_key> <f> <b> : "𝔟" U1d51f
-<Multi_key> <f> <c> : "𝔠" U1d520
-<Multi_key> <f> <d> : "𝔡" U1d521
-<Multi_key> <f> <e> : "𝔢" U1d522
-<Multi_key> <f> <f> : "𝔣" U1d523
-<Multi_key> <f> <g> : "𝔤" U1d524
-<Multi_key> <f> <h> : "𝔥" U1d525
-<Multi_key> <f> <i> : "𝔦" U1d526
-<Multi_key> <f> <j> : "𝔧" U1d527
-<Multi_key> <f> <k> : "𝔨" U1d528
-<Multi_key> <f> <l> : "𝔩" U1d529
-<Multi_key> <f> <m> : "𝔪" U1d52a
-<Multi_key> <f> <n> : "𝔫" U1d52b
-<Multi_key> <f> <o> : "𝔬" U1d52c
-<Multi_key> <f> <p> : "𝔭" U1d52d
-<Multi_key> <f> <q> : "𝔮" U1d52e
-<Multi_key> <f> <r> : "𝔯" U1d52f
-<Multi_key> <f> <s> : "𝔰" U1d530
-<Multi_key> <f> <t> : "𝔱" U1d531
-<Multi_key> <f> <u> : "𝔲" U1d532
-<Multi_key> <f> <v> : "𝔳" U1d533
-<Multi_key> <f> <w> : "𝔴" U1d534
-<Multi_key> <f> <x> : "𝔵" U1d535
-<Multi_key> <f> <y> : "𝔶" U1d536
-<Multi_key> <f> <z> : "𝔷" U1d537
+<Multi_key> <f> <A>: "𝔄" U1D504 # MATHEMATICAL FRAKTUR CAPITAL A
+<Multi_key> <f> <B>: "𝔅" U1D505 # MATHEMATICAL FRAKTUR CAPITAL B
+<Multi_key> <f> <C>: "ℭ" U212D # BLACK-LETTER CAPITAL C
+<Multi_key> <f> <D>: "𝔇" U1D507 # MATHEMATICAL FRAKTUR CAPITAL D
+<Multi_key> <f> <E>: "𝔈" U1D508 # MATHEMATICAL FRAKTUR CAPITAL E
+<Multi_key> <f> <F>: "𝔉" U1D509 # MATHEMATICAL FRAKTUR CAPITAL F
+<Multi_key> <f> <G>: "𝔊" U1D50A # MATHEMATICAL FRAKTUR CAPITAL G
+<Multi_key> <f> <H>: "ℌ" U210C # BLACK-LETTER CAPITAL H
+<Multi_key> <f> <I>: "ℑ" U2111 # BLACK-LETTER CAPITAL I
+<Multi_key> <f> <J>: "𝔍" U1D50D # MATHEMATICAL FRAKTUR CAPITAL J
+<Multi_key> <f> <K>: "𝔎" U1D50E # MATHEMATICAL FRAKTUR CAPITAL K
+<Multi_key> <f> <L>: "𝔏" U1D50F # MATHEMATICAL FRAKTUR CAPITAL L
+<Multi_key> <f> <M>: "𝔐" U1D510 # MATHEMATICAL FRAKTUR CAPITAL M
+<Multi_key> <f> <N>: "𝔑" U1D511 # MATHEMATICAL FRAKTUR CAPITAL N
+<Multi_key> <f> <O>: "𝔒" U1D512 # MATHEMATICAL FRAKTUR CAPITAL O
+<Multi_key> <f> <P>: "𝔓" U1D513 # MATHEMATICAL FRAKTUR CAPITAL P
+<Multi_key> <f> <Q>: "𝔔" U1D514 # MATHEMATICAL FRAKTUR CAPITAL Q
+<Multi_key> <f> <R>: "ℜ" U211C # BLACK-LETTER CAPITAL R
+<Multi_key> <f> <S>: "𝔖" U1D516 # MATHEMATICAL FRAKTUR CAPITAL S
+<Multi_key> <f> <T>: "𝔗" U1D517 # MATHEMATICAL FRAKTUR CAPITAL T
+<Multi_key> <f> <U>: "𝔘" U1D518 # MATHEMATICAL FRAKTUR CAPITAL U
+<Multi_key> <f> <V>: "𝔙" U1D519 # MATHEMATICAL FRAKTUR CAPITAL V
+<Multi_key> <f> <W>: "𝔚" U1D51A # MATHEMATICAL FRAKTUR CAPITAL W
+<Multi_key> <f> <X>: "𝔛" U1D51B # MATHEMATICAL FRAKTUR CAPITAL X
+<Multi_key> <f> <Y>: "𝔜" U1D51C # MATHEMATICAL FRAKTUR CAPITAL Y
+<Multi_key> <f> <Z>: "ℨ" U2128 # BLACK-LETTER CAPITAL Z
+<Multi_key> <f> <a>: "𝔞" U1D51E # MATHEMATICAL FRAKTUR SMALL A
+<Multi_key> <f> <b>: "𝔟" U1D51F # MATHEMATICAL FRAKTUR SMALL B
+<Multi_key> <f> <c>: "𝔠" U1D520 # MATHEMATICAL FRAKTUR SMALL C
+<Multi_key> <f> <d>: "𝔡" U1D521 # MATHEMATICAL FRAKTUR SMALL D
+<Multi_key> <f> <e>: "𝔢" U1D522 # MATHEMATICAL FRAKTUR SMALL E
+<Multi_key> <f> <f>: "𝔣" U1D523 # MATHEMATICAL FRAKTUR SMALL F
+<Multi_key> <f> <g>: "𝔤" U1D524 # MATHEMATICAL FRAKTUR SMALL G
+<Multi_key> <f> <h>: "𝔥" U1D525 # MATHEMATICAL FRAKTUR SMALL H
+<Multi_key> <f> <i>: "𝔦" U1D526 # MATHEMATICAL FRAKTUR SMALL I
+<Multi_key> <f> <j>: "𝔧" U1D527 # MATHEMATICAL FRAKTUR SMALL J
+<Multi_key> <f> <k>: "𝔨" U1D528 # MATHEMATICAL FRAKTUR SMALL K
+<Multi_key> <f> <l>: "𝔩" U1D529 # MATHEMATICAL FRAKTUR SMALL L
+<Multi_key> <f> <m>: "𝔪" U1D52A # MATHEMATICAL FRAKTUR SMALL M
+<Multi_key> <f> <n>: "𝔫" U1D52B # MATHEMATICAL FRAKTUR SMALL N
+<Multi_key> <f> <o>: "𝔬" U1D52C # MATHEMATICAL FRAKTUR SMALL O
+<Multi_key> <f> <p>: "𝔭" U1D52D # MATHEMATICAL FRAKTUR SMALL P
+<Multi_key> <f> <q>: "𝔮" U1D52E # MATHEMATICAL FRAKTUR SMALL Q
+<Multi_key> <f> <r>: "𝔯" U1D52F # MATHEMATICAL FRAKTUR SMALL R
+<Multi_key> <f> <s>: "𝔰" U1D530 # MATHEMATICAL FRAKTUR SMALL S
+<Multi_key> <f> <t>: "𝔱" U1D531 # MATHEMATICAL FRAKTUR SMALL T
+<Multi_key> <f> <u>: "𝔲" U1D532 # MATHEMATICAL FRAKTUR SMALL U
+<Multi_key> <f> <v>: "𝔳" U1D533 # MATHEMATICAL FRAKTUR SMALL V
+<Multi_key> <f> <w>: "𝔴" U1D534 # MATHEMATICAL FRAKTUR SMALL W
+<Multi_key> <f> <x>: "𝔵" U1D535 # MATHEMATICAL FRAKTUR SMALL X
+<Multi_key> <f> <y>: "𝔶" U1D536 # MATHEMATICAL FRAKTUR SMALL Y
+<Multi_key> <f> <z>: "𝔷" U1D537 # MATHEMATICAL FRAKTUR SMALL Z
+
 
 # Bold frak
 #
-<Multi_key> <F> <A> : "𝕬" U1d56c
-<Multi_key> <F> <B> : "𝕭" U1d56d
-<Multi_key> <F> <C> : "𝕮" U1d56e
-<Multi_key> <F> <D> : "𝕯" U1d56f
-<Multi_key> <F> <E> : "𝕰" U1d570
-<Multi_key> <F> <F> : "𝕱" U1d571
-<Multi_key> <F> <G> : "𝕲" U1d572
-<Multi_key> <F> <H> : "𝕳" U1d573
-<Multi_key> <F> <I> : "𝕴" U1d574
-<Multi_key> <F> <J> : "𝕵" U1d575
-<Multi_key> <F> <K> : "𝕶" U1d576
-<Multi_key> <F> <L> : "𝕷" U1d577
-<Multi_key> <F> <M> : "𝕸" U1d578
-<Multi_key> <F> <N> : "𝕹" U1d579
-<Multi_key> <F> <O> : "𝕺" U1d57a
-<Multi_key> <F> <P> : "𝕻" U1d57b
-<Multi_key> <F> <Q> : "𝕼" U1d57c
-<Multi_key> <F> <R> : "𝕽" U1d57d
-<Multi_key> <F> <S> : "𝕾" U1d57e
-<Multi_key> <F> <T> : "𝕿" U1d57f
-<Multi_key> <F> <U> : "𝖀" U1d580
-<Multi_key> <F> <V> : "𝖁" U1d581
-<Multi_key> <F> <W> : "𝖂" U1d582
-<Multi_key> <F> <X> : "𝖃" U1d583
-<Multi_key> <F> <Y> : "𝖄" U1d584
-<Multi_key> <F> <Z> : "𝖅" U1d585
-<Multi_key> <F> <a> : "𝖆" U1d586
-<Multi_key> <F> <b> : "𝖇" U1d587
-<Multi_key> <F> <c> : "𝖈" U1d588
-<Multi_key> <F> <d> : "𝖉" U1d589
-<Multi_key> <F> <e> : "𝖊" U1d58a
-<Multi_key> <F> <f> : "𝖋" U1d58b
-<Multi_key> <F> <g> : "𝖌" U1d58c
-<Multi_key> <F> <h> : "𝖍" U1d58d
-<Multi_key> <F> <i> : "𝖎" U1d58e
-<Multi_key> <F> <j> : "𝖏" U1d58f
-<Multi_key> <F> <k> : "𝖐" U1d590
-<Multi_key> <F> <l> : "𝖑" U1d591
-<Multi_key> <F> <m> : "𝖒" U1d592
-<Multi_key> <F> <n> : "𝖓" U1d593
-<Multi_key> <F> <o> : "𝖔" U1d594
-<Multi_key> <F> <p> : "𝖕" U1d595
-<Multi_key> <F> <q> : "𝖖" U1d596
-<Multi_key> <F> <r> : "𝖗" U1d597
-<Multi_key> <F> <s> : "𝖘" U1d598
-<Multi_key> <F> <t> : "𝖙" U1d599
-<Multi_key> <F> <u> : "𝖚" U1d59a
-<Multi_key> <F> <v> : "𝖛" U1d59b
-<Multi_key> <F> <w> : "𝖜" U1d59c
-<Multi_key> <F> <x> : "𝖝" U1d59d
-<Multi_key> <F> <y> : "𝖞" U1d59e
-<Multi_key> <F> <z> : "𝖟" U1d59f
+<Multi_key> <F> <A>: "𝕬" U1D56C # MATHEMATICAL BOLD FRAKTUR CAPITAL A
+<Multi_key> <F> <B>: "𝕭" U1D56D # MATHEMATICAL BOLD FRAKTUR CAPITAL B
+<Multi_key> <F> <C>: "𝕮" U1D56E # MATHEMATICAL BOLD FRAKTUR CAPITAL C
+<Multi_key> <F> <D>: "𝕯" U1D56F # MATHEMATICAL BOLD FRAKTUR CAPITAL D
+<Multi_key> <F> <E>: "𝕰" U1D570 # MATHEMATICAL BOLD FRAKTUR CAPITAL E
+<Multi_key> <F> <F>: "𝕱" U1D571 # MATHEMATICAL BOLD FRAKTUR CAPITAL F
+<Multi_key> <F> <G>: "𝕲" U1D572 # MATHEMATICAL BOLD FRAKTUR CAPITAL G
+<Multi_key> <F> <H>: "𝕳" U1D573 # MATHEMATICAL BOLD FRAKTUR CAPITAL H
+<Multi_key> <F> <I>: "𝕴" U1D574 # MATHEMATICAL BOLD FRAKTUR CAPITAL I
+<Multi_key> <F> <J>: "𝕵" U1D575 # MATHEMATICAL BOLD FRAKTUR CAPITAL J
+<Multi_key> <F> <K>: "𝕶" U1D576 # MATHEMATICAL BOLD FRAKTUR CAPITAL K
+<Multi_key> <F> <L>: "𝕷" U1D577 # MATHEMATICAL BOLD FRAKTUR CAPITAL L
+<Multi_key> <F> <M>: "𝕸" U1D578 # MATHEMATICAL BOLD FRAKTUR CAPITAL M
+<Multi_key> <F> <N>: "𝕹" U1D579 # MATHEMATICAL BOLD FRAKTUR CAPITAL N
+<Multi_key> <F> <O>: "𝕺" U1D57A # MATHEMATICAL BOLD FRAKTUR CAPITAL O
+<Multi_key> <F> <P>: "𝕻" U1D57B # MATHEMATICAL BOLD FRAKTUR CAPITAL P
+<Multi_key> <F> <Q>: "𝕼" U1D57C # MATHEMATICAL BOLD FRAKTUR CAPITAL Q
+<Multi_key> <F> <R>: "𝕽" U1D57D # MATHEMATICAL BOLD FRAKTUR CAPITAL R
+<Multi_key> <F> <S>: "𝕾" U1D57E # MATHEMATICAL BOLD FRAKTUR CAPITAL S
+<Multi_key> <F> <T>: "𝕿" U1D57F # MATHEMATICAL BOLD FRAKTUR CAPITAL T
+<Multi_key> <F> <U>: "𝖀" U1D580 # MATHEMATICAL BOLD FRAKTUR CAPITAL U
+<Multi_key> <F> <V>: "𝖁" U1D581 # MATHEMATICAL BOLD FRAKTUR CAPITAL V
+<Multi_key> <F> <W>: "𝖂" U1D582 # MATHEMATICAL BOLD FRAKTUR CAPITAL W
+<Multi_key> <F> <X>: "𝖃" U1D583 # MATHEMATICAL BOLD FRAKTUR CAPITAL X
+<Multi_key> <F> <Y>: "𝖄" U1D584 # MATHEMATICAL BOLD FRAKTUR CAPITAL Y
+<Multi_key> <F> <Z>: "𝖅" U1D585 # MATHEMATICAL BOLD FRAKTUR CAPITAL Z
+<Multi_key> <F> <a>: "𝖆" U1D586 # MATHEMATICAL BOLD FRAKTUR SMALL A
+<Multi_key> <F> <b>: "𝖇" U1D587 # MATHEMATICAL BOLD FRAKTUR SMALL B
+<Multi_key> <F> <c>: "𝖈" U1D588 # MATHEMATICAL BOLD FRAKTUR SMALL C
+<Multi_key> <F> <d>: "𝖉" U1D589 # MATHEMATICAL BOLD FRAKTUR SMALL D
+<Multi_key> <F> <e>: "𝖊" U1D58A # MATHEMATICAL BOLD FRAKTUR SMALL E
+<Multi_key> <F> <f>: "𝖋" U1D58B # MATHEMATICAL BOLD FRAKTUR SMALL F
+<Multi_key> <F> <g>: "𝖌" U1D58C # MATHEMATICAL BOLD FRAKTUR SMALL G
+<Multi_key> <F> <h>: "𝖍" U1D58D # MATHEMATICAL BOLD FRAKTUR SMALL H
+<Multi_key> <F> <i>: "𝖎" U1D58E # MATHEMATICAL BOLD FRAKTUR SMALL I
+<Multi_key> <F> <j>: "𝖏" U1D58F # MATHEMATICAL BOLD FRAKTUR SMALL J
+<Multi_key> <F> <k>: "𝖐" U1D590 # MATHEMATICAL BOLD FRAKTUR SMALL K
+<Multi_key> <F> <l>: "𝖑" U1D591 # MATHEMATICAL BOLD FRAKTUR SMALL L
+<Multi_key> <F> <m>: "𝖒" U1D592 # MATHEMATICAL BOLD FRAKTUR SMALL M
+<Multi_key> <F> <n>: "𝖓" U1D593 # MATHEMATICAL BOLD FRAKTUR SMALL N
+<Multi_key> <F> <o>: "𝖔" U1D594 # MATHEMATICAL BOLD FRAKTUR SMALL O
+<Multi_key> <F> <p>: "𝖕" U1D595 # MATHEMATICAL BOLD FRAKTUR SMALL P
+<Multi_key> <F> <q>: "𝖖" U1D596 # MATHEMATICAL BOLD FRAKTUR SMALL Q
+<Multi_key> <F> <r>: "𝖗" U1D597 # MATHEMATICAL BOLD FRAKTUR SMALL R
+<Multi_key> <F> <s>: "𝖘" U1D598 # MATHEMATICAL BOLD FRAKTUR SMALL S
+<Multi_key> <F> <t>: "𝖙" U1D599 # MATHEMATICAL BOLD FRAKTUR SMALL T
+<Multi_key> <F> <u>: "𝖚" U1D59A # MATHEMATICAL BOLD FRAKTUR SMALL U
+<Multi_key> <F> <v>: "𝖛" U1D59B # MATHEMATICAL BOLD FRAKTUR SMALL V
+<Multi_key> <F> <w>: "𝖜" U1D59C # MATHEMATICAL BOLD FRAKTUR SMALL W
+<Multi_key> <F> <x>: "𝖝" U1D59D # MATHEMATICAL BOLD FRAKTUR SMALL X
+<Multi_key> <F> <y>: "𝖞" U1D59E # MATHEMATICAL BOLD FRAKTUR SMALL Y
+<Multi_key> <F> <z>: "𝖟" U1D59F # MATHEMATICAL BOLD FRAKTUR SMALL Z
+
 
 # Blackboard bold
 #
-<Multi_key> <bar> <A> : "𝔸" U1d538
-<Multi_key> <bar> <B> : "𝔹" U1d539
-<Multi_key> <bar> <C> : "ℂ" U1d53a
-<Multi_key> <bar> <D> : "𝔻" U1d53b
-<Multi_key> <bar> <E> : "𝔼" U1d53c
-<Multi_key> <bar> <F> : "𝔽" U1d53d
-<Multi_key> <bar> <G> : "𝔾" U1d53e
-<Multi_key> <bar> <H> : "ℍ" U1d53f
-<Multi_key> <bar> <I> : "𝕀" U1d540
-<Multi_key> <bar> <J> : "𝕁" U1d541
-<Multi_key> <bar> <K> : "𝕂" U1d542
-<Multi_key> <bar> <L> : "𝕃" U1d543
-<Multi_key> <bar> <M> : "𝕄" U1d544
-<Multi_key> <bar> <N> : "ℕ" U1d545
-<Multi_key> <bar> <O> : "𝕆" U1d546
-<Multi_key> <bar> <P> : "𝕇" U1d547
-<Multi_key> <bar> <Q> : "ℚ" U1d548
-<Multi_key> <bar> <R> : "ℝ" U1d549
-<Multi_key> <bar> <S> : "𝕊" U1d54a
-<Multi_key> <bar> <T> : "𝕋" U1d54b
-<Multi_key> <bar> <U> : "𝕌" U1d54c
-<Multi_key> <bar> <V> : "𝕍" U1d54d
-<Multi_key> <bar> <W> : "𝕎" U1d54e
-<Multi_key> <bar> <X> : "𝕏" U1d54f
-<Multi_key> <bar> <Y> : "𝕐" U1d550
-<Multi_key> <bar> <Z> : "ℤ" U1d551
-<Multi_key> <bar> <a> : "𝕒" U1d552
-<Multi_key> <bar> <b> : "𝕓" U1d553
-<Multi_key> <bar> <c> : "𝕔" U1d554
-<Multi_key> <bar> <d> : "𝕕" U1d555
-<Multi_key> <bar> <e> : "𝕖" U1d556
-<Multi_key> <bar> <f> : "𝕗" U1d557
-<Multi_key> <bar> <g> : "𝕘" U1d558
-<Multi_key> <bar> <h> : "𝕙" U1d559
-<Multi_key> <bar> <i> : "𝕚" U1d55a
-<Multi_key> <bar> <j> : "𝕛" U1d55b
-<Multi_key> <bar> <k> : "𝕜" U1d55c
-<Multi_key> <bar> <l> : "𝕝" U1d55d
-<Multi_key> <bar> <m> : "𝕞" U1d55e
-<Multi_key> <bar> <n> : "𝕟" U1d55f
-<Multi_key> <bar> <o> : "𝕠" U1d560
-<Multi_key> <bar> <p> : "𝕡" U1d561
-<Multi_key> <bar> <q> : "𝕢" U1d562
-<Multi_key> <bar> <r> : "𝕣" U1d563
-<Multi_key> <bar> <s> : "𝕤" U1d564
-<Multi_key> <bar> <t> : "𝕥" U1d565
-<Multi_key> <bar> <u> : "𝕦" U1d566
-<Multi_key> <bar> <v> : "𝕧" U1d567
-<Multi_key> <bar> <w> : "𝕨" U1d568
-<Multi_key> <bar> <x> : "𝕩" U1d569
-<Multi_key> <bar> <y> : "𝕪" U1d56a
-<Multi_key> <bar> <z> : "𝕫" U1d56b
-<Multi_key> <bar> <0> : "𝟘" U1D7D8
-<Multi_key> <bar> <1> : "𝟙" U1D7D9
-<Multi_key> <bar> <2> : "𝟚" U1D7DA
-<Multi_key> <bar> <3> : "𝟛" U1D7DB
-<Multi_key> <bar> <4> : "𝟜" U1D7DC
-<Multi_key> <bar> <5> : "𝟝" U1D7DD
-<Multi_key> <bar> <6> : "𝟞" U1D7DE
-<Multi_key> <bar> <7> : "𝟟" U1D7DF
-<Multi_key> <bar> <8> : "𝟠" U1D7E0
-<Multi_key> <bar> <9> : "𝟡" U1D7E1
+<Multi_key> <bar> <A>: "𝔸" U1D538 # MATHEMATICAL DOUBLE-STRUCK CAPITAL A
+<Multi_key> <bar> <B>: "𝔹" U1D539 # MATHEMATICAL DOUBLE-STRUCK CAPITAL B
+<Multi_key> <bar> <C>: "ℂ" U2102 # DOUBLE-STRUCK CAPITAL C
+<Multi_key> <bar> <D>: "𝔻" U1D53B # MATHEMATICAL DOUBLE-STRUCK CAPITAL D
+<Multi_key> <bar> <E>: "𝔼" U1D53C # MATHEMATICAL DOUBLE-STRUCK CAPITAL E
+<Multi_key> <bar> <F>: "𝔽" U1D53D # MATHEMATICAL DOUBLE-STRUCK CAPITAL F
+<Multi_key> <bar> <G>: "𝔾" U1D53E # MATHEMATICAL DOUBLE-STRUCK CAPITAL G
+<Multi_key> <bar> <H>: "ℍ" U210D # DOUBLE-STRUCK CAPITAL H
+<Multi_key> <bar> <I>: "𝕀" U1D540 # MATHEMATICAL DOUBLE-STRUCK CAPITAL I
+<Multi_key> <bar> <J>: "𝕁" U1D541 # MATHEMATICAL DOUBLE-STRUCK CAPITAL J
+<Multi_key> <bar> <K>: "𝕂" U1D542 # MATHEMATICAL DOUBLE-STRUCK CAPITAL K
+<Multi_key> <bar> <L>: "𝕃" U1D543 # MATHEMATICAL DOUBLE-STRUCK CAPITAL L
+<Multi_key> <bar> <M>: "𝕄" U1D544 # MATHEMATICAL DOUBLE-STRUCK CAPITAL M
+<Multi_key> <bar> <N>: "ℕ" U2115 # DOUBLE-STRUCK CAPITAL N
+<Multi_key> <bar> <O>: "𝕆" U1D546 # MATHEMATICAL DOUBLE-STRUCK CAPITAL O
+<Multi_key> <bar> <P>: "ℙ" U2119 # DOUBLE-STRUCK CAPITAL P
+<Multi_key> <bar> <Q>: "ℚ" U211A # DOUBLE-STRUCK CAPITAL Q
+<Multi_key> <bar> <R>: "ℝ" U211D # DOUBLE-STRUCK CAPITAL R
+<Multi_key> <bar> <S>: "𝕊" U1D54A # MATHEMATICAL DOUBLE-STRUCK CAPITAL S
+<Multi_key> <bar> <T>: "𝕋" U1D54B # MATHEMATICAL DOUBLE-STRUCK CAPITAL T
+<Multi_key> <bar> <U>: "𝕌" U1D54C # MATHEMATICAL DOUBLE-STRUCK CAPITAL U
+<Multi_key> <bar> <V>: "𝕍" U1D54D # MATHEMATICAL DOUBLE-STRUCK CAPITAL V
+<Multi_key> <bar> <W>: "𝕎" U1D54E # MATHEMATICAL DOUBLE-STRUCK CAPITAL W
+<Multi_key> <bar> <X>: "𝕏" U1D54F # MATHEMATICAL DOUBLE-STRUCK CAPITAL X
+<Multi_key> <bar> <Y>: "𝕐" U1D550 # MATHEMATICAL DOUBLE-STRUCK CAPITAL Y
+<Multi_key> <bar> <Z>: "ℤ" U2124 # DOUBLE-STRUCK CAPITAL Z
+<Multi_key> <bar> <a>: "𝕒" U1D552 # MATHEMATICAL DOUBLE-STRUCK SMALL A
+<Multi_key> <bar> <b>: "𝕓" U1D553 # MATHEMATICAL DOUBLE-STRUCK SMALL B
+<Multi_key> <bar> <c>: "𝕔" U1D554 # MATHEMATICAL DOUBLE-STRUCK SMALL C
+<Multi_key> <bar> <d>: "𝕕" U1D555 # MATHEMATICAL DOUBLE-STRUCK SMALL D
+<Multi_key> <bar> <e>: "𝕖" U1D556 # MATHEMATICAL DOUBLE-STRUCK SMALL E
+<Multi_key> <bar> <f>: "𝕗" U1D557 # MATHEMATICAL DOUBLE-STRUCK SMALL F
+<Multi_key> <bar> <g>: "𝕘" U1D558 # MATHEMATICAL DOUBLE-STRUCK SMALL G
+<Multi_key> <bar> <h>: "𝕙" U1D559 # MATHEMATICAL DOUBLE-STRUCK SMALL H
+<Multi_key> <bar> <i>: "𝕚" U1D55A # MATHEMATICAL DOUBLE-STRUCK SMALL I
+<Multi_key> <bar> <j>: "𝕛" U1D55B # MATHEMATICAL DOUBLE-STRUCK SMALL J
+<Multi_key> <bar> <k>: "𝕜" U1D55C # MATHEMATICAL DOUBLE-STRUCK SMALL K
+<Multi_key> <bar> <l>: "𝕝" U1D55D # MATHEMATICAL DOUBLE-STRUCK SMALL L
+<Multi_key> <bar> <m>: "𝕞" U1D55E # MATHEMATICAL DOUBLE-STRUCK SMALL M
+<Multi_key> <bar> <n>: "𝕟" U1D55F # MATHEMATICAL DOUBLE-STRUCK SMALL N
+<Multi_key> <bar> <o>: "𝕠" U1D560 # MATHEMATICAL DOUBLE-STRUCK SMALL O
+<Multi_key> <bar> <p>: "𝕡" U1D561 # MATHEMATICAL DOUBLE-STRUCK SMALL P
+<Multi_key> <bar> <q>: "𝕢" U1D562 # MATHEMATICAL DOUBLE-STRUCK SMALL Q
+<Multi_key> <bar> <r>: "𝕣" U1D563 # MATHEMATICAL DOUBLE-STRUCK SMALL R
+<Multi_key> <bar> <s>: "𝕤" U1D564 # MATHEMATICAL DOUBLE-STRUCK SMALL S
+<Multi_key> <bar> <t>: "𝕥" U1D565 # MATHEMATICAL DOUBLE-STRUCK SMALL T
+<Multi_key> <bar> <u>: "𝕦" U1D566 # MATHEMATICAL DOUBLE-STRUCK SMALL U
+<Multi_key> <bar> <v>: "𝕧" U1D567 # MATHEMATICAL DOUBLE-STRUCK SMALL V
+<Multi_key> <bar> <w>: "𝕨" U1D568 # MATHEMATICAL DOUBLE-STRUCK SMALL W
+<Multi_key> <bar> <x>: "𝕩" U1D569 # MATHEMATICAL DOUBLE-STRUCK SMALL X
+<Multi_key> <bar> <y>: "𝕪" U1D56A # MATHEMATICAL DOUBLE-STRUCK SMALL Y
+<Multi_key> <bar> <z>: "𝕫" U1D56B # MATHEMATICAL DOUBLE-STRUCK SMALL Z
+<Multi_key> <bar> <0>: "𝟘" U1D7D8 # MATHEMATICAL DOUBLE-STRUCK DIGIT ZERO
+<Multi_key> <bar> <1>: "𝟙" U1D7D9 # MATHEMATICAL DOUBLE-STRUCK DIGIT ONE
+<Multi_key> <bar> <2>: "𝟚" U1D7DA # MATHEMATICAL DOUBLE-STRUCK DIGIT TWO
+<Multi_key> <bar> <3>: "𝟛" U1D7DB # MATHEMATICAL DOUBLE-STRUCK DIGIT THREE
+<Multi_key> <bar> <4>: "𝟜" U1D7DC # MATHEMATICAL DOUBLE-STRUCK DIGIT FOUR
+<Multi_key> <bar> <5>: "𝟝" U1D7DD # MATHEMATICAL DOUBLE-STRUCK DIGIT FIVE
+<Multi_key> <bar> <6>: "𝟞" U1D7DE # MATHEMATICAL DOUBLE-STRUCK DIGIT SIX
+<Multi_key> <bar> <7>: "𝟟" U1D7DF # MATHEMATICAL DOUBLE-STRUCK DIGIT SEVEN
+<Multi_key> <bar> <8>: "𝟠" U1D7E0 # MATHEMATICAL DOUBLE-STRUCK DIGIT EIGHT
+<Multi_key> <bar> <9>: "𝟡" U1D7E1 # MATHEMATICAL DOUBLE-STRUCK DIGIT NINE
+
 
