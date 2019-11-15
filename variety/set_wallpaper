@@ -32,21 +32,18 @@ if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" 
     gsettings set org.gnome.desktop.background picture-options 'zoom'
 fi
 
-runs_cava() {
-  for i in $(fuser /dev/pts/$1); do
-    if [[`ps -o pid= -o command= -p $i` == *"cava"* ]]; then
-      return 1
-    fi
-  done
-  return 0
-}
-
 if command -v wal; then
   wal -i "$WP" --backend wal --saturate 0.20 -s -t 2>/dev/null
   for f in /dev/pts/*; do
-    # Try terminal colour reset only if cava isn't running in the terminal.
+    # Test if cava is running in terminal. We don't want to screw up the
+    #   colours in windows running cava.
     if ! fuser -v $f 2>&1 | grep -q "cava"; then
+      # Not running cava, so blast the new colours into the terminal
       [ -w $f ] && cat ~/.cache/wal/sequences ~/.dotfiles/colours/osc/dejour.seq > $f
+    else
+      # Running cava, so only use wal's background colour in cava window.
+      curbg=$(grep -Eo $'\x1b\]11;#([a-fA-F0-9]{6})' ~/.cache/wal/sequences)
+      echo $curbg$'\a' > $f
     fi
   done
 else
