@@ -10,6 +10,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <asciitilde> <Right>: "⥲" U2972 # TILDE OPERATOR ABOVE RIGHTWARDS ARROW
 <Multi_key> <c> <Right>: "↪" U21AA # RIGHTWARDS ARROW WITH HOOK
 <Multi_key> <slash> <Right>: "↛" U219B # RIGHTWARDS ARROW WITH STROKE
+<Multi_key> <minus> <bar> <Right>: "⇸" U21F8 # RIGHTWARDS ARROW WITH VERTICAL STROKE
 <Multi_key> <Right> <greater> <greater>: "⤖" U2916 # RIGHTWARDS TWO-HEADED ARROW WITH TAIL
 <Multi_key> <equal> <Right> <Right>: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
 <Multi_key> <Left> <Left>: "←" U2190 # LEFTWARDS ARROW
@@ -80,7 +81,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bracketleft> <minus> <bracketright>: "⊟" U229F # SQUARED MINUS
 <Multi_key> <bracketleft> <x> <x> <bracketright>: "⊠" U22A0 # SQUARED TIMES
 <Multi_key> <bracketleft> <period> <bracketright>: "⊡" U22A1 # SQUARED DOT OPERATOR
-# <Multi_kay>                                      : "⋄" U22C4 # DIAMOND OPERATOR
+<Multi_key> <less> <greater>: "⋄" U22C4 # DIAMOND OPERATOR
 
 
 ## Shapes
@@ -99,7 +100,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <quotedbl> <period>: "∵" U2235 # BECAUSE
 <Multi_key> <at> <slash>: "✓" U2713 # CHECK MARK
 <Multi_key> <at> <x>: "✗" U2717 # BALLOT X
-
+<Multi_key> <exclam> <bar>: "¦" U00A6 # BROKEN BAR
 
 # Special objects
 #
@@ -115,13 +116,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <bar> <Z>: "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
 
 
-
-
 # Special symbols
 #
 <Multi_key> <l> <l>: "ℓ" U2113 # SCRIPT SMALL L
-
-
 
 
 # Unitary operators
@@ -640,8 +637,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <c> <x>: "𝔁" U1D501 # MATHEMATICAL BOLD SCRIPT SMALL X
 <Multi_key> <c> <y>: "𝔂" U1D502 # MATHEMATICAL BOLD SCRIPT SMALL Y
 <Multi_key> <c> <z>: "𝔃" U1D503 # MATHEMATICAL BOLD SCRIPT SMALL Z
-
-
 
 
 # Bold caligraphical
