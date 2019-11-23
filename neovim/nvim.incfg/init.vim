@@ -376,7 +376,7 @@ vmap <A-q> gwip
 " General formatting
 "
 " -- join lines with no white space.
-nmap <C-j> gJi <ESC>diw
+nmap <C-j> gJi <ESC>diW
 
 " Easier buffer slection
 noremap <F1> :buffers<CR>:buffer<Space>
