@@ -521,6 +521,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <s>: "σ" U03C3 # GREEK SMALL LETTER SIGMA
 <Multi_key> <g> <t>: "τ" U03C4 # GREEK SMALL LETTER TAU
 <Multi_key> <g> <u>: "θ" U03B8 # GREEK SMALL LETTER THETA
+<Multi_key> <G> <u>: "ϑ" U03D1 # GREEK THETA SYMBOL
 <Multi_key> <g> <v>: "ω" U03C9 # GREEK SMALL LETTER OMEGA
 <Multi_key> <g> <w>: "ς" U03C2 # GREEK SMALL LETTER FINAL SIGMA
 <Multi_key> <g> <x>: "χ" U03C7 # GREEK SMALL LETTER CHI
