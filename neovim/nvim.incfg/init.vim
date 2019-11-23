@@ -40,8 +40,8 @@ Plugin 'kien/ctrlp.vim'
   let g:ctrlp_follow_symlinks = 1
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|build$',
-  \ 'file': '\v\.(exe|so|dll)$'
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$|build$',
+    \ 'file': '\v\.(exe|so|dll)$'
   \ }
 " Can also have 'link' in above dict to match symbolic link names.
 
@@ -49,7 +49,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
   let g:gitgutter_override_sign_column_highlight = 0
   " Not working for me? Blank bottom window opens instead of float:
-  let g:gitgutter_preview_win_floating = 1
+  " let g:gitgutter_preview_win_floating = 1
 Plugin 'easymotion/vim-easymotion'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'vim-airline/vim-airline'
