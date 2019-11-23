@@ -48,6 +48,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
   let g:gitgutter_override_sign_column_highlight = 0
+  " Not working for me? Blank bottom window opens instead of float:
+  let g:gitgutter_preview_win_floating = 1
 Plugin 'easymotion/vim-easymotion'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'vim-airline/vim-airline'
@@ -60,9 +62,8 @@ Plugin 'myusuf3/numbers.vim'
   nnoremap <F5> :NumbersToggle<CR>
   nnoremap <F6> :NumbersOnOff<CR>
 Plugin 'qpkorr/vim-bufkill'
-Plugin 'junegunn/limelight.vim'
-Plugin 'shime/vim-livedown'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
 
 """ Plug: Kana's DIY text objects, and objects based thereon.
 Plugin 'kana/vim-textobj-user'
@@ -79,12 +80,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
   let g:NERDTreeShowIgnoredStatus = 1
   let g:NERDTreeIgnore = ['\.pyc$']
-  " Nerdtree start when file not opened
-  " augroup NERDTreeAU
-  "   autocmd!
-  "   autocmd StdinReadPre * let s:std_in=1
-  "   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  " augroup END
   let g:NERDTreeIndicatorMapCustom = {
       \ "Modified"  : "~",
       \ "Staged"    : "✚",
@@ -118,20 +113,11 @@ let g:vimtex_quickfix_latexlog = {
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 
 
-Plugin 'glts/vim-texlog.git'
-
 """ Programming
-Plugin 'tomtom/tcomment_vim'
+" Plugin 'tomtom/tcomment_vim'
 Plugin 'rhysd/vim-clang-format'
-  let g:clang_format#command = "clang-format-7"
+  let g:clang_format#command = "clang-format-8"
 Plugin 'godlygeek/tabular'
-" Plugin 'plasticboy/vim-markdown'
-"   let g:vim_markdown_folding_disabled = 1
-"   let g:vim_markdown_conceal = 0
-"   let g:vim_markdown_math = 1
-" Plugin 'iamcco/mathjax-support-for-mkdp'
-" Plugin 'iamcco/markdown-preview.vim'
-"   let g:mkdp_path_to_chrome = "google-chrome"
 
 " Python
 Plugin 'nvie/vim-flake8'
@@ -144,7 +130,7 @@ Plugin 'junegunn/rainbow_parentheses.vim'
   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 augroup rainbow_langs
   autocmd!
-  autocmd FileType c,cpp,haskell,python RainbowParentheses
+  autocmd FileType c,cpp,haskell,python,tex RainbowParentheses
   autocmd FileType lisp,clojure,scheme RainbowParentheses
 augroup END
 Plugin 'eagletmt/ghcmod-vim'
