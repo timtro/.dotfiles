@@ -307,6 +307,7 @@ augroup END
 augroup tex
   autocmd!
   autocmd FileType tex set foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
+  autocmd BufReadPost * call VimtexNewMathZone('N', 'calculation', 0)
   "foldtext=vimtex#fold#text)
 augroup END
 
