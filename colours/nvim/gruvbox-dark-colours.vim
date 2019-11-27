@@ -17,6 +17,7 @@ exe "hi SpellBad cterm=underline ctermfg=9 guifg=".g:palette['gruv:ltRed']
 exe "hi SpellRare cterm=underline ctermfg=12 guifg=".g:palette['gruv:ltBlue']
 exe "hi SpellLocal cterm=underline ctermfg=11 guifg=".g:palette['gruv:ltYellow']
 exe "hi ColorColumn ctermbg=236 guifg=".g:palette['gruv:bg1']
+exe "hi Folded guibg=".g:palette['gruv:bg_h']
 
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = palette['gruv:bg_s']
