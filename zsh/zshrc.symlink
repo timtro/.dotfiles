@@ -51,9 +51,11 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git vi-mode zsh-syntax-highlighting)
+# zsh-syntax-hilighting:
+#   cd ~/.oh-my-zsh/custom/plugins
+#   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+
 
 ### User configuration
 #-------------------------------------------------------------------------------
