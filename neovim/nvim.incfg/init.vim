@@ -64,6 +64,10 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
+Plugin 'SirVer/ultisnips'
+  let g:UltiSnipsExpandTrigger="<A-tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 """ Plug: Kana's DIY text objects, and objects based thereon.
 Plugin 'kana/vim-textobj-user'
@@ -380,9 +384,7 @@ map <F5> :setlocal spell! spelllang=en_ca<CR>
 " Toggle soft wrap.
 map <A-z> :setlocal nowrap!<CR>
 
-" Color scheme selection
-map <silent><F3> :NEXTCOLOR<cr>
-map <silent><F2> :PREVCOLOR<cr>
+" Toggle NERD Tree.
 map <C-n> :NERDTreeToggle<CR>
 
 " Toggle auto formatting:
@@ -406,11 +408,6 @@ function Make_bg_transparent()
   hi! Normal ctermbg=NONE guibg=NONE
   hi! NonText ctermbg=NONE guibg=NONE
   hi! Conceal ctermbg=NONE guibg=NONE
-  " hi clear SignColumn
-  " hi! GitGutterAdd ctermbg=NONE guibg=NONE
-  " hi! GitGutterChange ctermbg=NONE guibg=NONE
-  " hi! GitGutterDelete ctermbg=NONE guibg=NONE
-  " hi! GitGutterChangeDelete ctermbg=NONE guibg=NONE
 endfunction
 
 function Make_bg_default()
@@ -426,7 +423,8 @@ function! Toggle_transparent()
   let g:is_transparent = !g:is_transparent
 endfunction
 
-nnoremap <C-t> :call Toggle_transparent()<CR>
+let g:is_transparent = 0
+nnoremap <C-A-t> :call Toggle_transparent()<CR>
 
 
 """ Stuff that just has to go last
