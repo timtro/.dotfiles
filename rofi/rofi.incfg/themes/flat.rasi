@@ -52,7 +52,7 @@ configuration {
   fullscreen: true;
   location: center;
   anchor: center;
-  padding: 400px;
+  padding: 25%;
   border: 0px;
 }
 
