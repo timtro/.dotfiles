@@ -54,10 +54,6 @@ endsnippet
 snippet tikzcd "TikZcd diagram" b
 	\begin{tikzcd}
 		$0
-		&
-		%
-		\\
-		%
 	\end{tikzcd}
 endsnippet
 
@@ -74,19 +70,19 @@ snippet [tikzcd] "\[ TikZcd diagram \]" b
 endsnippet
 
 snippet $funsig "$◌ : ◌ → ◌$"
-\$${1:◌} \⦂ ${2:◌} → ${3:◌}\$ $0
+\$${1:${VISUAL:◌}} \⦂ ${2:◌} → ${3:◌}\$ $0
 endsnippet
 
 snippet funsig "◌ : ◌ → ◌"
-${1:◌} \⦂ ${2:◌} → ${0:◌}
+${1:${VISUAL:◌}} \⦂ ${2:◌} → ${0:◌}
 endsnippet
 
 snippet $natsig "$◌ : ◌ ⇒ ◌$"
-\$${1:◌} \⦂ ${2:◌} ⇒ ${3:◌}\$ $0
+\$${1:${VISUAL:◌}} \⦂ ${2:◌} ⇒ ${3:◌}\$ $0
 endsnippet
 
 snippet natsig "◌ : ◌ ⇒ ◌"
-${1:◌} \⦂ ${2:◌} → ${0:◌}
+${1:${VISUAL:◌}} \⦂ ${2:◌} → ${0:◌}
 endsnippet
 
 snippet emph "Emphasis"
