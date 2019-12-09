@@ -64,7 +64,8 @@ config_by_host host
             spawn "xinput --set-prop 15 322 .75" -- Set touchpad speed
             allhostStartup
       } `additionalKeysP` [
-        ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
+        ("M-p"                     , spawn "rofi -show combi -font \"Hasklig 36\"" )
+      , ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
       , ("<XF86MonBrightnessDown>" , spawn "xbacklight -dec 10" )
       , ("<XF86Favorites>"         , spawn "xbacklight -ctrl tpacpi::kbd_backlight -inc 50" )
       , ("S-<XF86Favorites>"       , spawn "xbacklight -ctrl tpacpi::kbd_backlight -dec 50" )
@@ -100,7 +101,7 @@ config_by_host host
       , ("M-M1-r"                , spawn "reboot")
       , ("M-M1-p"                , spawn "shutdown -P now" )
       , ("M-M1-l"                , spawn $ lockerCmd )
-      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig 36\"" )
+      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig\"" )
       , ("M-<XF86AudioNext>"     , spawn "variety --next" )
       , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
       , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
