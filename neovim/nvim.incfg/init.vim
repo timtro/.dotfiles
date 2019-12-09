@@ -73,6 +73,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-line'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'glts/vim-textobj-comment'
 
 """ Plug: The NERDs :)
 " Plugin 'scrooloose/nerdcommenter'
@@ -337,8 +338,8 @@ augroup END
 "     like <C-PageUp>. Appropriate remappings can be found here:
 "     <http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal>
 
-" What does semicolon do anyway?
-" noremap ; :
+" Disable Ex mode mappings
+" nnoremap Q <nop>
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
