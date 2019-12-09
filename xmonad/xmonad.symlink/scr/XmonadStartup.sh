@@ -11,6 +11,11 @@ function main {
   elif [[ "$host" == "photon" ]]; then
     xinput set-prop 15 299 1 # Enable tap-to-click
     stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.HD"
+  elif [[ "$host" == "positron" ]]; then
+    stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.UHD"
+    xinput --set-prop 15 302 1 # Enable tap to click
+    xinput --set-prop 16 322 0.7 # Set trackpoint speed
+    xinput --set-prop 15 322 .75 # Set touchpad speed
   else
     notify-send "WARNING: Tim, your custom Xmonad script doesn't know this host: '$host'."
   fi

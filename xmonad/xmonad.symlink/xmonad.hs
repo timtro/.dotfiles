@@ -30,7 +30,6 @@ import XMonad.Hooks.DynamicLog
   , ppSep
   )
 import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
--- import XMonad.Hooks.FadeInactive ( fadeInactiveLogHook )
 import XMonad.Hooks.SetWMName
 import XMonad.ManageHook ( doFloat, doIgnore )
 import XMonad.StackSet ( RationalRect( RationalRect ) )
@@ -49,18 +48,114 @@ import Data.Ratio
 main :: IO ()
 main = do
   hostname <- getHostName
-  configWithBar <- statusBar (hostBarCmd hostname) myPP toggleGapsKey myConfig
-  xmonad $ ewmh configWithBar
+  config <- config_by_host hostname
+  xmonad $ ewmh config
 
- -- The X monad, ReaderT and StateT transformers over IO encapsulating the
- --   window manager configuration and state, respectively.
- -- https://hackage.haskell.org/package/xmonad-0.13/docs/XMonad-Core.html#t:X
-myStartupHook :: X ()
-myStartupHook = do
+config_by_host host
+  | host == "qubit"    = statusBar (xmobarCmd ++ "HDdesk") myPP toggleGapsKey $
+    allhostConfig
+  | host == "positron" = statusBar (xmobarCmd ++ "UHDlap") myPP toggleGapsKey $
+    allhostConfig
+      { borderWidth = 2
+      , startupHook = do
+            spawn "xrandr --dpi 180"
+            spawn "xinput --set-prop 15 302 1"   -- Enable tap to click
+            spawn "xinput --set-prop 16 322 0.7" -- Set trackpoint speed
+            spawn "xinput --set-prop 15 322 .75" -- Set touchpad speed
+            allhostStartup
+      } `additionalKeysP` [
+        ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
+      , ("<XF86MonBrightnessDown>" , spawn "xbacklight -dec 10" )
+      , ("<XF86Favorites>"         , spawn "xbacklight -ctrl tpacpi::kbd_backlight -inc 50" )
+      , ("S-<XF86Favorites>"       , spawn "xbacklight -ctrl tpacpi::kbd_backlight -dec 50" )
+      -- , ("", spawn "")
+      ]
+  | otherwise          = statusBar (xmobarCmd ++ "HDdesk") myPP toggleGapsKey $
+    allhostConfig
+  where
+    xmobarCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
+    allhostConfig = def
+      { modMask            = mod4Mask -- Use Super instead of Alt
+      , startupHook        = allhostStartup
+      , layoutHook         = smartBorders
+                              $ mkToggle (single NBFULL)
+                              $ spacingWithEdge 0 (layoutHook defaultConfig ||| emptyBSP)
+      , handleEventHook    = handleEventHook def <+> fullscreenEventHook
+      , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
+      , terminal           = "kitty"
+      , borderWidth        = 1
+      , normalBorderColor  = bg
+      , focusedBorderColor = windowBorderColour
+      , focusFollowsMouse  = False
+      } `additionalKeysP` allhostKeys `removeKeys` [(mod4Mask, xK_q)]
+    allhostKeys =
+      [ ("M-S-r",
+          spawn $ "if type xmonad; then "
+              ++    "killall compton &&"
+              ++    "xmonad --recompile &&"
+              ++    "xmonad --restart; "
+              ++  "else"
+              ++    "xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
+      , ("M-S-x"                 , spawn "xkill" )
+      , ("M-M1-r"                , spawn "reboot")
+      , ("M-M1-p"                , spawn "shutdown -P now" )
+      , ("M-M1-l"                , spawn $ lockerCmd )
+      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig 36\"" )
+      , ("M-<XF86AudioNext>"     , spawn "variety --next" )
+      , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
+      , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
+      , ("M-S-<XF86AudioStop>"   , spawn "variety --trash" )
+      , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 6" )
+      , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 6" )
+      , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
+      , ("<XF86AudioPlay>"       , spawn "cmus-remote --pause" )
+      , ("<XF86AudioStop>"       , spawn "cmus-remote --stop" )
+      , ("<XF86AudioPrev>"       , spawn "cmus-remote --prev" )
+      , ("<XF86AudioNext>"       , spawn "cmus-remote --next" )
+      , ("<XF86Search>"          , spawn "~/.xmonad/scr/display-mirror.sh" )
+      , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
+      , ("M-<Print>"             , spawn "gnome-screenshot -i" )
+      , ("M-v"                   , spawn "pavucontrol" )
+      -- Scratchpads
+      , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
+      , ("M-f", namedScratchpadAction scratchPads "scratchFileBrowser")
+      , ("M-d", namedScratchpadAction scratchPads "scratchSlack")
+      , ("M-g", namedScratchpadAction scratchPads "scratchZeegaree")
+      -- Gaps/spacing
+      , ("M-S-="                 , incSpacing(2) )
+      , ("M-S--"                 , incSpacing(-2) )
+      , ("M-S-0"                 , setSpacing(10) )
+      , ("M-M1-<Space>"          , sendMessage $ Toggle NBFULL )
+      , ("M-M1-b"                , sequence_
+                                    [ sendMessage ToggleStruts
+                                    , sendMessage $ Toggle NBFULL
+                                    ])
+      -- Keys for Binary Space Partition Layout
+      , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
+      , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
+      , ("M-M1-<Up>",      sendMessage $ ExpandTowards U)
+      , ("M-M1-<Down>",    sendMessage $ ShrinkFrom U)
+      , ("M-M1-C-<Left>",  sendMessage $ ShrinkFrom R)
+      , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
+      , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
+      , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
+      , ("M-S-C-j",        sendMessage $ SplitShift Prev)
+      , ("M-S-C-k",        sendMessage $ SplitShift Next)
+      , ("M-s",            sendMessage Swap)
+      , ("M-S-s",          sendMessage Rotate)
+      , ("M-n",            sendMessage FocusParent)
+      , ("M-S-n",          sendMessage MoveNode)
+      , ("M-M1-n",         sendMessage SelectNode)
+      , ("M-a",            sendMessage Balance)
+      , ("M-M1-a",         sendMessage Equalize)
+      -- Job helpers
+      , ("M-u", spawn "xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown" )
+      ]
+
+allhostStartup :: X ()
+allhostStartup = do
   spawn "hsetroot -solid \"#000000\""
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
-  -- spawn "xcompmgr -fF -I-.01 -O-.01 -D1 -r10 -o0.2"
-  -- spawn "xcompmgr -cC -t-9 -l-9 -r10 -o0.75 -fF -I-.01 -O-.01 -D1"
   spawn "compton"
   spawn "~/.xmonad/scr/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
@@ -70,109 +165,16 @@ myStartupHook = do
               ++ "-locker \"" ++ lockerCmd ++ "\" -notify 10 "
               ++ "-notifier \"notify-send -t 5000 "
               ++ "-i gtk-dialog-info \'Locking in 10 seconds\'\" "
-  spawn "xrdb -merge /home/timtro/.dotfiles/colours/Xresources/dejour"
-  spawn "herp"
-  spawn "derp"
   setWMName "LG3D"
 
-myConfig = defaultConfig
-  { modMask            = mod4Mask -- Use Super instead of Alt
-  , startupHook        = myStartupHook
-  , layoutHook         = smartBorders
-                          $ mkToggle (single NBFULL)
-                          $ spacingWithEdge 0 (layoutHook defaultConfig ||| emptyBSP)
-  -- , logHook            = fadeInactiveLogHook 0.9
-  , handleEventHook    = handleEventHook def <+> fullscreenEventHook
-  , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
-  , terminal           = "kitty"
-  , borderWidth        = 1
-  , normalBorderColor  = bg
-  , focusedBorderColor = windowBorderColour
-  , focusFollowsMouse  = False
-  } `additionalKeysP` myKeys `removeKeys` [(mod4Mask, xK_q)]
-
 -- ## Keybindings. NB: using `additionalKeysP` for Emacs style notation.
-myKeys :: [( [Char], X () )]
-myKeys =
-  [ ("M-S-r",
-      spawn $ "if type xmonad; then "
-          ++    "killall compton &&"
-          ++    "xmonad --recompile &&"
-          ++    "xmonad --restart; "
-          ++  "else"
-          ++    "xmessage xmonad not in \\$PATH: \"$PATH\"; fi" )
-  , ("M-S-x"                 , spawn "xkill" )
-  , ("M-M1-r"                , spawn "reboot")
-  , ("M-M1-p"                , spawn "shutdown -P now" )
-  , ("M-M1-l"                , spawn $ lockerCmd )
-  , ("M-p"                   , spawn "rofi -show combi" )
-  , ("M-<XF86AudioNext>"     , spawn "variety --next" )
-  , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
-  , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
-  , ("M-S-<XF86AudioStop>"   , spawn "variety --trash" )
-  , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 6" )
-  , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 6" )
-  , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
-  , ("<XF86AudioPlay>"       , spawn "cmus-remote --pause" )
-  , ("<XF86AudioStop>"       , spawn "cmus-remote --stop" )
-  , ("<XF86AudioPrev>"       , spawn "cmus-remote --prev" )
-  , ("<XF86AudioNext>"       , spawn "cmus-remote --next" )
-  , ("<XF86Search>"          , spawn "~/.xmonad/scr/display-mirror.sh" )
-  , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
-  , ("M-<Print>"             , spawn "gnome-screenshot -i" )
-  -- Scratchpads
-  , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
-  , ("M-f", namedScratchpadAction scratchPads "scratchFileBrowser")
-  , ("M-d", namedScratchpadAction scratchPads "scratchSlack")
-  , ("M-g", namedScratchpadAction scratchPads "scratchZeegaree")
-  -- Gaps/spacing
-  , ("M-S-="                 , incSpacing(2) )
-  , ("M-S--"                 , incSpacing(-2) )
-  , ("M-S-0"                 , setSpacing(10) )
-  , ("M-M1-<Space>"          , sendMessage $ Toggle NBFULL )
-  , ("M-M1-b"                , sequence_
-                                [ sendMessage ToggleStruts
-                                , sendMessage $ Toggle NBFULL
-                                ])
-  -- Keys for Binary Space Partition Layout
-  , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
-  , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
-  , ("M-M1-<Up>",      sendMessage $ ExpandTowards U)
-  , ("M-M1-<Down>",    sendMessage $ ShrinkFrom U)
-  , ("M-M1-C-<Left>",  sendMessage $ ShrinkFrom R)
-  , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
-  , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
-  , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
-  , ("M-S-C-j",        sendMessage $ SplitShift Prev)
-  , ("M-S-C-k",        sendMessage $ SplitShift Next)
-  , ("M-s",            sendMessage Swap)
-  , ("M-S-s",          sendMessage Rotate)
-  , ("M-n",            sendMessage FocusParent)
-  , ("M-S-n",          sendMessage MoveNode)
-  , ("M-M1-n",         sendMessage SelectNode)
-  , ("M-a",            sendMessage Balance)
-  , ("M-M1-a",         sendMessage Equalize)
-  -- Job helpers
-  , ("M-u", spawn "xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown" )
-  ]
+-- allhostKeys :: [( [Char], X () )]
 
 lockerCmd :: [Char]
 lockerCmd = "i3lock"
                 ++ " --color 000000"
                 ++ " --tiling"
                 ++ " --image ~/Pictures/wallpaper/custom/lockscreen.svg.png"
-
--- ## Desktop bar and tray config:
-
-hostBarCmd :: String -> String
--- export xmobar command with rc based on host's name.
-hostBarCmd host
-  | host == "photon"      = baseCmd ++ "laptop"
-  | host == "qubit"       = baseCmd ++ "desktop"
-  | host == "johnny5"     = baseCmd ++ "desktop"
-  | otherwise             = baseCmd ++ "desktop"
-  where
-    baseCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
 
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
