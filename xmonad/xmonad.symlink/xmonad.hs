@@ -101,7 +101,7 @@ config_by_host host
       , ("M-M1-r"                , spawn "reboot")
       , ("M-M1-p"                , spawn "shutdown -P now" )
       , ("M-M1-l"                , spawn $ lockerCmd )
-      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig\"" )
+      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig 18\"" )
       , ("M-<XF86AudioNext>"     , spawn "variety --next" )
       , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
       , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
