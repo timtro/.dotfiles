@@ -10,7 +10,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <asciitilde> <Right>: "⥲" U2972 # TILDE OPERATOR ABOVE RIGHTWARDS ARROW
 <Multi_key> <c> <Right>: "↪" U21AA # RIGHTWARDS ARROW WITH HOOK
 <Multi_key> <slash> <Right>: "↛" U219B # RIGHTWARDS ARROW WITH STROKE
-<Multi_key> <minus> <bar> <Right>: "⇸" U21F8 # RIGHTWARDS ARROW WITH VERTICAL STROKE
+<Multi_key> <Right> <bar> <Right>: "⇸" U21F8 # RIGHTWARDS ARROW WITH VERTICAL STROKE
 <Multi_key> <Right> <greater> <greater>: "⤖" U2916 # RIGHTWARDS TWO-HEADED ARROW WITH TAIL
 <Multi_key> <equal> <Right> <Right>: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
 <Multi_key> <Left> <Left>: "←" U2190 # LEFTWARDS ARROW
@@ -44,7 +44,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <braceleft> <U>: "∪" U222A # UNION
 <Multi_key> <bar> <plus> <bar>: "⊔" U2294 # SQUARE CUP
 <Multi_key> <braceleft> <asciicircum>: "∩" U2229 # INTERSECTION
-<Multi_key> <bar> <underscore> <bar>: "⊓" U2293 # SQUARE CAP
+<Multi_key> <bar> <asterisk> <bar>: "⊓" U2293 # SQUARE CAP
 <Multi_key> <braceleft> <parenleft>: "⊂" U2282 # SUBSET OF
 <Multi_key> <braceleft> <equal> <parenleft>: "⊆" U2286 # SUBSET OF OR EQUAL TO
 <Multi_key> <exclam> <braceleft> <parenleft>: "⊄" U2284 # NOT A SUBSET OF
@@ -56,6 +56,10 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <colon>: "⦂" U2982 # Z NOTATION TYPE COLON
 <Multi_key> <plus> <plus>: "⧺" U29FA # DOUBLE PLUS
 <Multi_key> <Multi_key> <asterisk> <x>: "⨯" U2A2F # VECTOR OR CROSS PRODUCT
+<Multi_key> <minus> <bar>: "⊣" U22A3 # LEFT TACK
+<Multi_key> <bar> <minus>: "⊢" U22A2 # RIGHT TACK
+<Multi_key> <bar> <underscore> : "⊥" U22A5 # UP TACK
+<Multi_key> <underscore> <bar> : "⊤" U22A4 # DOWN TACK
 
 
 # Abstract binary operators
@@ -73,6 +77,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <parenleft> <plus> <parenright>: "⊕" U2295 # CIRCLED PLUS
 <Multi_key> <parenleft> <minus> <parenright>: "⊖" U2296 # CIRCLED MINUS
 <Multi_key> <parenleft> <x> <x> <parenright>: "⊗" U2297 # CIRCLED TIMES
+<Multi_key> <parenleft> <X> <X> <parenright>: "⊗" U2297 # CIRCLED TIMES
 <Multi_key> <parenleft> <period> <parenright>: "⊙" U2299 # CIRCLED DOT OPERATOR
 <Multi_key> <parenleft> <slash> <parenright>: "⊘" U2298 # CIRCLED DIVISION SLASH
 <Multi_key> <parenleft> <asterisk> <parenright>: "⊛" U229B # CIRCLED ASTERISK OPERATOR
