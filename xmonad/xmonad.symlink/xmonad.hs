@@ -101,11 +101,19 @@ config_by_host host
       , ("M-M1-r"                , spawn "reboot")
       , ("M-M1-p"                , spawn "shutdown -P now" )
       , ("M-M1-l"                , spawn $ lockerCmd )
+<<<<<<< HEAD
       , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig\"" )
       , ("M-]"                   , spawn "variety --next" )
       , ("M-["                   , spawn "variety --previous" )
       , ("M-S-<Insert>"          , spawn "variety --favorite" )
       , ("M-S-<Delete>"          , spawn "variety --trash" )
+=======
+      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig 18\"" )
+      , ("M-<XF86AudioNext>"     , spawn "variety --next" )
+      , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
+      , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
+      , ("M-S-<XF86AudioStop>"   , spawn "variety --trash" )
+>>>>>>> cb1a1238e7f9cb31e2d8a3f00ed67e74c60a4ab9
       , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 6" )
       , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 6" )
       , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
