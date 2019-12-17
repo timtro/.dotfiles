@@ -102,10 +102,10 @@ config_by_host host
       , ("M-M1-p"                , spawn "shutdown -P now" )
       , ("M-M1-l"                , spawn $ lockerCmd )
       , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig\"" )
-      , ("M-<XF86AudioNext>"     , spawn "variety --next" )
-      , ("M-<XF86AudioPrev>"     , spawn "variety --previous" )
-      , ("M-S-<XF86AudioPlay>"   , spawn "variety --favorite" )
-      , ("M-S-<XF86AudioStop>"   , spawn "variety --trash" )
+      , ("M-]"                   , spawn "variety --next" )
+      , ("M-["                   , spawn "variety --previous" )
+      , ("M-S-<Insert>"          , spawn "variety --favorite" )
+      , ("M-S-<Delete>"          , spawn "variety --trash" )
       , ("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down 6" )
       , ("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up 6" )
       , ("<XF86AudioMute>"       , spawn "pulseaudio-ctl mute" )
@@ -198,6 +198,7 @@ myManageHook = composeAll
     , className =? "MPlayer"              --> doFloat
     , className =? "Gimp-2.8"             --> doFloat
     , className =? "Insync.py"            --> doFloat
+    , className =? "insync.py"            --> doFloat
     , className =? "Variety"              --> doFloat
     , className =? "Transmission-gtk"     --> doFloat
     , className =? "Xmessage"             --> doFloat
