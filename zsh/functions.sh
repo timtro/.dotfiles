@@ -54,6 +54,10 @@ function setnvimcolor {
   ln -sf $1 ~/.dotfiles/colours/nvim/dejour.vim
 }
 
+function seepdf {
+  zathura $1 & disown
+}
+
 # Tablet
 function wacom_left {
   for i in `xsetwacom --list | awk '{print $8}'`; do
