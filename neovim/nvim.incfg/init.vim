@@ -35,7 +35,6 @@ call vundle#begin()
 """ Plug: Start Vundle Plugin/bundle list.
 """   Options related to plugins are kept near their Plugin delcaration.
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
   let g:ctrlp_follow_symlinks = 1
   let g:ctrlp_working_path_mode = 'ra'
@@ -141,7 +140,9 @@ augroup END
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
-
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'neoclide/coc.nvim'
 
 """ Plug: Colorschemes
 Plugin 'xterm-color-table.vim'
@@ -264,14 +265,17 @@ set undoreload=10000
 "-------------------------------------------------------------------------------
 
 " YouCompleteMe :
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" Plugin 'ycm-core/YouCompleteMe'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " VimTeX
+" let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 let g:vimtex_complete_close_braces = 1
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+" if !exists('g:ycm_semantic_triggers')
+"   let g:ycm_semantic_triggers = {}
+" endif
+
+
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_view_method='zathura'
 let g:vimtex_view_forward_search_on_start=1
@@ -427,6 +431,7 @@ endfunction
 let g:is_transparent = 0
 nnoremap <C-A-t> :call Toggle_transparent()<CR>
 
+noremap Q !!$SHELL<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
@@ -438,9 +443,9 @@ let g:tex_conceal = ""
 set colorcolumn=81
 
 " For a snappier git gutter:
-set updatetime=100
+set updatetime=300
 
-let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
 
 let g:vim_json_syntax_conceal = 0
 
