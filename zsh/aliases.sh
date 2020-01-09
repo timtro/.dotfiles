@@ -35,4 +35,6 @@ alias gruv='source "/home/timtro/.config/$EDITOR/bundle/gruvbox/gruvbox_256palet
 
 
 # Required for kitty to ssh properly:
-alias ssh="kitty +kitten ssh"
+if [ "$TERM" = "xterm-kitty" ]; then
+  alias ssh="kitty +kitten ssh"
+fi
