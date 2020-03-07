@@ -72,6 +72,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <equal> <braceleft> <greater>: "⊵" U22B5 # CONTAINS AS NORMAL SUBGROUP OR EQUAL TO
 <Multi_key> <less> <parenright>: "⪦" U2AA6 # LESS-THAN CLOSED BY CURVE
 <Multi_key> <parenleft> <greater>: "⪧" U2AA7 # GREATER-THAN CLOSED BY CURVE
+<Multi_key> <asterisk> <asterisk>: "⋆" U22C6 # STAR OPERATOR
 # <Multi_key> : "⪪" U2AAA
 # <Multi_key> : "⪫" U2AAB
 <Multi_key> <parenleft> <plus> <parenright>: "⊕" U2295 # CIRCLED PLUS

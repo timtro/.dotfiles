@@ -142,6 +142,15 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'vim-syntastic/syntastic'
+let g:syntastic_cpp_checkers = ['clang_check', 'cppcheck']
+let g:syntastic_cpp_clang_check_exec = 'clang-check-8'
+let g:syntastic_cpp_clang_check_options = '-std=c++17'
+let g:syntastic_cpp_compiler = 'clang++-8'
+let g:syntastic_cpp_compiler_options = '-std=c++17'
+let g:syntastic_error_symbol = '❌ '
+let g:syntastic_warning_symbol = '✗ '
+let g:syntastic_style_error_symbol = '❓'
+let g:syntastic_style_warning_symbol = '❔'
 Plugin 'neoclide/coc.nvim'
 
 """ Plug: Colorschemes

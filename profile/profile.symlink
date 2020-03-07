@@ -36,8 +36,8 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-if [ -d "$HOME/.cargo/env" ] ; then
-    PATH="$HOME/.cargo/env:$PATH"
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
 fi
 if [ -d "$HOME/.cabal/bin" ] ; then
     PATH="$HOME/.cabal/bin:$PATH"
@@ -63,3 +63,5 @@ if [ -d "/usr/lib/jvm/java-8-oracle" ] ; then
 fi
 
 export JWT_SECRET="824ba19901722b16b7ff33fd5ba18bcab0e0098df4256e9002cacd1266b8a1a4"
+
+export PATH="$HOME/.cargo/bin:$PATH"
