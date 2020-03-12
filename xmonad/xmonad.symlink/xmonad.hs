@@ -59,9 +59,12 @@ config_by_host host
       { borderWidth = 2
       , startupHook = do
             spawn "xrandr --dpi 180"
-            spawn "xinput --set-prop 15 302 1"   -- Enable tap to click
-            spawn "xinput --set-prop 16 322 0.7" -- Set trackpoint speed
-            spawn "xinput --set-prop 15 322 .75" -- Set touchpad speed
+            -- Enable tap to click
+            spawn "xinput --set-prop \"Synaptics TM3418-002\" \"libinput Tapping Enabled\" 1"
+            -- Set touchpad speed
+            spawn "xinput --set-prop \"Synaptics TM3418-002\" \"libinput Accel Speed\" 0.75"
+            -- Set trackpoint speed
+            spawn "xinput --set-prop \"TPPS/2 Elan TrackPoint\" \"libinput Accel Speed\" 0.7"
             allhostStartup
       } `additionalKeysP` [
         ("M-p"                     , spawn "rofi -show combi -font \"Hasklig 36\"" )
