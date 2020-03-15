@@ -142,9 +142,13 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'vim-syntastic/syntastic'
-let g:syntastic_cpp_checkers = ['clang_check']
+let g:syntastic_cpp_checkers = ['clang_tidy']
+" let g:syntastic_cpp_checkers = ['clang_check', 'clang_tidy','cppcheck','gcc']
 let g:syntastic_cpp_clang_check_exec = 'clang-check-8'
-let g:syntastic_cpp_clang_check_args = '-std=c++17'
+" let g:syntastic_cpp_clang_check_args = '-std=c++17'
+let g:syntastic_cpp_clang_tidy_exec = 'clang-tidy-8'
+let g:syntastic_cpp_clang_tidy_args = '-extra-arg=\"-std=c++17\"'
+let g:syntastic_cpp_clang_tidy_post_args = ""
 let g:syntastic_cpp_compiler = 'clang++-8'
 let g:syntastic_cpp_compiler_options = '-std=c++17'
 let g:syntastic_error_symbol = '❌ '
@@ -153,7 +157,7 @@ let g:syntastic_style_error_symbol = '❓'
 let g:syntastic_style_warning_symbol = '❔'
 Plugin 'neoclide/coc.nvim'
 
-""" Plug: Colorschemes
+""" Plug: Colourschemes
 Plugin 'xterm-color-table.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rakr/vim-one'
@@ -201,7 +205,7 @@ Plugin 'ninja/sky'
 Plugin 'drewtempelmeyer/palenight.vim'
 
 Plugin 'arakashic/chromatica.nvim'
-let g:chromatica#libclang_path='/usr/lib/llvm-7/lib/'
+let g:chromatica#libclang_path='/usr/lib/llvm-8/lib/'
 
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 let g:mkdp_browser = 'google-chrome'
