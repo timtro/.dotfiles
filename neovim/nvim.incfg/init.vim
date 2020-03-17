@@ -345,6 +345,7 @@ augroup cpp_stuff
   autocmd!
   autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
   autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+  autocmd FileType cpp setlocal commentstring=//\ %s
 augroup END
 
 
