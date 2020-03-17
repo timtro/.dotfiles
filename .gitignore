@@ -20,6 +20,7 @@ vim/vim.symlink/bundle/*
 
 # Neovim Packages
 neovim/nvim.incfg/bundle/*
+neovim/nvim.incfg/.netrwhist
 
 # Xmonad compilation/working files
 xmonad/xmonad.symlink/xmonad-x86_64-linux

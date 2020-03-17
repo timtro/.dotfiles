@@ -50,6 +50,7 @@ Plugin 'airblade/vim-gitgutter.git'
   " Not working for me? Blank bottom window opens instead of float:
   " let g:gitgutter_preview_win_floating = 1
 Plugin 'easymotion/vim-easymotion'
+" Colour picker
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -188,7 +189,6 @@ Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'icymind/NeoSolarized'
-Plugin 'challenger-deep-theme/vim'
 Plugin 'ajmwagar/vim-deus'
 Plugin 'dikiaap/minimalist'
 Plugin 'cseelus/vim-colors-lucid'
@@ -203,6 +203,10 @@ Plugin 'andreypopp/vim-colors-plain'
 Plugin 'widatama/vim-phoenix'
 Plugin 'ninja/sky'
 Plugin 'drewtempelmeyer/palenight.vim'
+Plugin 'dracula/vim', {'name': 'dracula'}
+Plugin 'lifepillar/vim-gruvbox8'
+Plugin 'Lokaltog/vim-monotone'
+Plugin 'srcery-colors/srcery-vim'
 
 Plugin 'arakashic/chromatica.nvim'
 let g:chromatica#libclang_path='/usr/lib/llvm-8/lib/'
