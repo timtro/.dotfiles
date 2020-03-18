@@ -8,3 +8,7 @@ let g:airline_theme = "simple"
 
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#4F2100'
+
+let g:rainbow_conf = {
+\	'guifgs': ['darkorange0', 'darkorange2', 'darkorange3', 'darkorange4'],
+\}

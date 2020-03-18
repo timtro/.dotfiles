@@ -134,14 +134,16 @@ Plugin 'tell-k/vim-autopep8'
 
 " Trying bfrg's as alternative with C++20 support
 Plugin 'bfrg/vim-cpp-modern'
-Plugin 'junegunn/rainbow_parentheses.vim'
-  let g:rainbow#max_level = 16
-  let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
-augroup rainbow_langs
-  autocmd!
-  autocmd FileType c,cpp,haskell,python,tex RainbowParentheses
-  autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
+" Plugin 'junegunn/rainbow_parentheses.vim'
+"   let g:rainbow#max_level = 16
+"   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+" augroup rainbow_langs
+"   autocmd!
+"   autocmd FileType c,cpp,haskell,python,tex RainbowParentheses
+"   autocmd FileType lisp,clojure,scheme RainbowParentheses
+" augroup END
+Plugin 'luochen1990/rainbow'
+  let g:rainbow_active = 1
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
