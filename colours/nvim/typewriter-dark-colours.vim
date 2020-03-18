@@ -14,3 +14,17 @@ hi SignColumn ctermbg=235 guibg=#262626
 
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = g:palette['grey30']
+
+let g:rainbow_conf = {'guifgs':
+\   [ g:palette['gruv:purple']
+\   , g:palette['gruv:blue']
+\   , g:palette['gruv:yellow']
+\   , g:palette['gruv:green']
+\   , g:palette['gruv:orange']
+\   , g:palette['gruv:dkPurple']
+\   , g:palette['gruv:dkBlue']
+\   , g:palette['gruv:dkYellow']
+\   , g:palette['gruv:dkGreen']
+\   , g:palette['gruv:dkOrange']
+\   ]
+\}
