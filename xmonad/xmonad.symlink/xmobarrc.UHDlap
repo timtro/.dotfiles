@@ -1,6 +1,6 @@
 Config {
 -- appearance
-  font        =  "xft:Hasklig:pixelsize=28,FontAwesome:pixelsize=22",
+  font        =  "xft:JetBrainsMono NF:pixelsize=28,FontAwesome:pixelsize=22",
   bgColor     =  "#282828",
   fgColor     =  "#ebebeb",
   position    =  Top,

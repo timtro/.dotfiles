@@ -67,7 +67,7 @@ config_by_host host
             spawn "xinput --set-prop \"TPPS/2 Elan TrackPoint\" \"libinput Accel Speed\" 0.7"
             allhostStartup
       } `additionalKeysP` [
-        ("M-p"                     , spawn "rofi -show combi -font \"Hasklig 36\"" )
+        ("M-p"                     , spawn "rofi -show combi -font \"JetBrainsMono NF 36\"" )
       , ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
       , ("<XF86MonBrightnessDown>" , spawn "xbacklight -dec 10" )
       , ("<XF86Favorites>"         , spawn "xbacklight -ctrl tpacpi::kbd_backlight -inc 50" )
@@ -104,7 +104,7 @@ config_by_host host
       , ("M-M1-r"                , spawn "reboot")
       , ("M-M1-p"                , spawn "shutdown -P now" )
       , ("M-M1-l"                , spawn $ lockerCmd )
-      , ("M-p"                   , spawn "rofi -show combi -font \"Hasklig 18\"" )
+      , ("M-p"                   , spawn "rofi -show combi -font \"JetBrainsMono NF 18\"" )
       , ("M-]"                   , spawn "variety --next" )
       , ("M-["                   , spawn "variety --previous" )
       , ("M-S-<Insert>"          , spawn "variety --favorite" )

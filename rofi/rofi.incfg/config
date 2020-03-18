@@ -1,4 +1,4 @@
-rofi.font: Hasklig Medium 11
+rofi.font: JetBrainsMono NF 11
 // rofi.theme: gruvbox
 rofi.combi-modi: drun,run
 rofi.modi: combi

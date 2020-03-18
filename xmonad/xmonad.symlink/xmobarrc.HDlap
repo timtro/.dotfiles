@@ -1,6 +1,6 @@
 Config {
 -- appearance
-  font        =  "xft:Hasklig-10:Medium,FontAwesome-9",
+  font        =  "xft:JetBrainsMono NF-10:Medium,FontAwesome-9",
   bgColor     =  "#282828",
   fgColor     =  "#ebdbb2",
   position    =  Top,
