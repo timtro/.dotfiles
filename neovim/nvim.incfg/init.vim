@@ -162,7 +162,7 @@ let g:syntastic_error_symbol = '❌ '
 let g:syntastic_warning_symbol = '✗ '
 let g:syntastic_style_error_symbol = '❓'
 let g:syntastic_style_warning_symbol = '❔'
-Plugin 'neoclide/coc.nvim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 """ Plug: Colourschemes
 Plugin 'xterm-color-table.vim'
@@ -179,7 +179,6 @@ Plugin 'logico-dev/typewriter'
 Plugin 'beigebrucewayne/Turtles'
 Plugin 'nightsense/vimspectr'
 Plugin 'atelierbram/Base2Tone-vim'
-Plugin 'rakr/vim-two-firewatch'
 Plugin 'andreypopp/vim-colors-plain'
 Plugin 'Lokaltog/vim-monotone'
 Plugin 'srcery-colors/srcery-vim'
