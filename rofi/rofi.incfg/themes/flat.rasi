@@ -148,6 +148,7 @@ configuration {
 }
 
 #inputbar {
+  children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
   spacing: 0;
   text-color: @normal-foreground;
   padding: 1px ;
@@ -166,4 +167,11 @@ configuration {
 #prompt {
   spacing: 0;
   text-color: @normal-foreground;
+}
+
+textbox-prompt-colon {
+  text-color: inherit;
+  expand: false;
+  margin: 0 0.3em 0em 0em;
+  str: " : ";
 }

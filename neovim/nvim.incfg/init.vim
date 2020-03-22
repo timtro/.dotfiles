@@ -120,6 +120,7 @@ let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 
 """ Programming
 " Plugin 'tomtom/tcomment_vim'
+Plugin 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plugin 'rhysd/vim-clang-format'
   let g:clang_format#command = "clang-format-8"
 Plugin 'godlygeek/tabular'
@@ -252,6 +253,8 @@ set undodir=$HOME/tmp/vimundo
 
 set undolevels=1000
 set undoreload=10000
+
+let g:python3_host_prog  = '/usr/bin/python3'
 
 """ Post Vundle Plugin Config
 "-------------------------------------------------------------------------------
@@ -425,6 +428,10 @@ let g:is_transparent = 0
 nnoremap <C-A-t> :call Toggle_transparent()<CR>
 
 noremap Q !!$SHELL<CR>
+
+" Syntactic error navigation:
+nmap <leader>ln :lnext<CR>
+nmap <leader>lp :lprevious<CR>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
