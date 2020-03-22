@@ -12,14 +12,14 @@ let g:airline_theme='one'
 source ~/.dotfiles/colours/nvim/palette.vim
 
 let g:rainbow_conf = {'guifgs':
-\   [ g:palette['one:purple']
-\   , g:palette['one:blue']
-\   , g:palette['one:yellow']
+\   [ g:palette['one:ltOrange']
 \   , g:palette['one:green']
-\   , g:palette['one:dkOrange']
+\   , g:palette['one:purple']
+\   , g:palette['one:yellow']
+\   , g:palette['one:blue']
 \   , g:palette['one:cyan']
-\   , g:palette['one:ltOrange']
 \   , g:palette['gruv:dkYellow']
+\   , g:palette['one:dkOrange']
 \   , g:palette['gruv:dkGreen']
 \   , g:palette['gruv:dkOrange']
 \   ]
