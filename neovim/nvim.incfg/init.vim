@@ -121,17 +121,19 @@ let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 """ Programming
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-Plugin 'rhysd/vim-clang-format'
-  let g:clang_format#command = "clang-format-8"
+" Plugin 'rhysd/vim-clang-format'
+"   let g:clang_format#command = "clang-format-9"
+Plugin 'sbdchd/neoformat'
 Plugin 'godlygeek/tabular'
-
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
   let g:indentLine_fileTypeExclude = ['markdown']
 
 " Python
-Plugin 'nvie/vim-flake8'
-Plugin 'tell-k/vim-autopep8'
+"   TODO: Next time I'm into some python, see about using neoformat as
+"   replacement
+" Plugin 'nvie/vim-flake8'
+" Plugin 'tell-k/vim-autopep8'
 
 " Trying bfrg's as alternative with C++20 support
 Plugin 'bfrg/vim-cpp-modern'
@@ -152,12 +154,12 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'vim-syntastic/syntastic'
 let g:syntastic_cpp_checkers = ['clang_tidy']
 " let g:syntastic_cpp_checkers = ['clang_check', 'clang_tidy','cppcheck','gcc']
-let g:syntastic_cpp_clang_check_exec = 'clang-check-8'
+let g:syntastic_cpp_clang_check_exec = 'clang-check-9'
 " let g:syntastic_cpp_clang_check_args = '-std=c++17'
-let g:syntastic_cpp_clang_tidy_exec = 'clang-tidy-8'
+let g:syntastic_cpp_clang_tidy_exec = 'clang-tidy-9'
 let g:syntastic_cpp_clang_tidy_args = '-extra-arg=\"-std=c++17\"'
 let g:syntastic_cpp_clang_tidy_post_args = ""
-let g:syntastic_cpp_compiler = 'clang++-8'
+let g:syntastic_cpp_compiler = 'clang++-9'
 let g:syntastic_cpp_compiler_options = '-std=c++17'
 let g:syntastic_error_symbol = '❌ '
 let g:syntastic_warning_symbol = '✗ '
@@ -460,6 +462,9 @@ noremap Q !!$SHELL<CR>
 " Syntactic error navigation:
 nmap <leader>ln :lnext<CR>
 nmap <leader>lp :lprevious<CR>
+
+let g:clang_rename_path="/usr/bin/clang-rename-9"
+noremap <leader>cr :py3f /usr/lib/llvm-9/share/clang/clang-rename.py<cr>
 
 """ Stuff that just has to go last
 "-------------------------------------------------------------------------------
