@@ -119,12 +119,13 @@ let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 
 
 """ Programming
-" Plugin 'tomtom/tcomment_vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'pboettch/vim-cmake-syntax'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Plugin 'rhysd/vim-clang-format'
 "   let g:clang_format#command = "clang-format-9"
 Plugin 'sbdchd/neoformat'
-
 
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
@@ -139,34 +140,22 @@ Plugin 'Yggdroot/indentLine'
 
 " Trying bfrg's as alternative with C++20 support
 Plugin 'bfrg/vim-cpp-modern'
-" Plugin 'junegunn/rainbow_parentheses.vim'
-"   let g:rainbow#max_level = 16
-"   let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
-" augroup rainbow_langs
-"   autocmd!
-"   autocmd FileType c,cpp,haskell,python,tex RainbowParentheses
-"   autocmd FileType lisp,clojure,scheme RainbowParentheses
-" augroup END
-Plugin 'luochen1990/rainbow'
-  let g:rainbow_active = 1
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'kristijanhusak/vim-carbon-now-sh'
 Plugin 'neovimhaskell/haskell-vim'
-Plugin 'vim-syntastic/syntastic'
-let g:syntastic_cpp_checkers = ['clang_tidy']
-" let g:syntastic_cpp_checkers = ['clang_check', 'clang_tidy','cppcheck','gcc']
-let g:syntastic_cpp_clang_check_exec = 'clang-check-9'
-" let g:syntastic_cpp_clang_check_args = '-std=c++17'
-let g:syntastic_cpp_clang_tidy_exec = 'clang-tidy-9'
-let g:syntastic_cpp_clang_tidy_args = '-extra-arg=\"-std=c++17\"'
-let g:syntastic_cpp_clang_tidy_post_args = ""
-let g:syntastic_cpp_compiler = 'clang++-9'
-let g:syntastic_cpp_compiler_options = '-std=c++17'
-let g:syntastic_error_symbol = '❌ '
-let g:syntastic_warning_symbol = '✗ '
-let g:syntastic_style_error_symbol = '❓'
-let g:syntastic_style_warning_symbol = '❔'
+" Plugin 'vim-syntastic/syntastic'
+" let g:syntastic_cpp_checkers = ['clang_tidy']
+" let g:syntastic_cpp_clang_check_exec = 'clang-check-9'
+" let g:syntastic_cpp_clang_tidy_exec = 'clang-tidy-9'
+" let g:syntastic_cpp_clang_tidy_args = '-extra-arg=\"-std=c++17\"'
+" let g:syntastic_cpp_clang_tidy_post_args = ""
+" let g:syntastic_cpp_compiler = 'clang++-9'
+" let g:syntastic_cpp_compiler_options = '-std=c++17'
+" let g:syntastic_error_symbol = '❌ '
+" let g:syntastic_warning_symbol = '✗ '
+" let g:syntastic_style_error_symbol = '❓'
+" let g:syntastic_style_warning_symbol = '❔'
 " Coc specific settings:
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -472,26 +461,19 @@ nmap <leader>lp :lprevious<CR>
 let g:clang_rename_path="/usr/bin/clang-rename-9"
 noremap <leader>cr :py3f /usr/lib/llvm-9/share/clang/clang-rename.py<cr>
 
-""" Stuff that just has to go last
+
+""" Aesthetics
 "-------------------------------------------------------------------------------
 
 syntax on
 
-
-let g:tex_conceal = ""
-set colorcolumn=81
-
-" For a snappier git gutter:
-set updatetime=300
-
-" let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
-
-let g:vim_json_syntax_conceal = 0
-
-
-
-""" Aesthetics
-"-------------------------------------------------------------------------------
+let g:rainbow_active = 1
+" rainbow breakes cmake syntax highlighting
+" https://github.com/luochen1990/rainbow/issues/77
+augroup rainbow_off
+    au!
+    au FileType cmake RainbowToggleOff
+augroup END
 
 " Set the vertical split character
 :set fillchars+=vert:\┃
@@ -507,3 +489,18 @@ else
   set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
   source ~/.dotfiles/colours/nvim/dejour.vim
 endif
+
+
+""" Stuff that just has to go last
+"-------------------------------------------------------------------------------
+
+let g:tex_conceal = ""
+set colorcolumn=81
+
+" For a snappier git gutter:
+set updatetime=300
+
+" let g:ycm_global_ycm_extra_conf = '/home/timtro/.config/nvim/.ycm_extra_conf.py'
+
+let g:vim_json_syntax_conceal = 0
+
