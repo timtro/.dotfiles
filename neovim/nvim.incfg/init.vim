@@ -124,6 +124,8 @@ Plugin 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 " Plugin 'rhysd/vim-clang-format'
 "   let g:clang_format#command = "clang-format-9"
 Plugin 'sbdchd/neoformat'
+
+
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'Yggdroot/indentLine'
@@ -175,6 +177,10 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
+  " Remap keys for applying codeAction to the current line.
+  nmap <leader>ac <Plug>(coc-codeaction)
+  " Apply AutoFix to problem on the current line.
+  nmap <leader>qf <Plug>(coc-fix-current)
 
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -355,8 +361,8 @@ augroup END
 
 augroup cpp_stuff
   autocmd!
-  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>ClangFormat<CR>
-  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>ff :<C-u>Neoformat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :Neoformat<CR>
   autocmd FileType cpp setlocal commentstring=//\ %s
 augroup END
 
