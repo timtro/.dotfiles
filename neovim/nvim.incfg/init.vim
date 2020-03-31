@@ -46,9 +46,8 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
-  let g:gitgutter_override_sign_column_highlight = 0
-  " Not working for me? Blank bottom window opens instead of float:
-  " let g:gitgutter_preview_win_floating = 1
+  " let g:gitgutter_override_sign_column_highlight = 0
+  let g:gitgutter_preview_win_floating = 1
 Plugin 'easymotion/vim-easymotion'
 " Colour picker
 Plugin 'KabbAmine/vCoolor.vim'

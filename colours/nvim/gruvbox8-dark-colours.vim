@@ -15,12 +15,14 @@ let g:airline_theme = "gruvbox"
 
 source ~/.dotfiles/colours/nvim/palette.vim
 
-exe "hi SignColumn ctermbg=236 guibg=".g:palette['gruv:bg']
-" exe "hi SpellBad cterm=underline ctermfg=9 guifg=".g:palette['gruv:ltRed']
-" exe "hi SpellRare cterm=underline ctermfg=12 guifg=".g:palette['gruv:ltBlue']
-" exe "hi SpellLocal cterm=underline ctermfg=11 guifg=".g:palette['gruv:ltYellow']
-" exe "hi ColorColumn ctermbg=236 guifg=".g:palette['gruv:bg1']
-" exe "hi Folded guibg=".g:palette['gruv:bg_h']
+exe "hi Folded guibg=".g:palette['gruv:bg']
+exe "hi SignColumn guibg=".g:palette['gruv:bg']
+exe "hi CursorLineNr guibg=".g:palette['gruv:bg']
+exe "hi GitGutter guibg=".g:palette['gruv:bg']
+exe "hi GitGutterAdd guibg=".g:palette['gruv:bg']
+exe "hi GitGutterChange guibg=".g:palette['gruv:bg']
+exe "hi GitGutterDelete guibg=".g:palette['gruv:bg']
+exe "hi GitGutterChangeDelete guibg=".g:palette['gruv:bg']
 
 let g:rainbow_conf = {'guifgs':
 \   [ g:palette['gruv:purple']
