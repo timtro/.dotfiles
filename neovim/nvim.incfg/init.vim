@@ -120,10 +120,7 @@ let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 """ Programming
 Plugin 'luochen1990/rainbow'
 Plugin 'pboettch/vim-cmake-syntax'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-" Plugin 'rhysd/vim-clang-format'
-"   let g:clang_format#command = "clang-format-9"
 Plugin 'sbdchd/neoformat'
 
 Plugin 'godlygeek/tabular'
@@ -158,7 +155,8 @@ Plugin 'neovimhaskell/haskell-vim'
 " Coc specific settings:
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
-
+  " NB: To install https://github.com/neoclide/coc-highlight
+  " run :CocInstall coc-highlight
 
   " GoTo code navigation.
   nmap <silent> gd <Plug>(coc-definition)
@@ -211,8 +209,11 @@ Plugin 'srcery-colors/srcery-vim'
 Plugin 'arakashic/chromatica.nvim'
 let g:chromatica#libclang_path='/usr/lib/llvm-8/lib/'
 
-Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-let g:mkdp_browser = 'google-chrome'
+" If not working, run :call mkdp#util#install()
+" Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+let g:mkdp_browser = 'brave-browser'
+let g:mkdp_auto_close = 1
 
 """ END colorschemes
 "
