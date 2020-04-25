@@ -48,6 +48,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter.git'
   " let g:gitgutter_override_sign_column_highlight = 0
   let g:gitgutter_preview_win_floating = 1
+  let g:gitgutter_sign_added = '┃'
+  let g:gitgutter_sign_modified = '┃'
+  let g:gitgutter_sign_removed = '┃'
+  " let g:gitgutter_sign_removed_first_line = '^^'
+  let g:gitgutter_sign_modified_removed = '┃-'
 Plugin 'easymotion/vim-easymotion'
 " Colour picker
 Plugin 'KabbAmine/vCoolor.vim'
@@ -122,6 +127,14 @@ Plugin 'luochen1990/rainbow'
 Plugin 'pboettch/vim-cmake-syntax'
 Plugin 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plugin 'sbdchd/neoformat'
+
+" Playing with argument swappers, in order of GitHub stars
+Plugin 'tommcdo/vim-exchange'
+" Plugin 'PeterRincker/vim-argumentative'
+" Plugin 'machakann/vim-swap'
+"
+" Don't like interface:
+" Plugin 'AndrewRadev/sideways.vim'
 
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'

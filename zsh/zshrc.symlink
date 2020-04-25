@@ -80,6 +80,10 @@ source $HOME/.dotfiles/zsh/functions.sh
 source $HOME/.dotfiles/zsh/aliases.sh
 source $HOME/.dotfiles/zsh/gnucolours.sh
 
+if [ -e $HOME/.localrc ]; then
+  source $HOME/.localrc
+fi
+
 export NVIM_GTK_NO_HEADERBAR=1
 export NVIM_GTK_PREFER_DARK_THEME=1
 

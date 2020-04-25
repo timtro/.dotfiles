@@ -11,6 +11,11 @@ let g:airline_theme='one'
 
 source ~/.dotfiles/colours/nvim/palette.vim
 
+exe "hi GitGutterAdd guifg=".g:palette['one:green']
+exe "hi GitGutterChange guifg=".g:palette['gruv:ltYellow']
+exe "hi GitGutterDelete guifg=".g:palette['gruv:red']
+exe "hi GitGutterChangeDelete guifg=".g:palette['gruv:ltOrange']
+
 let g:rainbow_conf = {'guifgs':
 \   [ g:palette['one:ltOrange']
 \   , g:palette['one:green']

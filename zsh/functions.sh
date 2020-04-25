@@ -71,6 +71,20 @@ function wacom_right {
   done
 }
 
+function wacom_presentkeys {
+  #Four keys above ring:
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 2 key '+Control_L +r'
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 3 key '+Control_L +space'
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 8 key '+Control_L +s'
+  # xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 9 key '+Page_Down'
+  # Ring ()
+  # Four keys below ring:
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 10 key '+Control_L +z'
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 11 key '+Control_L +y'
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 12 key '+Page_Up'
+  xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 13 key '+Page_Down'
+}
+
 function compose_search {
   local locale=`locale | awk -F"=" '/LANG/{print $2}'`
   local composeKeysFileCmd='cat "/usr/share/X11/locale/compose.dir" | grep $locale | tail -n1 | awk '"'"'{print $1}'"'"' | sed s'"'"'/.$//'"'"
