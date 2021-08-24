@@ -23,6 +23,7 @@ neovim/nvim.incfg/bundle/*
 neovim/nvim.incfg/.netrwhist
 
 # Xmonad compilation/working files
+xmonad/xmonad.symlink/xmonad
 xmonad/xmonad.symlink/xmonad-x86_64-linux
 xmonad/xmonad.symlink/xmonad.o
 xmonad/xmonad.symlink/xmonad.hi
