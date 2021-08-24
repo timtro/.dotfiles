@@ -70,6 +70,7 @@ ncmpcpp/ncmpcpp.symlink/error.log
 # Inkscape
 inkscape/inkscape.incfg/extension-errors.log
 inkscape/inkscape.incfg/preferences.xml
+inkscape/inkscape.incfg/extensions/inktex/texput.log
 
 # Ranger
 ranger/ranger.incfg/bookmarks
