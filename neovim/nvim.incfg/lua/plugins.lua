@@ -16,6 +16,15 @@ return require('packer').startup(function(use)
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+  use 'machakann/vim-highlightedyank'
+  use 'kevinhwang91/rnvimr'
+  use 'AndrewRadev/sideways.vim'
+  -- use 'Konfekt/FastFold'
+  use 'matze/vim-move'
 
   -- movement, buffer-search, formatting and lsp
   use 'andymass/vim-matchup'
@@ -28,11 +37,15 @@ return require('packer').startup(function(use)
 
   -- IDE / LSP / completion
   use 'neovim/nvim-lspconfig'
+  use 'tamago324/nlsp-settings.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'kabouzeid/nvim-lspinstall'
+  use 'folke/lsp-colors.nvim'
+  use 'folke/trouble.nvim'
 
     -- Iconds for autocompletion. Configured in lsp.lua
   use 'onsails/lspkind-nvim'
-  use 'svermeulen/vim-easyclip'
+  -- use 'svermeulen/vim-easyclip'
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -76,4 +89,5 @@ return require('packer').startup(function(use)
     cmd = 'MarkdownPreview'
   }
   use 'sbdchd/neoformat'
+  use 'tikhomirov/vim-glsl'
 end)

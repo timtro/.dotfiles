@@ -15,6 +15,8 @@ vim.opt.autoindent = true
 vim.opt.backspace={'indent' , 'eol', 'start'}
 vim.opt.confirm = true
 vim.opt.showmatch = true
+vim.opt.ignorecase = true
+vim.opt.scrolloff = 8
 
 -- show tabs, eol and trailing spaces.
 vim.opt.list = true
@@ -26,7 +28,8 @@ vim.opt.listchars = {
 
 -- Persistent undo
 vim.opt.undofile = true
-vim.cmd("set undodir=$HOME/tmp/vimundo") -- in vim b/c $HOME or ~ won't expand in lua
+vim.cmd("set undodir=$HOME/tmp/vimundo")
+                    -- Done in vimscript b/c $HOME or ~ won't expand in lua
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 
@@ -38,5 +41,7 @@ require('lualine').setup{
    options = {
       theme = color_opts.status_theme,
       icons_enabled = 1,
+     section_separators = {'', ''},
+     component_separators = {'', ''},
    }
 }

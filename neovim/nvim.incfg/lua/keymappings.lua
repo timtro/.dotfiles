@@ -52,10 +52,11 @@ local keys = {
     ["kj"] = "<ESC>",
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
-    -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
-    -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
+    -- Following block replaced with matze/vim-move
+    -- -- Move current line / block with Alt-j/k ala vscode.
+    -- ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
+    -- -- Move current line / block with Alt-j/k ala vscode.
+    -- ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
     -- navigation
     ["<A-Up>"] = "<C-\\><C-N><C-w>k",
     ["<A-Down>"] = "<C-\\><C-N><C-w>j",
@@ -134,20 +135,51 @@ local keys = {
 
 load(keys)
 
+load(keys)
+
+
+local map = vim.api.nvim_set_keymap
+local si_nor = {silent = true, noremap = true}
+local noremap = {noremap = true}
 
 -- Easymotion searching
-local si_nor = {silent = true, noremap = true}
-vim.api.nvim_set_keymap('', '/', '<Plug>(easymotion-sn)', {})
-vim.api.nvim_set_keymap('o', '/', '<Plug>(easymotion-tn)', {})
-vim.api.nvim_set_keymap('', 'n', '<Plug>(easymotion-next)', {})
-vim.api.nvim_set_keymap('', 'N', '<Plug>(easymotion-prev)', {})
+map('', '/', '<Plug>(easymotion-sn)', {})
+map('o', '/', '<Plug>(easymotion-tn)', {})
+map('', 'n', '<Plug>(easymotion-next)', {})
+map('', 'N', '<Plug>(easymotion-prev)', {})
 -- Close a buffer without closing the window
-vim.api.nvim_set_keymap('', '<leader>bd', ':bp|bd #<CR>', si_nor)
+map('', '<leader>bd', ':bp|bd #<CR>', si_nor)
 -- Telescope
-vim.api.nvim_set_keymap('n', '<c-p>', ':Telescope find_files<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fg', ':Telescope live_grep<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope buffers<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fh', ':Telescope help_tags<cr>', {noremap = true})
-
+-- map('n', '<c-p>', ':Telescope find_files<cr>', noremap)
+map('n', '<leader>ff', ':Telescope find_files<cr>', noremap)
+map('n', '<leader>fg', ':Telescope live_grep<cr>', noremap)
+map('n', '<leader>fb', ':Telescope buffers<cr>', noremap)
+map('n', '<leader>fh', ':Telescope help_tags<cr>', noremap)
+-- RnVimr
+map('n', '<leader>rr', ':RnvimrToggle<cr>', noremap)
+-- Tabtab
+map('n', '<A-,>', ':BufferPrevious<CR>', si_nor)
+map('n', '<A-.>', ':BufferNext<CR>', si_nor)
+map('n', '<A-<>', ':BufferMovePrevious<CR>', si_nor)
+map('n', '<A->>', ':BufferMoveNext<CR>', si_nor)
+map('n', '<A-c>', ':BufferClose<CR>', si_nor)
+map('n', '<A-1>', ':BufferGoto 1<CR>', si_nor)
+map('n', '<A-2>', ':BufferGoto 2<CR>', si_nor)
+map('n', '<A-3>', ':BufferGoto 3<CR>', si_nor)
+map('n', '<A-4>', ':BufferGoto 4<CR>', si_nor)
+map('n', '<A-5>', ':BufferGoto 5<CR>', si_nor)
+map('n', '<A-6>', ':BufferGoto 6<CR>', si_nor)
+map('n', '<A-7>', ':BufferGoto 7<CR>', si_nor)
+map('n', '<A-8>', ':BufferGoto 8<CR>', si_nor)
+map('n', '<A-9>', ':BufferGoto 9<CR>', si_nor)
+map('n', '<A-0>', ':BufferLast<CR>', si_nor)
+map('n', '<C-p>', ':BufferPick<CR>', si_nor)
+map('n', '<space>bb', ':BufferOrderByBufferNumber<CR>', si_nor)
+map('n', '<space>bd', ':BufferOrderByDirectory<CR>', si_nor)
+map('n', '<space>bl', ':BufferOrderByLanguage<CR>', si_nor)
+-- Sideways
+map('n', '<leader>mn', ':SidewaysLeft<cr>', {})
+map('n', '<leader>mm', ':SidewaysRight<cr>', {})
+-- Trouble
+map('n', '<space>t', ':TroubleToggle<cr>', si_nor)
 -- TODO: Move keys from gitsigns config to here.

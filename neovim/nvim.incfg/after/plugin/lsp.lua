@@ -31,6 +31,15 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
+  -- Diagnostic gutter symbols
+  local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
+  -- local signs = { Error = "💩 ", Warning = " ", Hint = " ", Information = " " }
+
+  for type, icon in pairs(signs) do
+    local hl = "LspDiagnosticsSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  end
+
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
@@ -98,10 +107,12 @@ local function setup_servers()
       config.settings = lua_settings
     end
     if server == "sourcekit" then
-      config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
+      -- we don't want c and cpp!
+      config.filetypes = {"swift", "objective-c", "objective-cpp"};
     end
     if server == "clangd" then
-      config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+      -- we don't want objective-c and objective-cpp!
+      config.filetypes = {"c", "cpp"};
     end
 
     require'lspconfig'[server].setup(config)
@@ -110,7 +121,8 @@ end
 
 setup_servers()
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart
+--  neovim
 require'lspinstall'.post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
