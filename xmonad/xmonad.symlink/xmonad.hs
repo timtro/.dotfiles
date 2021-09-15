@@ -223,7 +223,8 @@ myManageHook = composeAll
     , className =? "Yad"                  --> doCenterFloat
     , className =? "Qalculate-gtk"        --> doCenterFloat
     , className =? "Qalculate-gtk"        --> doCenterFloat
-    , className =? "tk"                   --> doFloatCornerBox
+    , className =? "Vapetick"             --> doCenterFloat
+    , className =? "glslViewer"           --> doCenterFloat
     , isRole    =? "pop-up"               --> doCenterFloat
     , className =? "Firefox"
                   <&&> title =? "Library" --> doCenterFloat
@@ -306,7 +307,8 @@ blue :: [Char]
 blue = fromJust $ Map.lookup "blue" tpixelColours
 
 windowBorderColour :: [Char]
-windowBorderColour = fromJust $ Map.lookup "red" tpixelColours
+windowBorderColour = fromJust $ Map.lookup "bg3" gruvColours
+-- windowBorderColour = fromJust $ Map.lookup "magenta" tpixelColours
 
 ltGreen :: [Char]
 ltGreen = fromJust $ Map.lookup "green" tpixelColours
