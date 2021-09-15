@@ -51,7 +51,10 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git vi-mode zsh-syntax-highlighting)
+plugins=(git vi-mode zsh-syntax-highlighting zsh-autosuggestions)
+# zsh-autosuggestions:
+#  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#
 # zsh-syntax-hilighting:
 #   cd ~/.oh-my-zsh/custom/plugins
 #   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -62,6 +65,9 @@ plugins=(git vi-mode zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
+
+bindkey '^ ' autosuggest-execute
+# bindkey '^o' autosuggest-clear
 
 # vi mode!
 set editing-mode vi
@@ -84,10 +90,15 @@ if [ -e $HOME/.localrc ]; then
   source $HOME/.localrc
 fi
 
-export NVIM_GTK_NO_HEADERBAR=1
+#export NVIM_GTK_NO_HEADERBAR=1
 export NVIM_GTK_PREFER_DARK_THEME=1
 
 print_greeting
 
 (cat ~/.cache/wal/sequences &) # Load pywal colours.
 (cat ~/.dotfiles/colours/osc/dejour.seq &) # Mask over pywal colours
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -e "$HOME/git/kitty/shell-integration/kitty.zsh"; then source "$HOME/git/kitty/shell-integration/kitty.zsh"; fi
+# END_KITTY_SHELL_INTEGRATION

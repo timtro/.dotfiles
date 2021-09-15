@@ -4,7 +4,7 @@ alias g$EDITOR='run_detached $EDITOR-gtk'
 alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown'
 alias edbib='cd ~/texmf/bibtex/bib && $EDITOR library.bib'
 alias edtexmf='cd ~/texmf && $EDITOR'
-alias ed$EDITOR='$EDITOR ~/.dotfiles/neovim/$EDITOR.incfg/init.vim'
+alias ednvim='nvim +"lcd ~/.config/nvim/" ~/.config/nvim/init.lua'
 alias edxmonad='$EDITOR ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
 alias edzsh='$EDITOR ~/.dotfiles/zsh/zshrc.symlink'
 alias edXdefaults='$EDITOR -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
@@ -21,6 +21,7 @@ alias edepigraphs='cd ~/Documents/Writing/Epigraphs && $EDITOR'
 alias work='cd ~/workspace'
 
 # Utility aliases
+alias ls='ls --color=always'
 alias watch_cpu="watch -n 0 'lscpu | grep MHz'"
 alias lsport="netstat -tulpn"
 alias lssock="ss"
@@ -37,4 +38,14 @@ alias gruv='source "/home/timtro/.config/$EDITOR/bundle/gruvbox/gruvbox_256palet
 # Required for kitty to ssh properly:
 if [ "$TERM" = "xterm-kitty" ]; then
   alias ssh="kitty +kitten ssh"
+fi
+
+if which exa >/dev/null; then
+  unalias ll
+  alias ll="exa -l -g --icons --color=always"
+  alias lld="ll --group-directories-first | less"
+fi
+
+if which fdfind >/dev/null; then
+  alias fd="fdfind"
 fi
