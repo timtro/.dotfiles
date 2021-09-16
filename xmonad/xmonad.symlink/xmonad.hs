@@ -28,6 +28,7 @@ import XMonad.Hooks.DynamicLog
   , ppUrgent
   , ppHidden
   , ppSep
+  , ppWsSep
   )
 import XMonad.Hooks.EwmhDesktops ( ewmh, fullscreenEventHook )
 import XMonad.Hooks.SetWMName
@@ -183,9 +184,10 @@ lockerCmd = "i3lock"
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
-  { ppCurrent = xmobarColor blue "" . wrap "[" "]"
+  { ppCurrent = xmobarColor yellow "" . wrap "[" "]"
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
-  , ppVisible = xmobarColor blue "" . wrap "(" ")"
+  , ppWsSep   = xmobarColor fg "" " ▏"
+  , ppVisible = xmobarColor green "" . wrap "(" ")"
   , ppUrgent  = xmobarColor red ""
   , ppHidden  = xmobarColor blue ""
   , ppSep     = xmobarColor yellow "" "  •  "
@@ -292,26 +294,29 @@ doFloatCornerBox = customFloating $ RationalRect l t w h
 -- Gruvbox colours:
 
 bg :: [Char]
-bg = fromJust $ Map.lookup "bg" tpixelColours
+bg = fromJust $ Map.lookup "bg" tokyoNightColours
 
 fg :: [Char]
-fg = fromJust $ Map.lookup "fg" tpixelColours
+fg = fromJust $ Map.lookup "fg" tokyoNightColours
 
 red :: [Char]
-red = fromJust $ Map.lookup "red" tpixelColours
+red = fromJust $ Map.lookup "red" tokyoNightColours
 
 yellow :: [Char]
-yellow = fromJust $ Map.lookup "yellow" tpixelColours
+yellow = fromJust $ Map.lookup "yellow" tokyoNightColours
+
+green :: [Char]
+green = fromJust $ Map.lookup "green" tokyoNightColours
 
 blue :: [Char]
-blue = fromJust $ Map.lookup "blue" tpixelColours
+blue = fromJust $ Map.lookup "blue" tokyoNightColours
 
 windowBorderColour :: [Char]
-windowBorderColour = fromJust $ Map.lookup "bg3" gruvColours
+windowBorderColour = fromJust $ Map.lookup "dark3" tokyoNightColours
 -- windowBorderColour = fromJust $ Map.lookup "magenta" tpixelColours
 
 ltGreen :: [Char]
-ltGreen = fromJust $ Map.lookup "green" tpixelColours
+ltGreen = fromJust $ Map.lookup "green" tokyoNightColours
 
 gruvColours :: Map [Char] [Char]
 gruvColours = Map.fromList
@@ -371,4 +376,37 @@ tpixelColours = Map.fromList
   , ("dkOrange"  , "#af3a03")
   , ("orange"    , "#DB622B")
   , ("ltOrange"  , "#fe8019")
+  ]
+
+tokyoNightColours :: Map [Char] [Char]
+tokyoNightColours = Map.fromList
+  [  ("bg_dark"        , "#1f2335")
+  ,  ("bg"             , "#24283b")
+  ,  ("bg_highlight"   , "#292e42")
+  ,  ("terminal_black" , "#414868")
+  ,  ("fg"             , "#c0caf5")
+  ,  ("fg_dark"        , "#a9b1d6")
+  ,  ("fg_gutter"      , "#3b4261")
+  ,  ("dark3"          , "#545c7e")
+  ,  ("comment"        , "#565f89")
+  ,  ("dark5"          , "#737aa2")
+  ,  ("blue0"          , "#3d59a1")
+  ,  ("blue"           , "#7aa2f7")
+  ,  ("cyan"           , "#7dcfff")
+  ,  ("blue1"          , "#2ac3de")
+  ,  ("blue2"          , "#0db9d7")
+  ,  ("blue5"          , "#89ddff")
+  ,  ("blue6"          , "#B4F9F8")
+  ,  ("blue7"          , "#394b70")
+  ,  ("magenta"        , "#bb9af7")
+  ,  ("magenta2"       , "#ff007c")
+  ,  ("purple"         , "#9d7cd8")
+  ,  ("orange"         , "#ff9e64")
+  ,  ("yellow"         , "#e0af68")
+  ,  ("green"          , "#9ece6a")
+  ,  ("green1"         , "#73daca")
+  ,  ("green2"         , "#41a6b5")
+  ,  ("teal"           , "#1abc9c")
+  ,  ("red"            , "#f7768e")
+  ,  ("red1"           , "#db4b4b")
   ]

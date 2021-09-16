@@ -1,12 +1,9 @@
 Config {
 -- appearance
   font        =  "xft:JetBrainsMono NF:pixelsize=28,FontAwesome:pixelsize=22",
-  bgColor     =  "#282828",
-  fgColor     =  "#ebebeb",
   position    =  Top,
   textOffset  =  28,
   border      =  TopB,
-  borderColor =  "#181715",
 
 -- layout
   sepChar  =  "%",  -- delineator between plugin names and straight text
