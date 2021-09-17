@@ -50,10 +50,6 @@ function underline { ansi 4 "$@"; }
 function strikethrough { ansi 9 "$@"; }
 function red { ansi 31 "$@"; }
 
-function setnvimcolor {
-  ln -sf $1 ~/.dotfiles/colours/nvim/dejour.vim
-}
-
 function seepdf {
   zathura $1 & disown
 }
@@ -109,7 +105,14 @@ function is_git_dirty {
   [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "*"
 }
 
-
 function is_git_num_untracked_files {
   expr `git status --porcelain 2>/dev/null| grep "^??" | wc -l`
+}
+
+function edit_in {
+  if [ $EDITOR=="nvim" ]; then
+    nvim +"lcd $1" $2
+  else
+    echo "I don't know how to set a directory in this editor. :S"
+  fi
 }

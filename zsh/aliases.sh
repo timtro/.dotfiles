@@ -1,23 +1,21 @@
 
 # Editing and movement shortcuts
-alias g$EDITOR='run_detached $EDITOR-gtk'
+alias eddot='edit_in ~/.dotfiles'
 alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown'
-alias edbib='cd ~/texmf/bibtex/bib && $EDITOR library.bib'
-alias edtexmf='cd ~/texmf && $EDITOR'
-alias ednvim='nvim +"lcd ~/.config/nvim/" ~/.config/nvim/init.lua'
-alias edxmonad='$EDITOR ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
-alias edzsh='$EDITOR ~/.dotfiles/zsh/zshrc.symlink'
-alias edXdefaults='$EDITOR -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
-alias edcompose='$EDITOR ~/.XCompose'
-alias edkitty='$EDITOR ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
-alias edrofi='$EDITOR ~/.dotfiles/rofi/rofi.incfg/config'
-alias edrofi-flat='$EDITOR ~/.dotfiles/rofi/rofi.incfg/themes/flat.rasi'
+alias edbib='edit_in ~/texmf/bibtex/bib ~/texmf/bibtex/bib/library.bib'
+alias edtexmf='edit_in ~/texmf/tex/'
+alias ednvim='edit_in ~/.config/nvim/ ~/.config/nvim/init.lua'
+alias edxmonad='eddot ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
+alias edzsh='eddot ~/.dotfiles/zsh/zshrc.symlink'
+alias edXdefaults='eddot -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
+alias edcompose='eddot ~/.XCompose'
+alias edkitty='eddot ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
 alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis='thesis && $EDITOR'
 alias edthesis-tex='thesis && cd tex && $EDITOR'
 alias edthesis-md='thesis && cd md && $EDITOR'
 alias edthesis-reports='thesis && cd reports && $EDITOR'
-alias edepigraphs='cd ~/Documents/Writing/Epigraphs && $EDITOR'
+alias edepigraphs='edit_in ~/Documents/Writing/Epigraphs ~/Documents/Writing/Epigraphs/Epigraphs.tex'
 alias work='cd ~/workspace'
 
 # Utility aliases
@@ -30,10 +28,6 @@ alias Clear="clear && print_greeting"
 alias seecompose="$EDITOR /usr/share/X11/locale/en_US.UTF-8/Compose"
 alias seekeys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
 alias bat="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-
-# Theme switching
-alias gruv='source "/home/timtro/.config/$EDITOR/bundle/gruvbox/gruvbox_256palette.sh"'
-
 
 # Required for kitty to ssh properly:
 if [ "$TERM" = "xterm-kitty" ]; then
