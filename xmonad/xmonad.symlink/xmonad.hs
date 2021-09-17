@@ -68,7 +68,7 @@ config_by_host host
             spawn "xinput --set-prop \"TPPS/2 Elan TrackPoint\" \"libinput Accel Speed\" 0.7"
             allhostStartup
       } `additionalKeysP` [
-        ("M-p"                     , spawn "rofi -show combi -font \"JetBrainsMono NF 36\"" )
+        ("M-p"                     , spawn "rofi -show combi" )
       , ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
       , ("<XF86MonBrightnessDown>" , spawn "xbacklight -dec 10" )
       , ("<XF86Favorites>"         , spawn "xbacklight -ctrl tpacpi::kbd_backlight -inc 50" )
@@ -78,7 +78,7 @@ config_by_host host
   | otherwise          = statusBar (xmobarCmd ++ "HDdesk") myPP toggleGapsKey $
     allhostConfig
   where
-    xmobarCmd = "xmobar /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
+    xmobarCmd = "xmobar" ++ " -B" ++ statusBg ++ " -F" ++ statusFg ++ " /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
     allhostConfig = def
       { modMask            = mod4Mask -- Use Super instead of Alt
       , startupHook        = allhostStartup
@@ -105,7 +105,7 @@ config_by_host host
       , ("M-M1-r"                , spawn "reboot")
       , ("M-M1-p"                , spawn "shutdown -P now" )
       , ("M-M1-l"                , spawn $ lockerCmd )
-      , ("M-p"                   , spawn "rofi -show combi -font \"JetBrainsMono NF 18\"" )
+      , ("M-p"                   , spawn "rofi -show combi" )
       , ("M-]"                   , spawn "variety --next" )
       , ("M-["                   , spawn "variety --previous" )
       , ("M-S-<Insert>"          , spawn "variety --favorite" )
@@ -127,9 +127,9 @@ config_by_host host
       , ("M-d", namedScratchpadAction scratchPads "scratchSlack")
       , ("M-g", namedScratchpadAction scratchPads "scratchZeegaree")
       -- Gaps/spacing
-      , ("M-S-="                 , incSpacing(2) )
-      , ("M-S--"                 , incSpacing(-2) )
-      , ("M-S-0"                 , setSpacing(10) )
+      , ("M-S-="                 , incSpacing(5) )
+      , ("M-S--"                 , incSpacing(-5) )
+      , ("M-S-0"                 , setSpacing(20) )
       , ("M-M1-<Space>"          , sendMessage $ Toggle NBFULL )
       , ("M-M1-b"                , sequence_
                                     [ sendMessage ToggleStruts
@@ -161,7 +161,7 @@ allhostStartup :: X ()
 allhostStartup = do
   spawn "hsetroot -solid \"#000000\""
   spawn "xsetroot -cursor_name left_ptr" -- Get rid of nasty X curosr.
-  spawn "compton"
+  spawn "xset r rate 250 40" -- make keyboard more responsive.
   spawn "~/.xmonad/scr/XmonadStartup.sh"
   spawn "setxkbmap -option compose:ralt"
   spawn $ "xautolock "
@@ -184,13 +184,13 @@ lockerCmd = "i3lock"
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
-  { ppCurrent = xmobarColor yellow "" . wrap "[" "]"
+  { ppCurrent = xmobarColor orange "" -- . wrap "[" "]"
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
-  , ppWsSep   = xmobarColor fg "" " ▏"
-  , ppVisible = xmobarColor green "" . wrap "(" ")"
+  , ppWsSep   = xmobarColor fg "" " │ "
+  , ppVisible = xmobarColor green "" -- . wrap "(" ")"
   , ppUrgent  = xmobarColor red ""
   , ppHidden  = xmobarColor blue ""
-  , ppSep     = xmobarColor yellow "" "  •  "
+  , ppSep     = xmobarColor yellow "" "   •   "
   }
 
   -- keybinding for toggling the gap for the statusbar
@@ -294,13 +294,22 @@ doFloatCornerBox = customFloating $ RationalRect l t w h
 -- Gruvbox colours:
 
 bg :: [Char]
-bg = fromJust $ Map.lookup "bg" tokyoNightColours
+bg = fromJust $ Map.lookup "bg_dark" tokyoNightColours
 
 fg :: [Char]
 fg = fromJust $ Map.lookup "fg" tokyoNightColours
 
+statusBg :: [Char]
+statusBg = bg
+
+statusFg :: [Char]
+statusFg = fg
+
 red :: [Char]
 red = fromJust $ Map.lookup "red" tokyoNightColours
+
+orange :: [Char]
+orange = fromJust $ Map.lookup "orange" tokyoNightColours
 
 yellow :: [Char]
 yellow = fromJust $ Map.lookup "yellow" tokyoNightColours
@@ -312,7 +321,7 @@ blue :: [Char]
 blue = fromJust $ Map.lookup "blue" tokyoNightColours
 
 windowBorderColour :: [Char]
-windowBorderColour = fromJust $ Map.lookup "dark3" tokyoNightColours
+windowBorderColour = fromJust $ Map.lookup "dark5" tokyoNightColours
 -- windowBorderColour = fromJust $ Map.lookup "magenta" tpixelColours
 
 ltGreen :: [Char]
