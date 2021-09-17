@@ -1,13 +1,13 @@
 decorations none
-transparent true
 dockapp_mode none
-geometry 1x1-900+1
+geometry 2x1-0+0
 max_geometry 0x1-0-0
 # background "#282828"
+background "#1f2335"
 kludges force_icons_size
 grow_gravity NE
 icon_gravity NE
-icon_size 32
+icon_size 38
 slot_size 40
 sticky true
 #window_strut none
