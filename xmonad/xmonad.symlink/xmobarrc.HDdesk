@@ -6,11 +6,11 @@ Config {
   -- textOffset  =  13,
   border = NoBorder,
   alpha = 255,
+  iconRoot     = ".xmonad/xpm/",
 
 -- layout
   sepChar  =  "%",  -- delineator between plugin names and straight text
   alignSep = "}{",  -- separator between left-right alignment
-  iconRoot     = ".xmonad/xpm/",
   template = "<icon=haskell_20.xpm/>    %StdinReader% }{<fc=#3d59a1>:</fc>  %date%        %traygap%",
 
 -- general behavior
