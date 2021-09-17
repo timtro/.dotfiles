@@ -6,15 +6,6 @@
  *  Author: Timtro
  **********************************************************/
 
-configuration {
-  display-ssh:      " ";
-  display-run:      "→";
-  display-drun:       " ";
-  display-window:     "";
-  display-combi:      "";
-  show-icons: true;
-}
-
 * {
   red:                         rgba ( 220, 50, 47, 100% );
   blue:                        rgba ( 38, 139, 210, 100% );
@@ -83,6 +74,10 @@ configuration {
 #element {
   border: 0;
   padding: 15px ;
+}
+
+#element-icon {
+  size: 2ch ;
 }
 
 #element.normal.normal {

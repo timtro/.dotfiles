@@ -1,5 +1,0 @@
-rofi.font: JetBrainsMono NF 11
-// rofi.theme: gruvbox
-rofi.combi-modi: drun,run
-rofi.modi: combi
-rofi.theme: /home/timtro/.config/rofi/themes/flat.rasi
