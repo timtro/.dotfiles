@@ -67,6 +67,9 @@ config_by_host host
             -- Set trackpoint speed
             spawn "xinput --set-prop \"TPPS/2 Elan TrackPoint\" \"libinput Accel Speed\" 0.7"
             allhostStartup
+      , layoutHook         = smartBorders
+                              $ mkToggle (single NBFULL)
+                              $ spacingWithEdge 50 (layoutHook defaultConfig ||| emptyBSP)
       } `additionalKeysP` [
         ("M-p"                     , spawn "rofi -show combi" )
       , ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
@@ -84,7 +87,7 @@ config_by_host host
       , startupHook        = allhostStartup
       , layoutHook         = smartBorders
                               $ mkToggle (single NBFULL)
-                              $ spacingWithEdge 0 (layoutHook defaultConfig ||| emptyBSP)
+                              $ spacingWithEdge 25 (layoutHook defaultConfig ||| emptyBSP)
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook
       , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
       , terminal           = "kitty"
