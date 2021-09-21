@@ -1,6 +1,6 @@
 Config {
 -- appearance
-  font        =  "xft:JetBrainsMono NF-10:Medium,FontAwesome-9",
+  font        =  "xft:Hasklug Nerd Font:pixelsize=14",
   additionalFonts = [],
   position    =  TopSize C 100 22,
   -- textOffset  =  13,

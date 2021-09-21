@@ -2,11 +2,11 @@ import XMonad
 import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
 import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing, toggleScreenSpacingEnabled )
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
-import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad
   ( NamedScratchpad( NS )
@@ -20,6 +20,7 @@ import XMonad.Hooks.DynamicLog
   , statusBar
   , xmobarPP
   , xmobarColor
+  -- , xmobarFont
   , wrap
   , shorten
   , ppCurrent
@@ -45,6 +46,11 @@ import XMonad.Hooks.ManageHelpers
   , doRectFloat
   )
 import Data.Ratio
+
+xmobarFont :: Int     -- ^ index: index of the font to use (0: standard font)
+           -> String  -- ^ output string
+           -> String
+xmobarFont index = wrap ("<fn=" ++ show index ++ ">") "</fn>"
 
 main :: IO ()
 main = do
@@ -173,6 +179,7 @@ allhostStartup = do
               ++ "-locker \"" ++ lockerCmd ++ "\" -notify 10 "
               ++ "-notifier \"notify-send -t 5000 "
               ++ "-i gtk-dialog-info \'Locking in 10 seconds\'\" "
+  -- spawn "trayer "
   setWMName "LG3D"
 
 -- ## Keybindings. NB: using `additionalKeysP` for Emacs style notation.
@@ -187,12 +194,13 @@ lockerCmd = "i3lock"
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
-  { ppCurrent = xmobarColor orange "" -- . wrap "[" "]"
+  { ppCurrent = xmobarColor orange "" . wrap "" " \xe0b5 "
+  , ppVisible = xmobarColor green "" . wrap "" " \xe0b5 "
+  , ppHidden  = xmobarColor blue "" . wrap "" " \xe0b5 "
+  , ppUrgent  = xmobarColor red "" . wrap "" " \xe0b5 "
+  -- , ppWsSep   = xmobarColor fg "" " \xe0b5 "
+  -- , ppWsSep   = xmobarColor fg "" " │ "
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
-  , ppWsSep   = xmobarColor fg "" " │ "
-  , ppVisible = xmobarColor green "" -- . wrap "(" ")"
-  , ppUrgent  = xmobarColor red ""
-  , ppHidden  = xmobarColor blue ""
   , ppSep     = xmobarColor yellow "" "   •   "
   }
 
