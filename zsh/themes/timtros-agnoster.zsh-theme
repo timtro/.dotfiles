@@ -85,7 +85,7 @@ prompt_end() {
   echo -n "%{%f%}"
   CURRENT_BG=''
   echo -n '
-╰─%F{red}>%F{yellow}>%F{green}>'
+╰─%F{red}❱%F{yellow}❱%F{green}❱'
   echo -n "%{%f%}"
 }
 
@@ -228,7 +228,7 @@ prompt_virtualenv() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✖"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
