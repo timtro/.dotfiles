@@ -194,10 +194,10 @@ lockerCmd = "i3lock"
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
-  { ppCurrent = xmobarColor orange "" . wrap "" " \xe0b5 "
-  , ppVisible = xmobarColor green "" . wrap "" " \xe0b5 "
-  , ppHidden  = xmobarColor blue "" . wrap "" " \xe0b5 "
-  , ppUrgent  = xmobarColor red "" . wrap "" " \xe0b5 "
+  { ppCurrent = xmobarColor orange "" . wrap "" " \xe0b5"
+  , ppVisible = xmobarColor green "" . wrap "" " \xe0b5"
+  , ppHidden  = xmobarColor blue "" . wrap "" " \xe0b5"
+  , ppUrgent  = xmobarColor red "" . wrap "" " \xe0b5"
   -- , ppWsSep   = xmobarColor fg "" " \xe0b5 "
   -- , ppWsSep   = xmobarColor fg "" " │ "
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
