@@ -80,6 +80,7 @@ return require('packer').startup(function(use)
   use 'rakr/vim-one'
   use 'lifepillar/vim-gruvbox8'
   use 'folke/tokyonight.nvim'
+  use "projekt0n/github-nvim-theme"
 
   -- ft
   use 'lervag/vimtex'

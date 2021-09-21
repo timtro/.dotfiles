@@ -38,10 +38,10 @@ require 'keymappings'
 require 'plugins'
 
 require('lualine').setup{
-   options = {
-      theme = color_opts.status_theme,
-      icons_enabled = 1,
-     section_separators = {'', ''},
-     component_separators = {'', ''},
-   }
+  options = {
+    theme = color_opts.status_theme,
+    icons_enabled = 1,
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+  }
 }

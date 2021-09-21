@@ -182,4 +182,8 @@ map('n', '<leader>mn', ':SidewaysLeft<cr>', {})
 map('n', '<leader>mm', ':SidewaysRight<cr>', {})
 -- Trouble
 map('n', '<space>t', ':TroubleToggle<cr>', si_nor)
+-- Ranger
+map('n', '<A-t>', ':RnvimrToggle<cr>', si_nor)
+map('t', '<A-t>', '<M-o> <C-\\><C-n>:RnvimrToggle<CR>', si_nor)
+map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
 -- TODO: Move keys from gitsigns config to here.
