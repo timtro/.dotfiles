@@ -59,9 +59,9 @@ main = do
   xmonad $ ewmh config
 
 config_by_host host
-  | host == "qubit"    = statusBar (xmobarCmd ++ "HDdesk") myPP toggleGapsKey $
+  | host == "qubit"    = statusBar (xmobarCmd ++ "HD") myPP toggleGapsKey $
     allhostConfig
-  | host == "positron" = statusBar (xmobarCmd ++ "UHDlap") myPP toggleGapsKey $
+  | host == "positron" = statusBar (xmobarCmd ++ "UHD") myPP toggleGapsKey $
     allhostConfig
       { borderWidth = 2
       , startupHook = do
@@ -191,13 +191,15 @@ lockerCmd = "i3lock"
                 ++ " --tiling"
                 ++ " --image ~/Pictures/wallpaper/custom/lockscreen.svg.png"
 
+-- powerlineSep = "\xe0b5"
+powerlineSep = "\xe0b1"
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
-  { ppCurrent = xmobarColor orange "" . wrap "" " \xe0b5"
-  , ppVisible = xmobarColor green "" . wrap "" " \xe0b5"
-  , ppHidden  = xmobarColor blue "" . wrap "" " \xe0b5"
-  , ppUrgent  = xmobarColor red "" . wrap "" " \xe0b5"
+  { ppCurrent = xmobarColor orange "" . wrap "" (" " ++ powerlineSep)
+  , ppVisible = xmobarColor green "" . wrap "" (" " ++ powerlineSep)
+  , ppHidden  = xmobarColor blue "" . wrap "" (" " ++ powerlineSep)
+  , ppUrgent  = xmobarColor red "" . wrap "" (" " ++ powerlineSep)
   -- , ppWsSep   = xmobarColor fg "" " \xe0b5 "
   -- , ppWsSep   = xmobarColor fg "" " │ "
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
