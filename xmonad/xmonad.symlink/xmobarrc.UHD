@@ -3,7 +3,7 @@ Config {
   font        =  "xft:Hasklug Nerd Font:pixelsize=14",
   additionalFonts = ["xft:Hasklug Nerd Font:pixelsize=18"],
   textOffsets = [18]
-  position    =  TopSize C 100 22,
+  position    =  TopSize C 100 40,
   border = NoBorder,
   alpha = 255,
   iconRoot     = ".xmonad/xpm/",
