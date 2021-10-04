@@ -51,8 +51,6 @@ local on_attach = function(client, bufnr)
     ]], false)
   end
 
-  require 'completion'.on_attach(client, bufnr)
-
 end
 
 -- Configure lua language server for neovim development

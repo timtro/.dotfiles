@@ -15,7 +15,7 @@ vim.g.material_hide_eob = false -- Hide the end of buffer lines ( ~ )
 vim.g.material_variable_color = '#717CB4' -- Set a custom color for variables and fields
 vim.g.material_custom_colors = {} -- e.g. { black = "#000000", bg = "#0F111A" }
 
-require('material').set()
+-- require('material').set()
 
 vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>me', [[<Cmd>lua require('material.functions').toggle_eob()<CR>]], { noremap = true, silent = true })

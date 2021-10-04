@@ -1,11 +1,3 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
-    install_path})
-  vim.cmd 'packadd packer.nvim'
-end
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -42,8 +34,14 @@ return require('packer').startup(function(use)
   use 'kabouzeid/nvim-lspinstall'
   use 'folke/lsp-colors.nvim'
   use 'folke/trouble.nvim'
-
-    -- Iconds for autocompletion. Configured in lsp.lua
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+    -- Icons for autocompletion. Configured in lsp.lua:
   use 'onsails/lspkind-nvim'
   -- use 'svermeulen/vim-easyclip'
 
@@ -56,11 +54,6 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
 
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use 'nvim-lua/completion-nvim'
   use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'}
@@ -80,7 +73,8 @@ return require('packer').startup(function(use)
   use 'rakr/vim-one'
   use 'lifepillar/vim-gruvbox8'
   use 'folke/tokyonight.nvim'
-  use "projekt0n/github-nvim-theme"
+  use 'projekt0n/github-nvim-theme'
+  use 'logico/typewriter-vim'
 
   -- ft
   use 'lervag/vimtex'

@@ -35,7 +35,6 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 
 local color_opts = require 'colors.dejour'
 require 'keymappings'
-require 'plugins'
 
 require('lualine').setup{
   options = {
@@ -45,3 +44,12 @@ require('lualine').setup{
     component_separators = {'', ''},
   }
 }
+
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
+    install_path})
+  vim.cmd 'packadd packer.nvim'
+end
+require 'plugins'
