@@ -6,7 +6,8 @@ function print_greeting {
   if [[ "$HOST" == "johnny5" ]]; then
     art="$artfolder/johnny-5-head.ansi.txt"
   elif [[ "$HOST" == "qubit" ]]; then
-    art="$artfolder/pacman.txt"
+    # art="$artfolder/pacman.txt"
+    art=$(find "$artfolder" -type f -iname "*.txt" | sort -R | tail -1)
   else
     art=$(find "$artfolder" -type f -iname "*.txt" | sort -R | tail -1)
   fi
