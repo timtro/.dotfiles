@@ -85,7 +85,7 @@ prompt_end() {
   echo -n "%{%f%}"
   CURRENT_BG=''
   echo -n '
-╰%F{red}❱%F{yellow}❱%F{green}❱'
+└%F{red}❱%F{yellow}❱%F{green}❱'
   echo -n "%{%f%}"
 }
 
