@@ -182,8 +182,19 @@ map('n', '<leader>mn', ':SidewaysLeft<cr>', {})
 map('n', '<leader>mm', ':SidewaysRight<cr>', {})
 -- Trouble
 map('n', '<space>t', ':TroubleToggle<cr>', si_nor)
+map('n', '<leader>xx', '<cmd>Trouble<cr>', si_nor)
+map('n', '<leader>xw', '<cmd>Trouble lsp_workspace_diagnostics<cr>', si_nor)
+map('n', '<leader>xd', '<cmd>Trouble lsp_document_diagnostics<cr>', si_nor)
+map('n', '<leader>xl', '<cmd>Trouble loclist<cr>', si_nor)
+map('n', '<leader>xq', '<cmd>Trouble quickfix<cr>', si_nor)
+map('n', '<leader>xt', '<cmd>Trouble todo<cr>', si_nor)
+map('n', 'gR', '<cmd>Trouble lsp_references<cr>', si_nor)
 -- Ranger
 map('n', '<A-t>', ':RnvimrToggle<cr>', si_nor)
 map('t', '<A-t>', '<M-o> <C-\\><C-n>:RnvimrToggle<CR>', si_nor)
 map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
 -- TODO: Move keys from gitsigns config to here.
+-- Coloring and shading:
+map ('n', '<leader>tw', ':Twilight<CR>', si_nor)
+map ('n', '<leader>tz', ':ZenMode<CR>', si_nor)
+map ('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)

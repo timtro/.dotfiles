@@ -11,6 +11,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -31,15 +32,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
-  -- Diagnostic gutter symbols
-  local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
-  -- local signs = { Error = "💩 ", Warning = " ", Hint = " ", Information = " " }
-
-  for type, icon in pairs(signs) do
-    local hl = "LspDiagnosticsSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  end
-
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
@@ -50,7 +42,6 @@ local on_attach = function(client, bufnr)
     augroup END
     ]], false)
   end
-
 end
 
 -- Configure lua language server for neovim development
@@ -110,7 +101,7 @@ local function setup_servers()
     end
     if server == "clangd" then
       -- we don't want objective-c and objective-cpp!
-      config.filetypes = {"c", "cpp"};
+      config.filetypes = {"c", "cpp", "cxx", "h", "hpp", "hxx"};
     end
 
     require'lspconfig'[server].setup(config)
@@ -170,3 +161,26 @@ require('lspkind').init{
     TypeParameter = ""
   },
 }
+
+
+-- Diagnostic gutter symbols
+-- For fun, try "💩 " for error
+-- vim.fn.sign_define("DiagnosticSignError",
+--     {text = " ", texthl = "DiagnosticSignError"})
+-- vim.fn.sign_define("DiagnosticSignWarn",
+--     {text = " ", texthl = "DiagnosticSignWarn"})
+-- vim.fn.sign_define("DiagnosticSignInformation",
+--     {text = " ", texthl = "DiagnosticSignInfo"})
+-- vim.fn.sign_define("DiagnosticSignHint",
+--     {text = " ", texthl = "DiagnosticSignHint"})
+
+-- Disable gutter signs for LSP diagnostics, and colour the line number instead.
+--   This can look cleaner with Git in the gutter.
+vim.fn.sign_define("DiagnosticSignError",
+  {text = "", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("DiagnosticSignWarn",
+  {text = "", numhl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("DiagnosticSignInfo",
+  {text = "", numhl = "LspDiagnosticsDefaultInformatio"})
+vim.fn.sign_define("DiagnosticSignHint",
+  {text = "", numhl = "LspDiagnosticsDefaultHint"})

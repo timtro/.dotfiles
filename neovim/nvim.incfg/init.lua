@@ -16,40 +16,38 @@ vim.opt.backspace={'indent' , 'eol', 'start'}
 vim.opt.confirm = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
-vim.opt.scrolloff = 8
+vim.g.python3_host_prog = '/usr/bin/python3'
+-- vim.g.mapleader = '\''
+-- vim.opt.scrolloff = 8
 
--- show tabs, eol and trailing spaces.
-vim.opt.list = true
+vim.opt.undofile = true -- Persistent undo
+vim.cmd("set undodir=$HOME/tmp/vimundo")
+
+vim.opt.list = true -- show tabs, eol and trailing spaces.
 vim.opt.listchars = {
   -- eol = '↲',
   tab = '↹ ',
   trail = '·'
 }
 
--- Persistent undo
-vim.opt.undofile = true
-vim.cmd("set undodir=$HOME/tmp/vimundo")
-                    -- Done in vimscript b/c $HOME or ~ won't expand in lua
-
-vim.g.python3_host_prog = '/usr/bin/python3'
+require'packer_bootstrap'
 
 local color_opts = require 'colors.dejour'
-require 'keymappings'
+color_opts.setup()
 
-require('lualine').setup{
-  options = {
-    theme = color_opts.status_theme,
-    icons_enabled = 1,
-    section_separators = {'', ''},
-    component_separators = {'', ''},
-  }
+local conditions = {
+  buffer_not_empty = function()
+    return vim.fn.empty(vim.fn.expand '%:t') ~= 1
+  end,
+  hide_in_width = function()
+    return vim.fn.winwidth(0) > 80
+  end,
+  check_git_workspace = function()
+    local filepath = vim.fn.expand '%:p:h'
+    local gitdir = vim.fn.finddir('.git', filepath .. ';')
+    return gitdir and #gitdir > 0 and #gitdir < #filepath
+  end,
 }
 
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
-    install_path})
-  vim.cmd 'packadd packer.nvim'
-end
 require 'plugins'
+require 'keymappings'

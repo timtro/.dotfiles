@@ -27,7 +27,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
 
     -- For vsnip user.
-    -- { name = 'vsnip' },
+    { name = 'vsnip' },
 
     -- For luasnip user.
     -- { name = 'luasnip' },

@@ -1,9 +1,11 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'nvim-lua/plenary.nvim'
 
   -- Editor/IDE tools
   use 'kyazdani42/nvim-web-devicons'
   use 'akinsho/nvim-toggleterm.lua'
+  use 'glepnir/dashboard-nvim'
   use {
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
@@ -17,6 +19,26 @@ return require('packer').startup(function(use)
   use 'AndrewRadev/sideways.vim'
   -- use 'Konfekt/FastFold'
   use 'matze/vim-move'
+  use 'tversteeg/registers.nvim'
+  -- Shade inactive splits:
+  -- use 'sunjon/shade.nvim'
+  use 'xiyaowong/nvim-transparent'
+  use {
+    'folke/twilight.nvim',
+    config = function()
+      require('twilight').setup{}
+    end
+  }
+  use {
+    'folke/zen-mode.nvim',
+    config = function()
+      require('zen-mode').setup{}
+    end
+  }
+  use {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+  }
 
   -- movement, buffer-search, formatting and lsp
   use 'andymass/vim-matchup'
@@ -41,6 +63,10 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
+  use 'ray-x/lsp_signature.nvim'
     -- Icons for autocompletion. Configured in lsp.lua:
   use 'onsails/lspkind-nvim'
   -- use 'svermeulen/vim-easyclip'
@@ -54,14 +80,17 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
   }
 
+  -- NOTE: For debugging treesitter
+  use 'nvim-treesitter/playground'
+
   use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'}
   }
 
   use 'p00f/nvim-ts-rainbow'
-  use 'sheerun/vim-polyglot'
   use 'norcalli/nvim-colorizer.lua'
+  use 'KabbAmine/vCoolor.vim'
   use 'jackguo380/vim-lsp-cxx-highlight'
 
   -- colorschemes
@@ -70,11 +99,16 @@ return require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
   use 'Th3Whit3Wolf/onebuddy'
   use 'Yagua/nebulous.nvim'
-  use 'rakr/vim-one'
+  -- use 'rakr/vim-one'
+  use 'joshdick/onedark.vim'
   use 'lifepillar/vim-gruvbox8'
   use 'folke/tokyonight.nvim'
   use 'projekt0n/github-nvim-theme'
   use 'logico/typewriter-vim'
+  use 'widatama/vim-phoenix'
+  use 'pineapplegiant/spaceduck'
+  use 'drewtempelmeyer/palenight.vim'
+  use 'FrenzyExists/aquarium-vim'
 
   -- ft
   use 'lervag/vimtex'
