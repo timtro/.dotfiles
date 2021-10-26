@@ -1,7 +1,10 @@
 Config {
 -- appearance
-  font        =  "xft:Hasklug Nerd Font:pixelsize=14",
-  additionalFonts = ["xft:Hasklug Nerd Font:pixelsize=18"],
+  font        =  "xft:Hasklig:pixelsize=14",
+  additionalFonts = [ "xft:Hasklig:pixelsize=18"
+                    , "xft:Symbols Nerd Font:pixelsize=14"
+                    , "xft:Symbols Nerd Font:pixelsize=18"
+                    ],
   textOffsets = [18]
   position    =  TopSize C 100 22,
   border = NoBorder,
@@ -13,7 +16,7 @@ Config {
   alignSep = "}{",  -- separator between left-right alignment
   -- template = "<icon=dejour.xpm/>    %StdinReader% }{<fc=#3d59a1>:</fc>  %date%        %traygap%",
   -- template = " <fn=1>     </fn>  %StdinReader% }{<fc=#3d59a1>:</fc>  %date%        %traygap%",
-  template = " <fn=1><fc=#f7768e></fc><fc=#e0af68></fc><fc=#9ece6a></fc></fn>  %StdinReader% }{<fc=#3d59a1> :</fc> %date%  %traygap%",
+  template = " <fn=3><fc=#f7768e></fc><fc=#ff9e64></fc><fc=#9ece6a></fc></fn>  %StdinReader% }{<fc=#3d59a1><fn=2></fn> : </fc>%date%  %traygap%",
 
 -- general behavior
   lowerOnStart =     True,    -- send to bottom of window stack on start

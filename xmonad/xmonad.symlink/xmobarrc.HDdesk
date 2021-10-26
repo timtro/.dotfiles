@@ -1,7 +1,7 @@
 Config {
 -- appearance
-  font        =  "xft:Hasklug Nerd Font:pixelsize=14",
-  additionalFonts = ["xft:Hasklug Nerd Font:pixelsize=18"],
+  font        =  "xft:JetBrains Mono Regular:pixelsize=14",
+  additionalFonts = ["xft:JetBrains Mono Regular:pixelsize=18"],
   textOffsets = [18]
   position    =  TopSize C 100 22,
   border = NoBorder,

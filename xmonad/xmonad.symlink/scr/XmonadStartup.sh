@@ -5,7 +5,10 @@ host=`uname -n`
 echo "HOME: " $HOME
 
 function main {
-  if [[ "$host" == "johnny5" || "$host" == "qubit" ]]; then
+  if [[ "$host" == "qubit" ]]; then
+    /home/timtro/.screenlayout/dejour.sh
+    stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.QHDDHQ"
+  elif [[ "$host" == "johnny5" ]]; then
     /home/timtro/.screenlayout/default.sh
     stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.2HD"
   elif [[ "$host" == "photon" ]]; then

@@ -1,12 +1,14 @@
 import XMonad
 import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
-import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing, toggleScreenSpacingEnabled )
+import XMonad.Layout.NoBorders ( smartBorders, noBorders )
+import XMonad.Layout.Spacing ( spacingWithEdge, incSpacing, setSpacing, toggleScreenSpacingEnabled, toggleWindowSpacingEnabled )
 import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.MultiColumns
+import XMonad.Layout.PerScreen
 import XMonad.Util.EZConfig ( additionalKeysP, removeKeys )
 import XMonad.Util.NamedScratchpad
   ( NamedScratchpad( NS )
@@ -14,7 +16,7 @@ import XMonad.Util.NamedScratchpad
   , namedScratchpadAction
   , namedScratchpadManageHook
   )
-import XMonad.Hooks.ManageDocks( ToggleStruts(ToggleStruts), Direction1D(Prev, Next) )
+import XMonad.Hooks.ManageDocks( ToggleStruts(ToggleStruts), Direction1D(Prev, Next), avoidStruts )
 import XMonad.Hooks.DynamicLog
   ( PP
   , statusBar
@@ -47,11 +49,6 @@ import XMonad.Hooks.ManageHelpers
   )
 import Data.Ratio
 
-xmobarFont :: Int     -- ^ index: index of the font to use (0: standard font)
-           -> String  -- ^ output string
-           -> String
-xmobarFont index = wrap ("<fn=" ++ show index ++ ">") "</fn>"
-
 main :: IO ()
 main = do
   hostname <- getHostName
@@ -73,9 +70,7 @@ config_by_host host
             -- Set trackpoint speed
             spawn "xinput --set-prop \"TPPS/2 Elan TrackPoint\" \"libinput Accel Speed\" 0.7"
             allhostStartup
-      , layoutHook         = smartBorders
-                              $ mkToggle (single NBFULL)
-                              $ spacingWithEdge 50 (layoutHook defaultConfig ||| emptyBSP)
+      , layoutHook  = myLayouts 40
       } `additionalKeysP` [
         ("M-p"                     , spawn "rofi -show combi" )
       , ("<XF86MonBrightnessUp>"   , spawn "xbacklight -inc 10" )
@@ -84,16 +79,14 @@ config_by_host host
       , ("S-<XF86Favorites>"       , spawn "xbacklight -ctrl tpacpi::kbd_backlight -dec 50" )
       -- , ("", spawn "")
       ]
-  | otherwise          = statusBar (xmobarCmd ++ "HDdesk") myPP toggleGapsKey $
+  | otherwise          = statusBar (xmobarCmd ++ "HD") myPP toggleGapsKey $
     allhostConfig
   where
     xmobarCmd = "xmobar" ++ " -B" ++ statusBg ++ " -F" ++ statusFg ++ " /home/timtro/.dotfiles/xmonad/xmonad.symlink/xmobarrc."
     allhostConfig = def
       { modMask            = mod4Mask -- Use Super instead of Alt
       , startupHook        = allhostStartup
-      , layoutHook         = smartBorders
-                              $ mkToggle (single NBFULL)
-                              $ spacingWithEdge 25 (layoutHook defaultConfig ||| emptyBSP)
+      , layoutHook         = myLayouts 20
       , handleEventHook    = handleEventHook def <+> fullscreenEventHook
       , manageHook         = myManageHook <+> namedScratchpadManageHook scratchPads
       , terminal           = "kitty"
@@ -113,7 +106,7 @@ config_by_host host
       , ("M-S-x"                 , spawn "xkill" )
       , ("M-M1-r"                , spawn "reboot")
       , ("M-M1-p"                , spawn "shutdown -P now" )
-      , ("M-M1-l"                , spawn $ lockerCmd )
+      , ("M-S-M1-l"              , spawn $ lockerCmd )
       , ("M-p"                   , spawn "rofi -show combi" )
       , ("M-]"                   , spawn "variety --next" )
       , ("M-["                   , spawn "variety --previous" )
@@ -142,26 +135,30 @@ config_by_host host
       , ("M-M1-<Space>"          , sendMessage $ Toggle NBFULL )
       , ("M-M1-b"                , sequence_
                                     [ sendMessage ToggleStruts
-                                    , sendMessage $ Toggle NBFULL
-                                    ])
+                                    , sendMessage $ Toggle NBFULL] )
+      , ("M-M1-h"                , sendMessage $ MirrorShrink )
+      , ("M-M1-l"                , sendMessage $ MirrorExpand )
+      , ("M-M1-0"                , sequence_
+                                    [ toggleWindowSpacingEnabled
+                                      , toggleScreenSpacingEnabled] )
       -- Keys for Binary Space Partition Layout
-      , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
-      , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
-      , ("M-M1-<Up>",      sendMessage $ ExpandTowards U)
-      , ("M-M1-<Down>",    sendMessage $ ShrinkFrom U)
-      , ("M-M1-C-<Left>",  sendMessage $ ShrinkFrom R)
-      , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
-      , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
-      , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
-      , ("M-S-C-j",        sendMessage $ SplitShift Prev)
-      , ("M-S-C-k",        sendMessage $ SplitShift Next)
-      , ("M-s",            sendMessage Swap)
-      , ("M-S-s",          sendMessage Rotate)
-      , ("M-n",            sendMessage FocusParent)
-      , ("M-S-n",          sendMessage MoveNode)
-      , ("M-M1-n",         sendMessage SelectNode)
-      , ("M-a",            sendMessage Balance)
-      , ("M-M1-a",         sendMessage Equalize)
+      -- , ("M-M1-<Left>",    sendMessage $ ExpandTowards L)
+      -- , ("M-M1-<Right>",   sendMessage $ ShrinkFrom L)
+      -- , ("M-M1-<Up>",      sendMessage $ ExpandTowards U)
+      -- , ("M-M1-<Down>",    sendMessage $ ShrinkFrom U)
+      -- , ("M-M1-C-<Left>",  sendMessage $ ShrinkFrom R)
+      -- , ("M-M1-C-<Right>", sendMessage $ ExpandTowards R)
+      -- , ("M-M1-C-<Up>",    sendMessage $ ShrinkFrom D)
+      -- , ("M-M1-C-<Down>",  sendMessage $ ExpandTowards D)
+      -- , ("M-S-C-j",        sendMessage $ SplitShift Prev)
+      -- , ("M-S-C-k",        sendMessage $ SplitShift Next)
+      -- , ("M-s",            sendMessage Swap)
+      -- , ("M-S-s",          sendMessage Rotate)
+      -- , ("M-n",            sendMessage FocusParent)
+      -- , ("M-S-n",          sendMessage MoveNode)
+      -- , ("M-M1-n",         sendMessage SelectNode)
+      -- , ("M-a",            sendMessage Balance)
+      -- , ("M-M1-a",         sendMessage Equalize)
       -- Job helpers
       , ("M-u", spawn "xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown" )
       ]
@@ -193,6 +190,7 @@ lockerCmd = "i3lock"
 
 -- powerlineSep = "\xe0b5"
 powerlineSep = "\xe0b1"
+-- powerlineSep = "│"
 -- [xmobarPP](https://goo.gl/8djnRu)
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
@@ -212,40 +210,46 @@ toggleGapsKey XConfig {XMonad.modMask = mod4Mask} = (mod4Mask, xK_b)
 
 -- [XMonad.ManageHook](https://goo.gl/cYgtp5)
 myManageHook = composeAll
-    [ isFullscreen                        --> doFullFloat
-    , className =? "MPlayer"              --> doFloat
-    , className =? "Gimp-2.8"             --> doFloat
-    , className =? "Insync.py"            --> doFloat
-    , className =? "insync.py"            --> doFloat
-    , className =? "Variety"              --> doFloat
-    , className =? "Transmission-gtk"     --> doFloat
-    , className =? "Xmessage"             --> doFloat
-    , className =? "Ekiga"                --> doFloat
-    , className =? "Pavucontrol"          --> doFloatCornerBox
-    , className =? "Scp-dbus-service.py"  --> doFloatCornerBox
-    , className =? "Blueman-manager"      --> doCenterFloat
-    , className =? "Blueman-assistant"    --> doCenterFloat
-    , className =? "Tk"                   --> doCenterFloat
-    , className =? "vlc"                  --> doCenterFloat
-    , className =? "Totem"                --> doCenterFloat
-    , className =? "Eog"                  --> doCenterFloat
-    , className =? "matplotlib"           --> doCenterFloat
-    , className =? "Matplotlib"           --> doCenterFloat
-    , className =? "Gnuplot"              --> doCenterFloat
-    , className =? "gnuplot_qt"           --> doCenterFloat
-    , className =? "Gnome-calculator"     --> doCenterFloat
-    , className =? "MATLAB R2018a"        --> doCenterFloat
-    , className =? "Yad"                  --> doCenterFloat
-    , className =? "Qalculate-gtk"        --> doCenterFloat
-    , className =? "Qalculate-gtk"        --> doCenterFloat
-    , className =? "Vapetick"             --> doCenterFloat
-    , className =? "glslViewer"           --> doCenterFloat
-    , isRole    =? "pop-up"               --> doCenterFloat
-    , className =? "Firefox"
-                  <&&> title =? "Library" --> doCenterFloat
+    [ isFullscreen                       --> doFullFloat
+    , className =? "MPlayer"             --> doFloat
+    , className =? "Insync.py"           --> doFloat
+    , className =? "Variety"             --> doFloat
+    , className =? "Transmission-gtk"    --> doFloat
+    , className =? "Pavucontrol"         --> doFloatCornerBox
+    , className =? "Scp-dbus-service.py" --> doFloatCornerBox -- Printers
+    , className =? "Blueman-manager"     --> doCenterFloat
+    , className =? "Blueman-assistant"   --> doCenterFloat
+    , className =? "Tk"                  --> doCenterFloat
+    , className =? "vlc"                 --> doCenterFloat
+    , className =? "Totem"               --> doCenterFloat
+    , className =? "Eog"                 --> doCenterFloat
+    , className =? "Matplotlib"          --> doCenterFloat
+    , className =? "Gnome-calculator"    --> doCenterFloat
+    , className =? "Yad"                 --> doCenterFloat
+    , className =? "Vapetick"            --> doCenterFloat
+    , className =? "glslViewer"          --> doCenterFloat
+    , isRole    =? "pop-up"              --> doCenterFloat
     ]
       where
         isRole = stringProperty "WM_WINDOW_ROLE"
+
+ -- Layouts
+ --
+myLayouts gapWidth =
+  ifWider 1500 -- Excludes Q/HD monitors in portrait
+    -- If screen is wider:
+    ( avoidStruts $ fullScreen ||| mkToggle (single MIRROR) (flexTallGaps) )
+    -- If screen is not wider:
+    ( Mirror (multiCol [1] 1 0.01 (-0.5)) )
+  where
+    fullScreen = spacingWithEdge 0 (noBorders Full)
+    flexTallGaps = spacingWithEdge gapWidth $ ResizableTall nmaster delta ratio []
+    -- The default number of windows in the master pane
+    nmaster = 1
+    -- Default proportion of screen occupied by master pane
+    ratio   = 1/2
+    -- Percent of screen to increment by when resizing panes
+    delta   = 5/100
 
 
 -- ## Scratchpads
@@ -307,7 +311,7 @@ doFloatCornerBox = customFloating $ RationalRect l t w h
 -- Gruvbox colours:
 
 bg :: [Char]
-bg = fromJust $ Map.lookup "bg_dark" tokyoNightColours
+bg = fromJust $ Map.lookup "bg_night" tokyoNightColours
 
 fg :: [Char]
 fg = fromJust $ Map.lookup "fg" tokyoNightColours
@@ -402,7 +406,8 @@ tpixelColours = Map.fromList
 
 tokyoNightColours :: Map [Char] [Char]
 tokyoNightColours = Map.fromList
-  [  ("bg_dark"        , "#1f2335")
+  [  ("bg_night"       , "#1a1b26")
+  ,  ("bg_dark"        , "#1f2335")
   ,  ("bg"             , "#24283b")
   ,  ("bg_highlight"   , "#292e42")
   ,  ("terminal_black" , "#414868")
@@ -432,3 +437,10 @@ tokyoNightColours = Map.fromList
   ,  ("red"            , "#f7768e")
   ,  ("red1"           , "#db4b4b")
   ]
+
+
+-- Utility functions
+xmobarFont :: Int     -- ^ index: index of the font to use (0: standard font)
+           -> String  -- ^ output string
+           -> String
+xmobarFont index = wrap ("<fn=" ++ show index ++ ">") "</fn>"
