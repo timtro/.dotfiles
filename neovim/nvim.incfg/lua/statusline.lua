@@ -1,5 +1,4 @@
 return function(theme)
-  print(theme)
   local conditions = {
     buffer_not_empty = function()
       return vim.fn.empty(vim.fn.expand '%:t') ~= 1
@@ -26,47 +25,48 @@ return function(theme)
       lualine_a = {
         { 'mode', separator = { left = '' }, right_padding = 2 },
       },
-      lualine_b = { 'filename',
-                    'branch',
-                    {
-                      'diff',
-                      symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-                      diff_color = {
-                        color_added = { fg = 'diffAdded' },
-                        color_modified = { fg = 'diffChanged' },
-                        color_removed = { fg = 'diffDeleted' },
-                      },
-                      cond = conditions.hide_in_width,
-                    }
-                  },
+      lualine_b = {
+        'filename',
+        'branch',
+        {
+          'diff',
+          -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+          diff_color = {
+            color_added = { fg = 'DiffAdd' },
+            color_modified = { fg = 'DiffChange' },
+            color_removed = { fg = 'DiffDelete' },
+          },
+          cond = conditions.hide_in_width,
+        }
+      },
       lualine_c = {
-                    {
-                      function()
-                        local msg = 'No Active Lsp'
-                        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                        local clients = vim.lsp.get_active_clients()
-                        if next(clients) == nil then
-                          return msg
-                        end
-                        for _, client in ipairs(clients) do
-                          local filetypes = client.config.filetypes
-                          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                            return client.name
-                          end
-                        end
-                        return msg
-                      end,
-                      icon = ' LSP:',
-                    },
-                    'diagnostics',
-                    sources = { 'nvim_lsp' },
-                    symbols = { error = ' ', warn = ' ', info = ' ' },
-                    diagnostics_color = {
-                      color_error = { fg = 'LspDiagnosticsDefaultError' },
-                      color_warn = { fg = 'LspDiagnosticsDefaultWarning' },
-                      color_info = { fg = 'LspDiagnosticsDefaultInformatio' },
-                    },
-                  },
+        {
+          function()
+            local msg = 'No Active Lsp'
+            local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+            local clients = vim.lsp.get_active_clients()
+            if next(clients) == nil then
+              return msg
+            end
+            for _, client in ipairs(clients) do
+              local filetypes = client.config.filetypes
+              if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                return client.name
+              end
+            end
+            return msg
+          end,
+          icon = ' LSP:',
+        },
+        'diagnostics',
+        sources = { 'nvim_lsp' },
+        symbols = { error = ' ', warn = ' ', info = ' ' },
+        diagnostics_color = {
+          color_error = { fg = 'LspDiagnosticsDefaultError' },
+          color_warn = { fg = 'LspDiagnosticsDefaultWarning' },
+          color_info = { fg = 'LspDiagnosticsDefaultInformatio' },
+        },
+      },
       lualine_x = {},
       lualine_y = { 'fileformat', 'filetype', 'progress' },
       lualine_z = {{'location', separator = { right = '' }, left_padding = 2}},
