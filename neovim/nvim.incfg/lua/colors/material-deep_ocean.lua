@@ -30,7 +30,6 @@ local function setup()
 
   local material_colors = require'material.colors'
 
-  vim.cmd(string.format('highlight IndentBlanklineContextChar guifg=%s gui=nocombine cterm=nocombine', material_colors.blue))
 
   local rainbow_colors = {
     material_colors.fg,
@@ -39,17 +38,18 @@ local function setup()
     material_colors.yellow,
     material_colors.green,
     material_colors.orange,
-    material_colors.darkpurple,
+    material_colors.red,
     material_colors.darkblue,
     material_colors.darkyellow,
-    material_colors.darkgreen,
-    material_colors.darkorange
   }
-
-  (require'colors.rainbow_setter')(rainbow_colors)
 
   require'material'.setup(material_config)
   vim.cmd[[colorscheme material]]
+
+  require'colors.rainbow_setter'(rainbow_colors)
+
+  vim.cmd(string.format('highlight IndentBlanklineContextChar guifg=%s',
+    material_colors.blue))
 end
 
 return {setup = setup, status_theme = 'material-nvim'}
