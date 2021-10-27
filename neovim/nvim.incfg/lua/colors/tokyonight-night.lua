@@ -20,7 +20,7 @@ local function setup()
   vim.g.tokyonight_lualine_bold = true
 
   local rainbow_colors = {
-    colors.fg,
+    -- colors.fg,
     colors.purple,
     colors.blue,
     colors.yellow,
