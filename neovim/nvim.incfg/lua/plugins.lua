@@ -98,7 +98,6 @@ return require('packer').startup(function(use)
   use 'dracula/vim'
   use 'marko-cerovac/material.nvim'
   use 'Th3Whit3Wolf/onebuddy'
-  use 'Yagua/nebulous.nvim'
   -- use 'rakr/vim-one'
   use 'joshdick/onedark.vim'
   use 'lifepillar/vim-gruvbox8'
