@@ -30,6 +30,9 @@ vim.opt.listchars = {
   trail = '·'
 }
 
+-- TODO: When I can, move this to a dashboard config.
+vim.g.dashboard_default_executive = 'telescope'
+
 local color_opts = require 'colors.dejour'
 color_opts.setup()
 require('statusline')(color_opts.status_theme)
