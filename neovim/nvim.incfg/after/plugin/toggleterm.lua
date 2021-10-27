@@ -1,4 +1,4 @@
-require("toggleterm").setup {
+require('toggleterm').setup({
   on_config_done = nil,
   -- size can be a number or function which is passed the current terminal
   size = 20,
@@ -11,7 +11,7 @@ require("toggleterm").setup {
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   persist_size = false,
   -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
-  direction = "float",
+  direction = 'float',
   close_on_exit = true, -- close the terminal window when the process exits
   float_opts = {
     -- The border key is *almost* the same as 'nvim_win_open'
@@ -19,13 +19,13 @@ require("toggleterm").setup {
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
     -- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    border = "curved",
+    border = 'curved',
     -- width = <value>,
     -- height = <value>,
     winblend = 0,
     highlights = {
-      border = "Normal",
-      background = "Normal",
+      border = 'Normal',
+      background = 'Normal',
     },
-  }
-}
+  },
+})

@@ -12,17 +12,17 @@ local generic_opts = {
 }
 
 local mode_adapters = {
-  insert_mode = "i",
-  normal_mode = "n",
-  term_mode = "t",
-  visual_mode = "v",
-  visual_block_mode = "x",
-  command_mode = "c",
+  insert_mode = 'i',
+  normal_mode = 'n',
+  term_mode = 't',
+  visual_mode = 'v',
+  visual_block_mode = 'x',
+  command_mode = 'c',
 }
 
 local function set_keymaps(mode, key, val)
   local opt = generic_opts[mode] and generic_opts[mode] or generic_opts_any
-  if type(val) == "table" then
+  if type(val) == 'table' then
     opt = val[2]
     val = val[1]
   end
@@ -47,89 +47,101 @@ end
 local keys = {
   insert_mode = {
     -- 'jk' for quitting insert mode
-    ["jk"] = "<ESC>",
+    ['jk'] = '<ESC>',
     -- 'kj' for quitting insert mode
-    ["kj"] = "<ESC>",
+    ['kj'] = '<ESC>',
     -- 'jj' for quitting insert mode
-    ["jj"] = "<ESC>",
+    ['jj'] = '<ESC>',
     -- Following block replaced with matze/vim-move
     -- -- Move current line / block with Alt-j/k ala vscode.
     -- ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
     -- -- Move current line / block with Alt-j/k ala vscode.
     -- ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
     -- navigation
-    ["<A-Up>"] = "<C-\\><C-N><C-w>k",
-    ["<A-Down>"] = "<C-\\><C-N><C-w>j",
-    ["<A-Left>"] = "<C-\\><C-N><C-w>h",
-    ["<A-Right>"] = "<C-\\><C-N><C-w>l",
+    ['<A-Up>'] = '<C-\\><C-N><C-w>k',
+    ['<A-Down>'] = '<C-\\><C-N><C-w>j',
+    ['<A-Left>'] = '<C-\\><C-N><C-w>h',
+    ['<A-Right>'] = '<C-\\><C-N><C-w>l',
     -- navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
-    ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+    ['<C-j>'] = {
+      'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
+      { expr = true, noremap = true },
+    },
+    ['<C-k>'] = {
+      'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
+      { expr = true, noremap = true },
+    },
   },
 
   normal_mode = {
     -- Better window movement
-    ["<C-h>"] = "<C-w>h",
-    ["<C-j>"] = "<C-w>j",
-    ["<C-k>"] = "<C-w>k",
-    ["<C-l>"] = "<C-w>l",
+    ['<C-h>'] = '<C-w>h',
+    ['<C-j>'] = '<C-w>j',
+    ['<C-k>'] = '<C-w>k',
+    ['<C-l>'] = '<C-w>l',
 
     -- Resize with arrows
-    ["<C-Up>"] = ":resize -2<CR>",
-    ["<C-Down>"] = ":resize +2<CR>",
-    ["<C-Left>"] = ":vertical resize -2<CR>",
-    ["<C-Right>"] = ":vertical resize +2<CR>",
+    ['<C-Up>'] = ':resize -2<CR>',
+    ['<C-Down>'] = ':resize +2<CR>',
+    ['<C-Left>'] = ':vertical resize -2<CR>',
+    ['<C-Right>'] = ':vertical resize +2<CR>',
 
     -- Tab switch buffer
-    ["<S-l>"] = ":BufferNext<CR>",
-    ["<S-h>"] = ":BufferPrevious<CR>",
+    ['<S-l>'] = ':BufferNext<CR>',
+    ['<S-h>'] = ':BufferPrevious<CR>',
 
     -- Move current line / block with Alt-j/k a la vscode.
-    ["<A-j>"] = ":m .+1<CR>==",
-    ["<A-k>"] = ":m .-2<CR>==",
+    ['<A-j>'] = ':m .+1<CR>==',
+    ['<A-k>'] = ':m .-2<CR>==',
 
     -- Clear search hilight and redraw
-    ["<C-_>"] = ":nohl<CR><C-L>",
+    ['<C-_>'] = ':nohl<CR><C-L>',
 
     -- Map Y to act like D and C, i.e. to yank until EOL
-    ["Y"] = "y$",
+    ['Y'] = 'y$',
 
     -- Open new line and go back to normalmode
-    ["<A-o>"] = "o<Esc>",
-    ["<A-O>"] = "O<Esc>",
+    ['<A-o>'] = 'o<Esc>',
+    ['<A-O>'] = 'O<Esc>',
   },
 
   term_mode = {
     -- Terminal window navigation
-    ["<C-h>"] = "<C-\\><C-N><C-w>h",
-    ["<C-j>"] = "<C-\\><C-N><C-w>j",
-    ["<C-k>"] = "<C-\\><C-N><C-w>k",
-    ["<C-l>"] = "<C-\\><C-N><C-w>l",
+    ['<C-h>'] = '<C-\\><C-N><C-w>h',
+    ['<C-j>'] = '<C-\\><C-N><C-w>j',
+    ['<C-k>'] = '<C-\\><C-N><C-w>k',
+    ['<C-l>'] = '<C-\\><C-N><C-w>l',
   },
 
   visual_mode = {
     -- Better indenting
-    ["<"] = "<gv",
-    [">"] = ">gv",
+    ['<'] = '<gv',
+    ['>'] = '>gv',
   },
 
   ---@usage change or add keymappings for visual block mode
   visual_block_mode = {
     -- Move selected line / block of text in visual mode
-    ["K"] = ":move '<-2<CR>gv-gv",
-    ["J"] = ":move '>+1<CR>gv-gv",
+    ['K'] = ":move '<-2<CR>gv-gv",
+    ['J'] = ":move '>+1<CR>gv-gv",
 
     -- Move current line / block with Alt-j/k ala vscode.
-    ["<A-j>"] = ":m '>+1<CR>gv-gv",
-    ["<A-k>"] = ":m '<-2<CR>gv-gv",
+    ['<A-j>'] = ":m '>+1<CR>gv-gv",
+    ['<A-k>'] = ":m '<-2<CR>gv-gv",
   },
 
   command_mode = {
     -- navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
-    ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+    ['<C-j>'] = {
+      'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
+      { expr = true, noremap = true },
+    },
+    ['<C-k>'] = {
+      'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
+      { expr = true, noremap = true },
+    },
   },
 }
 
@@ -137,10 +149,9 @@ load(keys)
 
 load(keys)
 
-
 local map = vim.api.nvim_set_keymap
-local si_nor = {silent = true, noremap = true}
-local noremap = {noremap = true}
+local si_nor = { silent = true, noremap = true }
+local noremap = { noremap = true }
 
 -- Easymotion searching
 map('', '/', '<Plug>(easymotion-sn)', {})
@@ -195,6 +206,6 @@ map('t', '<A-t>', '<M-o> <C-\\><C-n>:RnvimrToggle<CR>', si_nor)
 map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
 -- TODO: Move keys from gitsigns config to here.
 -- Coloring and shading:
-map ('n', '<leader>tw', ':Twilight<CR>', si_nor)
-map ('n', '<leader>tz', ':ZenMode<CR>', si_nor)
-map ('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)
+map('n', '<leader>tw', ':Twilight<CR>', si_nor)
+map('n', '<leader>tz', ':ZenMode<CR>', si_nor)
+map('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)

@@ -1,4 +1,3 @@
-
 local function setup()
   vim.opt.background = 'dark'
   local colors = {
@@ -18,7 +17,7 @@ local function setup()
     dark_yellow = '#F78C6C',
     cyan = '#89DDFF',
     comment_grey = '#697098',
-    black = '#292D3E'
+    black = '#292D3E',
   }
 
   local rainbow_colors = {
@@ -31,10 +30,10 @@ local function setup()
     colors.cyan,
     colors.red,
     colors.dark_red,
-  }
-  (require'colors.rainbow_setter')(rainbow_colors)
+  };
+  (require('colors.rainbow_setter'))(rainbow_colors)
 
-  vim.cmd'colorscheme palenight'
+  vim.cmd('colorscheme palenight')
 end
 
-return { setup = setup, status_theme = 'palenight'}
+return { setup = setup, status_theme = 'palenight' }

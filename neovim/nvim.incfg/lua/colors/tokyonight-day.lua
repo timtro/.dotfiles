@@ -1,5 +1,4 @@
-
-local colors = require("tokyonight.colors").setup({})
+local colors = require('tokyonight.colors').setup({})
 
 local function setup()
   vim.opt.background = 'light'
@@ -27,11 +26,11 @@ local function setup()
     colors.orange,
     colors.teal,
     colors.red,
-  }
+  };
 
-  (require'colors.rainbow_setter')(rainbow_colors)
+  (require('colors.rainbow_setter'))(rainbow_colors)
 
-  vim.cmd'colorscheme tokyonight'
+  vim.cmd('colorscheme tokyonight')
 end
 
-return { setup = setup, status_theme = 'tokyonight'}
+return { setup = setup, status_theme = 'tokyonight' }

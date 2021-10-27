@@ -10,26 +10,25 @@ local function setup()
       keywords = true, -- Enable italic keywords
       functions = false, -- Enable italic functions
       strings = false, -- Enable italic strings
-      variables = false -- Enable italic variables
+      variables = false, -- Enable italic variables
     },
     contrast_windows = { -- Specify which windows get the contrasted (darker) background
-      "terminal", -- Darker terminal background
-      "packer", -- Darker packer background
+      'terminal', -- Darker terminal background
+      'packer', -- Darker packer background
     },
     text_contrast = {
       lighter = false, -- Enable higher contrast text for lighter style
-      darker = true -- Enable higher contrast text for darker style
+      darker = true, -- Enable higher contrast text for darker style
     },
     disable = {
       background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
       term_colors = false, -- Prevent the theme from setting terminal colors
-      eob_lines = false -- Hide the end-of-buffer lines
+      eob_lines = false, -- Hide the end-of-buffer lines
     },
-    custom_highlights = {} -- Overwrite highlights with your own
+    custom_highlights = {}, -- Overwrite highlights with your own
   }
 
-  local material_colors = require'material.colors'
-
+  local material_colors = require('material.colors')
 
   local rainbow_colors = {
     material_colors.fg,
@@ -43,13 +42,17 @@ local function setup()
     material_colors.darkyellow,
   }
 
-  require'material'.setup(material_config)
-  vim.cmd[[colorscheme material]]
+  require('material').setup(material_config)
+  vim.cmd([[colorscheme material]])
 
-  require'colors.rainbow_setter'(rainbow_colors)
+  require('colors.rainbow_setter')(rainbow_colors)
 
-  vim.cmd(string.format('highlight IndentBlanklineContextChar guifg=%s',
-    material_colors.blue))
+  vim.cmd(
+    string.format(
+      'highlight IndentBlanklineContextChar guifg=%s',
+      material_colors.blue
+    )
+  )
 end
 
-return {setup = setup, status_theme = 'material-nvim'}
+return { setup = setup, status_theme = 'material-nvim' }

@@ -1,25 +1,25 @@
 return function(theme)
   local conditions = {
     buffer_not_empty = function()
-      return vim.fn.empty(vim.fn.expand '%:t') ~= 1
+      return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
     end,
     hide_in_width = function()
       return vim.fn.winwidth(0) > 80
     end,
     check_git_workspace = function()
-      local filepath = vim.fn.expand '%:p:h'
+      local filepath = vim.fn.expand('%:p:h')
       local gitdir = vim.fn.finddir('.git', filepath .. ';')
       return gitdir and #gitdir > 0 and #gitdir < #filepath
     end,
   }
 
-  require('lualine').setup{
+  require('lualine').setup({
     options = {
       theme = theme,
       icons_enabled = true,
       -- component_separators = {left = '', right = ''},
       component_separators = '|', -- '│',
-      section_separators = {left = '', right = ''},
+      section_separators = { left = '', right = '' },
     },
     sections = {
       lualine_a = {
@@ -37,7 +37,7 @@ return function(theme)
             color_removed = { fg = 'DiffDelete' },
           },
           cond = conditions.hide_in_width,
-        }
+        },
       },
       lualine_c = {
         {
@@ -69,7 +69,9 @@ return function(theme)
       },
       lualine_x = {},
       lualine_y = { 'fileformat', 'filetype', 'progress' },
-      lualine_z = {{'location', separator = { right = '' }, left_padding = 2}},
+      lualine_z = {
+        { 'location', separator = { right = '' }, left_padding = 2 },
+      },
     },
     inactive_sections = {
       lualine_a = { 'filename' },
@@ -81,5 +83,5 @@ return function(theme)
     },
     tabline = {},
     extensions = {},
-  }
+  })
 end

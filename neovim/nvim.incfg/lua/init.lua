@@ -8,18 +8,18 @@ end
 _G['AddEventListener'] = function(name, events, cb)
   autocmdhandlers[name] = cb
   vim.cmd('augroup ' .. name)
-  vim.cmd 'autocmd!'
+  vim.cmd('autocmd!')
   for _, v in ipairs(events) do
     local cmd = 'lua ' .. global_listener .. '("' .. name .. '")'
     vim.cmd('au ' .. v .. ' ' .. cmd)
   end
-  vim.cmd 'augroup end'
+  vim.cmd('augroup end')
 end
 
 _G['RemoveEventListener'] = function(name)
   vim.cmd('augroup ' .. name)
-  vim.cmd 'autocmd!'
-  vim.cmd 'augroup end'
+  vim.cmd('autocmd!')
+  vim.cmd('augroup end')
   autocmdhandlers[name] = nil
 end
 
@@ -28,9 +28,7 @@ AddEventListener(
   { 'BufEnter,WinEnter,WinNew,VimResized *,*.*' },
   function()
     if vim.opt.filetype ~= 'qf' then
-      local vis_lines = vim.api.nvim_win_get_height(
-        vim.fn.win_getid()
-      )
+      local vis_lines = vim.api.nvim_win_get_height(vim.fn.win_getid())
       vim.opt.scrolloff = math.floor(vis_lines * 0.25)
     end
   end

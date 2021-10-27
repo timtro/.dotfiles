@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   rainbow = {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -13,7 +13,7 @@ require'nvim-treesitter.configs'.setup {
     -- termcolors = {} -- table of colour name strings
   },
   matchup = {
-    enable = true,              -- mandatory, false will disable the whole extension
-    disable = { },  -- optional, list of language that will be disabled
+    enable = true, -- mandatory, false will disable the whole extension
+    disable = {}, -- optional, list of language that will be disabled
   },
-}
+})

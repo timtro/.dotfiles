@@ -2,7 +2,7 @@
 vim.opt.encoding = 'utf-8'
 vim.opt.mouse = 'a'
 vim.opt.textwidth = 80
-vim.opt.colorcolumn = {81}
+vim.opt.colorcolumn = { 81 }
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.autoindent = true
-vim.opt.backspace={'indent', 'eol', 'start'}
+vim.opt.backspace = { 'indent', 'eol', 'start' }
 vim.opt.confirm = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
@@ -21,22 +21,22 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 -- vim.opt.scrolloff = 8
 
 vim.opt.undofile = true -- Persistent undo
-vim.cmd("set undodir=$HOME/tmp/vimundo")
+vim.cmd('set undodir=$HOME/tmp/vimundo')
 
 vim.opt.list = true -- show tabs, eol and trailing spaces.
 vim.opt.listchars = {
   -- eol = '↲',
   tab = '↹ ',
-  trail = '·'
+  trail = '·',
 }
 
 -- TODO: When I can, move this to a dashboard config.
 vim.g.dashboard_default_executive = 'telescope'
 
-local color_opts = require 'colors.dejour'
+local color_opts = require('colors.dejour')
 color_opts.setup()
 require('statusline')(color_opts.status_theme)
 
-require 'keymappings'
-require 'packer_bootstrap'
-require 'plugins'
+require('keymappings')
+require('packer_bootstrap')
+require('plugins')
