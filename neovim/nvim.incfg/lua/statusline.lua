@@ -1,4 +1,5 @@
 return function(theme)
+  print(theme)
   local conditions = {
     buffer_not_empty = function()
       return vim.fn.empty(vim.fn.expand '%:t') ~= 1

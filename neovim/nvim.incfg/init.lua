@@ -32,6 +32,7 @@ vim.opt.listchars = {
 
 local color_opts = require 'colors.dejour'
 color_opts.setup()
+require('statusline')(color_opts.status_theme)
 
 require 'keymappings'
 require 'packer_bootstrap'
