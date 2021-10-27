@@ -22,6 +22,7 @@ vim/vim.symlink/bundle/*
 neovim/nvim.incfg/bundle/*
 neovim/nvim.incfg/.netrwhist
 neovim/nvim.incfg/plugin/packer_compiled.lua
+neovim/nvim.incfg/lua/colors/dejour.lua
 
 # Xmonad compilation/working files
 xmonad/xmonad.symlink/xmonad
