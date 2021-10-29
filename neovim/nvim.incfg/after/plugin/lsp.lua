@@ -121,8 +121,8 @@ local lua_settings = {
     workspace = {
       -- Make the server aware of Neovim runtime files
       library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+        [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
       },
     },
   },
@@ -176,10 +176,10 @@ setup_servers()
 --  neovim
 require('lspinstall').post_install_hook = function()
   setup_servers() -- reload installed servers
-  vim.cmd('bufdo e') -- this triggers the FileType autocmd that starts the server
+  vim.cmd 'bufdo e'
 end
 
-require('lspkind').init({
+require('lspkind').init {
   -- enables text annotations
   --
   -- default: true
@@ -222,7 +222,7 @@ require('lspkind').init({
     Operator = '',
     TypeParameter = '',
   },
-})
+}
 
 -- Diagnostic gutter symbols
 -- For fun, try "💩 " for error

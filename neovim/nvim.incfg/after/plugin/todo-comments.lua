@@ -1,4 +1,4 @@
-require('todo-comments').setup({
+require('todo-comments').setup {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
   -- keywords recognized as todo comments
@@ -15,4 +15,4 @@ require('todo-comments').setup({
     PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
     NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
   },
-})
+}

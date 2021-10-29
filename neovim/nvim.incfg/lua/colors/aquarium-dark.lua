@@ -30,9 +30,9 @@ local function setup()
     colors.lightred,
     colors.grey,
   };
-  (require('colors.rainbow_setter'))(rainbow_colors)
+  (require 'colors.rainbow_setter')(rainbow_colors)
 
-  vim.cmd('colorscheme aquarium')
+  vim.cmd 'colorscheme aquarium'
 end
 
 return { setup = setup, status_theme = 'aquarium' }

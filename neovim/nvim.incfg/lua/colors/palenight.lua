@@ -31,9 +31,9 @@ local function setup()
     colors.red,
     colors.dark_red,
   };
-  (require('colors.rainbow_setter'))(rainbow_colors)
+  (require 'colors.rainbow_setter')(rainbow_colors)
 
-  vim.cmd('colorscheme palenight')
+  vim.cmd 'colorscheme palenight'
 end
 
 return { setup = setup, status_theme = 'palenight' }

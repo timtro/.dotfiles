@@ -1,4 +1,4 @@
-require('gitsigns').setup({
+require('gitsigns').setup {
   signs = {
     add = {
       hl = 'GitSignsAdd',
@@ -93,4 +93,4 @@ require('gitsigns').setup({
   yadm = {
     enable = false,
   },
-})
+}

@@ -1,13 +1,13 @@
 vim.opt.background = 'dark'
 
-vim.cmd([[
+vim.cmd [[
   if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
   endif
-]])
-vim.cmd('colorscheme spaceduck')
+]]
+vim.cmd 'colorscheme spaceduck'
 
 local colors = {
   black = '#0f111b',
@@ -31,6 +31,6 @@ local rainbow_colors = {
   colors.red,
 };
 
-(require('colors.rainbow_setter'))(rainbow_colors)
+(require 'colors.rainbow_setter')(rainbow_colors)
 
 return { status_theme = 'spaceduck' }

@@ -21,7 +21,7 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 -- vim.opt.scrolloff = 8
 
 vim.opt.undofile = true -- Persistent undo
-vim.cmd('set undodir=$HOME/tmp/vimundo')
+vim.cmd 'set undodir=$HOME/tmp/vimundo'
 
 vim.opt.list = true -- show tabs, eol and trailing spaces.
 vim.opt.listchars = {
@@ -33,12 +33,12 @@ vim.opt.listchars = {
 -- TODO: When I can, move this to a dashboard config.
 vim.g.dashboard_default_executive = 'telescope'
 
-local color_opts = require('colors.dejour')
+local color_opts = require 'colors.dejour'
 color_opts.setup()
-require('statusline')(color_opts.status_theme)
+require 'statusline'(color_opts.status_theme)
 
-require('keymappings')
-require('packer_bootstrap')
-require('plugins')
+require 'keymappings'
+require 'packer_bootstrap'
+require 'plugins'
 
-vim.cmd[[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]
+vim.cmd [[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]

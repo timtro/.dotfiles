@@ -28,7 +28,7 @@ local function setup()
     custom_highlights = {}, -- Overwrite highlights with your own
   }
 
-  local material_colors = require('material.colors')
+  local material_colors = require 'material.colors'
 
   local rainbow_colors = {
     material_colors.fg,
@@ -43,9 +43,9 @@ local function setup()
   }
 
   require('material').setup(material_config)
-  vim.cmd([[colorscheme material]])
+  vim.cmd [[colorscheme material]]
 
-  require('colors.rainbow_setter')(rainbow_colors)
+  require 'colors.rainbow_setter'(rainbow_colors)
 
   vim.cmd(
     string.format(
