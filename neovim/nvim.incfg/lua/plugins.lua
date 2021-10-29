@@ -93,6 +93,9 @@ return require('packer').startup(function(use)
   use('KabbAmine/vCoolor.vim')
   use('jackguo380/vim-lsp-cxx-highlight')
 
+  -- development
+  use('tpope/vim-scriptease')
+
   -- colorschemes
   use('tjdevries/colorbuddy.vim')
   use('dracula/vim')
@@ -118,4 +121,5 @@ return require('packer').startup(function(use)
   })
   use('sbdchd/neoformat')
   use('tikhomirov/vim-glsl')
+  use({'timtro/glslView-nvim', ft = 'glsl'})
 end)
