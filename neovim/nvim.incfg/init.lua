@@ -40,3 +40,5 @@ require('statusline')(color_opts.status_theme)
 require('keymappings')
 require('packer_bootstrap')
 require('plugins')
+
+vim.cmd[[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]
