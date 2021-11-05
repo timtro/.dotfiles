@@ -7,6 +7,15 @@ echo "HOME: " $HOME
 function main {
   if [[ "$host" == "qubit" ]]; then
     /home/timtro/.screenlayout/dejour.sh
+    # Buttons on Kensington rollerball
+    # ╔═══╦═══╗
+    # ║ 2 ║ 8 ║
+    # ╠═══⬤═══╣
+    # ║ 1 ║ 3 ║
+    # ╚═══╩═══╝
+    xinput --set-prop "Kensington Expert Mouse" "libinput Accel Speed" 1
+    xinput --set-prop "Kensington Expert Mouse" "libinput Scroll Method Enabled" 0, 0, 1
+    xinput --set-prop 'Kensington Expert Mouse' 'libinput Button Scrolling Button' 3
     stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.QHDDHQ"
   elif [[ "$host" == "johnny5" ]]; then
     /home/timtro/.screenlayout/default.sh
