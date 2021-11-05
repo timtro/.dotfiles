@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -62,14 +62,14 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.94987679px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:0.92887032;stroke:none;stroke-width:0.69875109;"
-       x="17.174395"
-       y="289.89783"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.94987679px;line-height:1.25;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:0.92887035;stroke:none;stroke-width:0.69875109"
+       x="16.933311"
+       y="290.19852"
        id="text819"><tspan
          sodipodi:role="line"
          id="tspan817"
-         x="17.174395"
-         y="289.89783"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.94987679px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.69875109;fill:#000000;fill-opacity:0.92887032;">!!</tspan></text>
+         x="16.933311"
+         y="290.19852"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.94987679px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:0.92887035;stroke-width:0.69875109">!</tspan></text>
   </g>
 </svg>
