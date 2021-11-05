@@ -188,17 +188,30 @@ lockerCmd = "i3lock"
                 ++ " --tiling"
                 ++ " --image ~/Pictures/wallpaper/custom/lockscreen.svg.png"
 
--- powerlineSep = "\xe0b5"
-powerlineSep = "\xe0b1"
--- powerlineSep = "│"
--- [xmobarPP](https://goo.gl/8djnRu)
+-- -- Couldn't use the following because of font handling issues in xmobar.
+-- -- Leaving it in, becuase maybe someday…
+-- xmobarPowerlineWrap :: String -> String -> String -> String -> String -> String
+-- xmobarPowerlineWrap lSymb rSymb fgColor bgColor s = wrap l r m
+--   where 
+--     l = xmobarColor bgColor fgColor lSymb
+--     r = xmobarColor bgColor fgColor rSymb
+--     m = xmobarColor fgColor bgColor (" " ++ s ++ " ")
+--
+-- xmobarPill :: String -> String -> String -> String
+-- xmobarPill = xmobarPowerlineWrap "\xe0b6" "\xe0b4"
+--
+-- xmobarTab :: String -> String -> String -> String
+-- xmobarTab = xmobarPowerlineWrap "\xe0bc" "\xe0be"
+
+xmobarTile :: String -> String -> String -> String
+xmobarTile fgColor bgColor = xmobarColor fgColor bgColor . wrap " " " "
+
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
-  { ppCurrent = xmobarColor orange "" . wrap "" (" " ++ powerlineSep)
-  , ppVisible = xmobarColor green "" . wrap "" (" " ++ powerlineSep)
-  , ppHidden  = xmobarColor blue "" . wrap "" (" " ++ powerlineSep)
-  , ppUrgent  = xmobarColor red "" . wrap "" (" " ++ powerlineSep)
-  -- , ppWsSep   = xmobarColor fg "" " \xe0b5 "
+  { ppCurrent = xmobarTile bg blue
+  , ppVisible = xmobarTile bg purple
+  , ppHidden  = xmobarTile blue ""
+  , ppUrgent  = xmobarTile red ""
   -- , ppWsSep   = xmobarColor fg "" " │ "
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
   , ppSep     = xmobarColor yellow "" "   •   "
@@ -336,6 +349,9 @@ green = fromJust $ Map.lookup "green" tokyoNightColours
 
 blue :: [Char]
 blue = fromJust $ Map.lookup "blue" tokyoNightColours
+
+purple :: [Char]
+purple = fromJust $ Map.lookup "purple" tokyoNightColours
 
 windowBorderColour :: [Char]
 windowBorderColour = fromJust $ Map.lookup "dark5" tokyoNightColours
