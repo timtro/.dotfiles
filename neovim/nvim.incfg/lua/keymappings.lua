@@ -209,3 +209,5 @@ map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
 map('n', '<leader>tw', ':Twilight<CR>', si_nor)
 map('n', '<leader>tz', ':ZenMode<CR>', si_nor)
 map('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)
+-- Minimap
+map('n', '<space>p', ':Minimap<cr>', si_nor)

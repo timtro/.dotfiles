@@ -22,6 +22,14 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
   use 'machakann/vim-highlightedyank'
+  use {
+    -- For minimap.vim, don't forget to `cargo install --locked code-minimap`
+    'wfxr/minimap.vim',
+    config = function()
+      vim.g.minimap_git_colors = true
+      vim.g.minimap_highlight_search = true
+    end,
+  }
   use 'kevinhwang91/rnvimr'
   use 'AndrewRadev/sideways.vim'
   -- use 'Konfekt/FastFold'
