@@ -34,6 +34,7 @@ function main {
 
   start_uniquely compton
   start_uniquely stalonetray -c "$stalonetray_cfg"
+  start_uniquely dunst
   start_uniquely insync start
   start_uniquely variety
   start_uniquely pnmixer
