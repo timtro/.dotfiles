@@ -7,6 +7,13 @@ return require('packer').startup(function(use)
   use 'akinsho/nvim-toggleterm.lua'
   use 'glepnir/dashboard-nvim'
   use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('nvim-tree').setup {}
+    end,
+  }
+  use {
     'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
@@ -39,6 +46,7 @@ return require('packer').startup(function(use)
     'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim',
   }
+  use 'sbdchd/neoformat'
 
   -- movement, buffer-search, formatting and lsp
   use 'andymass/vim-matchup'
@@ -93,9 +101,6 @@ return require('packer').startup(function(use)
   use 'KabbAmine/vCoolor.vim'
   use 'jackguo380/vim-lsp-cxx-highlight'
 
-  -- development
-  use 'tpope/vim-scriptease'
-
   -- colorschemes
   use 'tjdevries/colorbuddy.vim'
   use 'dracula/vim'
@@ -113,13 +118,46 @@ return require('packer').startup(function(use)
   use 'FrenzyExists/aquarium-vim'
 
   -- ft
+  -- -- Org
+  use {
+    'kristijanhusak/orgmode.nvim',
+    branch = 'tree-sitter', -- TODO: Remove once merged with master.
+    config = function()
+      require('orgmode').setup {}
+    end,
+  }
+  use 'dhruvasagar/vim-table-mode'
+  use 'michaelb/sniprun'
+  use {
+    'lukas-reineke/headlines.nvim',
+    config = function()
+      require('headlines').setup()
+    end,
+  }
+  use {
+    'akinsho/org-bullets.nvim',
+    config = function()
+      require('org-bullets').setup {
+        symbols = { '◉', '○', '✸', '✿' },
+      }
+    end,
+  }
+
+  -- -- (La)TeX
   use 'lervag/vimtex'
+  -- -- Markdown
   use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
     cmd = 'MarkdownPreview',
   }
-  use 'sbdchd/neoformat'
+  -- -- glsl
   use 'tikhomirov/vim-glsl'
   use { 'timtro/glslView-nvim', ft = 'glsl' }
+  -- -- Rust
+  use 'simrat39/rust-tools.nvim'
+
+  -- Neo/vim plugin development
+  use 'tpope/vim-scriptease'
+  use 'folke/lua-dev.nvim'
 end)
