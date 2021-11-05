@@ -56,7 +56,7 @@ return function(theme)
             end
             return msg
           end,
-          icon = ' LSP:',
+          icon = ' ',
         },
         'diagnostics',
         sources = { 'nvim_lsp' },
