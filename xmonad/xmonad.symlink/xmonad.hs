@@ -206,12 +206,14 @@ lockerCmd = "i3lock"
 xmobarTile :: String -> String -> String -> String
 xmobarTile fgColor bgColor = xmobarColor fgColor bgColor . wrap " " " "
 
+blankTileBg = fromJust $ Map.lookup "bg_highlight" tokyoNightColours
+
 myPP :: XMonad.Hooks.DynamicLog.PP
 myPP = xmobarPP
   { ppCurrent = xmobarTile bg blue
   , ppVisible = xmobarTile bg purple
-  , ppHidden  = xmobarTile blue ""
-  , ppUrgent  = xmobarTile red ""
+  , ppHidden  = xmobarTile blue blankTileBg
+  , ppUrgent  = xmobarTile red bg
   -- , ppWsSep   = xmobarColor fg "" " │ "
   , ppTitle   = xmobarColor windowBorderColour "" . shorten 120
   , ppSep     = xmobarColor yellow "" "   •   "
@@ -331,6 +333,7 @@ fg = fromJust $ Map.lookup "fg" tokyoNightColours
 
 statusBg :: [Char]
 statusBg = bg
+-- statusBg = fromJust $ Map.lookup "bg_blackest" tokyoNightColours
 
 statusFg :: [Char]
 statusFg = fg
@@ -422,7 +425,8 @@ tpixelColours = Map.fromList
 
 tokyoNightColours :: Map [Char] [Char]
 tokyoNightColours = Map.fromList
-  [  ("bg_night"       , "#1a1b26")
+  [  ("bg_blackest"    , "#15161E")
+  ,  ("bg_night"       , "#1a1b26")
   ,  ("bg_dark"        , "#1f2335")
   ,  ("bg"             , "#24283b")
   ,  ("bg_highlight"   , "#292e42")
