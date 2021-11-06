@@ -15,6 +15,7 @@ import XMonad.Util.NamedScratchpad
   , customFloating
   , namedScratchpadAction
   , namedScratchpadManageHook
+  , namedScratchpadFilterOutWorkspacePP
   )
 import XMonad.Hooks.ManageDocks( ToggleStruts(ToggleStruts), Direction1D(Prev, Next), avoidStruts )
 import XMonad.Hooks.DynamicLog
@@ -209,7 +210,7 @@ xmobarTile fgColor bgColor = xmobarColor fgColor bgColor . wrap " " " "
 blankTileBg = fromJust $ Map.lookup "bg_highlight" tokyoNightColours
 
 myPP :: XMonad.Hooks.DynamicLog.PP
-myPP = xmobarPP
+myPP = namedScratchpadFilterOutWorkspacePP $ xmobarPP
   { ppCurrent = xmobarTile bg blue
   , ppVisible = xmobarTile bg purple
   , ppHidden  = xmobarTile blue blankTileBg
