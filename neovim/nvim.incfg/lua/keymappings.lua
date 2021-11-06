@@ -131,18 +131,7 @@ local keys = {
     ['<A-k>'] = ":m '<-2<CR>gv-gv",
   },
 
-  command_mode = {
-    -- navigate tab completion with <c-j> and <c-k>
-    -- runs conditionally
-    ['<C-j>'] = {
-      'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
-      { expr = true, noremap = true },
-    },
-    ['<C-k>'] = {
-      'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
-      { expr = true, noremap = true },
-    },
-  },
+  command_mode = {},
 }
 
 load(keys)
@@ -209,5 +198,7 @@ map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
 map('n', '<leader>tw', ':Twilight<CR>', si_nor)
 map('n', '<leader>tz', ':ZenMode<CR>', si_nor)
 map('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)
+-- nvim-tree
+map('n', '<space>r', ':NvimTreeToggle<CR>', si_nor)
 -- Minimap
-map('n', '<space>p', ':Minimap<cr>', si_nor)
+map('n', '<space>p', ':MinimapToggle<cr>', si_nor)
