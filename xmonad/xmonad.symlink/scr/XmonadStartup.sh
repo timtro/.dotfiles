@@ -16,6 +16,7 @@ function main {
     xinput --set-prop "Kensington Expert Mouse" "libinput Accel Speed" 1
     xinput --set-prop "Kensington Expert Mouse" "libinput Scroll Method Enabled" 0, 0, 1
     xinput --set-prop 'Kensington Expert Mouse' 'libinput Button Scrolling Button' 3
+    xinput --set-prop 'Kensington Expert Mouse' 'Natural Scrolling Enabled' 1
     stalonetray_cfg="$HOME/.dotfiles/stalonetray/stalonetrayrc.QHDDHQ"
   elif [[ "$host" == "johnny5" ]]; then
     /home/timtro/.screenlayout/default.sh
