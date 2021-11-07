@@ -2,7 +2,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
 
-  -- Editor/IDE tools
+  -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
   use 'akinsho/nvim-toggleterm.lua'
   use 'glepnir/dashboard-nvim'
@@ -65,7 +65,9 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   use 'easymotion/vim-easymotion'
 
-  -- IDE / LSP / completion
+  -- }}}
+
+  -- IDE / LSP / completion {{{
   use 'neovim/nvim-lspconfig'
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -124,8 +126,19 @@ return require('packer').startup(function(use)
   use 'pineapplegiant/spaceduck'
   use 'drewtempelmeyer/palenight.vim'
   use 'FrenzyExists/aquarium-vim'
+  -- }}}
 
-  -- ft
+  -- Notes and Productivity {{{
+  use {
+    'lervag/wiki.vim',
+    config = function()
+      vim.g.wiki_root = '~/Documents/wiki'
+    end,
+  }
+  use 'lervag/wiki-ft.vi'
+  -- }}} (Notes and Productivity)
+
+  -- Filetype and syntax plugins. {{{
   -- -- Org
   use {
     'kristijanhusak/orgmode.nvim',
@@ -150,7 +163,6 @@ return require('packer').startup(function(use)
       }
     end,
   }
-
   -- -- (La)TeX
   use 'lervag/vimtex'
   -- -- Markdown
@@ -168,4 +180,5 @@ return require('packer').startup(function(use)
   -- Neo/vim plugin development
   use 'tpope/vim-scriptease'
   use 'folke/lua-dev.nvim'
+  -- }}}
 end)
