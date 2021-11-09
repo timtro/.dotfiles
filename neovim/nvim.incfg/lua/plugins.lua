@@ -21,23 +21,10 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
   use 'machakann/vim-highlightedyank'
-  use {
-    -- For minimap.vim, don't forget to `cargo install --locked code-minimap`
-    'wfxr/minimap.vim',
-    config = function()
-      vim.g.minimap_git_colors = true
-      vim.g.minimap_highlight_search = true
-    end,
-  }
   use 'kevinhwang91/rnvimr'
   use 'AndrewRadev/sideways.vim'
-  -- use 'Konfekt/FastFold'
   use 'matze/vim-move' -- Block/line move.
-  -- NOTE: vim-move binds: <A-h>, <A-j>, <A-k>, <A-l>
-
-  use 'tversteeg/registers.nvim'
-  -- Shade inactive splits:
-  -- use 'sunjon/shade.nvim'
+  --                       NOTE: this binds <A-h>, <A-j>, <A-k>, <A-l>
   use 'xiyaowong/nvim-transparent'
   use {
     'folke/twilight.nvim',
@@ -55,7 +42,7 @@ return require('packer').startup(function(use)
     'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim',
   }
-  use 'sbdchd/neoformat'
+  use 'tversteeg/registers.nvim'
 
   -- movement, buffer-search, formatting and lsp
   use 'andymass/vim-matchup'
@@ -68,7 +55,7 @@ return require('packer').startup(function(use)
 
   -- }}}
 
-  -- IDE / LSP / completion {{{
+  -- IDE / LSP / completion / formatting {{{
   use 'neovim/nvim-lspconfig'
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -77,19 +64,15 @@ return require('packer').startup(function(use)
   use 'folke/trouble.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    requires = { 'nvim-lua/plenary.nvim' },
   }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
-
   use 'ray-x/lsp_signature.nvim'
-  -- Icons for autocompletion. Configured in lsp.lua:
-  use 'onsails/lspkind-nvim'
-  -- use 'svermeulen/vim-easyclip'
-
+  use 'onsails/lspkind-nvim' -- Icons for autocompletion. Configured in lsp.lua:
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
@@ -98,26 +81,25 @@ return require('packer').startup(function(use)
     },
     run = ':TSUpdate',
   }
-
   -- NOTE: For debugging treesitter
   use 'nvim-treesitter/playground'
-
+  --
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
   }
-
+  use 'sbdchd/neoformat'
   use 'p00f/nvim-ts-rainbow'
   use 'norcalli/nvim-colorizer.lua'
   use 'KabbAmine/vCoolor.vim'
   use 'jackguo380/vim-lsp-cxx-highlight'
+  -- }}}
 
-  -- colorschemes
+  -- Colorschemes {{{
   use 'tjdevries/colorbuddy.vim'
   use 'dracula/vim'
   use 'marko-cerovac/material.nvim'
   use 'Th3Whit3Wolf/onebuddy'
-  -- use 'rakr/vim-one'
   use 'joshdick/onedark.vim'
   use 'lifepillar/vim-gruvbox8'
   use 'folke/tokyonight.nvim'
@@ -138,7 +120,7 @@ return require('packer').startup(function(use)
   }
   -- }}} (Notes and Productivity)
 
-  -- Filetype and syntax plugins. {{{
+  -- Filetype and syntax plugins {{{
   -- -- Org
   use 'kristijanhusak/orgmode.nvim'
 
