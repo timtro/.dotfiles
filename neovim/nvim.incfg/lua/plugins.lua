@@ -32,7 +32,9 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/rnvimr'
   use 'AndrewRadev/sideways.vim'
   -- use 'Konfekt/FastFold'
-  use 'matze/vim-move'
+  use 'matze/vim-move' -- Block/line move.
+  -- NOTE: vim-move binds: <A-h>, <A-j>, <A-k>, <A-l>
+
   use 'tversteeg/registers.nvim'
   -- Shade inactive splits:
   -- use 'sunjon/shade.nvim'

@@ -91,10 +91,6 @@ local keys = {
     ['<S-l>'] = ':BufferNext<CR>',
     ['<S-h>'] = ':BufferPrevious<CR>',
 
-    -- Move current line / block with Alt-j/k a la vscode.
-    ['<A-j>'] = ':m .+1<CR>==',
-    ['<A-k>'] = ':m .-2<CR>==',
-
     -- Clear search hilight and redraw
     ['<C-_>'] = ':nohl<CR><C-L>',
 
