@@ -90,6 +90,8 @@ local keys = {
     -- Open new line and go back to normalmode
     ['<A-o>'] = 'o<Esc>',
     ['<A-O>'] = 'O<Esc>',
+    -- Undotree
+    ['<space>u'] = ':UndotreeToggle<CR><c-w>=',
   },
 
   term_mode = {
@@ -181,5 +183,3 @@ map('n', '<leader>tz', ':ZenMode<CR>', si_nor)
 map('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)
 -- nvim-tree
 map('n', '<space>r', ':NvimTreeToggle<CR>', si_nor)
--- Minimap
-map('n', '<space>p', ':MinimapToggle<cr>', si_nor)

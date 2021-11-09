@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
   }
   use 'tversteeg/registers.nvim'
+  use 'mbbill/undotree'
 
   -- movement, buffer-search, formatting and lsp
   use 'andymass/vim-matchup'
