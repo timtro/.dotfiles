@@ -175,9 +175,9 @@ map('n', '<A-t>', ':RnvimrToggle<cr>', si_nor)
 map('t', '<A-t>', '<M-o> <C-\\><C-n>:RnvimrToggle<CR>', si_nor)
 map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
 -- nvim-tree
-map('n', '<space>r', ':NvimTreeToggle<CR>', si_nor)
+map('n', '<space>d', ':NvimTreeToggle<CR>', si_nor)
 -- Undotree
-map('n', '<space>u', ':UndotreeToggle<CR><c-w>=', si_nor)
+map('n', '<space>u', ':UndotreeToggle<CR>', si_nor)
 -- Coloring and shading plugins:
 map('n', '<leader>tw', ':Twilight<CR>', si_nor)
 map('n', '<leader>tz', ':ZenMode<CR>', si_nor)
