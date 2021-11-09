@@ -52,17 +52,7 @@ local keys = {
     ['kj'] = '<ESC>',
     -- 'jj' for quitting insert mode
     ['jj'] = '<ESC>',
-    -- Following block replaced with matze/vim-move
-    -- -- Move current line / block with Alt-j/k ala vscode.
-    -- ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
-    -- -- Move current line / block with Alt-j/k ala vscode.
-    -- ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
-    -- navigation
-    ['<A-Up>'] = '<C-\\><C-N><C-w>k',
-    ['<A-Down>'] = '<C-\\><C-N><C-w>j',
-    ['<A-Left>'] = '<C-\\><C-N><C-w>h',
-    ['<A-Right>'] = '<C-\\><C-N><C-w>l',
-    -- navigate tab completion with <c-j> and <c-k>
+    -- Navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
     ['<C-j>'] = {
       'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
@@ -76,10 +66,10 @@ local keys = {
 
   normal_mode = {
     -- Better window movement
-    ['<C-h>'] = '<C-w>h',
-    ['<C-j>'] = '<C-w>j',
-    ['<C-k>'] = '<C-w>k',
-    ['<C-l>'] = '<C-w>l',
+    ['<up>'] = '<C-w>k',
+    ['<down>'] = '<C-w>j',
+    ['<left>'] = '<C-w>h',
+    ['<right>'] = '<C-w>l',
 
     -- Resize with arrows
     ['<C-Up>'] = ':resize -2<CR>',
@@ -132,7 +122,7 @@ local keys = {
 
 load(keys)
 
-load(keys)
+-- TODO: port the following mappings to the structure to minimize repetition
 
 local map = vim.api.nvim_set_keymap
 local si_nor = { silent = true, noremap = true }
