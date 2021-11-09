@@ -1,4 +1,4 @@
-local colors = require('tokyonight.colors').setup {}
+local colors = require('tokyonight.colors').setup {style = 'night'}
 
 local function setup()
   vim.opt.background = 'dark'
@@ -33,4 +33,7 @@ local function setup()
   vim.cmd 'colorscheme tokyonight'
 end
 
-return { setup = setup, status_theme = 'tokyonight' }
+local lualine_theme = require 'lualine.themes.tokyonight'
+lualine_theme.normal.c.bg = colors.bg
+
+return { setup = setup, status_theme = lualine_theme }
