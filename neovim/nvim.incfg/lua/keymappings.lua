@@ -90,8 +90,6 @@ local keys = {
     -- Open new line and go back to normalmode
     ['<A-o>'] = 'o<Esc>',
     ['<A-O>'] = 'O<Esc>',
-    -- Undotree
-    ['<space>u'] = ':UndotreeToggle<CR><c-w>=',
   },
 
   term_mode = {
@@ -131,7 +129,7 @@ local si_nor = { silent = true, noremap = true }
 local noremap = { noremap = true }
 
 -- Close a buffer without closing the window
-map('', '<leader>bd', ':bp|bd #<CR>', si_nor)
+map('n', '<leader>bd', ':bp|bd #<CR>', si_nor)
 -- Telescope
 -- map('n', '<c-p>', ':Telescope find_files<cr>', noremap)
 map('n', '<leader>ff', ':Telescope find_files<cr>', noremap)
@@ -176,10 +174,11 @@ map('n', 'gR', '<cmd>Trouble lsp_references<cr>', si_nor)
 map('n', '<A-t>', ':RnvimrToggle<cr>', si_nor)
 map('t', '<A-t>', '<M-o> <C-\\><C-n>:RnvimrToggle<CR>', si_nor)
 map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
--- TODO: Move keys from gitsigns config to here.
--- Coloring and shading:
+-- nvim-tree
+map('n', '<space>r', ':NvimTreeToggle<CR>', si_nor)
+-- Undotree
+map('n', '<space>u', ':UndotreeToggle<CR><c-w>=', si_nor)
+-- Coloring and shading plugins:
 map('n', '<leader>tw', ':Twilight<CR>', si_nor)
 map('n', '<leader>tz', ':ZenMode<CR>', si_nor)
 map('n', '<leader>tr', ':TransparentToggle<CR>', si_nor)
--- nvim-tree
-map('n', '<space>r', ':NvimTreeToggle<CR>', si_nor)
