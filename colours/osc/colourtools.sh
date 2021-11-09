@@ -26,3 +26,7 @@ function cset_rgb() {
   RGB=$2 # Hex with slashes: XX/XX/XX
   printf "\x1b]4;$ANSI;rgb:${RGB}\a"
 }
+
+function scale() {
+  ./scale_html_colour.py $1 $2
+}
