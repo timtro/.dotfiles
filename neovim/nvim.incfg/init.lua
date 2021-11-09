@@ -2,7 +2,7 @@
 vim.opt.encoding = 'utf-8'
 vim.opt.mouse = 'a'
 vim.opt.textwidth = 80
-vim.opt.colorcolumn = { 81 }
+-- vim.opt.colorcolumn = { 81 }
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
