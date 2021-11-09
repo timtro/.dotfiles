@@ -15,8 +15,10 @@ if [ $(uname -n) = "positron" ] ; then
   xrdb -merge /home/timtro/.dotfiles/Xorg/Xdefaults.UHD
   export GDK_SCALE=2
   export GDK_DPI_SCALE=.5
+  export ELM_SCALE=2
   export CLUTTER_SCALE=2
   export XCURSOR_SIZE=48
+  export QT_AUTO_SCREEN_SCALE_FACTOR=1
   gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}]"
 fi
 
