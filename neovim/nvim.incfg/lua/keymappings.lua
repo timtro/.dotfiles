@@ -138,11 +138,6 @@ local map = vim.api.nvim_set_keymap
 local si_nor = { silent = true, noremap = true }
 local noremap = { noremap = true }
 
--- Easymotion searching
-map('', '/', '<Plug>(easymotion-sn)', {})
-map('o', '/', '<Plug>(easymotion-tn)', {})
-map('', 'n', '<Plug>(easymotion-next)', {})
-map('', 'N', '<Plug>(easymotion-prev)', {})
 -- Close a buffer without closing the window
 map('', '<leader>bd', ':bp|bd #<CR>', si_nor)
 -- Telescope

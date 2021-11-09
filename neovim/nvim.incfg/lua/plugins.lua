@@ -64,8 +64,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
   use 'lukas-reineke/indent-blankline.nvim'
-  use 'easymotion/vim-easymotion'
-  use 'ggandor/lightspeed.nvim'
+  use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
 
   -- }}}
 
