@@ -180,5 +180,9 @@ return require('packer').startup(function(use)
   -- Neo/vim plugin development
   use 'tpope/vim-scriptease'
   use 'folke/lua-dev.nvim'
+  use 'rafcamlet/nvim-luapad'
+  use 'rcarriga/nvim-notify'
+  use 'nvim-lua/plenary.nvim'
+
   -- }}}
 end)
