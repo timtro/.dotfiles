@@ -135,18 +135,12 @@ return require('packer').startup(function(use)
       vim.g.wiki_root = '~/Documents/wiki'
     end,
   }
-  use 'lervag/wiki-ft.vi'
   -- }}} (Notes and Productivity)
 
   -- Filetype and syntax plugins. {{{
   -- -- Org
-  use {
-    'kristijanhusak/orgmode.nvim',
-    branch = 'tree-sitter', -- TODO: Remove once merged with master.
-    config = function()
-      require('orgmode').setup {}
-    end,
-  }
+  use 'kristijanhusak/orgmode.nvim'
+
   use 'dhruvasagar/vim-table-mode'
   use 'michaelb/sniprun'
   use {
@@ -183,6 +177,9 @@ return require('packer').startup(function(use)
   use 'rafcamlet/nvim-luapad'
   use 'rcarriga/nvim-notify'
   use 'nvim-lua/plenary.nvim'
+
+  -- wiki
+  use 'lervag/wiki-ft.vim'
 
   -- }}}
 end)
