@@ -157,8 +157,10 @@ return require('packer').startup(function(use)
       }
     end,
   }
+
   -- -- (La)TeX
   use 'lervag/vimtex'
+  use 'jbyuki/nabla.nvim' -- pretty print/ASCII artify LaTeX math.
   -- -- Markdown
   use {
     'iamcco/markdown-preview.nvim',
