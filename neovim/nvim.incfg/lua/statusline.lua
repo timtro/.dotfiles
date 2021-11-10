@@ -28,16 +28,16 @@ return function(theme)
       lualine_b = {
         'filename',
         'branch',
-        {
-          'diff',
-          -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-          diff_color = {
-            color_added = { fg = 'DiffAdd' },
-            color_modified = { fg = 'DiffChange' },
-            color_removed = { fg = 'DiffDelete' },
-          },
-          cond = conditions.hide_in_width,
-        },
+        -- {
+        --   'diff',
+        --   -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+        --   diff_color = {
+        --     color_added = { fg = 'DiffAdd' },
+        --     color_modified = { fg = 'DiffChange' },
+        --     color_removed = { fg = 'DiffDelete' },
+        --   },
+        --   cond = conditions.hide_in_width,
+        -- },
       },
       lualine_c = {
         {
