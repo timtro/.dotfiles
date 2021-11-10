@@ -1,196 +1,172 @@
--- Loading functions borrowed from https://github.com/LunarVim/LunarVim
-
-local generic_opts_any = { noremap = true, silent = true }
-
-local generic_opts = {
-  insert_mode = generic_opts_any,
-  normal_mode = generic_opts_any,
-  visual_mode = generic_opts_any,
-  visual_block_mode = generic_opts_any,
-  command_mode = generic_opts_any,
-  term_mode = { silent = true },
-}
-
-local mode_adapters = {
-  insert_mode = 'i',
-  normal_mode = 'n',
-  term_mode = 't',
-  visual_mode = 'v',
-  visual_block_mode = 'x',
-  command_mode = 'c',
-}
-
-local function set_keymaps(mode, key, val)
-  local opt = generic_opts[mode] and generic_opts[mode] or generic_opts_any
+local function set_keymap(mode, key, val, opts)
   if type(val) == 'table' then
-    opt = val[2]
     val = val[1]
   end
-  vim.api.nvim_set_keymap(mode, key, val, opt)
+  vim.api.nvim_set_keymap(mode, key, val, opts)
 end
 
 -- Load key mappings for a given mode
-local function load_mode(mode, keymaps)
-  mode = mode_adapters[mode] and mode_adapters[mode] or mode
+local function set_maps(mode, keymaps, opts)
+  local opts = opts or { noremap = true, silent = true }
   for k, v in pairs(keymaps) do
-    set_keymaps(mode, k, v)
+    set_keymap(mode, k, v, opts)
   end
 end
 
--- Load key mappings for all provided modes
-local function load(keymaps)
-  for mode, mapping in pairs(keymaps) do
-    load_mode(mode, mapping)
-  end
-end
+-- Non-plugin keymaps {{{
+set_maps('i', {
+  -- 'jk' for quitting insert mode
+  ['jk'] = '<ESC>',
+  -- 'kj' for quitting insert mode
+  ['kj'] = '<ESC>',
+  -- 'jj' for quitting insert mode
+  ['jj'] = '<ESC>',
+  -- Navigate tab completion with <c-j> and <c-k>
+})
 
-local keys = {
-  insert_mode = {
-    -- 'jk' for quitting insert mode
-    ['jk'] = '<ESC>',
-    -- 'kj' for quitting insert mode
-    ['kj'] = '<ESC>',
-    -- 'jj' for quitting insert mode
-    ['jj'] = '<ESC>',
-    -- Navigate tab completion with <c-j> and <c-k>
-    -- runs conditionally
-    ['<C-j>'] = {
-      'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
-      { expr = true, noremap = true },
-    },
-    ['<C-k>'] = {
-      'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
-      { expr = true, noremap = true },
-    },
+set_maps('i', {
+  -- runs conditionally
+  ['<C-j>'] = {
+    'pumvisible() ? "\\<C-n>" : "\\<C-j>"',
   },
-
-  normal_mode = {
-    -- Better window movement
-    ['<up>'] = '<C-w>k',
-    ['<down>'] = '<C-w>j',
-    ['<left>'] = '<C-w>h',
-    ['<right>'] = '<C-w>l',
-
-    -- Resize with arrows
-    ['<C-Up>'] = ':resize -2<CR>',
-    ['<C-Down>'] = ':resize +2<CR>',
-    ['<C-Left>'] = ':vertical resize -2<CR>',
-    ['<C-Right>'] = ':vertical resize +2<CR>',
-
-    -- Tab switch buffer
-    ['<S-l>'] = ':BufferNext<CR>',
-    ['<S-h>'] = ':BufferPrevious<CR>',
-
-    -- Clear search hilight and redraw
-    ['<C-_>'] = ':nohl<CR><C-L>',
-
-    -- Map Y to act like D and C, i.e. to yank until EOL
-    ['Y'] = 'y$',
-
-    -- Open new line and go back to normalmode
-    ['<A-o>'] = 'o<Esc>',
-    ['<A-O>'] = 'O<Esc>',
+  ['<C-k>'] = {
+    'pumvisible() ? "\\<C-p>" : "\\<C-k>"',
   },
+}, {
+  expr = true,
+  noremap = true,
+})
 
-  term_mode = {
-    -- Terminal window navigation
-    ['<C-h>'] = '<C-\\><C-N><C-w>h',
-    ['<C-j>'] = '<C-\\><C-N><C-w>j',
-    ['<C-k>'] = '<C-\\><C-N><C-w>k',
-    ['<C-l>'] = '<C-\\><C-N><C-w>l',
-  },
+set_maps('n', {
+  -- Better window movement
+  ['<up>'] = '<C-w>k',
+  ['<down>'] = '<C-w>j',
+  ['<left>'] = '<C-w>h',
+  ['<right>'] = '<C-w>l',
 
-  visual_mode = {
-    -- Better indenting
-    ['<'] = '<gv',
-    ['>'] = '>gv',
-  },
+  -- Resize with arrows
+  ['<C-Up>'] = ':resize -2<CR>',
+  ['<C-Down>'] = ':resize +2<CR>',
+  ['<C-Left>'] = ':vertical resize -2<CR>',
+  ['<C-Right>'] = ':vertical resize +2<CR>',
 
-  ---@usage change or add keymappings for visual block mode
-  visual_block_mode = {
-    -- Move selected line / block of text in visual mode
-    ['K'] = ":move '<-2<CR>gv-gv",
-    ['J'] = ":move '>+1<CR>gv-gv",
+  -- Tab switch buffer
+  ['<S-l>'] = ':BufferNext<CR>',
+  ['<S-h>'] = ':BufferPrevious<CR>',
 
-    -- Move current line / block with Alt-j/k ala vscode.
-    ['<A-j>'] = ":m '>+1<CR>gv-gv",
-    ['<A-k>'] = ":m '<-2<CR>gv-gv",
-  },
+  -- Clear search hilight and redraw
+  ['<C-_>'] = ':nohl<CR><C-L>',
 
-  command_mode = {},
-}
+  -- Map Y to act like D and C, i.e. to yank until EOL
+  ['Y'] = 'y$',
 
-load(keys)
+  -- Open new line and go back to normalmode
+  ['<A-o>'] = 'o<Esc>',
+  ['<A-O>'] = 'O<Esc>',
 
--- TODO: port the following mappings to the structure to minimize repetition
+  -- Close a buffer without closing the window
+  ['<leader>bd'] = ':bp|bd #<CR>',
+})
 
-local map = vim.api.nvim_set_keymap
-local si_nor = { silent = true, noremap = true }
-local noremap = { noremap = true }
+set_maps('t', {
+  -- Terminal window navigation
+  ['<C-h>'] = '<C-\\><C-N><C-w>h',
+  ['<C-j>'] = '<C-\\><C-N><C-w>j',
+  ['<C-k>'] = '<C-\\><C-N><C-w>k',
+  ['<C-l>'] = '<C-\\><C-N><C-w>l',
+}, {
+  silent = true,
+})
 
--- local function nmap(lhs, rhs, opts)
---   return vim.api.nvim_set_keymap('n', lhs, rhs, opts)
--- end
+set_maps('v', {
+  -- Better indenting
+  ['<'] = '<gv',
+  ['>'] = '>gv',
+})
 
--- local function nmapp(lhs, rhs)
---   return vim.api.nvim_set_keymap('n', lhs, rhs, {})
--- end
+set_maps('x', {
+  -- Move selected line / block of text in visual mode
+  ['K'] = ":move '<-2<CR>gv-gv",
+  ['J'] = ":move '>+1<CR>gv-gv",
 
-local function nnoremap(lhs, rhs)
-  return vim.api.nvim_set_keymap('n', lhs, rhs, {noremap = true})
-end
+  -- Move current line / block with Alt-j/k ala vscode.
+  ['<A-j>'] = ":m '>+1<CR>gv-gv",
+  ['<A-k>'] = ":m '<-2<CR>gv-gv",
+})
+-- }}}
 
--- Close a buffer without closing the window
-nnoremap('<leader>bd', ':bp|bd #<CR>')
+-- Plugin-related keymaps {{{
 -- Telescope
--- map('n', '<c-p>', ':Telescope find_files<cr>', noremap)
-nnoremap('<leader>ff', ':Telescope find_files<cr>')
-nnoremap('<leader>fg', ':Telescope live_grep<cr>')
-nnoremap('<leader>fb', ':Telescope buffers<cr>')
-nnoremap('<leader>fh', ':Telescope help_tags<cr>')
+set_maps('n', {
+  ['<leader>ff'] = ':Telescope find_files<cr>',
+  ['<leader>fg'] = ':Telescope live_grep<cr>',
+  ['<leader>fb'] = ':Telescope buffers<cr>',
+  ['<leader>fh'] = ':Telescope help_tags<cr>',
+})
+
 -- RnVimr
-nnoremap('<leader>rr', ':RnvimrToggle<cr>')
+set_maps('n', { ['<leader>rr'] = ':RnvimrToggle<cr>' })
+
 -- Tabtab
-nnoremap('<A-,>', ':BufferPrevious<CR>')
-nnoremap('<A-.>', ':BufferNext<CR>')
-nnoremap('<A-<>', ':BufferMovePrevious<CR>')
-nnoremap('<A->>', ':BufferMoveNext<CR>')
-nnoremap('<A-c>', ':BufferClose<CR>')
-nnoremap('<A-1>', ':BufferGoto 1<CR>')
-nnoremap('<A-2>', ':BufferGoto 2<CR>')
-nnoremap('<A-3>', ':BufferGoto 3<CR>')
-nnoremap('<A-4>', ':BufferGoto 4<CR>')
-nnoremap('<A-5>', ':BufferGoto 5<CR>')
-nnoremap('<A-6>', ':BufferGoto 6<CR>')
-nnoremap('<A-7>', ':BufferGoto 7<CR>')
-nnoremap('<A-8>', ':BufferGoto 8<CR>')
-nnoremap('<A-9>', ':BufferGoto 9<CR>')
-nnoremap('<A-0>', ':BufferLast<CR>')
-nnoremap('<C-p>', ':BufferPick<CR>')
-nnoremap('<space>bb', ':BufferOrderByBufferNumber<CR>')
-nnoremap('<space>bd', ':BufferOrderByDirectory<CR>')
-nnoremap('<space>bl', ':BufferOrderByLanguage<CR>')
+set_maps('n', {
+  ['<A-,>'] = ':BufferPrevious<CR>',
+  ['<A-.>'] = ':BufferNext<CR>',
+  ['<A-<>'] = ':BufferMovePrevious<CR>',
+  ['<A->>'] = ':BufferMoveNext<CR>',
+  ['<A-c>'] = ':BufferClose<CR>',
+  ['<A-1>'] = ':BufferGoto 1<CR>',
+  ['<A-2>'] = ':BufferGoto 2<CR>',
+  ['<A-3>'] = ':BufferGoto 3<CR>',
+  ['<A-4>'] = ':BufferGoto 4<CR>',
+  ['<A-5>'] = ':BufferGoto 5<CR>',
+  ['<A-6>'] = ':BufferGoto 6<CR>',
+  ['<A-7>'] = ':BufferGoto 7<CR>',
+  ['<A-8>'] = ':BufferGoto 8<CR>',
+  ['<A-9>'] = ':BufferGoto 9<CR>',
+  ['<A-0>'] = ':BufferLast<CR>',
+  ['<C-p>'] = ':BufferPick<CR>',
+  ['<space>bb'] = ':BufferOrderByBufferNumber<CR>',
+  ['<space>bd'] = ':BufferOrderByDirectory<CR>',
+  ['<space>bl'] = ':BufferOrderByLanguage<CR>',
+})
+
 -- Sideways
-nnoremap('<leader>mn', ':SidewaysLeft<cr>')
-nnoremap('<leader>mm', ':SidewaysRight<cr>')
+set_maps('n', {
+  ['<leader>mn'] = ':SidewaysLeft<cr>',
+  ['<leader>mm'] = ':SidewaysRight<cr>',
+})
+
 -- Trouble
-nnoremap('<space>t', ':TroubleToggle<cr>')
-nnoremap('<leader>xx', '<cmd>Trouble<cr>')
-nnoremap('<leader>xw', '<cmd>Trouble lsp_workspace_diagnostics<cr>')
-nnoremap('<leader>xd', '<cmd>Trouble lsp_document_diagnostics<cr>')
-nnoremap('<leader>xl', '<cmd>Trouble loclist<cr>')
-nnoremap('<leader>xq', '<cmd>Trouble quickfix<cr>')
-nnoremap('<leader>xt', '<cmd>Trouble todo<cr>')
-nnoremap('gR', '<cmd>Trouble lsp_references<cr>')
+set_maps('n', {
+  ['<space>t'] = ':TroubleToggle<cr>',
+  ['<leader>xx'] = '<cmd>Trouble<cr>',
+  ['<leader>xw'] = '<cmd>Trouble lsp_workspace_diagnostics<cr>',
+  ['<leader>xd'] = '<cmd>Trouble lsp_document_diagnostics<cr>',
+  ['<leader>xl'] = '<cmd>Trouble loclist<cr>',
+  ['<leader>xq'] = '<cmd>Trouble quickfix<cr>',
+  ['<leader>xt'] = '<cmd>Trouble todo<cr>',
+  ['gR'] = '<cmd>Trouble lsp_references<cr>',
+})
+
 -- Ranger
-nnoremap('<A-t>', ':RnvimrToggle<cr>')
-map('t', '<A-t>', '<M-o> <C-\\><C-n>:RnvimrToggle<CR>', si_nor)
-map('t', '<A-y>', '<C-\\><C-n>:RnvimrResize<CR>', si_nor)
+set_maps('n', { ['<A-t>'] = ':RnvimrToggle<cr>' })
+set_maps('t', {
+  ['<A-t>'] = '<M-o> <C-\\><C-n>:RnvimrToggle<CR>',
+  ['<A-y>'] = '<C-\\><C-n>:RnvimrResize<CR>',
+}, {
+  silent = true,
+})
+
 -- nvim-tree
-nnoremap('<space>d', ':NvimTreeToggle<CR>')
+set_maps('n', { ['<space>d'] = ':NvimTreeToggle<CR>' })
+
 -- Undotree
-nnoremap('<space>u', ':UndotreeToggle<CR>')
+set_maps('n', { ['<space>u'] = ':UndotreeToggle<CR>' })
+
 -- Coloring and shading plugins:
-nnoremap('<leader>tw', ':Twilight<CR>')
-nnoremap('<leader>tz', ':ZenMode<CR>')
-nnoremap('<leader>tr', ':TransparentToggle<CR>')
+set_maps('n', {
+  ['<leader>tw'] = ':Twilight<CR>',
+  ['<leader>tz'] = ':ZenMode<CR>',
+  ['<leader>tr'] = ':TransparentToggle<CR>',
+})
+-- }}}
