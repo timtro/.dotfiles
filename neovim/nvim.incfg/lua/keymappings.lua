@@ -1,4 +1,4 @@
-local function set_keymap(mode, key, val, opts)
+local function set_keymap_from_kv(mode, key, val, opts)
   if type(val) == 'table' then
     val = val[1]
   end
@@ -6,10 +6,10 @@ local function set_keymap(mode, key, val, opts)
 end
 
 -- Load key mappings for a given mode
-local function set_maps(mode, keymaps, opts)
-  local opts = opts or { noremap = true, silent = true }
+local function set_maps(mode, keymaps, options)
+  local opts = options or { noremap = true, silent = true }
   for k, v in pairs(keymaps) do
-    set_keymap(mode, k, v, opts)
+    set_keymap_from_kv(mode, k, v, opts)
   end
 end
 
