@@ -4,7 +4,7 @@ return require('packer').startup(function(use)
   -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
   use 'akinsho/nvim-toggleterm.lua'
-  use 'glepnir/dashboard-nvim'
+  use { 'glepnir/dashboard-nvim', config = require 'config/dashboard' }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -174,7 +174,7 @@ return require('packer').startup(function(use)
 
   -- Neo/vim plugin development
   use 'tpope/vim-scriptease'
-  use 'folke/lua-dev.nvim'
+  -- use 'folke/lua-dev.nvim'
   use 'rafcamlet/nvim-luapad'
   use 'rcarriga/nvim-notify'
   use 'nvim-lua/plenary.nvim'
