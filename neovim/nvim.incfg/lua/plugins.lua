@@ -26,12 +26,8 @@ return require('packer').startup(function(use)
   use 'matze/vim-move' -- Block/line move.
   --                       NOTE: this binds <A-h>, <A-j>, <A-k>, <A-l>
   use 'xiyaowong/nvim-transparent'
-  use {
-    'folke/twilight.nvim',
-    config = function()
-      require('twilight').setup {}
-    end,
-  }
+  use 'folke/twilight.nvim'
+
   use {
     'folke/zen-mode.nvim',
     config = function()
@@ -50,9 +46,28 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary' -- TODO: probation of nunToStr/Comment.nvim
   use 'lukas-reineke/indent-blankline.nvim'
   use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
+
+  -- Probation {{{
+  -- https://editorconfig.org/
+  use 'editorconfig/editorconfig-vim'
+  use 'antoinemadec/FixCursorHold.nvim'
+
+  -- Spellchecking in code using treeistter.
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup { enable = true, spellchecker = 'vimfn' }
+    end,
+  }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  }
 
   -- }}}
 
