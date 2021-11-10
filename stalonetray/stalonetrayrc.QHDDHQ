@@ -4,7 +4,7 @@ dockapp_mode none
 # y = -(h - w) / 2 = -(1440 - 2560) / 2 = +560
 geometry 2x1-1440+560
 max_geometry 0x0
-background "#1f2335"
+background "#1a1b26"
 kludges force_icons_size
 grow_gravity NE
 icon_gravity NE
