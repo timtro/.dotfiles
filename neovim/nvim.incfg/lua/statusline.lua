@@ -27,17 +27,19 @@ return function(theme)
       },
       lualine_b = {
         'filename',
-        'branch',
-        -- {
-        --   'diff',
-        --   -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-        --   diff_color = {
-        --     color_added = { fg = 'DiffAdd' },
-        --     color_modified = { fg = 'DiffChange' },
-        --     color_removed = { fg = 'DiffDelete' },
-        --   },
-        --   cond = conditions.hide_in_width,
-        -- },
+        {
+          'branch',
+          {
+            'diff',
+            -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+            diff_color = {
+              color_added = { fg = 'DiffAdd' },
+              color_modified = { fg = 'DiffChange' },
+              color_removed = { fg = 'DiffDelete' },
+            },
+            cond = conditions.hide_in_width,
+          },
+        },
       },
       lualine_c = {
         {
@@ -58,17 +60,19 @@ return function(theme)
           end,
           icon = ' ',
         },
-        'diagnostics',
-        sources = { 'nvim_lsp' },
-        symbols = { error = ' ', warn = ' ', info = ' ' },
-        diagnostics_color = {
-          color_error = { fg = 'LspDiagnosticsDefaultError' },
-          color_warn = { fg = 'LspDiagnosticsDefaultWarning' },
-          color_info = { fg = 'LspDiagnosticsDefaultInformatio' },
+        {
+          'diagnostics',
+          sources = { 'nvim_lsp' },
+          symbols = { error = ' ', warn = ' ', info = ' ' },
+          diagnostics_color = {
+            color_error = { fg = 'LspDiagnosticsDefaultError' },
+            color_warn = { fg = 'LspDiagnosticsDefaultWarning' },
+            color_info = { fg = 'LspDiagnosticsDefaultInformatio' },
+          },
         },
       },
       lualine_x = {},
-      lualine_y = { 'fileformat', 'filetype', 'progress' },
+      -- lualine_y = { 'fileformat', 'filetype', 'progress' },
       lualine_z = {
         { 'location', separator = { right = '' }, left_padding = 2 },
       },
