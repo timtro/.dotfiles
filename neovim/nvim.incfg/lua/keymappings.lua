@@ -16,11 +16,11 @@ end
 -- Non-plugin keymaps {{{
 set_maps('i', {
   -- 'jk' for quitting insert mode
-  ['jk'] = '<ESC>',
+  ['jk'] = '<esc>',
   -- 'kj' for quitting insert mode
-  ['kj'] = '<ESC>',
+  ['kj'] = '<esc>',
   -- 'jj' for quitting insert mode
-  ['jj'] = '<ESC>',
+  ['jj'] = '<esc>',
   -- Navigate tab completion with <c-j> and <c-k>
 })
 
@@ -45,24 +45,24 @@ set_maps('n', {
   ['<right>'] = '<C-w>l',
 
   -- Resize with arrows
-  ['<C-Up>'] = ':resize -2<CR>',
-  ['<C-Down>'] = ':resize +2<CR>',
-  ['<C-Left>'] = ':vertical resize -2<CR>',
-  ['<C-Right>'] = ':vertical resize +2<CR>',
+  ['<C-Up>'] = ':resize -2<cr>',
+  ['<C-Down>'] = ':resize +2<cr>',
+  ['<C-Left>'] = ':vertical resize -2<cr>',
+  ['<C-Right>'] = ':vertical resize +2<cr>',
 
   -- Tab switch buffer
-  ['<S-l>'] = ':BufferNext<CR>',
-  ['<S-h>'] = ':BufferPrevious<CR>',
+  ['<S-l>'] = ':BufferNext<cr>',
+  ['<S-h>'] = ':BufferPrevious<cr>',
 
   -- Clear search hilight and redraw
-  ['<C-_>'] = ':nohl<CR><C-L>',
+  ['<C-_>'] = ':nohl<cr><C-L>',
 
   -- Map Y to act like D and C, i.e. to yank until EOL
   ['Y'] = 'y$',
 
   -- Open new line and go back to normalmode
-  ['<A-o>'] = 'o<Esc>',
-  ['<A-O>'] = 'O<Esc>',
+  ['<A-o>'] = 'o<esc>',
+  ['<A-O>'] = 'O<esc>',
 
   -- Close a buffer without closing the window
   ['<leader>bd'] = ':bp|bd #<cr>',
@@ -89,12 +89,12 @@ set_maps('v', {
 
 set_maps('x', {
   -- Move selected line / block of text in visual mode
-  ['K'] = ":move '<-2<CR>gv-gv",
-  ['J'] = ":move '>+1<CR>gv-gv",
+  ['K'] = ":move '<-2<cr>gv-gv",
+  ['J'] = ":move '>+1<cr>gv-gv",
 
   -- Move current line / block with Alt-j/k ala vscode.
-  ['<A-j>'] = ":m '>+1<CR>gv-gv",
-  ['<A-k>'] = ":m '<-2<CR>gv-gv",
+  ['<A-j>'] = ":m '>+1<cr>gv-gv",
+  ['<A-k>'] = ":m '<-2<cr>gv-gv",
 })
 -- }}}
 
@@ -112,25 +112,25 @@ set_maps('n', { ['<leader>rr'] = ':RnvimrToggle<cr>' })
 
 -- Tabtab
 set_maps('n', {
-  ['<A-,>'] = ':BufferPrevious<CR>',
-  ['<A-.>'] = ':BufferNext<CR>',
-  ['<A-<>'] = ':BufferMovePrevious<CR>',
-  ['<A->>'] = ':BufferMoveNext<CR>',
-  ['<A-c>'] = ':BufferClose<CR>',
-  ['<A-1>'] = ':BufferGoto 1<CR>',
-  ['<A-2>'] = ':BufferGoto 2<CR>',
-  ['<A-3>'] = ':BufferGoto 3<CR>',
-  ['<A-4>'] = ':BufferGoto 4<CR>',
-  ['<A-5>'] = ':BufferGoto 5<CR>',
-  ['<A-6>'] = ':BufferGoto 6<CR>',
-  ['<A-7>'] = ':BufferGoto 7<CR>',
-  ['<A-8>'] = ':BufferGoto 8<CR>',
-  ['<A-9>'] = ':BufferGoto 9<CR>',
-  ['<A-0>'] = ':BufferLast<CR>',
-  ['<C-p>'] = ':BufferPick<CR>',
-  ['<space>bb'] = ':BufferOrderByBufferNumber<CR>',
-  ['<space>bd'] = ':BufferOrderByDirectory<CR>',
-  ['<space>bl'] = ':BufferOrderByLanguage<CR>',
+  ['<A-,>'] = ':BufferPrevious<cr>',
+  ['<A-.>'] = ':BufferNext<cr>',
+  ['<A-<>'] = ':BufferMovePrevious<cr>',
+  ['<A->>'] = ':BufferMoveNext<cr>',
+  ['<A-c>'] = ':BufferClose<cr>',
+  ['<A-1>'] = ':BufferGoto 1<cr>',
+  ['<A-2>'] = ':BufferGoto 2<cr>',
+  ['<A-3>'] = ':BufferGoto 3<cr>',
+  ['<A-4>'] = ':BufferGoto 4<cr>',
+  ['<A-5>'] = ':BufferGoto 5<cr>',
+  ['<A-6>'] = ':BufferGoto 6<cr>',
+  ['<A-7>'] = ':BufferGoto 7<cr>',
+  ['<A-8>'] = ':BufferGoto 8<cr>',
+  ['<A-9>'] = ':BufferGoto 9<cr>',
+  ['<A-0>'] = ':BufferLast<cr>',
+  ['<C-p>'] = ':BufferPick<cr>',
+  ['<space>bb'] = ':BufferOrderByBufferNumber<cr>',
+  ['<space>bd'] = ':BufferOrderByDirectory<cr>',
+  ['<space>bl'] = ':BufferOrderByLanguage<cr>',
 })
 
 -- Sideways
@@ -154,22 +154,23 @@ set_maps('n', {
 -- Ranger
 set_maps('n', { ['<A-t>'] = ':RnvimrToggle<cr>' })
 set_maps('t', {
-  ['<A-t>'] = '<M-o> <C-\\><C-n>:RnvimrToggle<CR>',
-  ['<A-y>'] = '<C-\\><C-n>:RnvimrResize<CR>',
+  ['<A-t>'] = '<M-o> <C-\\><C-n>:RnvimrToggle<cr>',
+  ['<A-y>'] = '<C-\\><C-n>:RnvimrResize<cr>',
 }, {
   silent = true,
 })
 
--- nvim-tree
-set_maps('n', { ['<space>d'] = ':NvimTreeToggle<CR>' })
-
--- Undotree
-set_maps('n', { ['<space>u'] = ':UndotreeToggle<CR>' })
+-- Utility windows
+set_maps('n', {
+  ['<space>d'] = ':NvimTreeToggle<cr>',
+  ['<space>u'] = ':UndotreeToggle<cr>',
+  ['<space>m'] = ':Messages<cr>',
+})
 
 -- Coloring and shading plugins:
 set_maps('n', {
-  ['<leader>tw'] = ':Twilight<CR>',
-  ['<leader>tz'] = ':ZenMode<CR>',
-  ['<leader>tr'] = ':TransparentToggle<CR>',
+  ['<leader>tw'] = ':Twilight<cr>',
+  ['<leader>tz'] = ':ZenMode<cr>',
+  ['<leader>tr'] = ':TransparentToggle<cr>',
 })
 -- }}}
