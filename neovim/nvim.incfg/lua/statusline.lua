@@ -85,6 +85,6 @@ return function(theme)
       lualine_z = { 'location' },
     },
     tabline = {},
-    extensions = {},
+    extensions = {'nvim-tree'},
   }
 end
