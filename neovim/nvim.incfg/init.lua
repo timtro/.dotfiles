@@ -2,7 +2,7 @@
 vim.opt.encoding = 'utf-8'
 vim.opt.mouse = 'a'
 vim.opt.textwidth = 80
--- vim.opt.colorcolumn = { 81 }
+-- vim.opt.colorcolumn = '81'
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
@@ -16,6 +16,11 @@ vim.opt.backspace = { 'indent', 'eol', 'start' }
 vim.opt.confirm = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
+
+--Folds
+vim.g.fillchars = [[fold:\─,vert:\|]] -- leaders that mark folds.
+-- vim.g.fillchars = [[fold:\ ,vert:\|]] -- leaders that mark folds.
+
 vim.g.python3_host_prog = '/usr/bin/python3'
 -- vim.g.mapleader = '\''
 -- vim.opt.scrolloff = 8
@@ -29,9 +34,6 @@ vim.opt.listchars = {
   tab = '↹ ',
   trail = '·',
 }
-
--- TODO: When I can, move this to a dashboard config.
-vim.g.dashboard_default_executive = 'telescope'
 
 local color_opts = require 'colors.dejour'
 color_opts.setup()
