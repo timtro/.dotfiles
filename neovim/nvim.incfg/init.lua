@@ -40,5 +40,6 @@ require 'statusline'(color_opts.status_theme)
 require 'keymappings'
 require 'packer_bootstrap'
 require 'plugins'
+require 'tim.globals'
 
 vim.cmd [[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]
