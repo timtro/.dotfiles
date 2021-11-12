@@ -26,7 +26,6 @@ return function(theme)
         { 'mode', separator = { left = '' }, right_padding = 2 },
       },
       lualine_b = {
-        'filename',
         {
           'branch',
           {
