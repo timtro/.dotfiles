@@ -56,12 +56,12 @@ return require('packer').startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
 
   -- Spellchecking in code using treeistter.
-  use {
-    'lewis6991/spellsitter.nvim',
-    config = function()
-      require('spellsitter').setup { enable = true, spellchecker = 'vimfn' }
-    end,
-  }
+  -- use {
+  --   'lewis6991/spellsitter.nvim',
+  --   config = function()
+  --     require('spellsitter').setup { enable = false, spellchecker = 'vimfn' }
+  --   end,
+  -- }
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -132,43 +132,54 @@ return require('packer').startup(function(use)
     'lervag/wiki.vim',
     config = function()
       vim.g.wiki_root = '~/Documents/wiki'
+      vim.g.wiki_filetypes = { 'md' }
+      vim.g.wiki_link_extension = '.md'
+      vim.g.wiki_link_target_type = 'md'
     end,
   }
-  -- }}} (Notes and Productivity)
-
-  -- Filetype and syntax plugins {{{
-  -- -- Org
-  use 'kristijanhusak/orgmode.nvim'
-
+  use {
+    'LarsHaalck/wiki.nvim',
+    requires = {
+      'plasticboy/vim-markdown',
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('wiki').setup {
+        wiki_dir = '~/Documents/wiki',
+        export_dir = '~/Documents/wiki/export',
+        pandoc_args = {
+          '--mathjax',
+          '--standalone',
+        },
+      }
+    end,
+  }
   use 'dhruvasagar/vim-table-mode'
-  use 'michaelb/sniprun'
   use {
     'lukas-reineke/headlines.nvim',
     config = function()
       require('headlines').setup()
     end,
   }
-  use {
-    'akinsho/org-bullets.nvim',
-    config = function()
-      require('org-bullets').setup {
-        symbols = { '◉', '○', '✸', '✿' },
-      }
-    end,
-  }
+  -- }}} (Notes and Productivity)
 
+  -- Filetype and syntax plugins {{{
   -- -- (La)TeX
   use 'lervag/vimtex'
   use 'jbyuki/nabla.nvim' -- pretty print/ASCII artify LaTeX math.
+
   -- -- Markdown
   use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
     cmd = 'MarkdownPreview',
   }
+
   -- -- glsl
   use 'tikhomirov/vim-glsl'
   use { 'timtro/glslView-nvim', ft = 'glsl' }
+
   -- -- Rust
   use 'simrat39/rust-tools.nvim'
 
@@ -178,9 +189,6 @@ return require('packer').startup(function(use)
   use 'rafcamlet/nvim-luapad'
   use 'rcarriga/nvim-notify'
   use 'nvim-lua/plenary.nvim'
-
-  -- wiki
-  use 'lervag/wiki-ft.vim'
 
   -- }}}
 end)
