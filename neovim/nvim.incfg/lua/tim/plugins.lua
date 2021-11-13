@@ -138,43 +138,27 @@ return require('packer').startup(function(use)
     end,
   }
   use {
-    'LarsHaalck/wiki.nvim',
-    requires = {
-      'plasticboy/vim-markdown',
-      'nvim-telescope/telescope.nvim',
-      'nvim-lua/plenary.nvim',
-    },
-    config = function()
-      require('wiki').setup {
-        wiki_dir = '~/Documents/wiki',
-        export_dir = '~/Documents/wiki/export',
-        pandoc_args = {
-          '--mathjax',
-          '--standalone',
-        },
-      }
-    end,
-  }
-  use 'dhruvasagar/vim-table-mode'
-  use {
     'lukas-reineke/headlines.nvim',
     config = function()
       require('headlines').setup()
     end,
   }
+  use 'dkarter/bullets.vim'
   -- }}} (Notes and Productivity)
 
   -- Filetype and syntax plugins {{{
+  -- -- General/Text
+  use 'dhruvasagar/vim-table-mode'
+
   -- -- (La)TeX
   use 'lervag/vimtex'
-  use 'jbyuki/nabla.nvim' -- pretty print/ASCII artify LaTeX math.
 
   -- -- Markdown
   use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
-    cmd = 'MarkdownPreview',
   }
+  use 'SidOfc/mkdx'
 
   -- -- glsl
   use 'tikhomirov/vim-glsl'
