@@ -48,6 +48,7 @@ alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf 
 alias edtexmf='edit_in ~/texmf/tex/'
 alias edbib='edit_in ~/texmf/bibtex/bib ~/texmf/bibtex/bib/library.bib'
 alias edepigraphs='edit_in ~/Documents/Writing/Epigraphs ~/Documents/Writing/Epigraphs/Epigraphs.tex'
+alias wiki="edit_in ~/Documents/wiki/ ~/Documents/wiki/index.md"
 # }}}
 
 # Thesis shortcuts {{{
