@@ -18,7 +18,7 @@ return function(theme)
       theme = theme,
       icons_enabled = true,
       -- component_separators = {left = '', right = ''},
-      component_separators = '|', -- '│',
+      component_separators = '·', -- '│',
       section_separators = { left = '', right = '' },
     },
     sections = {
@@ -71,7 +71,7 @@ return function(theme)
         },
       },
       lualine_x = {},
-      -- lualine_y = { 'fileformat', 'filetype', 'progress' },
+      lualine_y = { 'filetype', 'progress' },
       lualine_z = {
         { 'location', separator = { right = '' }, left_padding = 2 },
       },
