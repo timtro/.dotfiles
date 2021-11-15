@@ -70,7 +70,10 @@ set_maps('n', {
   ['<leader>bd'] = ':bp|bd #<cr>',
 
   -- Clear registers a-z
-  ['<leader>cr'] = [[:lua require('tim.functions').cl_alpha_regs()<cr>]]
+  ['<leader>cr'] = [[:lua require('tim.functions').cl_alpha_regs()<cr>]],
+
+  -- Cycle foldcolumn size:
+  ['<leader>z'] = [[:lua require('tim.settings').cycle_fold_col()<cr>]],
 })
 
 set_maps('t', {
