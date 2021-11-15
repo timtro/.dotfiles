@@ -1,5 +1,6 @@
 
 # Editing and movement shortcuts
+alias edhist='$EDITOR ~/.zsh_history'
 alias eddot='edit_in ~/.dotfiles'
 alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown'
 alias edbib='edit_in ~/texmf/bibtex/bib ~/texmf/bibtex/bib/library.bib'
@@ -7,6 +8,8 @@ alias edtexmf='edit_in ~/texmf/tex/'
 alias ednvim='edit_in ~/.config/nvim/ ~/.config/nvim/init.lua'
 alias edxmonad='eddot ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
 alias edzsh='eddot ~/.dotfiles/zsh/zshrc.symlink'
+alias edaliases='eddot $HOME/.dotfiles/zsh/aliases.sh'
+alias edfuncs='eddot $HOME/.dotfiles/zsh/functions.sh'
 alias edXdefaults='eddot -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
 alias edcompose='eddot ~/.XCompose'
 alias edkitty='eddot ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
@@ -38,6 +41,7 @@ if which exa >/dev/null; then
   unalias ll
   alias ll="exa -l -g --icons --color=always"
   alias lld="ll --group-directories-first | less"
+  alias lt="ll -a -stime"
 fi
 
 if which fdfind >/dev/null; then
