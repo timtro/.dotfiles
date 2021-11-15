@@ -1,3 +1,10 @@
+#!/usr/bin/zsh
+
+PROGNAME=$0
+
+function raise_error {
+  echo "${PROGNAME}: 😕… ${1:-"Unknown Error"}" 1>&2
+}
 
 function print_greeting {
   echo "\n"
@@ -111,9 +118,9 @@ function is_git_num_untracked_files {
 }
 
 function edit_in {
-  if [ $EDITOR=="nvim" ]; then
+  if [[ $EDITOR == "nvim" ]]; then
     nvim +"lcd $1" $2
   else
-    echo "I don't know how to set a directory in this editor. :S"
+    raise_error "“\$EDITOR=$EDITOR, and I don't know how to set a working directory with that”"
   fi
 }
