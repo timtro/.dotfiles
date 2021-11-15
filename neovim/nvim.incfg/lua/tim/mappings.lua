@@ -105,6 +105,9 @@ set_maps('n', {
   ['<leader>fg'] = ':Telescope live_grep<cr>',
   ['<leader>fb'] = ':Telescope buffers<cr>',
   ['<leader>fh'] = ':Telescope help_tags<cr>',
+  ['<leader>fd'] = ':Telescope lsp_workspace_diagnostics<cr>',
+  -- Grep in open files.
+  ['<leader>fl'] = ':Telescope live_grep grep_open_files=true<cr>',
 })
 
 -- RnVimr
