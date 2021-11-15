@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/rnvimr'
   use 'AndrewRadev/sideways.vim'
   use 'matze/vim-move' -- Block/line move.
-  --                       NOTE: this binds <A-h>, <A-j>, <A-k>, <A-l>
+  --                       NOTE: this maps <A-h>, <A-j>, <A-k>, <A-l>
   use 'xiyaowong/nvim-transparent'
   use 'folke/twilight.nvim'
 
@@ -40,48 +40,46 @@ return require('packer').startup(function(use)
   }
   use 'tversteeg/registers.nvim'
   use 'mbbill/undotree'
-
-  -- movement, buffer-search, formatting and lsp
   use 'andymass/vim-matchup'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
-  -- use 'tpope/vim-commentary' -- TODO: probation of nunToStr/Comment.nvim
   use 'lukas-reineke/indent-blankline.nvim'
   use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
-
-  -- Probation {{{
   -- https://editorconfig.org/
   use 'editorconfig/editorconfig-vim'
-  use 'antoinemadec/FixCursorHold.nvim'
-
-  -- Spellchecking in code using treeistter.
-  -- use {
-  --   'lewis6991/spellsitter.nvim',
-  --   config = function()
-  --     require('spellsitter').setup { enable = false, spellchecker = 'vimfn' }
-  --   end,
-  -- }
   use {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
     end,
   }
+  use 'KabbAmine/vCoolor.vim'
+  use 'p00f/nvim-ts-rainbow'
 
+  -- -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
+  use {
+    'nvim-telescope/telescope-bibtex.nvim',
+    config = function()
+      require('telescope').load_extension 'bibtex'
+    end,
+  }
+
+  -- TODO: Remove once https://github.com/neovim/neovim/issues/12587 is fixed.
+  use 'antoinemadec/FixCursorHold.nvim'
   -- }}}
 
-  -- IDE / LSP / completion / formatting {{{
+  -- LSP / completion / formatting / snipits {{{
   use 'neovim/nvim-lspconfig'
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'kabouzeid/nvim-lspinstall'
   use 'folke/lsp-colors.nvim'
   use 'folke/trouble.nvim'
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
@@ -105,10 +103,17 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' },
   }
   use 'sbdchd/neoformat'
-  use 'p00f/nvim-ts-rainbow'
   use 'norcalli/nvim-colorizer.lua'
-  use 'KabbAmine/vCoolor.vim'
-  use 'jackguo380/vim-lsp-cxx-highlight'
+  -- }}}
+
+  -- Probation {{{
+  -- Spellchecking in code using treeistter.
+  -- use {
+  --   'lewis6991/spellsitter.nvim',
+  --   config = function()
+  --     require('spellsitter').setup { enable = false, spellchecker = 'vimfn' }
+  --   end,
+  -- }
   -- }}}
 
   -- Colorschemes {{{
@@ -173,6 +178,9 @@ return require('packer').startup(function(use)
   use 'rafcamlet/nvim-luapad'
   use 'rcarriga/nvim-notify'
   use 'nvim-lua/plenary.nvim'
+
+  -- -- C++
+  use 'jackguo380/vim-lsp-cxx-highlight'
 
   -- }}}
 end)
