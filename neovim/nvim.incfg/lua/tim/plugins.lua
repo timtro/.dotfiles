@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
     config = function()
       require('telescope').load_extension 'bibtex'
     end,
+    requires = { 'nvim-telescope/telescope.nvim'},
   }
 
   -- TODO: Remove once https://github.com/neovim/neovim/issues/12587 is fixed.
