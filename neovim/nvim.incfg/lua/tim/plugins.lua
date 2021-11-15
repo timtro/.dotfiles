@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
     config = function()
       require('telescope').load_extension 'bibtex'
     end,
-    requires = { 'nvim-telescope/telescope.nvim'},
+    requires = { 'nvim-telescope/telescope.nvim' },
   }
 
   -- TODO: Remove once https://github.com/neovim/neovim/issues/12587 is fixed.
@@ -150,7 +150,12 @@ return require('packer').startup(function(use)
       require('headlines').setup()
     end,
   }
-  use 'dkarter/bullets.vim'
+  use {
+    'dkarter/bullets.vim',
+    config = function()
+      vim.g.bullets_checkbox_markers = '✗○◐●✓'
+    end,
+  }
   -- }}} (Notes and Productivity)
 
   -- Filetype and syntax plugins {{{
