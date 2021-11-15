@@ -1,3 +1,5 @@
+-- vim: fdm=marker:fdc=1
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -46,8 +48,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'lukas-reineke/indent-blankline.nvim'
   use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
-  -- https://editorconfig.org/
-  use 'editorconfig/editorconfig-vim'
+  use 'editorconfig/editorconfig-vim' -- https://editorconfig.org/
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -118,22 +119,6 @@ return require('packer').startup(function(use)
   -- }
   -- }}}
 
-  -- Colorschemes {{{
-  use 'tjdevries/colorbuddy.vim'
-  use 'dracula/vim'
-  use 'marko-cerovac/material.nvim'
-  use 'Th3Whit3Wolf/onebuddy'
-  use 'joshdick/onedark.vim'
-  use 'lifepillar/vim-gruvbox8'
-  use 'folke/tokyonight.nvim'
-  use 'projekt0n/github-nvim-theme'
-  use 'logico/typewriter-vim'
-  use 'widatama/vim-phoenix'
-  use 'pineapplegiant/spaceduck'
-  use 'drewtempelmeyer/palenight.vim'
-  use 'FrenzyExists/aquarium-vim'
-  -- }}}
-
   -- Notes and Productivity {{{
   use {
     'lervag/wiki.vim',
@@ -188,6 +173,21 @@ return require('packer').startup(function(use)
 
   -- -- C++
   use 'jackguo380/vim-lsp-cxx-highlight'
+  -- }}}
 
+  -- Colorschemes {{{
+  use 'tjdevries/colorbuddy.vim'
+  use 'dracula/vim'
+  use 'marko-cerovac/material.nvim'
+  use 'Th3Whit3Wolf/onebuddy'
+  use 'joshdick/onedark.vim'
+  use 'lifepillar/vim-gruvbox8'
+  use 'folke/tokyonight.nvim'
+  use 'projekt0n/github-nvim-theme'
+  use 'logico/typewriter-vim'
+  use 'widatama/vim-phoenix'
+  use 'pineapplegiant/spaceduck'
+  use 'drewtempelmeyer/palenight.vim'
+  use 'FrenzyExists/aquarium-vim'
   -- }}}
 end)

@@ -1,4 +1,4 @@
--- vim: foldmethod=marker
+-- vim: fdm=marker:fdc=1
 
 local function set_keymap_from_kv(mode, key, val, opts)
   if type(val) == 'table' then

@@ -1,4 +1,4 @@
--- vim: foldmethod=marker
+-- vim: fdm=marker:fdc=1
 
 vim.api.nvim_set_keymap(
   'n',

@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
-# vim: fdm=marker
+# vim: fdm=marker:fdc=1
 
 # GNU and shell tools {{{
 alias ls='ls --color=always'
