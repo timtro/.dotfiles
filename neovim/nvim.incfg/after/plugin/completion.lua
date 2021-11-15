@@ -36,7 +36,7 @@ cmp.setup {
     -- { name = 'ultisnips' },
 
     { name = 'buffer' },
-    { name = 'orgmode'},
+    { name = 'path' },
   },
   formatting = {
     format = function(entry, vim_item)

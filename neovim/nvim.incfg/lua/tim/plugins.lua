@@ -75,6 +75,8 @@ return require('packer').startup(function(use)
 
   -- LSP / completion / formatting / snipits {{{
   use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-path'
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'kabouzeid/nvim-lspinstall'
@@ -82,7 +84,6 @@ return require('packer').startup(function(use)
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use 'ray-x/lsp_signature.nvim'
