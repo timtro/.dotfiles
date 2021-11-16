@@ -181,4 +181,12 @@ set_maps('n', {
   ['<leader>tz'] = ':ZenMode<cr>',
   ['<leader>tr'] = ':TransparentToggle<cr>',
 })
+
+-- Treesitter hint textobject
+set_maps(
+  'o',
+  { ['m'] = [[:<C-U>lua require('tsht').nodes()<cr>]] },
+  { silent = true }
+)
+set_maps('v', { ['m'] = [[:lua require('tsht').nodes()<cr>]] })
 -- }}}

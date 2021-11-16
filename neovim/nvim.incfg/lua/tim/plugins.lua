@@ -117,6 +117,7 @@ return require('packer').startup(function(use)
   --     require('spellsitter').setup { enable = false, spellchecker = 'vimfn' }
   --   end,
   -- }
+  use 'mfussenegger/nvim-treehopper'
   -- }}}
 
   -- Notes and Productivity {{{
