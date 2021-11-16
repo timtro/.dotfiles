@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
   use { 'glepnir/dashboard-nvim', config = require 'config/dashboard' }
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require('nvim-tree').setup {}
     end,
@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
   }
   use {
     'folke/todo-comments.nvim',
-    requires = 'nvim-lua/plenary.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
   }
   use 'tversteeg/registers.nvim'
   use 'mbbill/undotree'
@@ -93,8 +93,8 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
-      'nvim-treesitter/nvim-treesitter-refactor',
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      { 'nvim-treesitter/nvim-treesitter-refactor' },
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
     },
     run = ':TSUpdate',
   }
@@ -128,6 +128,10 @@ return require('packer').startup(function(use)
       vim.g.wiki_link_extension = '.md'
       vim.g.wiki_link_target_type = 'md'
     end,
+  }
+  use {
+    'lervag/wiki-ft.vim',
+    requires = { 'lervag/wiki-ft.vim' },
   }
   use {
     'lukas-reineke/headlines.nvim',
@@ -177,17 +181,22 @@ return require('packer').startup(function(use)
 
   -- Colorschemes {{{
   use 'tjdevries/colorbuddy.vim'
-  use 'dracula/vim'
   use 'marko-cerovac/material.nvim'
-  use 'Th3Whit3Wolf/onebuddy'
   use 'joshdick/onedark.vim'
-  use 'lifepillar/vim-gruvbox8'
   use 'folke/tokyonight.nvim'
-  use 'projekt0n/github-nvim-theme'
   use 'logico/typewriter-vim'
   use 'widatama/vim-phoenix'
   use 'pineapplegiant/spaceduck'
   use 'drewtempelmeyer/palenight.vim'
-  use 'FrenzyExists/aquarium-vim'
+  use 'EdenEast/nightfox.nvim'
+  use 'sainnhe/sonokai'
+  use 'yonlu/omni.vim'
+  use 'RRethy/nvim-base16'
+  use 'shaunsingh/moonlight.nvim'
+  use 'lourenci/github-colors'      -- Compare <
+  use 'projekt0n/github-nvim-theme' -- Compare <
+  use 'sainnhe/gruvbox-material'
+  use 'yashguptaz/calvera-dark.nvim'
+  use 'kdheepak/monochrome.nvim'
   -- }}}
 end)
