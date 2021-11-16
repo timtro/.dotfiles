@@ -19,7 +19,7 @@ vim.opt.foldcolumn = '0'
 vim.opt.fillchars = {
   fold = ' ',
   eob = ' ',
-  diff = '╱', -- alternatives: ⣿ ░ ─ default: -
+  diff = '╱', -- alternatives: ⣿ ░ ─; default: -;
   msgsep = '‾',
   foldopen = '▾',
   foldsep = '│',
@@ -39,13 +39,13 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 
 local M = {}
 
-function M.cycle_fold_col()
-  local foldcolumn_states = {
-    ['0'] = { next = '1' },
-    ['1'] = { next = '2' },
-    ['2'] = { next = '0' },
-  }
+local foldcolumn_states = {
+  ['0'] = { next = '1' },
+  ['1'] = { next = '2' },
+  ['2'] = { next = '0' },
+}
 
+function M.cycle_fold_col()
   local curfold = vim.api.nvim_win_get_option(0, 'foldcolumn')
 
   if tonumber(curfold) > 2 then
