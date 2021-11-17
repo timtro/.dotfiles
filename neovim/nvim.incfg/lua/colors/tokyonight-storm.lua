@@ -18,7 +18,7 @@ local function setup()
   vim.g.tokyonight_day_brightness = 0.3
   vim.g.tokyonight_lualine_bold = true
 
-  local rainbow_colors = {
+  require('colors.util').set_rainbow {
     colors.fg,
     colors.purple,
     colors.blue,
@@ -26,9 +26,7 @@ local function setup()
     colors.orange,
     colors.teal,
     colors.red,
-  };
-
-  (require 'colors.rainbow_setter')(rainbow_colors)
+  }
 
   vim.cmd 'colorscheme tokyonight'
 end

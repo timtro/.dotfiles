@@ -19,7 +19,7 @@ local function setup()
     grey2 = '#cddbf9',
   }
 
-  local rainbow_colors = {
+  require('colors.util').set_rainbow {
     colors.grey2,
     colors.blue,
     colors.green,
@@ -29,8 +29,7 @@ local function setup()
     colors.lightblue,
     colors.lightred,
     colors.grey,
-  };
-  (require 'colors.rainbow_setter')(rainbow_colors)
+  }
 
   vim.cmd 'colorscheme aquarium'
 end

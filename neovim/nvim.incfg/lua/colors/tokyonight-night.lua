@@ -1,4 +1,4 @@
-local colors = require('tokyonight.colors').setup {style = 'night'}
+local colors = require('tokyonight.colors').setup { style = 'night' }
 
 local function setup()
   vim.opt.background = 'dark'
@@ -26,9 +26,15 @@ local function setup()
     colors.orange,
     colors.green,
     colors.fg,
-  };
+  }
 
-  (require 'colors.rainbow_setter')(rainbow_colors)
+  require('colors.util').set_rainbow(rainbow_colors)
+  local cmd = require('colors.util').highlight_cmd(
+    'ColorColumn',
+    { fg = '#FF0000' }
+  )
+  print(cmd)
+  vim.cmd(cmd)
 
   vim.cmd 'colorscheme tokyonight'
 end

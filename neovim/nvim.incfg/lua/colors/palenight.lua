@@ -20,7 +20,7 @@ local function setup()
     black = '#292D3E',
   }
 
-  local rainbow_colors = {
+  require('colors.util').set_rainbow {
     colors.gutter_fg_grey,
     colors.blue,
     colors.green,
@@ -30,8 +30,7 @@ local function setup()
     colors.cyan,
     colors.red,
     colors.dark_red,
-  };
-  (require 'colors.rainbow_setter')(rainbow_colors)
+  }
 
   vim.cmd 'colorscheme palenight'
 end

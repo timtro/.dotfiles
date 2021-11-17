@@ -37,7 +37,7 @@ local function setup()
     )
   )
 
-  local rainbow_colors = {
+  require('colors.util').set_rainbow {
     material_colors.fg,
     material_colors.blue,
     material_colors.purple,
@@ -49,9 +49,7 @@ local function setup()
     material_colors.darkyellow,
     material_colors.darkgreen,
     material_colors.darkorange,
-  };
-
-  (require 'colors.rainbow_setter')(rainbow_colors)
+  }
 
   require('material').setup(material_config)
   vim.cmd [[colorscheme material]]

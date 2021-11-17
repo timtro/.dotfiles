@@ -22,15 +22,13 @@ local colors = {
   lightgray = '#c1c3cc',
 }
 
-local rainbow_colors = {
+require('colors.util').set_rainbow {
   colors.white,
   colors.purple,
   colors.blue,
   colors.yellow,
   colors.gray,
   colors.red,
-};
-
-(require 'colors.rainbow_setter')(rainbow_colors)
+}
 
 return { status_theme = 'spaceduck' }
