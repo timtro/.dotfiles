@@ -1,3 +1,4 @@
+-- vim: fdm=marker:fdc=1
 vim.opt.encoding = 'utf-8'
 vim.opt.mouse = 'a'
 vim.opt.textwidth = 80
@@ -19,7 +20,7 @@ vim.opt.foldcolumn = '0'
 vim.opt.fillchars = {
   fold = ' ',
   eob = ' ',
-  diff = '╱', -- alternatives: ⣿ ░ ─; default: -;
+  diff = '╱', -- default: '-'; alt: '⣿' '░' '─';
   msgsep = '‾',
   foldopen = '▾',
   foldsep = '│',
@@ -37,6 +38,16 @@ vim.cmd 'set undodir=$HOME/tmp/vimundo'
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 
+-- Columns 80 and above are imbued with diagnostic colors:
+-- TODO: Set up command to toggle this.
+vim.cmd [[:match DiagnosticVirtualTextWarn "\%81v."]]
+vim.cmd [[:2match DiagnosticVirtualTextError "\%>81v."]]
+
+-- TODO: The following module should probably get moved, or my settings will be
+-- reset every time this is 'required'?
+
+-- Settings Module {{{
+-- Functions for toggling and cycling options.
 local M = {}
 
 local foldcolumn_states = {
@@ -62,3 +73,4 @@ function M.cycle_fold_col()
 end
 
 return M
+-- }}}

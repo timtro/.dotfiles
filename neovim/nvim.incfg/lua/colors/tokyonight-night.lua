@@ -28,15 +28,8 @@ local function setup()
     colors.fg,
   }
 
-  require('colors.util').set_rainbow(rainbow_colors)
-  local cmd = require('colors.util').highlight_cmd(
-    'ColorColumn',
-    { fg = '#FF0000' }
-  )
-  print(cmd)
-  vim.cmd(cmd)
-
   vim.cmd 'colorscheme tokyonight'
+  require('colors.util').set_rainbow(rainbow_colors)
 end
 
 local lualine_theme = require 'lualine.themes.tokyonight'
