@@ -11,3 +11,7 @@ require 'tim.globals'
 require 'tim.mappings'
 
 vim.cmd [[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]
+
+-- Columns 80 and above are imbued with diagnostic colors:
+vim.cmd [[:match DiagnosticWarn "\%80v."]]
+vim.cmd [[:2match DiagnosticError "\%>80v."]]
