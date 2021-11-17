@@ -7,7 +7,7 @@ M.set_rainbow = function(colors)
   end
 end
 
-M.highlight_cmd = function(group, color)
+M.highlight = function(group, color)
   if color.link then
     vim.cmd('highlight! link ' .. group .. ' ' .. color.link)
   else
@@ -27,7 +27,7 @@ M.highlight_cmd = function(group, color)
       .. ' '
       .. sp
 
-    return hl_cmd
+    vim.cmd(hl_cmd)
   end
 end
 
