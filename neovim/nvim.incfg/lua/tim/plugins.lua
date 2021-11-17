@@ -118,6 +118,7 @@ return require('packer').startup(function(use)
   --   end,
   -- }
   use 'mfussenegger/nvim-treehopper'
+  use 'kevinhwang91/nvim-hlslens'
   -- }}}
 
   -- Notes and Productivity {{{
