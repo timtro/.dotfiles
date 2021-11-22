@@ -14,7 +14,7 @@ Config {
 -- layout
   sepChar  =  "%",  -- delineator between plugin names and straight text
   alignSep = "}{",  -- separator between left-right alignment
-template = " <fn=3><fc=#f7768e></fc><fc=#ff9e64></fc><fc=#9ece6a></fc></fn> %StdinReader% }{ <fc=#3d59a1><fn=2></fn> : </fc>%battery%   <fc=#3d59a1><fn=2></fn> : </fc> %date%   %traygap%",
+template = " <fn=3><fc=#ff9e64></fc><fc=#9ece6a></fc><fc=#7aa2f7></fc><fc=#f7768e></fc></fn> %StdinReader% }{ <fc=#3d59a1><fn=2></fn> : </fc>%battery%   <fc=#3d59a1><fn=2></fn> : </fc> %date%   %traygap%",
 
 -- general behavior
   lowerOnStart =     True,    -- send to bottom of window stack on start
