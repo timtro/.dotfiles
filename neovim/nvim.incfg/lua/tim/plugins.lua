@@ -64,6 +64,12 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' },
   }
   use {
+    'nvim-telescope/telescope-project.nvim',
+    config = function()
+      require('telescope').load_extension 'project'
+    end,
+  }
+  use {
     'nvim-telescope/telescope-bibtex.nvim',
     config = function()
       require('telescope').load_extension 'bibtex'
@@ -111,14 +117,19 @@ return require('packer').startup(function(use)
 
   -- Probation {{{
   -- Spellchecking in code using treeistter.
-  -- use {
-  --   'lewis6991/spellsitter.nvim',
-  --   config = function()
-  --     require('spellsitter').setup { enable = false, spellchecker = 'vimfn' }
-  --   end,
-  -- }
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup {
+        enable = { 'tex', 'md' },
+        spellchecker = 'vimfn',
+      }
+    end,
+  }
   use 'mfussenegger/nvim-treehopper'
   use 'kevinhwang91/nvim-hlslens'
+  -- use 'SidOfc/mkdx'
+
   -- }}}
 
   -- Notes and Productivity {{{
@@ -161,10 +172,8 @@ return require('packer').startup(function(use)
     'iamcco/markdown-preview.nvim',
     run = 'cd app && yarn install',
   }
-  use 'SidOfc/mkdx'
 
   -- -- glsl
-  use 'tikhomirov/vim-glsl'
   use { 'timtro/glslView-nvim', ft = 'glsl' }
 
   -- -- Rust
@@ -195,10 +204,9 @@ return require('packer').startup(function(use)
   use 'yonlu/omni.vim'
   use 'RRethy/nvim-base16'
   use 'shaunsingh/moonlight.nvim'
-  use 'lourenci/github-colors'      -- Compare <
-  use 'projekt0n/github-nvim-theme' -- Compare <
   use 'sainnhe/gruvbox-material'
   use 'yashguptaz/calvera-dark.nvim'
   use 'kdheepak/monochrome.nvim'
+  use 'savq/melange'
   -- }}}
 end)
