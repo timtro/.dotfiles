@@ -1,6 +1,6 @@
 require('telescope').setup {
   defaults = {
-    prompt_prefix = ' ',
+    prompt_prefix = '  ',
     selection_caret = '❯ ',
     color_devicons = true,
     use_less = true,
@@ -9,13 +9,34 @@ require('telescope').setup {
   extensions = {
     bibtex = {
       global_files = {
-        '/home/timtro/texmf/bibtex/bib/library.bib',
-        -- '/home/timtro/texmf/bibtex/bib/standards.bib',
-        '/home/timtro/texmf/bibtex/bib/web-resources.bib',
-        '/home/timtro/texmf/bibtex/bib/mypubs.bib',
+        '/home/timtro/texmf/bibtex/bib',
       },
+      format = 'plain',
+    },
+    project = {
+      base_dirs = {
+        { path = '~/workspace', max_depth = 2 },
+        { path = '~/Documents/Thesis-PhD', max_depth = 1 },
+      },
+      hidden_files = false, -- default: false
     },
   },
 }
 
 require('telescope').load_extension 'bibtex'
+
+local M = {}
+
+function M.grep_wiki()
+  local opts = {}
+  opts.hidden = true
+  opts.search_dirs = {
+    "~/Documents/wiki",
+  }
+  opts.prompt_prefix = " "
+  opts.prompt_title = " Grep Wiki"
+  opts.path_display = { "smart" }
+  require("telescope.builtin").live_grep(opts)
+end
+
+return M

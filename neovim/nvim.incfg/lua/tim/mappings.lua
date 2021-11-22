@@ -109,10 +109,12 @@ set_maps('n', {
   ['<leader>ff'] = ':Telescope find_files<cr>',
   ['<leader>fg'] = ':Telescope live_grep<cr>',
   ['<leader>fb'] = ':Telescope buffers<cr>',
+  ['<leader>fc'] = ':Telescope bibtex theme=dropdown<cr>',
   ['<leader>fh'] = ':Telescope help_tags<cr>',
   ['<leader>fd'] = ':Telescope lsp_workspace_diagnostics<cr>',
   -- Grep in open files.
   ['<leader>fl'] = ':Telescope live_grep grep_open_files=true<cr>',
+  ['<leader>fw'] = [[<cmd>lua require('tim.telescope').grep_wiki()<cr>]],
 })
 
 -- RnVimr
