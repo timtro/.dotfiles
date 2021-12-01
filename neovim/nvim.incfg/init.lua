@@ -6,7 +6,7 @@ color_opts.setup()
 
 require 'tim.statusline'(color_opts.status_theme)
 require 'tim.lsp'
--- require 'tim.completion'
+require 'tim.completion'
 require 'tim.telescope'
 require 'tim.plugins'
 require 'tim.globals'
