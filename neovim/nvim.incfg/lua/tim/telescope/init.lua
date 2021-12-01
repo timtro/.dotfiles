@@ -1,4 +1,6 @@
-require('telescope').setup {
+local telescope = require'telescope'
+
+telescope.setup {
   defaults = {
     prompt_prefix = '  ',
     selection_caret = '❯ ',
@@ -23,7 +25,7 @@ require('telescope').setup {
   },
 }
 
-require('telescope').load_extension 'bibtex'
+telescope.load_extension 'bibtex'
 
 local M = {}
 
