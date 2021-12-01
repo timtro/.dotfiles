@@ -83,11 +83,11 @@ return require('packer').startup(function(use)
 
   -- LSP / completion / formatting / snipits {{{
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-path'
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'kabouzeid/nvim-lspinstall'
   use 'folke/lsp-colors.nvim'
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
