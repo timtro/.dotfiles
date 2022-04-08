@@ -5,6 +5,7 @@ vim.opt.encoding = 'utf-8'
 vim.opt.hidden = true
 vim.opt.mouse = 'a'
 vim.opt.inccommand = 'split'
+vim.opt.laststatus = 3
 
 -- width, tabbing, indenting and wrapping.
 vim.opt.textwidth = 80
@@ -32,9 +33,9 @@ vim.opt.fillchars = {
   eob = ' ',
   diff = '╱', -- default: '-'; alt: '⣿' '░' '─';
   msgsep = '‾',
-  foldopen = '▾',
-  foldsep = '│',
-  foldclose = '▸',
+  foldopen = '▼',
+  foldsep = '┊',
+  foldclose = '▶',
 }
 vim.opt.list = true -- show tabs, eol and trailing spaces.
 vim.opt.listchars = {
@@ -44,12 +45,13 @@ vim.opt.listchars = {
 }
 
 -- Folding (with Treesitter)
-vim.opt.foldcolumn = '0'
-vim.opt.foldmethod = 'expr'
+vim.opt.foldcolumn = '3'
+vim.opt.foldmethod = 'marker'
+-- vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
--- vim.opt.foldlevel = 99
+vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 3
-vim.opt.foldminlines = 4
+vim.opt.foldminlines = 5
 
 -- Search
 vim.opt.hlsearch = true
@@ -82,14 +84,15 @@ local M = {}
 local foldcolumn_states = {
   ['0'] = { next = '1' },
   ['1'] = { next = '2' },
-  ['2'] = { next = '0' },
+  ['2'] = { next = '3' },
+  ['3'] = { next = '0' },
 }
 
 function M.cycle_fold_col()
   local curfold = vim.api.nvim_win_get_option(0, 'foldcolumn')
 
-  if tonumber(curfold) > 2 then
-    curfold = '2'
+  if tonumber(curfold) > 3 then
+    curfold = '3'
   end
 
   vim.opt.foldcolumn = foldcolumn_states[curfold].next

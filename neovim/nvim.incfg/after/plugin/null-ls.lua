@@ -1,5 +1,3 @@
-require('null-ls').config {
+require('null-ls').setup {
   sources = { require('null-ls').builtins.formatting.stylua },
 }
-
-require('lspconfig')['null-ls'].setup {}

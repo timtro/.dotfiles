@@ -24,6 +24,12 @@ set_maps('i', {
   -- 'jj' for quitting insert mode
   ['jj'] = '<esc>',
   -- Navigate tab completion with <c-j> and <c-k>
+
+  -- Make undo breakpoints at punctuation.
+  [','] = ',<c-g>u',
+  ['.'] = '.<c-g>u',
+  ['!'] = '!<c-g>u',
+  ['?'] = '?<c-g>u',
 })
 
 set_maps('i', {
@@ -61,6 +67,14 @@ set_maps('n', {
 
   -- Map Y to act like D and C, i.e. to yank until EOL
   ['Y'] = 'y$',
+
+  -- When incremental searching, keep cursor centred:
+  -- 'n'/'N'—next/Prev,'zz'—centre, 'zv'—open folds
+  ['n'] = 'nzzzv',
+  ['N'] = 'Nzzzv',
+
+  -- 'mz'—save mark z, 'J'—join, '`z'—go to mark z.
+  ['J'] = 'mzJ`z',
 
   -- Open new line and go back to normalmode
   ['<A-o>'] = 'o<esc>',
