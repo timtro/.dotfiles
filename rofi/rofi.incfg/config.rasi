@@ -3,10 +3,11 @@ configuration {
   font: "Symbols Nerd Font 22";
   show-icons: true;
   combi-modi: "drun,run";
-  theme: "/home/timtro/.config/rofi/themes/flat.rasi";
   display-window: " ";
   display-run: "→ ";
   display-ssh: "  ";
   display-drun: "  ";
   display-combi: " ";
 }
+@theme "/home/timtro/.config/rofi/themes/flat.rasi"
+/* @theme "sidebar" */
