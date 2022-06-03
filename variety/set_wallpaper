@@ -33,7 +33,7 @@ if [ "`gsettings get org.gnome.desktop.background picture-options`" == "'none'" 
 fi
 
 if command -v wal; then
-  wal -i "$WP" --backend wal --saturate 0.20 -s -t 2>/dev/null
+  wal -i "$WP" --backend wal --saturate 0.20 -s -t -n 2>/dev/null
   for f in /dev/pts/*; do
     # Test if cava is running in terminal. We don't want to screw up the
     #   colours in windows running cava.
@@ -46,6 +46,5 @@ if command -v wal; then
       echo $curbg$'\a' > $f
     fi
   done
-else
-  feh --bg-fill "$WP" 2> /dev/null
 fi
+feh --bg-fill "$WP" 2> /dev/null
