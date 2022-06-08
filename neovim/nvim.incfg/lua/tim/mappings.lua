@@ -64,6 +64,7 @@ set_maps('n', {
 
   -- Clear search hilight and redraw
   ['<C-_>'] = ':nohl<cr><C-L>',
+  ['<C-/>'] = ':nohl<cr><C-L>',
 
   -- Map Y to act like D and C, i.e. to yank until EOL
   ['Y'] = 'y$',
