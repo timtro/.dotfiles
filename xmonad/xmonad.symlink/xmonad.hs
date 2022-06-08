@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-deprecations #-}
 import XMonad
 import Data.Map.Strict as Map
 import Data.Maybe ( fromJust )
@@ -100,6 +101,7 @@ config_by_host host
       [ ("M-S-r",
           spawn $ "if type xmonad; then "
               ++    "killall compton &&"
+              ++    "xautolock -exit &&"
               ++    "xmonad --recompile &&"
               ++    "xmonad --restart; "
               ++  "else"
@@ -122,7 +124,7 @@ config_by_host host
       , ("<XF86AudioNext>"       , spawn "cmus-remote --next" )
       , ("<XF86Search>"          , spawn "~/.xmonad/scr/display-mirror.sh" )
       , ("M-C-S-p"               , spawn "xprop > ~/xprop-`date +%X`.txt" )
-      , ("M-<Print>"             , spawn "gnome-screenshot -i" )
+      , ("M-<Print>"             , spawn "gnome-screenshot" )
       , ("M-v"                   , spawn "pavucontrol" )
       -- Scratchpads
       , ("M-`", namedScratchpadAction scratchPads "scratchTerminal")
@@ -177,6 +179,7 @@ allhostStartup = do
               ++ "-locker \"" ++ lockerCmd ++ "\" -notify 10 "
               ++ "-notifier \"notify-send -t 5000 "
               ++ "-i gtk-dialog-info \'Locking in 10 seconds\'\" "
+              ++ "-killtime 10 -killer \"xset dpms force off\""
   -- spawn "trayer "
   setWMName "LG3D"
 
