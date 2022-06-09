@@ -74,6 +74,9 @@ ncmpcpp/ncmpcpp.symlink/error.log
 inkscape/inkscape.incfg/extension-errors.log
 inkscape/inkscape.incfg/preferences.xml
 inkscape/inkscape.incfg/extensions/inktex/texput.log
+inkscape/inkscape.incfg/cphistory.xml
+inkscape/inkscape.incfg/dialogs-state.ini
+inkscape/inkscape.incfg/pages.csv
 
 # Ranger
 ranger/ranger.incfg/bookmarks
