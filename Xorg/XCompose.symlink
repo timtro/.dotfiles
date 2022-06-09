@@ -4,6 +4,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 # Arrows
 #
 <Multi_key> <Right> <Right>: "→" U2192 # RIGHTWARDS ARROW
+<Multi_key> <Right> <o>: "⊸" U22B8 # MULTIMAP
 <Multi_key> <greater> <greater> <Right>: "↠" U21A0 # RIGHTWARDS TWO HEADED ARROW
 <Multi_key> <greater> <Right>: "↣" U21A3 # RIGHTWARDS ARROW WITH TAIL
 <Multi_key> <bar> <Right>: "↦" U21A6 # RIGHTWARDS ARROW FROM BAR
@@ -198,6 +199,17 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <minus> <t>: "ₜ" U209C # LATIN SUBSCRIPT SMALL LETTER T
 <Multi_key> <minus> <j>: "ⱼ" U2C7C # LATIN SUBSCRIPT SMALL LETTER J
 
+# Sans digits
+<Multi_key> <apostrophe> <0> : "𝟢" U1D7E2 # MATHEMATICAL SANS-SERIF DIGIT ZERO
+<Multi_key> <apostrophe> <1> : "𝟣" U1D7E3 # MATHEMATICAL SANS-SERIF DIGIT ONE
+<Multi_key> <apostrophe> <2> : "𝟤" U1D7E4 # MATHEMATICAL SANS-SERIF DIGIT TWO
+<Multi_key> <apostrophe> <3> : "𝟥" U1D7E5 # MATHEMATICAL SANS-SERIF DIGIT THREE
+<Multi_key> <apostrophe> <4> : "𝟦" U1D7E6 # MATHEMATICAL SANS-SERIF DIGIT FOUR
+<Multi_key> <apostrophe> <5> : "𝟧" U1D7E7 # MATHEMATICAL SANS-SERIF DIGIT FIVE
+<Multi_key> <apostrophe> <6> : "𝟨" U1D7E8 # MATHEMATICAL SANS-SERIF DIGIT SIX
+<Multi_key> <apostrophe> <7> : "𝟩" U1D7E9 # MATHEMATICAL SANS-SERIF DIGIT SEVEN
+<Multi_key> <apostrophe> <8> : "𝟪" U1D7EA # MATHEMATICAL SANS-SERIF DIGIT EIGHT
+<Multi_key> <apostrophe> <9> : "𝟫" U1D7EB # MATHEMATICAL SANS-SERIF DIGIT NINE
 
 # Italic sans
 #
