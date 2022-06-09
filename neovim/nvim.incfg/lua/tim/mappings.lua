@@ -64,6 +64,7 @@ set_maps('n', {
 
   -- Clear search hilight and redraw
   ['<C-_>'] = ':nohl<cr><C-L>',
+  ['<C-/>'] = ':nohl<cr><C-L>',
 
   -- Map Y to act like D and C, i.e. to yank until EOL
   ['Y'] = 'y$',
@@ -218,4 +219,49 @@ noremap g* g*<Cmd>lua require('hlslens').start()<CR>
 noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 ]]
 
+-- vim-chalk
+-- set_maps(
+--   'v', {
+--   ['zf'] = '<Plug>Chalk', -- fold visual selection
+--   ['=z'] = '<Plug>ChalkUp', -- Increment current fold level.
+--   ['-z'] = '<Plug>ChalkDown', -- Decrement current fold level.
+-- })
+-- set_maps(
+--   'n', {
+--   ['zf'] = '<Plug>Chalk', -- fold motion
+--   ['zF'] = '<Plug>ChalkRange', -- Fold specified no of lines
+--   ['Zf'] = '<Plug>SingleChalk', -- Create opening marker @ cur lvl.
+--   ['ZF'] = '<Plug>SingleChalkUp', -- As above at next lvl or specfied lvl.
+--   ['=z'] = '<Plug>ChalkUp', -- Increment current fold level.
+--   ['-z'] = '<Plug>ChalkDown', -- Decrement current fold level.
+-- })
+vim.cmd [[
+" Create fold at visual selection
+vmap zf <Plug>Chalk
+" Create fold at operator movement
+nmap zf <Plug>Chalk
+" Create fold for specified number of lines
+nmap zF <Plug>ChalkRange
+
+" Create single (opening) fold marker at current level or specified count
+nmap Zf <Plug>SingleChalk
+" Create single (opening) fold marker at next levelor specified count
+nmap ZF <Plug>SingleChalkUp
+
+
+" Increment current fold level
+nmap =z <Plug>ChalkUp
+" Decrement current fold level
+nmap -z <Plug>ChalkDown
+" Increment levels in selection
+vmap =z <Plug>ChalkUp
+" Decrement levels in selection
+vmap -z <Plug>ChalkDown
+]]
+
+-- Redact
+vim.cmd [[
+nmap <leader>r <Plug>Redact
+vmap <leader>r <Plug>Redact
+]]
 -- }}}
