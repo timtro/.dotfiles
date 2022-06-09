@@ -63,6 +63,8 @@ config_by_host host
     allhostConfig
       { borderWidth = 2
       , startupHook = do
+            spawn "xrandr --setprovideroutputsource modesetting NVIDIA-0"
+            spawn "xrandr --auto"
             spawn "xrandr --dpi 180"
             -- Enable tap to click
             spawn "xinput --set-prop \"Synaptics TM3418-002\" \"libinput Tapping Enabled\" 1"
