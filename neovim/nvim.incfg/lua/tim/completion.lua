@@ -3,41 +3,37 @@ vim.cmd 'set completeopt=menu,menuone,noselect'
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 
-cmp.setup {
+
+cmp.setup({
   snippet = {
+    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- For `vsnip` user.
-      vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` user.
-
-      -- For `luasnip` user.
-      -- require('luasnip').lsp_expand(args.body)
-
-      -- For `ultisnips` user.
-      -- vim.fn["UltiSnips#Anon"](args.body)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
-  mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm { select = true },
-  },
-  sources = {
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<TAB>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-
-    -- For vsnip user.
-    { name = 'vsnip' },
-
-    -- For luasnip user.
-    -- { name = 'luasnip' },
-
-    -- For ultisnips user.
-    -- { name = 'ultisnips' },
-
+    { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
     { name = 'buffer' },
-    { name = 'path' },
-  },
+  }),
   formatting = {
     format = function(entry, vim_item)
       -- fancy icons and a name of kind
@@ -56,9 +52,99 @@ cmp.setup {
       return vim_item
     end,
   },
-}
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
 -- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+  capabilities = capabilities
+}
+
+
+
+-- cmp.setup {
+--   snippet = {
+--     expand = function(args)
+--       -- For `vsnip` user.
+--       vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` user.
+--
+--       -- For `luasnip` user.
+--       -- require('luasnip').lsp_expand(args.body)
+--
+--       -- For `ultisnips` user.
+--       -- vim.fn["UltiSnips#Anon"](args.body)
+--     end,
+--   },
+--   mapping = {
+--     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+--     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--     ['<C-Space>'] = cmp.mapping.complete(),
+--     ['<C-e>'] = cmp.mapping.close(),
+--     ['<CR>'] = cmp.mapping.confirm { select = true },
+--   },
+--   sources = {
+--     { name = 'nvim_lsp' },
+--
+--     -- For vsnip user.
+--     { name = 'vsnip' },
+--
+--     -- For luasnip user.
+--     -- { name = 'luasnip' },
+--
+--     -- For ultisnips user.
+--     -- { name = 'ultisnips' },
+--
+--     { name = 'buffer' },
+--     { name = 'path' },
+--   },
+--   formatting = {
+--     format = function(entry, vim_item)
+--       -- fancy icons and a name of kind
+--       vim_item.kind = require('lspkind').presets.default[vim_item.kind]
+--         .. ' '
+--         .. vim_item.kind
+--
+--       -- set a name for each source
+--       vim_item.menu = ({
+--         buffer = '[Buffer]',
+--         nvim_lsp = '[LSP]',
+--         luasnip = '[LuaSnip]',
+--         nvim_lua = '[Lua]',
+--         latex_symbols = '[Latex]',
+--       })[entry.source.name]
+--       return vim_item
+--     end,
+--   },
+-- }
+
 -- require('lspconfig').clangd.setup {
 --   capabilities = require('cmp_nvim_lsp').update_capabilities(
 --     vim.lsp.protocol.make_client_capabilities()

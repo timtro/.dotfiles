@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
 
   -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
-  use 'akinsho/nvim-toggleterm.lua'
+  use 'akinsho/toggleterm.nvim'
   use { 'glepnir/dashboard-nvim', config = require 'config/dashboard' }
   use {
     'kyazdani42/nvim-tree.lua',
@@ -47,7 +47,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
   use 'lukas-reineke/indent-blankline.nvim'
-  use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
   use 'editorconfig/editorconfig-vim' -- https://editorconfig.org/
   use {
     'numToStr/Comment.nvim',
@@ -77,8 +76,15 @@ return require('packer').startup(function(use)
     requires = { 'nvim-telescope/telescope.nvim' },
   }
 
+  -- Rapid movement plugin(s)
+  use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
+
   -- TODO: Remove once https://github.com/neovim/neovim/issues/12587 is fixed.
   use 'antoinemadec/FixCursorHold.nvim'
+
+  -- For prose:
+  use 'dbmrq/vim-redacted' -- To blank out blocks of text.
+  use 'dbmrq/vim-chalk' -- Auto number nested fold markers.
   -- }}}
 
   -- LSP / completion / formatting / snipits {{{
@@ -98,12 +104,10 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim' -- Icons for autocompletion. Configured in lsp.lua:
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
-      { 'nvim-treesitter/nvim-treesitter-refactor' },
-      { 'nvim-treesitter/nvim-treesitter-textobjects' },
-    },
     run = ':TSUpdate',
   }
+  use {'nvim-treesitter/nvim-treesitter-refactor', requires='nvim-treesitter/nvim-treesitter'}
+  use {'nvim-treesitter/nvim-treesitter-textobjects', requires='nvim-treesitter/nvim-treesitter'}
   -- NOTE: For debugging treesitter
   use 'nvim-treesitter/playground'
   --
@@ -161,7 +165,7 @@ return require('packer').startup(function(use)
   -- }}} (Notes and Productivity)
 
   -- Filetype and syntax plugins {{{
-  -- -- General/Text
+  -- -- General/Text/Prose
   use 'dhruvasagar/vim-table-mode'
 
   -- -- (La)TeX
