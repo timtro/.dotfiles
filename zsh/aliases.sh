@@ -23,6 +23,10 @@ if which fdfind >/dev/null; then
   alias fd="fdfind"
 fi
 
+if which ncdu >/dev/null; then
+  alias du="ncdu --color dark"
+fi
+
 # Required for kitty to ssh properly:
 if [ "$TERM" = "xterm-kitty" ]; then
   alias ssh="kitty +kitten ssh"
@@ -40,6 +44,7 @@ alias edfuncs='eddot $HOME/.dotfiles/zsh/functions.sh'
 alias edXdefaults='eddot -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
 alias edcompose='eddot ~/.XCompose'
 alias edkitty='eddot ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
+alias update_kitty='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin'
 # }}}
 
 # General work/writing related {{{
