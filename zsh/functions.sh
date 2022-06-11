@@ -124,3 +124,47 @@ function edit_in {
     raise_error "“\$EDITOR=$EDITOR, and I don't know how to set a working directory with that”"
   fi
 }
+
+function is_running {
+  return `pidof -x "$1" >/dev/null`
+}
+
+function start_uniquely {
+  if is_running $1; then
+    notify-send -t 1000 "Process \"$1\" already running." &
+  else
+    $@ &
+  fi
+}
+
+function load_module_uniquely {
+  if lsmod | grep "$1" &> /dev/null ; then
+    echo "Module $1 aldready running"
+  else
+    echo "Loading module \"$1\"."
+    sudo modprobe $1 $2
+  fi
+}
+
+function reload_module {
+  if lsmod | grep "$1" &> /dev/null ; then
+    echo "Module $1 aldready running, unmounting…"
+    sudo modprobe -r $1
+  fi
+  echo "Loading module \"$1\"."
+  sudo modprobe $*
+}
+
+function cast_android {
+  reload_module v4l2loopback \
+      devices=2 \
+      video_nr=9,10 \
+      card_label="OBS Video Source","Android Video Source" \
+      exclusive_caps=1
+  start_uniquely scrcpy --v4l2-sink /dev/video10 --no-display --max-size 1920
+}
+
+function uncast_android {
+  sudo modprobe -r v4l2loopback
+  killall scrcpy
+}
