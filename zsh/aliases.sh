@@ -10,7 +10,7 @@ alias xrdb-replace='xrdb -remove -all && xrdb -load'
 alias Clear="clear && print_greeting"
 alias seecompose="$EDITOR /usr/share/X11/locale/en_US.UTF-8/Compose"
 alias seekeys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p'"
-alias bat="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
+alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 if which exa >/dev/null; then
   unalias ll
@@ -21,6 +21,12 @@ fi
 
 if which fdfind >/dev/null; then
   alias fd="fdfind"
+fi
+
+if which batcat >/dev/null; then
+  if ! which bat >/dev/null; then
+    alias bat="batcat"
+  fi
 fi
 
 if which ncdu >/dev/null; then
