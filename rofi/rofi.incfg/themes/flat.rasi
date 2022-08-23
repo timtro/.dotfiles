@@ -22,7 +22,7 @@
   urgent-foreground:           rgba ( 40, 40, 40, 100% );
   urgent-background:           rgba ( 204, 36, 29, 100% );
   selected-normal-foreground:  @red;
-  selected-normal-background:  @transparent;
+  selected-normal-background:  rgba ( 100, 100, 130, 30% );
   selected-active-foreground:  rgba ( 40, 40, 40, 100% );
   selected-active-background:  @transparent;
   selected-urgent-foreground:  rgba ( 40, 40, 40, 100% );
@@ -97,7 +97,7 @@
 }
 
 #element.selected.normal {
-  // background-color: @selected-normal-background;
+  background-color: @selected-normal-background;
   text-color: @selected-normal-foreground;
 }
 
