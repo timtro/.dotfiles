@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
   -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
   use 'akinsho/toggleterm.nvim'
-  use { 'glepnir/dashboard-nvim', config = require 'config/dashboard' }
+  use { 'glepnir/dashboard-nvim', config = function() require 'config/dashboard' end }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
     'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
-  use {
+  use { -- Tabs
     'romgrk/barbar.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
@@ -98,16 +98,29 @@ return require('packer').startup(function(use)
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/cmp-vsnip'
+  -- use 'hrsh7th/vim-vsnip'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use {
+    "iurimateus/luasnip-latex-snippets.nvim",
+    -- replace "lervag/vimtex" with "nvim-treesitter/nvim-treesitter" if you're
+    -- using treesitter.
+    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require 'luasnip-latex-snippets'.setup()
+      -- or setup({ use_treesitter = true })
+    end,
+    ft = "tex",
+  }
   use 'ray-x/lsp_signature.nvim'
   use 'onsails/lspkind-nvim' -- Icons for autocompletion. Configured in lsp.lua:
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
-  use {'nvim-treesitter/nvim-treesitter-refactor', requires='nvim-treesitter/nvim-treesitter'}
-  use {'nvim-treesitter/nvim-treesitter-textobjects', requires='nvim-treesitter/nvim-treesitter'}
+  use { 'nvim-treesitter/nvim-treesitter-refactor', requires = 'nvim-treesitter/nvim-treesitter' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = 'nvim-treesitter/nvim-treesitter' }
   -- NOTE: For debugging treesitter
   use 'nvim-treesitter/playground'
   --

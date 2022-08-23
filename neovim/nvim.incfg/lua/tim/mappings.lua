@@ -118,7 +118,7 @@ set_maps('x', {
 })
 -- }}}
 
--- Plugin-related keymaps {{{
+-- Plugin-related keymaps                                                   {{{1
 -- Telescope
 set_maps('n', {
   ['<leader>ff'] = ':Telescope find_files<cr>',
@@ -135,12 +135,14 @@ set_maps('n', {
 -- RnVimr
 set_maps('n', { ['<leader>rr'] = ':RnvimrToggle<cr>' })
 
--- Tabtab
+-- barbar tabs
 set_maps('n', {
-  ['<A-,>'] = ':BufferPrevious<cr>',
-  ['<A-.>'] = ':BufferNext<cr>',
-  ['<A-<>'] = ':BufferMovePrevious<cr>',
-  ['<A->>'] = ':BufferMoveNext<cr>',
+  -- ['<A-,>'] = ':BufferPrevious<cr>',
+  -- ['<A-.>'] = ':BufferNext<cr>',
+  ['<leader>b['] = ':BufferMovePrevious<cr>',
+  ['<leader>b]'] = ':BufferMoveNext<cr>',
+  ['<A-,>'] = ':BufferMovePrevious<cr>',
+  ['<A-.>'] = ':BufferMoveNext<cr>',
   ['<A-c>'] = ':BufferClose<cr>',
   ['<A-1>'] = ':BufferGoto 1<cr>',
   ['<A-2>'] = ':BufferGoto 2<cr>',
@@ -264,4 +266,21 @@ vim.cmd [[
 nmap <leader>r <Plug>Redact
 vmap <leader>r <Plug>Redact
 ]]
--- }}}
+
+-- luasnip                                                                  {{{2
+vim.cmd [[
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+" -1 for jumping backwards.
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+" For changing choices in choiceNodes (not strictly necessary for a basic setup).
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+]]
+--                                                                          }}}2
+--                                                                          }}}1
