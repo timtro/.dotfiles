@@ -71,7 +71,7 @@ local on_attach = function(client, bufnr)
     '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',
     opts
   )
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 end
 
 local lsp_installer = require 'nvim-lsp-installer'
