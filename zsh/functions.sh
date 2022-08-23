@@ -168,3 +168,17 @@ function uncast_android {
   sudo modprobe -r v4l2loopback
   killall scrcpy
 }
+
+function run_gl {
+  if system76-power graphics &> /dev/null ; then
+    graphics=`system76-power graphics`
+    if [ "$grapics" != "hybrid" ] ; then
+      printf '%s' "ERROR: graphics mode is currently set to '$graphics', but"
+      printf ' %s\n' "this command requires graphics set to 'hybrid'."
+    else
+      __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia $1
+    fi
+  else
+    echo "ERROR: command requires system76-power in path"
+  fi
+}
