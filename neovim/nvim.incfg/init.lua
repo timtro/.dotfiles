@@ -8,9 +8,9 @@ end
 
 local colours_dejour = function (dt)
   if is_daylight(dt) then
-    return 'colors.nighttime'
+    return 'colors.tokyonight-night'
   else
-    return 'colors.nighttime'
+    return 'colors.tokyonight-night'
   end
 end
 
