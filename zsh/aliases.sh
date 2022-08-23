@@ -17,6 +17,8 @@ if which exa >/dev/null; then
   alias ll="exa -l -g --icons --color=always"
   alias lld="ll --group-directories-first | less"
   alias lt="ll -a -stime"
+  alias lat="ll -a -stime"
+  alias llt="ll -a -stime"
 fi
 
 if which fdfind >/dev/null; then
@@ -31,6 +33,10 @@ fi
 
 if which ncdu >/dev/null; then
   alias du="ncdu --color dark"
+fi
+
+if which duf >/dev/null; then
+  alias dufs="duf"
 fi
 
 # Required for kitty to ssh properly:
