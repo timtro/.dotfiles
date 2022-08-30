@@ -1,18 +1,62 @@
-return function(theme)
-  local conditions = {
-    buffer_not_empty = function()
-      return vim.fn.empty(vim.fn.expand '%:t') ~= 1
-    end,
-    hide_in_width = function()
-      return vim.fn.winwidth(0) > 80
-    end,
-    check_git_workspace = function()
-      local filepath = vim.fn.expand '%:p:h'
-      local gitdir = vim.fn.finddir('.git', filepath .. ';')
-      return gitdir and #gitdir > 0 and #gitdir < #filepath
-    end,
-  }
+local conditions = {
+  buffer_not_empty = function()
+    return vim.fn.empty(vim.fn.expand '%:t') ~= 1
+  end,
+  hide_in_width = function()
+    return vim.fn.winwidth(0) > 80
+  end,
+  check_git_workspace = function()
+    local filepath = vim.fn.expand '%:p:h'
+    local gitdir = vim.fn.finddir('.git', filepath .. ';')
+    return gitdir and #gitdir > 0 and #gitdir < #filepath
+  end,
+}
 
+local lsp_HUD = {
+  function()
+    local msg = 'No Active Lsp'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+      return msg
+    end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return client.name
+      end
+    end
+    return msg
+  end,
+  icon = ' ',
+}
+
+local lsp_diagnostics_HUD = {
+  'diagnostics',
+  sources = { 'nvim_diagnostic' },
+  symbols = { error = ' ', warn = ' ', info = ' ' },
+  diagnostics_color = {
+    color_error = { fg = 'LspDiagnosticsDefaultError' },
+    color_warn = { fg = 'LspDiagnosticsDefaultWarning' },
+    color_info = { fg = 'LspDiagnosticsDefaultInformatio' },
+  },
+}
+
+local git_HUD = {
+  'branch',
+  {
+    'diff',
+    -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+    diff_color = {
+      color_added = { fg = 'DiffAdd' },
+      color_modified = { fg = 'DiffChange' },
+      color_removed = { fg = 'DiffDelete' },
+    },
+    cond = conditions.hide_in_width,
+  },
+}
+
+return function(theme)
   require('lualine').setup {
     options = {
       theme = theme,
@@ -23,53 +67,14 @@ return function(theme)
     },
     sections = {
       lualine_a = {
-        { 'mode', separator = { left = '' }, right_padding = 2 },
-      },
-      lualine_b = {
         {
-          'branch',
-          {
-            'diff',
-            -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-            diff_color = {
-              color_added = { fg = 'DiffAdd' },
-              color_modified = { fg = 'DiffChange' },
-              color_removed = { fg = 'DiffDelete' },
-            },
-            cond = conditions.hide_in_width,
-          },
+          'mode',
+          separator = { left = '', right = '' },
+          right_padding = 2,
         },
       },
-      lualine_c = {
-        {
-          function()
-            local msg = 'No Active Lsp'
-            local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-            local clients = vim.lsp.get_active_clients()
-            if next(clients) == nil then
-              return msg
-            end
-            for _, client in ipairs(clients) do
-              local filetypes = client.config.filetypes
-              if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                return client.name
-              end
-            end
-            return msg
-          end,
-          icon = ' ',
-        },
-        {
-          'diagnostics',
-          sources = { 'nvim_diagnostic' },
-          symbols = { error = ' ', warn = ' ', info = ' ' },
-          diagnostics_color = {
-            color_error = { fg = 'LspDiagnosticsDefaultError' },
-            color_warn = { fg = 'LspDiagnosticsDefaultWarning' },
-            color_info = { fg = 'LspDiagnosticsDefaultInformatio' },
-          },
-        },
-      },
+      lualine_b = {},
+      lualine_c = { lsp_diagnostics_HUD },
       lualine_x = {},
       lualine_y = { 'filetype', 'progress' },
       lualine_z = {
@@ -85,6 +90,6 @@ return function(theme)
       lualine_z = { 'location' },
     },
     tabline = {},
-    extensions = {'nvim-tree'},
+    extensions = { 'nvim-tree' },
   }
 end
