@@ -18,11 +18,11 @@ end
 -- Non-plugin keymaps {{{
 set_maps('i', {
   -- 'jk' for quitting insert mode
-  ['jk'] = '<esc>',
+  -- ['jk'] = '<esc>',
   -- 'kj' for quitting insert mode
-  ['kj'] = '<esc>',
+  -- ['kj'] = '<esc>',
   -- 'jj' for quitting insert mode
-  ['jj'] = '<esc>',
+  -- ['jj'] = '<esc>',
   -- Navigate tab completion with <c-j> and <c-k>
 
   -- Make undo breakpoints at punctuation.
@@ -268,19 +268,12 @@ vmap <leader>r <Plug>Redact
 ]]
 
 -- luasnip                                                                  {{{2
-vim.cmd [[
-" press <Tab> to expand or jump in a snippet. These can also be mapped separately
-" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-" -1 for jumping backwards.
-inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
-snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
-
-" For changing choices in choiceNodes (not strictly necessary for a basic setup).
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-]]
+-- set in ~/.config/nvim/after/plugin/luasnip.lua
+vim.keymap.set("n",
+  "<leader><leader>s",
+  "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>")
 --                                                                          }}}2
 --                                                                          }}}1
+vim.keymap.set("n",
+  "<leader><leader>m",
+  "<cmd>source ~/.config/nvim/lua/tim/mappings.lua<cr>")
