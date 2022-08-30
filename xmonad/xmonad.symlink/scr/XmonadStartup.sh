@@ -33,7 +33,8 @@ function main {
     notify-send "WARNING: Tim, your custom Xmonad script doesn't know this host: '$host'."
   fi
 
-  start_uniquely compton
+  # start_uniquely compton
+  start_uniquely "picom --experimental-backends"
   start_uniquely stalonetray -c "$stalonetray_cfg"
   start_uniquely dunst
   start_uniquely insync start
@@ -42,6 +43,7 @@ function main {
   start_uniquely nm-applet
   start_uniquely blueman-applet
   start_printer_applet
+  start_uniquely "redshift -l 43.897095:-78.865791"
 }
 
 function start_uniquely {

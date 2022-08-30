@@ -103,6 +103,7 @@ config_by_host host
       [ ("M-S-r",
           spawn $ "if type xmonad; then "
               ++    "killall compton &&"
+              ++    "killall picom &&"
               ++    "xautolock -exit &&"
               ++    "xmonad --recompile &&"
               ++    "xmonad --restart; "
