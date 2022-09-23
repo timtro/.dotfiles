@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
   -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
   use 'akinsho/toggleterm.nvim'
-  use { 'glepnir/dashboard-nvim', config = function() require 'config/dashboard' end }
+  use 'glepnir/dashboard-nvim'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -101,17 +101,23 @@ return require('packer').startup(function(use)
   -- use 'hrsh7th/cmp-vsnip'
   use {
     'L3MON4D3/LuaSnip',
-    after = 'nvim-cmp'
+    after = 'nvim-cmp',
   }
-  use {'saadparwaiz1/cmp_luasnip'}
+  use { 'saadparwaiz1/cmp_luasnip' }
   use 'ray-x/lsp_signature.nvim'
   use 'onsails/lspkind-nvim' -- Icons for autocompletion. Configured in lsp.lua:
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
-  use { 'nvim-treesitter/nvim-treesitter-refactor', requires = 'nvim-treesitter/nvim-treesitter' }
-  use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = 'nvim-treesitter/nvim-treesitter' }
+  use {
+    'nvim-treesitter/nvim-treesitter-refactor',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
   -- NOTE: For debugging treesitter
   use 'nvim-treesitter/playground'
   --
@@ -203,6 +209,8 @@ return require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
   use 'joshdick/onedark.vim'
   use 'folke/tokyonight.nvim'
+  use 'lifepillar/vim-gruvbox8'
+  use 'ellisonleao/gruvbox.nvim'
   use 'logico/typewriter-vim'
   use 'widatama/vim-phoenix'
   use 'pineapplegiant/spaceduck'

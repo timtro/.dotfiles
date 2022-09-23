@@ -8,7 +8,7 @@ local function setup()
   let g:gruvbox_italicize_strings = 1
   let g:gruvbox_bold = 1
   let g:gruvbox_underline = 1
-  let g:gruvbox_transp_bg = 0
+  let g:gruvbox_transp_bg = 1
   let g:gruvbox_filetype_hi_groups = 1
   let g:gruvbox_plugin_hi_groups = 1
   ]]
@@ -29,15 +29,17 @@ local function setup()
     palette.gruv.dkOrange,
   }
 
-  vim.cmd(
-    string.format(
-      'highlight IndentBlanklineContextChar guifg=%s gui=nocombine cterm=nocombine',
-      palette.gruv.blue
-    )
-  )
+  vim.api.nvim_set_hl(0, 'IndentBlanklineContextChar', { fg = palette.gruv.blue })
 
-  local f = require 'colors.rainbow_setter'
-  f(rainbow_colors)
+  if vim.g.gruvbox_transp_bg then
+    vim.api.nvim_set_hl(0, 'FoldColumn', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'Folded', { bg = 'none' })
+    -- vim.api.nvim_set_hl(0, 'BufferTabpageFill', { bg = 'none' })
+    vim.cmd[[hi BufferTabpageFill guifg=none guibg=none]]
+  end
+
+  -- local f = require 'colors.rainbow_setter'
+  -- f(rainbow_colors)
 end
 
 -- local lualine_theme = require 'lualine.themes.tokyonight'

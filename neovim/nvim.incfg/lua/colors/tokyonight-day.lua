@@ -4,7 +4,7 @@ local function setup()
   vim.opt.background = 'light'
   vim.g.tokyonight_style = 'day'
 
-  vim.g.tokyonight_transparent = false
+  vim.g.tokyonight_transparent = true
   vim.g.tokyonight_italic_comments = false
   vim.g.tokyonight_italic_keywords = true
   vim.g.tokyonight_italic_functions = false
@@ -15,7 +15,7 @@ local function setup()
   vim.g.tokyonight_dark_sidebar = false
   vim.g.tokyonight_dark_float = true
   vim.g.tokyonight_colors = {}
-  vim.g.tokyonight_day_brightness = 0.3
+  vim.g.tokyonight_day_brightness = 0.8
   vim.g.tokyonight_lualine_bold = true
 
   require('colors.util').set_rainbow {

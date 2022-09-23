@@ -115,6 +115,7 @@ set_maps('x', {
   -- Move current line / block with Alt-j/k ala vscode.
   ['<A-j>'] = ":m '>+1<cr>gv-gv",
   ['<A-k>'] = ":m '<-2<cr>gv-gv",
+  ['<leader>p'] = [["_dP]], -- don't replace reg when pasting over visal sel.
 })
 -- }}}
 
@@ -269,11 +270,15 @@ vmap <leader>r <Plug>Redact
 
 -- luasnip                                                                  {{{2
 -- set in ~/.config/nvim/after/plugin/luasnip.lua
-vim.keymap.set("n",
-  "<leader><leader>s",
-  "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>")
+vim.keymap.set(
+  'n',
+  '<leader><leader>s',
+  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>'
+)
 --                                                                          }}}2
 --                                                                          }}}1
-vim.keymap.set("n",
-  "<leader><leader>m",
-  "<cmd>source ~/.config/nvim/lua/tim/mappings.lua<cr>")
+vim.keymap.set(
+  'n',
+  '<leader><leader>m',
+  '<cmd>source ~/.config/nvim/lua/tim/mappings.lua<cr>'
+)

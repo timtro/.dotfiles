@@ -24,10 +24,14 @@ local same = RL('tim.snippets').same
 local snippets = {
   ls.parser.parse_snippet(
     { trig = 'emph', name = 'Emphasis' },
-    '\\emph{${1:${TM_SELECTED_TEXT}}} $0'
+    '\\emph{${1:${TM_SELECTED_TEXT}}}$0'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'bf', name = 'Boldface' },
+    '\\textbf{${1:${TM_SELECTED_TEXT}}} $0'
   ),
   ls.parser.parse_snippet({
-    trig = 'inar',
+    trig = 'cdar',
     name = 'Inline function arrow',
   }, '\\begin{tikzcd}[cramped, sep=small] $1 \\rar["$2"] & $3 \\end{tikzcd}$0'),
   ls.parser.parse_snippet(
@@ -36,7 +40,7 @@ local snippets = {
   ),
   ls.parser.parse_snippet(
     { trig = 'biglr(', name = 'bigl( bigr)' },
-    '\\left( ${1:${TM_SELECTED_TEXT}} \\right) $0'
+    '\\bigl( ${1:${TM_SELECTED_TEXT}} \\bigr) $0'
   ),
   ls.parser.parse_snippet(
     { trig = 'lr{', name = 'left{ right}' },
@@ -54,21 +58,71 @@ local snippets = {
     { trig = 'biglr[', name = 'bigl[ bigr]' },
     '\\bigl[ ${1:${TM_SELECTED_TEXT}} \\bigr] $0'
   ),
+  ls.parser.parse_snippet(
+    { trig = 'bmfr', name = 'Empty Beamer frame' },
+    '\\begin{frame}\n\t$0\n\\end{frame}'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'bmit', name = 'Beamer frame with itemization' },
+    '\\begin{frame}'
+    .. '\n\t\\begin{itemize}$0'
+    .. '\n\t\\end{itemize}\n'
+    .. '\\end{frame}'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'bmma', name = 'Beamer frame with displaymath' },
+    '\\begin{frame}\n\t\\[$0\n\t\\]\n\\end{frame}'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'bmtk', name = 'Beamer frame with TikZ environment' },
+    '\\begin{frame}'
+    .. '\n\t\\['
+    .. '\n\t\t\\begin{tikzpicture}$0'
+    .. '\n\t\t\\end{tikzpicture}'
+    .. '\n\t\\]\n'
+    .. '\\end{frame}'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'vfill', name = 'Vertical fill' },
+    '\\vspace*{\\fill}'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'miles', name = 'Message for Miles' },
+    'I love your, Miles!'
+  ),
 }
 
 local autosnippets = {
   s(
-    { trig = 'em|(.+)|', regTrig = true, name = 'Emphasis shorthand' },
+    { trig = 'em|(.+)|', regTrig = true, name = 'Emphasis' },
     f(function(_, snip)
       return '\\emph{' .. snip.captures[1] .. '}'
     end)
   ),
-  ls.parser.parse_snippet(
-    { trig = 'beg', name = 'begin{} / end{}' },
-    '\\begin{$1}\n\t$0\n\\end{$1}'
+  s(
+    { trig = 'bf|(.+)|', regTrig = true, name = 'Bolf font' },
+    f(function(_, snip)
+      return '\\textbf{' .. snip.captures[1] .. '}'
+    end)
   ),
   s(
-    { trig = 'ali', name = 'Align' },
+    { trig = 'tt|(.+)|', regTrig = true, name = 'Typewriter text' },
+    f(function(_, snip)
+      return '\\texttt{' .. snip.captures[1] .. '}'
+    end)
+  ),
+  s(
+    { trig = '"|(.+)|', regTrig = true, name = 'Double quote' },
+    f(function(_, snip)
+      return '“' .. snip.captures[1] .. '”'
+    end)
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'bgin', name = 'begin{} / end{}' },
+    '\\begin{$1}\n\t${2:${TM_SELECTED_TEXT}}\n\\end{$1}'
+  ),
+  s(
+    { trig = 'beali', name = 'Align' },
     { t { '\\begin{align*}', '\t' }, i(1), t { '', '\\end{align*}' } }
   ),
 }

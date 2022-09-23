@@ -10,6 +10,7 @@ local colours_dejour = function (dt)
   if is_daylight(dt) then
     return 'colors.tokyonight-night'
   else
+    -- return 'colors.gruvbox-nvim-dark'
     return 'colors.tokyonight-night'
   end
 end
@@ -18,6 +19,7 @@ local color_opts = require (colours_dejour(os.date('*t')))
 color_opts.setup()
 
 require 'tim.statusline'(color_opts.status_theme)
+require 'config/dashboard'
 require 'tim.lsp'
 require 'tim.completion'
 require 'tim.telescope'
