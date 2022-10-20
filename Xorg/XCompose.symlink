@@ -83,7 +83,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <parenleft> <period> <parenright>: "⊙" U2299 # CIRCLED DOT OPERATOR
 <Multi_key> <parenleft> <slash> <parenright>: "⊘" U2298 # CIRCLED DIVISION SLASH
 <Multi_key> <parenleft> <asterisk> <parenright>: "⊛" U229B # CIRCLED ASTERISK OPERATOR
-<Multi_key> <parenleft> <parenright>: "○" U25CB # WHITE CIRCLE
+<Multi_key> <parenleft> <space> <parenright>: "○" U25CB # WHITE CIRCLE
 <Multi_key> <bracketleft> <plus> <bracketright>: "⊞" U229E # SQUARED PLUS
 <Multi_key> <bracketleft> <minus> <bracketright>: "⊟" U229F # SQUARED MINUS
 <Multi_key> <bracketleft> <x> <x> <bracketright>: "⊠" U22A0 # SQUARED TIMES
@@ -150,6 +150,12 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 
 # Special delimeters
 #
+<Multi_key> <apostrophe> <greater>: "›" U203A # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+<Multi_key> <apostrophe> <less>: "‹" U2039 # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+<Multi_key> <quotedbl> <less>: "«" U+00AB # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <quotedbl> <greater>: "»" U+00BB # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <period> <greater>: "〉" U3009 # RIGHT ANGLE BRACKET
+<Multi_key> <period> <less>: "〈" U3008 # LEFT ANGLE BRACKET
 <Multi_key> <bar> <bracketleft>: "⟦" U27E6 # MATHEMATICAL LEFT WHITE SQUARE BRACKET
 <Multi_key> <bar> <bracketright>: "⟧" U27E7 # MATHEMATICAL RIGHT WHITE SQUARE BRACKET
 <Multi_key> <bar> <braceleft>: "⦃" U2983 # LEFT WHITE CURLY BRACKET
@@ -210,6 +216,18 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <apostrophe> <7> : "𝟩" U1D7E9 # MATHEMATICAL SANS-SERIF DIGIT SEVEN
 <Multi_key> <apostrophe> <8> : "𝟪" U1D7EA # MATHEMATICAL SANS-SERIF DIGIT EIGHT
 <Multi_key> <apostrophe> <9> : "𝟫" U1D7EB # MATHEMATICAL SANS-SERIF DIGIT NINE
+
+# Sans Bold digits
+<Multi_key> <asterisk> <0>: "𝟬" U1D7EC # MATHEMATICAL SANS-SERIF BOLD DIGIT ZERO
+<Multi_key> <asterisk> <1>: "𝟭" U1D7ED # MATHEMATICAL SANS-SERIF BOLD DIGIT ONE
+<Multi_key> <asterisk> <2>: "𝟮" U1D7EE # MATHEMATICAL SANS-SERIF BOLD DIGIT TWO
+<Multi_key> <asterisk> <3>: "𝟯" U1D7EF # MATHEMATICAL SANS-SERIF BOLD DIGIT THREE
+<Multi_key> <asterisk> <4>: "𝟰" U1D7F0 # MATHEMATICAL SANS-SERIF BOLD DIGIT FOUR
+<Multi_key> <asterisk> <5>: "𝟱" U1D7F1 # MATHEMATICAL SANS-SERIF BOLD DIGIT FIVE
+<Multi_key> <asterisk> <6>: "𝟲" U1D7F2 # MATHEMATICAL SANS-SERIF BOLD DIGIT SIX
+<Multi_key> <asterisk> <7>: "𝟳" U1D7F3 # MATHEMATICAL SANS-SERIF BOLD DIGIT SEVEN
+<Multi_key> <asterisk> <8>: "𝟴" U1D7F4 # MATHEMATICAL SANS-SERIF BOLD DIGIT EIGHT
+<Multi_key> <asterisk> <9>: "𝟵" U1D7F5 # MATHEMATICAL SANS-SERIF BOLD DIGIT NINE
 
 # Italic sans
 #
