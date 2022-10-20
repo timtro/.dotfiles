@@ -21,6 +21,7 @@ local same = RL('tim.snippets').same
 
 -- local snippets, autosnippets = {}, {}
 
+-- Non-auto snippets                                                        {{{1
 local snippets = {
   ls.parser.parse_snippet(
     { trig = 'emph', name = 'Emphasis' },
@@ -43,6 +44,18 @@ local snippets = {
     '\\bigl( ${1:${TM_SELECTED_TEXT}} \\bigr) $0'
   ),
   ls.parser.parse_snippet(
+    { trig = 'Biglr(', name = 'Bigl( Bigr)' },
+    '\\Bigl( ${1:${TM_SELECTED_TEXT}} \\Bigr) $0'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'bigglr(', name = 'biggl( biggr)' },
+    '\\biggl( ${1:${TM_SELECTED_TEXT}} \\biggr) $0'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'Biggglr(', name = 'Biggl( Biggr)' },
+    '\\Biggl( ${1:${TM_SELECTED_TEXT}} \\Biggr) $0'
+  ),
+  ls.parser.parse_snippet(
     { trig = 'lr{', name = 'left{ right}' },
     '\\left\\{ ${1:${TM_SELECTED_TEXT}} \\right\\\\} $0'
   ),
@@ -58,6 +71,37 @@ local snippets = {
     { trig = 'biglr[', name = 'bigl[ bigr]' },
     '\\bigl[ ${1:${TM_SELECTED_TEXT}} \\bigr] $0'
   ),
+  ls.parser.parse_snippet(
+    { trig = 'vfill', name = 'Vertical fill' },
+    '\\vspace*{\\fill}'
+  ),
+  ls.parser.parse_snippet(
+    {
+      trig = 'fun-def-mapsto-brace',
+      name = 'Function definition with braced mapsto',
+    },
+    '\\begin{align*}'
+    .. '\n\t$1 \\⦂ $2 &→ $3 \\\\\\'
+    .. '\n\t\\left\\{\\'
+    .. '\n\t\t\\begin{aligned}'
+    .. '\n\t\t\t$4 \\\\\\'
+    .. '\n\t\t\t$5'
+    .. '\n\t\t\\end{aligned}'
+    .. '\n\t\t\\right.&'
+    .. '\n\t\t\\begin{aligned}'
+    .. '\n\t\t\t&↦ $6\\\\\\'
+    .. '\n\t\t\t&↦ $7'
+    .. '\n\t\t\\end{aligned}'
+    .. '\n\\end{align*}'
+  ),
+  ls.parser.parse_snippet(
+    { trig = 'fun-def', name = 'Formal function definition with mapsto' },
+    '\\begin{align*}'
+    .. '\n\t$1 \\⦂ $2 &→ $3 \\\\\\'
+    .. '\n\t\t$4 &↦ $5'
+    .. '\n\\end{align*}'
+  ),
+-- Beamer snips                                                             {{{2
   ls.parser.parse_snippet(
     { trig = 'bmfr', name = 'Empty Beamer frame' },
     '\\begin{frame}\n\t$0\n\\end{frame}'
@@ -82,16 +126,10 @@ local snippets = {
     .. '\n\t\\]\n'
     .. '\\end{frame}'
   ),
-  ls.parser.parse_snippet(
-    { trig = 'vfill', name = 'Vertical fill' },
-    '\\vspace*{\\fill}'
-  ),
-  ls.parser.parse_snippet(
-    { trig = 'miles', name = 'Message for Miles' },
-    'I love your, Miles!'
-  ),
+--                                                                          }}}2
 }
-
+--                                                                          }}}1
+-- Autosnippets{{{
 local autosnippets = {
   s(
     { trig = 'em|(.+)|', regTrig = true, name = 'Emphasis' },
@@ -103,6 +141,12 @@ local autosnippets = {
     { trig = 'bf|(.+)|', regTrig = true, name = 'Bolf font' },
     f(function(_, snip)
       return '\\textbf{' .. snip.captures[1] .. '}'
+    end)
+  ),
+  s(
+    { trig = 'bfem|(.+)|', regTrig = true, name = 'Bold font with emphasis' },
+    f(function(_, snip)
+      return '\\bfemph{' .. snip.captures[1] .. '}'
     end)
   ),
   s(
@@ -126,5 +170,6 @@ local autosnippets = {
     { t { '\\begin{align*}', '\t' }, i(1), t { '', '\\end{align*}' } }
   ),
 }
+-- }}}
 
 return snippets, autosnippets

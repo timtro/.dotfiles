@@ -52,6 +52,9 @@ set_maps('n', {
   ['<left>'] = '<C-w>h',
   ['<right>'] = '<C-w>l',
 
+  -- Un/set scrollbind
+  ['<leader>bb'] = ':set scrollbind!<cr>',
+
   -- Resize with arrows
   ['<C-Up>'] = ':resize -2<cr>',
   ['<C-Down>'] = ':resize +2<cr>',
@@ -124,7 +127,7 @@ set_maps('x', {
 set_maps('n', {
   ['<leader>ff'] = ':Telescope find_files<cr>',
   ['<leader>fg'] = ':Telescope live_grep<cr>',
-  ['<leader>fb'] = ':Telescope buffers<cr>',
+  ['<leader>fb'] = ':Telescope current_buffer_fuzzy_find<cr>',
   ['<leader>fc'] = ':Telescope bibtex theme=dropdown<cr>',
   ['<leader>fh'] = ':Telescope help_tags<cr>',
   ['<leader>fd'] = ':Telescope lsp_workspace_diagnostics<cr>',
