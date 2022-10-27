@@ -1,4 +1,4 @@
-function old_config()
+local function old_config()
   -- TimVim-slant_relief.txt {{{
   --[[
   __/\\\\\\\\\\\\\\\____________________________/\\\________/\\\___________________________
@@ -51,38 +51,51 @@ function old_config()
   vim.g.dashboard_default_executive = 'telescope'
 end
 
-local home = os.getenv('HOME')
-local db = require('dashboard')
+local home = os.getenv 'HOME'
+local db = require 'dashboard'
 -- db.preview_command = 'cat | lolcat -F 0.3'
 db.preview_command = 'cat'
 -- db.preview_command = 'ueberzug'
-db.preview_file_path = home .. '/.dotfiles/neovim/nvim.incfg/dashboard-headers/timvim-slant_relief.txt'
+db.preview_file_path = home
+  .. '/.dotfiles/neovim/nvim.incfg/dashboard-headers/timvim-slant_relief.txt'
 db.session_directory = vim.fn.stdpath 'cache' .. '/session'
 db.preview_file_width = 97
 db.preview_file_height = 11
 db.custom_center = {
-    {icon = '  ',
+  {
+    icon = '  ',
     desc = 'Latest session                          ',
     shortcut = 'SPC s l',
-    action ='SessionLoad'},
-    {icon = '  ',
+    action = 'SessionLoad',
+  },
+  {
+    icon = '  ',
     desc = 'Recently opened files                   ',
-    action =  'DashboardFindHistory',
-    shortcut = 'SPC f h'},
-    {icon = '  ',
+    action = 'DashboardFindHistory',
+    shortcut = 'SPC f h',
+  },
+  {
+    icon = '  ',
     desc = 'Find  File                              ',
     action = 'Telescope find_files find_command=rg,--hidden,--files',
-    shortcut = 'SPC f f'},
-    {icon = '  ',
-    desc ='File Browser                            ',
-    action =  'Telescope file_browser',
-    shortcut = 'SPC f b'},
-    {icon = '  ',
+    shortcut = 'SPC f f',
+  },
+  {
+    icon = '  ',
+    desc = 'File Browser                            ',
+    action = 'Telescope file_browser',
+    shortcut = 'SPC f b',
+  },
+  {
+    icon = '  ',
     desc = 'Find  word                              ',
     action = 'Telescope live_grep',
-    shortcut = 'SPC f w'},
-    {icon = '  ',
+    shortcut = 'SPC f w',
+  },
+  {
+    icon = '  ',
     desc = 'Open Personal dotfiles                  ',
-    action = 'Telescope dotfiles path=' .. home ..'/.dotfiles',
-    shortcut = 'SPC f d'},
-  }
+    action = 'Telescope dotfiles path=' .. home .. '/.dotfiles',
+    shortcut = 'SPC f d',
+  },
+}
