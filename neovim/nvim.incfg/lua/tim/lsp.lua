@@ -14,7 +14,7 @@ require('mason-lspconfig').setup {
   automatic_installation = true,
 }
 
-
+-- INFO: Turn this off when done
 vim.lsp.set_log_level 'debug'
 
 local opts = { noremap = true, silent = true }
@@ -22,6 +22,20 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Unused currently, but see:
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+-- local lsp_formatting = function(bufnr)
+--   vim.lsp.buf.format {
+--     filter = function(client)
+--       -- apply whatever logic you want (in this example, we'll only use null-ls)
+--       return client.name == 'null-ls'
+--     end,
+--     bufnr = bufnr,
+--   }
+-- end
 
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -54,34 +68,58 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+require('lspconfig').pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
 }
 
-require('lspconfig')['sumneko_lua'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = {'vim'}
-        },
+require('lspconfig').sumneko_lua.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = { 'vim' },
       },
       workspace = {
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-        },
+        library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false,
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
       },
     },
+  },
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    -- Prefer stylua configured in null-ls:
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
+  end,
+  flags = lsp_flags,
 }
 
--- require('lspconfig')['tsserver'].setup{
+local null_ls = require 'null-ls'
+null_ls.setup {
+  sources = {
+    -- null_ls.builtins.diagnostics.chktex,
+    null_ls.builtins.hover.dictionary,
+    null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.formatting.stylua,
+  },
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
+
+-- require'lspconfig'.tsserver.setup{
 --     on_attach = on_attach,
 --     flags = lsp_flags,
 -- }
--- require('lspconfig')['rust_analyzer'].setup{
+-- require'lspconfig'.rust_analyzer.setup{
 --     on_attach = on_attach,
 --     flags = lsp_flags,
 --     -- Server-specific settings...
@@ -93,12 +131,3 @@ require('lspconfig')['sumneko_lua'].setup{
 --   on_attach = on_attach,
 --   flags = lsp_flags,
 -- }
-
-local null_ls = require 'null-ls'
-null_ls.setup {
-  sources = {
-    -- null_ls.builtins.diagnostics.chktex,
-    null_ls.builtins.hover.dictionary,
-    null_ls.builtins.formatting.autopep8,
-  },
-}
