@@ -83,3 +83,7 @@ inkscape/inkscape.incfg/pages.csv
 ranger/ranger.incfg/bookmarks
 ranger/ranger.incfg/history
 ranger/ranger.incfg/tagged
+
+# Zathura backups
+zathura/zathura.incfg/zathurarc_*
+
