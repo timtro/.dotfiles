@@ -114,6 +114,7 @@ null_ls.setup {
     null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.stylua,
   },
+  on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
 }
