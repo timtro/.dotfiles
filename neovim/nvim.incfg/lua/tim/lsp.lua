@@ -53,3 +53,52 @@ end
 local lsp_flags = {
   debounce_text_changes = 150,
 }
+
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+require('lspconfig')['sumneko_lua'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = {'vim'}
+        },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+        },
+      },
+    },
+}
+
+-- require('lspconfig')['tsserver'].setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+-- }
+-- require('lspconfig')['rust_analyzer'].setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     -- Server-specific settings...
+--     settings = {
+--       ["rust-analyzer"] = {}
+--     }
+-- }
+-- require('lspconfig').texlab.setup {
+--   on_attach = on_attach,
+--   flags = lsp_flags,
+-- }
+
+local null_ls = require 'null-ls'
+null_ls.setup {
+  sources = {
+    -- null_ls.builtins.diagnostics.chktex,
+    null_ls.builtins.hover.dictionary,
+    null_ls.builtins.formatting.autopep8,
+  },
+}

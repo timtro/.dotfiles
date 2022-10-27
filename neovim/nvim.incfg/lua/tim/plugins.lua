@@ -145,7 +145,11 @@ return require('packer').startup(function(use)
     end,
   }
   use 'mfussenegger/nvim-treehopper'
-  use 'kevinhwang91/nvim-hlslens'
+  use { 'kevinhwang91/nvim-hlslens',
+    config = function()
+      require 'hlslens'.setup()
+    end
+  }
   -- use 'SidOfc/mkdx'
 
   -- }}}
