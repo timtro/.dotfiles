@@ -51,8 +51,12 @@ class Color:
 
     def __str__(self):
         if self.alpha >= 0 and self.alpha < 1:
+            # INFO: Zathura does not allow spaces after commas in rgba(r,g,b,α).
             return f'rgba({self.red:d},{self.green:d},{self.blue:d},{self.alpha:.2f})'
         elif self.alpha == 1:
+            # BUG: Enforces "#RRGGBB" over \#RRGGBB, regardless of user's style.
+            # TODO: Preserve user's style. Perhaps use the first occurance of a
+            #   hex color spec to set the preference.
             return f'"#{self.red:02X}{self.green:02X}{self.blue:02X}"'
         else:
             raise ValueError(
@@ -85,7 +89,8 @@ def with_alpha(c: Color, alpha: float) -> Color:
 
 
 # INFO: Zathura doesn't support #RRGGBBAA, so handle only #RRGGBB and #RGB
-# FIXME: Handle #RGB
+# BUG: Doesn't handle #RGB
+# TODO: Write a regex to capture both #RRGGBB and the equivalent #RGB.
 HEX_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
     r'\\?#([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9][A-Fa-f0-9])')
 RGBA_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
@@ -121,6 +126,16 @@ TRAILING_COMMENT_PATTERN: Final[re.Pattern[str]] = re.compile(
 
 
 def parse_zrc_line(rawline: str) -> ZathuraLine:
+    # INFO: Zathura allows trailing comments without space:
+    #     set … "#RRGGBB"#foobar ← this is valid.  (A)
+    #     set … \#RRGGBB#foobar  ← so is this.     (B)
+    # BUG: (1) Current regex matching requires one of ", ) or ␠ before the
+    #     comment.
+    # BUG: (2) Current parsing does not preserve white space, so the user's indent
+    #     pattern will be broken by any line changed in SUPPORTED_COLORABLES.
+    # TODO: Implement a full parser that also preserves the white space in the
+    #     user's zathurarc to address BUGS (1) and (2).
+    # 
     if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
         [(remark)] = trailing_comment_match
     else:
@@ -153,7 +168,7 @@ def main(args):
                                              val=with_alpha(
                                                  bg_color, alpha=args.alpha),
                                              rem="From zathura-pywalbg")
-    # FIXME: Assumes `set default-bg …` exists in zathurarc.
+    # BUG: Assumes `set default-bg …` already exists in zathurarc.
     new_zathura_cmds: List[ZathuraLine] = [
         bg_cmd if is_set_default_bg(item) else item for item in zathura_cmds]
 
