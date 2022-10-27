@@ -1,5 +1,3 @@
-### Zathurarc with transparency
-
 set selection-clipboard clipboard
 set window-title-basename 'true'
 set selection-clipboard 'clipboard'
@@ -10,7 +8,7 @@ set recolor-reverse-video 'false'
 set highlight-transparency .3
 
 # set default-bg rgba(13,19,18,0.8)
-set default-bg rgba(3,24,39,0.8)
+set default-bg rgba(10,12,19,0.80) # From zathura-pywalbg
 set default-fg                  "#c0caf5"
 
 set statusbar-fg                "#c0caf5"

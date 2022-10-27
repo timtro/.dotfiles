@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+
+# ZATHURA_COLORABLES = ('completion-bg',
+#                       'completion-fg',
+#                       'completion-group-bg',
+#                       'completion-group-fg',
+#                       'completion-highlight-bg',
+#                       'completion-highlight-fg',
+#                       'default-fg',
+#                       'default-bg',
+#                       'inputbar-bg',
+#                       'inputbar-fg',
+#                       'notification-bg',
+#                       'notification-fg',
+#                       'notification-error-bg',
+#                       'notification-error-fg',
+#                       'notification-warning-bg',
+#                       'notification-warning-fg',
+#                       'statusbar-bg',
+#                       'statusbar-fg',
+#                       'highlight-color',
+#                       'highlight-fg',
+#                       'highlight-active-color',
+#                       'recolor-darkcolor',
+#                       'recolor-lightcolor',
+#                       'render-loading-bg',
+#                       'render-loading-fg',
+#                       'index-fg',
+#                       'index-bg',
+#                       'index-active-fg',
+#                       'index-active-bg')
+
+
+from dataclasses import dataclass
+from typing import List, Final
+from datetime import datetime
+from argparse import ArgumentParser
+import logging
+import json
+import os
+import shutil
+import re
+
+
+@dataclass
+class Color:
+    red: int
+    green: int
+    blue: int
+    alpha: float = 1
+
+    def __str__(self):
+        if self.alpha >= 0 and self.alpha < 1:
+            return f'rgba({self.red:d},{self.green:d},{self.blue:d},{self.alpha:.2f})'
+        elif self.alpha == 1:
+            return f'"#{self.red:02X}{self.green:02X}{self.blue:02X}"'
+        else:
+            raise ValueError(
+                'Invalid transparency α-value: ' + str(self.alpha))
+
+
+@dataclass
+class ZathuraSetColorCmd:
+    prop: str
+    val: Color
+    rem: str
+
+    def __str__(self):
+        strval = 'set ' + self.prop + ' ' + str(self.val)
+        if self.rem:
+            strval += ' # ' + self.rem
+        return strval
+
+
+ZathuraLine = str | ZathuraSetColorCmd
+
+SUPPORTED_COLORABLES = ('default-bg')
+
+
+def with_alpha(c: Color, alpha: float) -> Color:
+    if alpha < 0 or alpha > 1:
+        raise ValueError(
+            "Transparency α-value must be in the unit interval, [0, 1].")
+    return Color(red=c.red, green=c.green, blue=c.blue, alpha=alpha)
+
+
+# INFO: Zathura doesn't support #RRGGBBAA, so handle only #RRGGBB and #RGB
+# FIXME: Handle #RGB
+HEX_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
+    r'\\?#([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9][A-Fa-f0-9])')
+RGBA_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
+    r'rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d*.?\d+)\)')
+
+
+def str_to_color(s: str) -> Color:
+    if hex_matches := HEX_COLOR_PATTERN.findall(s):
+        [(r, g, b)] = hex_matches
+        return Color(red=int(r, 16),
+                     green=int(g, 16),
+                     blue=int(b, 16))
+    elif rgba_matches := RGBA_COLOR_PATTERN.findall(s):
+        [(r, g, b, a)] = rgba_matches
+        return Color(red=int(r),
+                     green=int(g),
+                     blue=int(b),
+                     alpha=float(a))
+    else:
+        raise ValueError('Unable to parse color from string: ' + s)
+
+
+def backup_file(path: str) -> None:
+    tgt_path = path + datetime.now().strftime("_%Y-%b-%d-%H:%M:%S")
+    logging.info('Backing up: \n\t' + path + ' ↦ ' + tgt_path)
+    shutil.copyfile(path, tgt_path)
+
+
+ZATHURA_SET_CMD_PATTERN: Final[re.Pattern[str]] = re.compile(
+    r'set\s+(\S+)\s+(\S+)')
+TRAILING_COMMENT_PATTERN: Final[re.Pattern[str]] = re.compile(
+    r'^set\s+\S+\s+\S+[\"\) \t]\s*#\s*(.*)$')
+
+
+def parse_zrc_line(rawline: str) -> ZathuraLine:
+    if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
+        [(remark)] = trailing_comment_match
+    else:
+        remark = ''
+
+    matches = ZATHURA_SET_CMD_PATTERN.match(rawline)
+    if matches and matches.group(1) in SUPPORTED_COLORABLES:
+        return ZathuraSetColorCmd(prop=matches.group(1),
+                                  val=str_to_color(matches.group(2).strip()),
+                                  rem=remark)
+    else:
+        return rawline.rstrip()
+
+
+def main(args):
+    zathura_cmds: List[ZathuraLine] = []
+
+    with open(args.zathurarc_path, 'r') as zathurarc:
+        for rawline in zathurarc:
+            zathura_cmds.append(parse_zrc_line(rawline))
+
+    with open(args.pywal_json_path, 'r') as wal_color_file:
+        wal_colors = json.load(wal_color_file)
+
+    def is_set_default_bg(x: ZathuraLine) -> bool:
+        return isinstance(x, ZathuraSetColorCmd) and x.prop == 'default-bg'
+
+    bg_color: Color = str_to_color(wal_colors['special']['background'])
+    bg_cmd: ZathuraLine = ZathuraSetColorCmd(prop='default-bg',
+                                             val=with_alpha(
+                                                 bg_color, alpha=args.alpha),
+                                             rem="From zathura-pywalbg")
+    # FIXME: Assumes `set default-bg …` exists in zathurarc.
+    new_zathura_cmds: List[ZathuraLine] = [
+        bg_cmd if is_set_default_bg(item) else item for item in zathura_cmds]
+
+    if not args.no_backup and not args.dry_run:
+        backup_file(args.zathurarc_path)
+    if not args.dry_run:
+        with open(args.zathurarc_path, 'w') as zathurarc:
+            zathurarc.write('\n'.join(map(str, new_zathura_cmds)))
+    else:
+        print('\n'.join(map(str, new_zathura_cmds)))
+
+
+if __name__ == "__main__":
+    args = ArgumentParser(
+        description="Sets `default-bg` in zathurarc based on pywal colours.")
+
+    args.add_argument('--alpha',
+                      default='0.8',
+                      type=float,
+                      help='Background transparency, Default: 0.8. (Should match kitty\'s config.')
+    args.add_argument('--no-backup',
+                      action='store_true',
+                      dest='no_backup',
+                      help='Do not back up existing zathurarc.')
+    args.add_argument('--zathurarc-path',
+                      type=str,
+                      dest='zathurarc_path',
+                      default=os.environ['HOME'] + '/.config/zathura/zathurarc',
+                      help='Full path to zathurarc file. Default: ~/.config/zathura/zathurarc')
+    args.add_argument('--pywal-json-path',
+                      type=str,
+                      dest='pywal_json_path',
+                      default=os.environ['HOME'] + '/.cache/wal/colors.json',
+                      help='Full path to zathurarc file. Default: ~/.cache/wal/colors.json')
+    args.add_argument('--dry-run',
+                      action='store_true',
+                      dest='dry_run',
+                      help='Print output to stdout instead of zathurarc.')
+
+    args = args.parse_args()
+
+    main(args)
