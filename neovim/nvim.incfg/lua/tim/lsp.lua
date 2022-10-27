@@ -25,17 +25,17 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- Unused currently, but see:
--- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
--- local lsp_formatting = function(bufnr)
---   vim.lsp.buf.format {
---     filter = function(client)
---       -- apply whatever logic you want (in this example, we'll only use null-ls)
---       return client.name == 'null-ls'
---     end,
---     bufnr = bufnr,
---   }
--- end
+-- cf. https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+local lsp_format = function(bufnr)
+  vim.lsp.buf.format {
+    filter = function(client)
+      -- only use null-ls
+      return client.name == 'null-ls'
+    end,
+    bufnr = bufnr,
+    async = true,
+  }
+end
 
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -59,9 +59,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function()
-    vim.lsp.buf.format { async = true }
-  end, bufopts)
+
+  if client.supports_method 'textDocument/formatting' then
+    vim.keymap.set('n', '<space>f', function()
+      lsp_format(bufnr)
+    end, bufopts)
+  end
 end
 
 local lsp_flags = {
