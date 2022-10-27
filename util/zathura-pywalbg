@@ -130,12 +130,12 @@ def parse_zrc_line(rawline: str) -> ZathuraLine:
     #     set … "#RRGGBB"#foobar ← this is valid.  (A)
     #     set … \#RRGGBB#foobar  ← so is this.     (B)
     # BUG: (1) Current regex matching requires one of ", ) or ␠ before the
-    #     comment.
-    # BUG: (2) Current parsing does not preserve white space, so the user's indent
-    #     pattern will be broken by any line changed in SUPPORTED_COLORABLES.
+    #   comment.
+    # BUG: (2) Current parsing does not preserve white space, so the user's
+    #   indent pattern will be broken by any line changed in SUPPORTED_COLORABLES.
     # TODO: Implement a full parser that also preserves the white space in the
-    #     user's zathurarc to address BUGS (1) and (2).
-    # 
+    #   user's zathurarc to address BUGS (1) and (2).
+    #
     if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
         [(remark)] = trailing_comment_match
     else:
