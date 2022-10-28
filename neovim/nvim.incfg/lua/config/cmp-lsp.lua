@@ -1,11 +1,26 @@
-vim.cmd 'set completeopt=menu,menuone,noselect'
+require('mason').setup {
+  ui = {
+    icons = {
+      package_installed = '✓',
+      package_pending = '➜',
+      package_uninstalled = '✗',
+    },
+    border = 'rounded',
+  },
+}
 
--- Setup nvim-cmp.
+require('mason-lspconfig').setup {
+  ensure_installed = { 'ltex', 'texlab', 'clangd', 'sumneko_lua' },
+  automatic_installation = true,
+}
+
+-- cmp setup                                                                {{{1
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 local cmp = require 'cmp'
 
 cmp.setup {
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
@@ -19,8 +34,8 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-  -- Accept currently selected item. Set `select` to `false` to only confirm
-  -- explicitly selected items:
+    -- Accept currently selected item. Set `select` to `false` to only confirm
+    -- explicitly selected items:
     ['<TAB>'] = cmp.mapping.confirm { select = true },
   },
   sources = cmp.config.sources({
@@ -34,8 +49,8 @@ cmp.setup {
     format = function(entry, vim_item)
       -- fancy icons and a name of kind
       vim_item.kind = require('lspkind').presets.default[vim_item.kind]
-          .. ' '
-          .. vim_item.kind
+        .. ' '
+        .. vim_item.kind
 
       -- set a name for each source
       vim_item.menu = ({
@@ -44,7 +59,7 @@ cmp.setup {
         luasnip = '[LuaSnip]',
         nvim_lua = '[Lua]',
         latex_symbols = '[Latex]',
-        omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+        omni = (vim.inspect(vim_item.menu):gsub('%"', '')),
       })[entry.source.name]
       return vim_item
     end,
@@ -79,26 +94,37 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' },
   }),
 })
+--                                                                          }}}1
+-- General LSP setup                                                        {{{1
+-- INFO: Turn this off when done
+vim.lsp.set_log_level 'debug'
 
--- Set up lspconfig.
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['texlab'].setup {
---   capabilities = capabilities,
---   filetypes = { 'tex', 'plaintex', 'bib' },
---   cmd = { 'texlab' },
---   settings = {
---     rootDirectory = "."
---   },
--- }
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- cf. https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+local lsp_format = function(bufnr)
+  vim.lsp.buf.format {
+    filter = function(client)
+      -- only use null-ls
+      return client.name == 'null-ls'
+    end,
+    bufnr = bufnr,
+    async = true,
+  }
+end
+
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   -- INFO: Disabled omnifun here due to collision with luatex completion.
   -- INFO: Reenable/revisit if I ever get texlab working.
-  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Buffer local:
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -116,24 +142,73 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function()
-    vim.lsp.buf.format { async = true }
-  end, bufopts)
+
+  if client.supports_method 'textDocument/formatting' then
+    vim.keymap.set('n', '<space>f', function()
+      lsp_format(bufnr)
+    end, bufopts)
+  end
 end
 
 local lsp_flags = {
   debounce_text_changes = 150,
 }
+--                                                                          }}}1
+-- LSPs                                                                     {{{1
+require('lspconfig').pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
 
--- require('lspconfig')['pyright'].setup{
+require('lspconfig').sumneko_lua.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false,
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    -- NOTE: Prefer stylua configured in null-ls:
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
+  end,
+  flags = lsp_flags,
+}
+
+local null_ls = require 'null-ls'
+null_ls.setup {
+  sources = {
+    -- null_ls.builtins.diagnostics.chktex,
+    null_ls.builtins.hover.dictionary,
+    null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.formatting.stylua,
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
+--                                                                          }}}1
+
+-- require'lspconfig'.tsserver.setup{
 --     on_attach = on_attach,
 --     flags = lsp_flags,
 -- }
--- require('lspconfig')['tsserver'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
--- require('lspconfig')['rust_analyzer'].setup{
+-- require'lspconfig'.rust_analyzer.setup{
 --     on_attach = on_attach,
 --     flags = lsp_flags,
 --     -- Server-specific settings...
@@ -141,18 +216,7 @@ local lsp_flags = {
 --       ["rust-analyzer"] = {}
 --     }
 -- }
-
 -- require('lspconfig').texlab.setup {
 --   on_attach = on_attach,
 --   flags = lsp_flags,
---   capabilities = capabilities,
---   filetypes = { 'tex', 'plaintex', 'bib' },
 -- }
-
-local null_ls = require 'null-ls'
-null_ls.setup {
-  sources = {
-    -- null_ls.builtins.diagnostics.chktex,
-    null_ls.builtins.hover.dictionary,
-  },
-}

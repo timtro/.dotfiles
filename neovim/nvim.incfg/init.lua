@@ -22,7 +22,7 @@ require 'tim.statusline'(color_opts.status_theme)
 require 'tim.globals'
 require 'tim.mappings'
 require 'config.telescope'
-require 'config.lsp'
+require 'config.cmp-lsp'
 require 'config.completion'
 require 'config.dashboard'
 require 'config.treesitter'
