@@ -19,12 +19,13 @@ local color_opts = require(colours_dejour(os.date '*t'))
 color_opts.setup()
 
 require 'tim.statusline'(color_opts.status_theme)
-require 'config/dashboard'
-require 'tim.lsp'
-require 'tim.completion'
-require 'tim.telescope'
 require 'tim.globals'
 require 'tim.mappings'
+require 'config.telescope'
+require 'config.lsp'
+require 'config.completion'
+require 'config.dashboard'
+require 'config.treesitter'
 
 -- TODO: decide where this should go:
 vim.cmd [[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]
