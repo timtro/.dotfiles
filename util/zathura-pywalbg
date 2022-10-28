@@ -34,7 +34,7 @@
 from dataclasses import dataclass
 from typing import List, Final
 from datetime import datetime
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 import logging
 import json
 import os
@@ -50,6 +50,11 @@ class Color:
     alpha: float = 1
 
     def __str__(self):
+        """
+        If α = 1, we color is fully opaque and therefore stringafy as "#RRGGBB".
+        If α ≠ 1, we color is translucent/transparent and we stringafy
+            as rgba(R,G,B,α).
+        """
         if self.alpha >= 0 and self.alpha < 1:
             # INFO: Zathura does not allow spaces after commas in rgba(r,g,b,α).
             return f'rgba({self.red:d},{self.green:d},{self.blue:d},{self.alpha:.2f})'
@@ -59,11 +64,31 @@ class Color:
             #   hex color spec to set the preference.
             return f'"#{self.red:02X}{self.green:02X}{self.blue:02X}"'
         else:
-            raise ValueError(
-                'Invalid transparency α-value: ' + str(self.alpha))
+            raise ValueError('Alpha channel is out of bounds: ' +
+                             str(self.alpha) + ' ∉ [0, 1]: float.' +
+                             ' Value was changed after Color initialisation.')
+
+    def __post_init__(self):
+        def invalid_8bit(x: int) -> bool:
+            return x < 0 or x > 255
+        if invalid_8bit(self.red):
+            raise ValueError('Red channel is out of bounds: ' +
+                             str(self.red) + ' ∉ [0, 255]: int.')
+        if invalid_8bit(self.green):
+            raise ValueError('Green channel is out of bounds: ' +
+                             str(self.green) + ' ∉ [0, 255]: int.')
+        if invalid_8bit(self.blue):
+            raise ValueError('Blue channel is out of bounds: ' +
+                             str(self.blue) + ' ∉ [0, 255]: int.')
+        if self.alpha < 0 or self.alpha > 1:
+            raise ValueError('Alpha channel is out of bounds: ' +
+                             str(self.alpha) + ' ∉ [0, 1]: float.')
 
 
-@dataclass
+SUPPORTED_COLORABLES = ('default-bg')
+
+
+@dataclass(kw_only=True)
 class ZathuraSetColorCmd:
     prop: str
     val: Color
@@ -75,16 +100,16 @@ class ZathuraSetColorCmd:
             strval += ' # ' + self.rem
         return strval
 
+    def __post_init__(self):
+        if self.prop not in SUPPORTED_COLORABLES:
+            raise ValueError('Property \'' + self.prop +
+                             '\' is not a supported colourable')
+
 
 ZathuraLine = str | ZathuraSetColorCmd
 
-SUPPORTED_COLORABLES = ('default-bg')
-
 
 def with_alpha(c: Color, alpha: float) -> Color:
-    if alpha < 0 or alpha > 1:
-        raise ValueError(
-            "Transparency α-value must be in the unit interval, [0, 1].")
     return Color(red=c.red, green=c.green, blue=c.blue, alpha=alpha)
 
 
@@ -98,6 +123,10 @@ RGBA_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
 
 
 def str_to_color(s: str) -> Color:
+    """
+    Tries to parse a hex #RRGGBB color, or rgba(R,G,B,α)
+        from anywhere in argument s.
+    """
     if hex_matches := HEX_COLOR_PATTERN.findall(s):
         [(r, g, b)] = hex_matches
         return Color(red=int(r, 16),
@@ -126,16 +155,22 @@ TRAILING_COMMENT_PATTERN: Final[re.Pattern[str]] = re.compile(
 
 
 def parse_zrc_line(rawline: str) -> ZathuraLine:
-    # INFO: Zathura allows trailing comments without space:
-    #     set … "#RRGGBB"#foobar ← this is valid.  (A)
-    #     set … \#RRGGBB#foobar  ← so is this.     (B)
-    # BUG: (1) Current regex matching requires one of ", ) or ␠ before the
-    #   comment.
-    # BUG: (2) Current parsing does not preserve white space, so the user's
-    #   indent pattern will be broken by any line changed in SUPPORTED_COLORABLES.
-    # TODO: Implement a full parser that also preserves the white space in the
-    #   user's zathurarc to address BUGS (1) and (2).
-    #
+    '''
+    If the argument string can be parsed into:
+        set COLORABLE COLOR # REMARK
+    into a ZathuraSetColorCmd. If it can't, then it just right-strips
+    the argument and returns that string.
+
+    INFO: Zathura allows trailing comments without space:
+        set … "#RRGGBB"#foobar ← this is valid.  (A)
+        set … \\#RRGGBB#foobar  ← so is this.    (B)
+    BUG: (1) Current regex matching requires one of ", ) or ␠ before the
+      comment.
+    BUG: (2) Current parsing does not preserve white space, so the user's
+      indent pattern will be broken by any line changed in SUPPORTED_COLORABLES.
+    TODO: Implement a full parser that also preserves the white space in the
+      user's zathurarc to address BUGS (1) and (2).
+    '''
     if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
         [(remark)] = trailing_comment_match
     else:
@@ -150,7 +185,19 @@ def parse_zrc_line(rawline: str) -> ZathuraLine:
         return rawline.rstrip()
 
 
-def main(args):
+def main(args: Namespace) -> None:
+    """
+    Opens and parses the zathurarc, then opens and parses the pywal json file,
+    then changes the SUPPORTED_COLORABLES with colours from pywal.
+
+    BUG: (1) assumes default-bg is set in users zathurarc and replaces it,
+        and the program is idempotent if they don't. 
+    TODO: (1) If default-bg is not in user's zathurarc, add it.
+
+    TODO: I know there's other required settings to make bg transparency work.
+        check for those.
+    """
+
     zathura_cmds: List[ZathuraLine] = []
 
     with open(args.zathurarc_path, 'r') as zathurarc:
@@ -208,6 +255,6 @@ if __name__ == "__main__":
                       dest='dry_run',
                       help='Print output to stdout instead of zathurarc.')
 
-    args = args.parse_args()
+    clargs: Namespace = args.parse_args()
 
-    main(args)
+    main(clargs)
