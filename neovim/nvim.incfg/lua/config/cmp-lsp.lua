@@ -32,11 +32,11 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
+    ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i' }),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    -- Accept currently selected item. Set `select` to `false` to only confirm
-    -- explicitly selected items:
-    ['<TAB>'] = cmp.mapping.confirm { select = true },
+    ['<CR>'] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -58,7 +58,7 @@ cmp.setup {
         nvim_lsp = '[LSP]',
         luasnip = '[LuaSnip]',
         nvim_lua = '[Lua]',
-        latex_symbols = '[Latex]',
+        latex_symbols = '[LaTeX]',
         omni = (vim.inspect(vim_item.menu):gsub('%"', '')),
       })[entry.source.name]
       return vim_item
