@@ -21,11 +21,7 @@ color_opts.setup()
 require 'tim.statusline'(color_opts.status_theme)
 require 'tim.globals'
 require 'tim.mappings'
-require 'config.telescope'
 require 'config.cmp-lsp'
-require 'config.completion'
-require 'config.dashboard'
-require 'config.treesitter'
 
 -- TODO: decide where this should go:
 vim.cmd [[command! -nargs=* -bar -complete=command OutToBuf :enew|pu=execute('<args>')]]

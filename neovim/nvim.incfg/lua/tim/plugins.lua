@@ -6,7 +6,10 @@ return require('packer').startup(function(use)
   -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
   use 'akinsho/toggleterm.nvim'
-  use 'glepnir/dashboard-nvim'
+  use {
+    'glepnir/dashboard-nvim',
+    config = [[ require 'config.dashboard' ]],
+  }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -61,6 +64,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
+    config = [[ require 'config.telescope' ]],
   }
   use {
     'nvim-telescope/telescope-project.nvim',
@@ -93,11 +97,22 @@ return require('packer').startup(function(use)
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
   }
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-omni'
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      {
+        'hrsh7th/cmp-nvim-lsp',
+        after = 'nvim-cmp',
+        requires = 'neovim/nvim-lspconfig',
+      },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-omni', after = 'nvim-cmp', ft = 'tex' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      { 'quangnguyen30192/cmp-nvim-ultisnips', after = 'nvim-cmp' },
+    },
+  }
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'folke/lsp-colors.nvim'
@@ -115,6 +130,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+    config = [[require 'config.treesitter']],
   }
   use {
     'nvim-treesitter/nvim-treesitter-refactor',
