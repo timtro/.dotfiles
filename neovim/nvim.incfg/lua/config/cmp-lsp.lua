@@ -41,7 +41,7 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'omni' },
+    -- { name = 'omni' },
   }, {
     { name = 'buffer' },
   }),
@@ -121,10 +121,7 @@ end
 
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  -- INFO: Disabled omnifun here due to collision with luatex completion.
-  -- INFO: Reenable/revisit if I ever get texlab working.
-
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Buffer local:
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -197,6 +194,7 @@ null_ls.setup {
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.stylua,
+    -- null_ls.builtins.omnifunc,
   },
   on_attach = on_attach,
   capabilities = capabilities,
