@@ -50,13 +50,13 @@ local function setup()
   }
 
   local rainbow_colors = {
-    colors.blue,
-    colors.purple,
-    colors.yellow,
+    colors.fg,     -- 1
+    colors.green,  -- 2
+    colors.orange, -- ⋮
     colors.blue1,
-    colors.orange,
-    colors.green,
-    colors.fg,
+    colors.yellow,
+    colors.purple,
+    colors.blue,
   }
 
   vim.cmd 'colorscheme tokyonight'
