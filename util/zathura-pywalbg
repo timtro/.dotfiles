@@ -113,11 +113,10 @@ def with_alpha(c: Color, alpha: float) -> Color:
     return Color(red=c.red, green=c.green, blue=c.blue, alpha=alpha)
 
 
-# INFO: Zathura doesn't support #RRGGBBAA, so handle only #RRGGBB and #RGB
-# BUG: Doesn't handle #RGB
-# TODO: Write a regex to capture both #RRGGBB and the equivalent #RGB.
 HEX_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
-    r'\\?#([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9][A-Fa-f0-9])')
+    r'[\"\\](?:(?!(?:\;|\n|\r))[\w\W])*?' + 
+    r'#(?:([a-fA-F0-9]{1,2})([a-fA-F0-9]{1,2})([a-fA-F0-9]{1,2}))' +
+    r'(?:(?!(?:\;|\n|\r))[\w\W])*?(?:\"|\n|\r|#)')
 RGBA_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
     r'rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d*.?\d+)\)')
 
@@ -210,11 +209,13 @@ def main(args: Namespace) -> None:
     def is_set_default_bg(x: ZathuraLine) -> bool:
         return isinstance(x, ZathuraSetColorCmd) and x.prop == 'default-bg'
 
-    bg_color: Color = str_to_color(wal_colors['special']['background'])
+    bg_color: Color = str_to_color(
+        '\"'+wal_colors['special']['background']+'\"') # Wrap quotes for regex.
     bg_cmd: ZathuraLine = ZathuraSetColorCmd(prop='default-bg',
                                              val=with_alpha(
                                                  bg_color, alpha=args.alpha),
                                              rem="From zathura-pywalbg")
+
     # BUG: Assumes `set default-bg …` already exists in zathurarc.
     new_zathura_cmds: List[ZathuraLine] = [
         bg_cmd if is_set_default_bg(item) else item for item in zathura_cmds]
