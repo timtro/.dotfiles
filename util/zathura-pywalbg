@@ -42,8 +42,6 @@ import os
 import shutil
 import re
 
-logging.basicConfig(stream=stderr, encoding='utf-8', level=logging.INFO)
-
 
 @dataclass
 class Color:
@@ -88,7 +86,7 @@ class Color:
                              str(self.alpha) + ' ∉ [0, 1]: float.')
 
 
-SUPPORTED_COLORABLES = ('default-bg')
+SUPPORTED_COLORABLES = ['default-bg']
 
 
 @dataclass(kw_only=True)
@@ -172,11 +170,14 @@ def parse_zrc_line(rawline: str) -> ZathuraLine:
       indent pattern will be broken by any line changed in SUPPORTED_COLORABLES.
     TODO: Implement a full parser that also preserves the white space in the
       user's zathurarc to address BUGS (1) and (2).
+    PERF: This function is needlessly inefficient.
+    TODO: Unify return. Needlessly large function exit surface.
     '''
 
-    if SUPPORTED_COLORABLES in rawline:
-        if rawline.strip()[0] == '#':
-            return rawline.rstrip()  # line is comment.
+    if rawline == '\n' or rawline.strip()[0] == '#':
+        return rawline.rstrip()
+
+    if any(prop in rawline for prop in SUPPORTED_COLORABLES):
         if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
             [(remark)] = trailing_comment_match
         else:
@@ -202,13 +203,31 @@ def parse_zrc_line(rawline: str) -> ZathuraLine:
         return rawline.rstrip()
 
 
+def make_set_color(prop: str,
+                   pywal_colors) -> ZathuraSetColorCmd:
+    logging.debug('make_set_color, property=\'' + prop + '\'')
+    rem = "From zathura-pywalbg"
+
+    if prop == 'default-bg':
+        bg_color: Color = str_to_color(
+            '\"' + pywal_colors['special']['background']+'\"')
+        return ZathuraSetColorCmd(prop=prop,
+                                  val=with_alpha(
+                                      bg_color, alpha=pywal_colors['alpha']),
+                                  rem=rem)
+    else:
+        raise ValueError('Property \'' + prop +
+                         '\' not in supported colourables:\n\t' +
+                         str(SUPPORTED_COLORABLES))
+
+
 def main(args: Namespace) -> None:
     """
     Opens and parses the pywal json file, then opens and parses zathurarc,
     and changes the SUPPORTED_COLORABLES with colours from pywal.
 
     BUG: (1) assumes default-bg is set in users zathurarc and replaces it,
-        and the program is idempotent if they don't. 
+        and the program is idempotent if they don't.
     TODO: (1) If default-bg is not in user's zathurarc, add it.
 
     TODO: I know there's other required settings to make bg transparency work.
@@ -216,16 +235,13 @@ def main(args: Namespace) -> None:
     """
 
     zathura_cmds: List[ZathuraLine] = []
+    found_colorables = {x: False for x in SUPPORTED_COLORABLES}
 
     with open(args.pywal_json_path, 'r') as wal_color_file:
-        wal_colors = json.load(wal_color_file)
+        pywal_colors = json.load(wal_color_file)
+        pywal_colors['alpha'] = args.alpha
 
-    bg_color: Color = str_to_color(
-        '\"'+wal_colors['special']['background']+'\"')  # Wrap quotes for regex.
-    bg_cmd: ZathuraLine = ZathuraSetColorCmd(prop='default-bg',
-                                             val=with_alpha(
-                                                 bg_color, alpha=args.alpha),
-                                             rem="From zathura-pywalbg")
+    logging.debug('Finished parsing pywal colours with:' + str(pywal_colors))
 
     def is_set_default_bg(x: ZathuraLine) -> bool:
         return isinstance(x, ZathuraSetColorCmd) and x.prop == 'default-bg'
@@ -235,13 +251,20 @@ def main(args: Namespace) -> None:
             lineno: int = i + 1
             try:
                 line: ZathuraLine = parse_zrc_line(rawline)
-                # BUG: Assumes `set default-bg …` already exists in zathurarc.
                 if is_set_default_bg(line):
-                    line = bg_cmd
+                    found_colorables['default-bg'] = True
+                    line = make_set_color('default-bg', pywal_colors)
                 zathura_cmds.append(line)
             except ValueError as parse_err:
                 raise ValueError(
                     'At ' + args.zathurarc_path + ':' + str(lineno)) from parse_err
+
+    logging.debug('Finished parsing zathurarc with found:' + str(found_colorables))
+    for prop, found in found_colorables.items():
+        if found == False:
+            logging.debug('Creating \'' + prop +
+                          '\', since it was not found in user zathurarc.')
+            zathura_cmds.append(make_set_color(prop, pywal_colors))
 
     if not args.no_backup and not args.dry_run:
         backup_file(args.zathurarc_path)
@@ -279,6 +302,14 @@ if __name__ == "__main__":
                       dest='dry_run',
                       help='Print output to stdout instead of zathurarc.')
 
+    args.add_argument("-log", "--log",
+                      type=str,
+                      default='WARNING',
+                      help="Set logging level. DEBUG, INFO, WARNING, etc.'")
+
     clargs: Namespace = args.parse_args()
+
+    logging.basicConfig(stream=stderr, encoding='utf-8', level=clargs.log)
+    logging.debug('Parsed commandline arguments:' + str(clargs))
 
     main(clargs)
