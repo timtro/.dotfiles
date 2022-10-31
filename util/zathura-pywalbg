@@ -35,11 +35,14 @@ from dataclasses import dataclass
 from typing import List, Final
 from datetime import datetime
 from argparse import ArgumentParser, Namespace
+from sys import stderr
 import logging
 import json
 import os
 import shutil
 import re
+
+logging.basicConfig(stream=stderr, encoding='utf-8', level=logging.INFO)
 
 
 @dataclass
@@ -97,7 +100,7 @@ class ZathuraSetColorCmd:
     def __str__(self):
         strval = 'set ' + self.prop + ' ' + str(self.val)
         if self.rem:
-            strval += ' # ' + self.rem
+            strval += '  # ' + self.rem
         return strval
 
     def __post_init__(self):
@@ -114,7 +117,7 @@ def with_alpha(c: Color, alpha: float) -> Color:
 
 
 HEX_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
-    r'[\"\\](?:(?!(?:\;|\n|\r))[\w\W])*?' + 
+    r'[\"\\](?:(?!(?:\;|\n|\r))[\w\W])*?' +
     r'#(?:([a-fA-F0-9]{1,2})([a-fA-F0-9]{1,2})([a-fA-F0-9]{1,2}))' +
     r'(?:(?!(?:\;|\n|\r))[\w\W])*?(?:\"|\n|\r|#)')
 RGBA_COLOR_PATTERN: Final[re.Pattern[str]] = re.compile(
@@ -170,15 +173,30 @@ def parse_zrc_line(rawline: str) -> ZathuraLine:
     TODO: Implement a full parser that also preserves the white space in the
       user's zathurarc to address BUGS (1) and (2).
     '''
-    if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
-        [(remark)] = trailing_comment_match
-    else:
-        remark = ''
 
-    matches = ZATHURA_SET_CMD_PATTERN.match(rawline)
-    if matches and matches.group(1) in SUPPORTED_COLORABLES:
+    if SUPPORTED_COLORABLES in rawline:
+        if rawline.strip()[0] == '#':
+            return rawline.rstrip()  # line is comment.
+        if trailing_comment_match := TRAILING_COMMENT_PATTERN.findall(rawline):
+            [(remark)] = trailing_comment_match
+        else:
+            remark = ''
+        matches = ZATHURA_SET_CMD_PATTERN.match(rawline)
+        if not matches:
+            raise ValueError('This line is ill-formed and could not be parsed:' +
+                             '\n\t' + rawline)
+
+        if matches.group(1) not in SUPPORTED_COLORABLES:
+            raise ValueError(
+                'A parsable command was detected here but parsing failed:' +
+                '\n\t' + rawline +
+                '\nOne of the following properties was detected:' +
+                str(SUPPORTED_COLORABLES) +
+                '\nbut parser matched:' + matches.group(1))
+
         return ZathuraSetColorCmd(prop=matches.group(1),
-                                  val=str_to_color(matches.group(2).strip()),
+                                  val=str_to_color(
+                                      matches.group(2).strip()),
                                   rem=remark)
     else:
         return rawline.rstrip()
@@ -186,8 +204,8 @@ def parse_zrc_line(rawline: str) -> ZathuraLine:
 
 def main(args: Namespace) -> None:
     """
-    Opens and parses the zathurarc, then opens and parses the pywal json file,
-    then changes the SUPPORTED_COLORABLES with colours from pywal.
+    Opens and parses the pywal json file, then opens and parses zathurarc,
+    and changes the SUPPORTED_COLORABLES with colours from pywal.
 
     BUG: (1) assumes default-bg is set in users zathurarc and replaces it,
         and the program is idempotent if they don't. 
@@ -199,34 +217,39 @@ def main(args: Namespace) -> None:
 
     zathura_cmds: List[ZathuraLine] = []
 
-    with open(args.zathurarc_path, 'r') as zathurarc:
-        for rawline in zathurarc:
-            zathura_cmds.append(parse_zrc_line(rawline))
-
     with open(args.pywal_json_path, 'r') as wal_color_file:
         wal_colors = json.load(wal_color_file)
 
-    def is_set_default_bg(x: ZathuraLine) -> bool:
-        return isinstance(x, ZathuraSetColorCmd) and x.prop == 'default-bg'
-
     bg_color: Color = str_to_color(
-        '\"'+wal_colors['special']['background']+'\"') # Wrap quotes for regex.
+        '\"'+wal_colors['special']['background']+'\"')  # Wrap quotes for regex.
     bg_cmd: ZathuraLine = ZathuraSetColorCmd(prop='default-bg',
                                              val=with_alpha(
                                                  bg_color, alpha=args.alpha),
                                              rem="From zathura-pywalbg")
 
-    # BUG: Assumes `set default-bg …` already exists in zathurarc.
-    new_zathura_cmds: List[ZathuraLine] = [
-        bg_cmd if is_set_default_bg(item) else item for item in zathura_cmds]
+    def is_set_default_bg(x: ZathuraLine) -> bool:
+        return isinstance(x, ZathuraSetColorCmd) and x.prop == 'default-bg'
+
+    with open(args.zathurarc_path, 'r') as zathurarc:
+        for i, rawline in enumerate(zathurarc):
+            lineno: int = i + 1
+            try:
+                line: ZathuraLine = parse_zrc_line(rawline)
+                # BUG: Assumes `set default-bg …` already exists in zathurarc.
+                if is_set_default_bg(line):
+                    line = bg_cmd
+                zathura_cmds.append(line)
+            except ValueError as parse_err:
+                raise ValueError(
+                    'At ' + args.zathurarc_path + ':' + str(lineno)) from parse_err
 
     if not args.no_backup and not args.dry_run:
         backup_file(args.zathurarc_path)
     if not args.dry_run:
         with open(args.zathurarc_path, 'w') as zathurarc:
-            zathurarc.write('\n'.join(map(str, new_zathura_cmds)))
+            zathurarc.write('\n'.join(map(str, zathura_cmds)))
     else:
-        print('\n'.join(map(str, new_zathura_cmds)))
+        print('\n'.join(map(str, zathura_cmds)))
 
 
 if __name__ == "__main__":
