@@ -76,7 +76,6 @@ cmp.setup.filetype('gitcommit', {
 })
 
 -- Use buffer source for `/` and `?`
---    (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -85,7 +84,6 @@ cmp.setup.cmdline({ '/', '?' }, {
 })
 
 -- Use cmdline & path source for ':'
---    (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
@@ -97,7 +95,7 @@ cmp.setup.cmdline(':', {
 --                                                                          }}}1
 -- General LSP setup                                                        {{{1
 -- INFO: Turn this off when done
-vim.lsp.set_log_level 'debug'
+-- vim.lsp.set_log_level 'debug'
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
