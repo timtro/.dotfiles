@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
   use {
     'folke/todo-comments.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
+    config = [[require 'config.todo-comments']],
   }
   use { 'tversteeg/registers.nvim', config = [[require 'config.registers']] }
   use 'mbbill/undotree'
@@ -56,7 +57,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = [[require 'config.indent_blankline']],
+    config = [[require 'config.indent-blankline']],
   }
   use 'editorconfig/editorconfig-vim' -- https://editorconfig.org/
   use {
