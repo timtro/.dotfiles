@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
   use 'matze/vim-move' -- Block/line move.
   --                       NOTE: this maps <A-h>, <A-j>, <A-k>, <A-l>
   use { 'xiyaowong/nvim-transparent', config = [[require 'config.transparent']] }
-  use 'folke/twilight.nvim'
+  use { 'folke/twilight.nvim', config = [[require 'config.twilight']] }
 
   use {
     'folke/zen-mode.nvim',
