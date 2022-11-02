@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
 
   -- Editor/IDE tools {{{
   use 'kyazdani42/nvim-web-devicons'
-  use 'akinsho/toggleterm.nvim'
+  use { 'akinsho/toggleterm.nvim', config = [[require 'config.toggleterm']] }
   use {
     'glepnir/dashboard-nvim',
     config = [[ require 'config.dashboard' ]],
@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
-  use { -- Tabs
+  use { -- Tabs / top tab bar
     'romgrk/barbar.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = [[require 'config.barbar']],
