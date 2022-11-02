@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
     'folke/todo-comments.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
   }
-  use 'tversteeg/registers.nvim'
+  use { 'tversteeg/registers.nvim', config = [[require 'config.registers']] }
   use 'mbbill/undotree'
   use 'andymass/vim-matchup'
   use 'tpope/vim-surround'
