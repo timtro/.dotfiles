@@ -54,7 +54,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
-  use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = [[require 'config.indent_blankline']],
+  }
   use 'editorconfig/editorconfig-vim' -- https://editorconfig.org/
   use {
     'numToStr/Comment.nvim',
