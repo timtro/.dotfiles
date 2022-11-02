@@ -89,7 +89,13 @@ return require('packer').startup(function(use)
   }
 
   -- Rapid movement plugin(s)
-  use { 'ggandor/lightspeed.nvim', requires = { 'tpope/vim-repeat' } }
+  use {
+    'ggandor/lightspeed.nvim',
+    requires = { 'tpope/vim-repeat' },
+    config = function()
+      require('lightspeed').setup {}
+    end,
+  }
 
   -- TODO: Remove once https://github.com/neovim/neovim/issues/12587 is fixed.
   use 'antoinemadec/FixCursorHold.nvim'
