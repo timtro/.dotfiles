@@ -130,7 +130,7 @@ return require('packer').startup(function(use)
   }
   use 'tamago324/nlsp-settings.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'folke/lsp-colors.nvim'
+  use { 'folke/lsp-colors.nvim', config = [[require 'config.lsp-colors']] }
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
