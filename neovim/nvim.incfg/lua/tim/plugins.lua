@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
   use { -- Tabs
     'romgrk/barbar.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+    config = [[require 'config.barbar']],
   }
   use {
     'machakann/vim-highlightedyank',
