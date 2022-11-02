@@ -146,9 +146,15 @@ return require('packer').startup(function(use)
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
+    config = [[require 'config.gitsigns']]
   }
   use 'sbdchd/neoformat'
-  use 'norcalli/nvim-colorizer.lua'
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+  }
   -- }}}
 
   -- Probation {{{
