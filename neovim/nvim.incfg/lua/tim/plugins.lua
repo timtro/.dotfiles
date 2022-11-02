@@ -41,7 +41,7 @@ return require('packer').startup(function(use)
   use 'AndrewRadev/sideways.vim'
   use 'matze/vim-move' -- Block/line move.
   --                       NOTE: this maps <A-h>, <A-j>, <A-k>, <A-l>
-  use 'xiyaowong/nvim-transparent'
+  use { 'xiyaowong/nvim-transparent', config = [[require 'config.transparent']] }
   use 'folke/twilight.nvim'
 
   use {
