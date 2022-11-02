@@ -31,7 +31,12 @@ return require('packer').startup(function(use)
       vim.g.highlightedyank_highlight_duration = 200
     end,
   }
-  use 'kevinhwang91/rnvimr'
+  use {
+    'kevinhwang91/rnvimr',
+    config = function()
+      vim.g.rnvimr_draw_border = 1
+    end,
+  }
   use 'AndrewRadev/sideways.vim'
   use 'matze/vim-move' -- Block/line move.
   --                       NOTE: this maps <A-h>, <A-j>, <A-k>, <A-l>
