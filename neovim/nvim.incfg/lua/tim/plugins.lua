@@ -228,7 +228,7 @@ return require('packer').startup(function(use)
   use 'dhruvasagar/vim-table-mode'
 
   -- -- (La)TeX
-  use 'lervag/vimtex'
+  use { 'lervag/vimtex', config = [[require 'config.vimtex']] }
 
   -- -- Markdown
   use {
