@@ -25,7 +25,12 @@ return require('packer').startup(function(use)
     'romgrk/barbar.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
-  use 'machakann/vim-highlightedyank'
+  use {
+    'machakann/vim-highlightedyank',
+    config = function()
+      vim.g.highlightedyank_highlight_duration = 200
+    end,
+  }
   use 'kevinhwang91/rnvimr'
   use 'AndrewRadev/sideways.vim'
   use 'matze/vim-move' -- Block/line move.
@@ -123,6 +128,7 @@ return require('packer').startup(function(use)
   use {
     'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
+    config = [[require 'config.luasnip']],
   }
   use { 'saadparwaiz1/cmp_luasnip' }
   use 'ray-x/lsp_signature.nvim'
@@ -146,7 +152,7 @@ return require('packer').startup(function(use)
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    config = [[require 'config.gitsigns']]
+    config = [[require 'config.gitsigns']],
   }
   use 'sbdchd/neoformat'
   use {
