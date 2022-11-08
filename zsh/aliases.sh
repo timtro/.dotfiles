@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 # vim: fdm=marker:fdc=1
 
-# GNU and shell tools {{{
+# GNU and shell tools                                                       {{{1
 alias ls='ls --color=always'
 alias watch_cpu="watch -n 0 'lscpu | grep MHz'"
 alias lsport="netstat -tulpn"
@@ -43,36 +43,32 @@ fi
 if [ "$TERM" = "xterm-kitty" ]; then
   alias ssh="kitty +kitten ssh"
 fi
-# }}}
-
-# Editing config files {{{
+#                                                                           }}}1
+# Editing config files                                                      {{{1
 alias edhist='$EDITOR ~/.zsh_history'
 alias eddot='edit_in ~/.dotfiles'
 alias ednvim='edit_in ~/.config/nvim/ ~/.config/nvim/init.lua'
 alias edxmonad='eddot ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
 alias edzsh='eddot ~/.dotfiles/zsh/zshrc.symlink'
-alias edaliases='eddot $HOME/.dotfiles/zsh/aliases.sh'
+alias edaliases='eddot ~/.dotfiles/zsh/aliases.sh'
 alias edfuncs='eddot $HOME/.dotfiles/zsh/functions.sh'
 alias edXdefaults='eddot -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
-alias edcompose='eddot ~/.XCompose'
+alias edcompose='eddot ~/.dotfiles/Xorg/XCompose.symlink'
 alias edkitty='eddot ~/.dotfiles/kitty/kitty.incfg/kitty.conf'
 alias update_kitty='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin'
-# }}}
-
-# General work/writing related {{{
+#                                                                           }}}1
+# General work/writing related                                              {{{1
 alias work='cd ~/workspace'
 alias seeunimath='xdg-open /home/timtro/Documents/Standards/unimath-symbols.pdf & disown'
 alias edtexmf='edit_in ~/texmf/tex/'
 alias edbib='edit_in ~/texmf/bibtex/bib ~/texmf/bibtex/bib/library.bib'
 alias edepigraphs='edit_in ~/Documents/Writing/Epigraphs ~/Documents/Writing/Epigraphs/Epigraphs.tex'
 alias wiki="edit_in ~/Documents/wiki/ ~/Documents/wiki/index.md"
-# }}}
-
-# Thesis shortcuts {{{
+#                                                                           }}}1
+# Thesis shortcuts                                                          {{{1
 alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis='thesis && $EDITOR'
 alias edthesis-tex='thesis && cd tex && $EDITOR'
 alias edthesis-md='thesis && cd md && $EDITOR'
 alias edthesis-reports='thesis && cd reports && $EDITOR'
-# }}}
-
+#                                                                           }}}1
