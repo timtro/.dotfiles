@@ -364,7 +364,8 @@ purple :: [Char]
 purple = fromJust $ Map.lookup "purple" tokyoNightColours
 
 windowBorderColour :: [Char]
-windowBorderColour = fromJust $ Map.lookup "dark5" tokyoNightColours
+-- windowBorderColour = fromJust $ Map.lookup "dark5" tokyoNightColours
+windowBorderColour = fromJust $ Map.lookup "magenta" tokyoNightColours
 -- windowBorderColour = fromJust $ Map.lookup "magenta" tpixelColours
 
 ltGreen :: [Char]
