@@ -34,7 +34,7 @@ fi
 
 if command -v wal; then
   wal -i "$WP" --backend wal --saturate 0.20 -s -t -n 2>/dev/null
-  zathura-pywalbg --alpha=0.8
+  zathura-pywalbg --alpha=0.8 --no-backup
   for f in /dev/pts/*; do
     # Test if cava is running in terminal. We don't want to screw up the
     #   colours in windows running cava.
