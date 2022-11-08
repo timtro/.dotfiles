@@ -85,7 +85,7 @@ set_maps('n', {
   ['<A-O>'] = 'O<esc>',
 
   -- Close a buffer without closing the window
-  ['<leader>bd'] = ':bp|bd #<cr>',
+  ['<leader>bd'] = ':bp<bar>sp<bar>bn<bar>bd<cr>',
 
   -- Clear registers a-z
   ['<leader>cr'] = [[:lua require('tim.functions').cl_alpha_regs()<cr>]],
