@@ -1,8 +1,8 @@
+# vim: fdm=marker:fdc=1
+
 include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 
-
-# Arrows
-#
+# Arrows                                                                    {{{1
 <Multi_key> <Right> <Right>: "→" U2192 # RIGHTWARDS ARROW
 <Multi_key> <Right> <o>: "⊸" U22B8 # MULTIMAP
 <Multi_key> <greater> <greater> <Right>: "↠" U21A0 # RIGHTWARDS TWO HEADED ARROW
@@ -22,10 +22,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <Left> <less> <less>: "⬻" U2B3B # LEFTWARDS TWO-HEADED ARROW WITH TAIL
 <Multi_key> <equal> <Left> <Right>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
 <Multi_key> <equal> <Right> <Left>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
-
-
-# Conventional binary operators
-#
+#                                                                           }}}1
+# Conventional binary operators                                             {{{1
 <Multi_key> <asciitilde> <asciitilde>: "≈" U2248 # ALMOST EQUAL TO
 <Multi_key> <asciitilde> <equal>: "≅" U2245 # APPROXIMATELY EQUAL TO
 <Multi_key> <equal> <asciitilde>: "≅" U2245 # APPROXIMATELY EQUAL TO
@@ -61,10 +59,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <minus>: "⊢" U22A2 # RIGHT TACK
 <Multi_key> <bar> <underscore> : "⊥" U22A5 # UP TACK
 <Multi_key> <underscore> <bar> : "⊤" U22A4 # DOWN TACK
-
-
-# Abstract binary operators
-#
+#                                                                           }}}1
+# Abstract binary operators                                                 {{{1
 <Multi_key> <slash><underscore><backslash>: "△" U25B3 # WHITE UP-POINTING TRIANGLE
 <Multi_key> <backslash><underscore><slash>: "▽" U25BD # WHITE DOWN-POINTING TRIANGLE
 <Multi_key> <less> <braceright>: "⊲" U22B2 # NORMAL SUBGROUP OF
@@ -89,17 +85,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bracketleft> <x> <x> <bracketright>: "⊠" U22A0 # SQUARED TIMES
 <Multi_key> <bracketleft> <period> <bracketright>: "⊡" U22A1 # SQUARED DOT OPERATOR
 <Multi_key> <less> <greater>: "⋄" U22C4 # DIAMOND OPERATOR
-
-
-## Shapes
-#
+#                                                                           }}}1
+# Shapes                                                                    {{{1
 # <Multi_key>   : "►" U #
 # <Multi_key>   : "◄" U #
 # <Multi_key>   : "◄" U #
-
-
-# Decorators
-#
+#                                                                           }}}1
+# Decorators                                                                {{{1
 <Multi_key> <asciicircum> <apostrophe>: "′" U2032 # PRIME
 <Multi_key> <v> <period> <period>: "⋮" U22EE # VERTICAL ELLIPSIS
 <Multi_key> <asciicircum> <period> <period>: "⋯" U22EF # MIDLINE HORIZONTAL ELLIPSIS
@@ -108,9 +100,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <at> <slash>: "✓" U2713 # CHECK MARK
 <Multi_key> <at> <x>: "✗" U2717 # BALLOT X
 <Multi_key> <exclam> <bar>: "¦" U00A6 # BROKEN BAR
-
-# Special objects
-#
+#                                                                           }}}1
+# Special objects                                                           {{{1
 <Multi_key> <0> <slash>: "∅" U2205 # EMPTY SET
 <Multi_key> <slash> <0>: "∅" U2205 # EMPTY SET
 <Multi_key> <0> <period> <period>: "◌" U25CC # DOTTED CIRCLE
@@ -121,15 +112,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <bar> <C>: "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
 <Multi_key> <bar> <bar> <R>: "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
 <Multi_key> <bar> <bar> <Z>: "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
-
-
-# Special symbols
-#
-<Multi_key> <l> <l>: "ℓ" U2113 # SCRIPT SMALL L
-
-
-# Unitary operators
-#
+#                                                                           }}}1
+# Unitary operators                                                         {{{1
 <Multi_key> <dollar> <dollar>: "∫" U222B # INTEGRAL
 <Multi_key> <E> <E>: "∃" U2203 # THERE EXISTS
 <Multi_key> <slash> <E> <E>: "∄" U2204 # THERE DOES NOT EXIST
@@ -140,16 +124,12 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <p> <d> <i> <f>: "∂" U2202 # PARTIAL DIFFERENTIAL
 <Multi_key> <R> <e>: "ℜ" U211C # BLACK-LETTER CAPITAL R
 <Multi_key> <I> <m>: "ℑ" U2111 # BLACK-LETTER CAPITAL I
-
-
-# Scripts
-#
+#                                                                           }}}1
+# Scripts                                                                   {{{1
 <Multi_key> <asciicircum> <underscore> <k>: "ᵏ" U1D4F # MODIFIER LETTER SMALL K
 <Multi_key> <asciicircum> <underscore> <m>: "ᵐ" U1D50 # MODIFIER LETTER SMALL M
-
-
-# Special delimeters
-#
+#                                                                           }}}1
+# Delimiters                                                                {{{1
 <Multi_key> <apostrophe> <greater>: "›" U203A # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
 <Multi_key> <apostrophe> <less>: "‹" U2039 # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
 <Multi_key> <quotedbl> <less>: "«" U+00AB # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
@@ -168,10 +148,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <bar> <bracketright>: "⟭" U27ED # MATHEMATICAL RIGHT WHITE TORTOISE SHELL BRACKET
 <Multi_key> <bar> <less>: "⦉" U2989 # Z NOTATION LEFT BINDING BRACKET
 <Multi_key> <bar> <greater>: "⦊" U298A # Z NOTATION RIGHT BINDING BRACKET
-
-
-# Subscripts
-#
+#                                                                           }}}1
+# Subscripts                                                                {{{1
 <Multi_key> <minus> <0>: "₀" U2080 # SUBSCRIPT ZERO
 <Multi_key> <minus> <1>: "₁" U2081 # SUBSCRIPT ONE
 <Multi_key> <minus> <2>: "₂" U2082 # SUBSCRIPT TWO
@@ -198,14 +176,15 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <minus> <h>: "ₕ" U2095 # LATIN SUBSCRIPT SMALL LETTER H
 <Multi_key> <minus> <k>: "ₖ" U2096 # LATIN SUBSCRIPT SMALL LETTER K
 <Multi_key> <minus> <l>: "ₗ" U2097 # LATIN SUBSCRIPT SMALL LETTER L
+<Multi_key> <l> <l>: "ℓ" U2113 # SCRIPT SMALL L
 <Multi_key> <minus> <m>: "ₘ" U2098 # LATIN SUBSCRIPT SMALL LETTER M
 <Multi_key> <minus> <n>: "ₙ" U2099 # LATIN SUBSCRIPT SMALL LETTER N
 <Multi_key> <minus> <p>: "ₚ" U209A # LATIN SUBSCRIPT SMALL LETTER P
 <Multi_key> <minus> <s>: "ₛ" U209B # LATIN SUBSCRIPT SMALL LETTER S
 <Multi_key> <minus> <t>: "ₜ" U209C # LATIN SUBSCRIPT SMALL LETTER T
 <Multi_key> <minus> <j>: "ⱼ" U2C7C # LATIN SUBSCRIPT SMALL LETTER J
-
-# Sans digits
+#                                                                           }}}1
+# Mathematical Sans-Serif Digits                                            {{{1
 <Multi_key> <apostrophe> <0> : "𝟢" U1D7E2 # MATHEMATICAL SANS-SERIF DIGIT ZERO
 <Multi_key> <apostrophe> <1> : "𝟣" U1D7E3 # MATHEMATICAL SANS-SERIF DIGIT ONE
 <Multi_key> <apostrophe> <2> : "𝟤" U1D7E4 # MATHEMATICAL SANS-SERIF DIGIT TWO
@@ -216,8 +195,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <apostrophe> <7> : "𝟩" U1D7E9 # MATHEMATICAL SANS-SERIF DIGIT SEVEN
 <Multi_key> <apostrophe> <8> : "𝟪" U1D7EA # MATHEMATICAL SANS-SERIF DIGIT EIGHT
 <Multi_key> <apostrophe> <9> : "𝟫" U1D7EB # MATHEMATICAL SANS-SERIF DIGIT NINE
-
-# Sans Bold digits
+#                                                                           }}}1
+# Mathematical Sans-Serif Bold Digits                                       {{{1
 <Multi_key> <asterisk> <0>: "𝟬" U1D7EC # MATHEMATICAL SANS-SERIF BOLD DIGIT ZERO
 <Multi_key> <asterisk> <1>: "𝟭" U1D7ED # MATHEMATICAL SANS-SERIF BOLD DIGIT ONE
 <Multi_key> <asterisk> <2>: "𝟮" U1D7EE # MATHEMATICAL SANS-SERIF BOLD DIGIT TWO
@@ -228,9 +207,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <asterisk> <7>: "𝟳" U1D7F3 # MATHEMATICAL SANS-SERIF BOLD DIGIT SEVEN
 <Multi_key> <asterisk> <8>: "𝟴" U1D7F4 # MATHEMATICAL SANS-SERIF BOLD DIGIT EIGHT
 <Multi_key> <asterisk> <9>: "𝟵" U1D7F5 # MATHEMATICAL SANS-SERIF BOLD DIGIT NINE
-
-# Italic sans
-#
+#                                                                           }}}1
+# Mathematical Sans-Serif Italic                                            {{{1
 <Multi_key> <slash> <A>: "𝘈" U1D608 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL A
 <Multi_key> <slash> <B>: "𝘉" U1D609 # MATHEMATICAL SANS-SERIF ITALIC CAPITAL B
 <Multi_key> <slash> <C>: "𝘊" U1D60A # MATHEMATICAL SANS-SERIF ITALIC CAPITAL C
@@ -283,10 +261,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <slash> <x>: "𝘹" U1D639 # MATHEMATICAL SANS-SERIF ITALIC SMALL X
 <Multi_key> <slash> <y>: "𝘺" U1D63A # MATHEMATICAL SANS-SERIF ITALIC SMALL Y
 <Multi_key> <slash> <z>: "𝘻" U1D63B # MATHEMATICAL SANS-SERIF ITALIC SMALL Z
-
-
-# Bold italic sans
-#
+#                                                                           }}}1
+# Mathematical Sans-Serif Bold Italic                                       {{{1
 <Multi_key> <question> <A>: "𝘼" U1D63C # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL A
 <Multi_key> <question> <B>: "𝘽" U1D63D # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL B
 <Multi_key> <question> <C>: "𝘾" U1D63E # MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL C
@@ -339,10 +315,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <question> <x>: "𝙭" U1D66D # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL X
 <Multi_key> <question> <y>: "𝙮" U1D66E # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Y
 <Multi_key> <question> <z>: "𝙯" U1D66F # MATHEMATICAL SANS-SERIF BOLD ITALIC SMALL Z
-
-
-# Typewriter
-#
+#                                                                           }}}1
+# Mathematical Monospace                                                    {{{1
 <Multi_key> <underscore> <A>: "𝙰" U1D670 # MATHEMATICAL MONOSPACE CAPITAL A
 <Multi_key> <underscore> <B>: "𝙱" U1D671 # MATHEMATICAL MONOSPACE CAPITAL B
 <Multi_key> <underscore> <C>: "𝙲" U1D672 # MATHEMATICAL MONOSPACE CAPITAL C
@@ -395,10 +369,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <underscore> <x>: "𝚡" U1D6A1 # MATHEMATICAL MONOSPACE SMALL X
 <Multi_key> <underscore> <y>: "𝚢" U1D6A2 # MATHEMATICAL MONOSPACE SMALL Y
 <Multi_key> <underscore> <z>: "𝚣" U1D6A3 # MATHEMATICAL MONOSPACE SMALL Z
-
-
-# Italic serif
-#
+#                                                                           }}}1
+# Mathematical Italic                                                       {{{1
 <Multi_key> <i> <A>: "𝐴" U1D434 # MATHEMATICAL ITALIC CAPITAL A
 <Multi_key> <i> <B>: "𝐵" U1D435 # MATHEMATICAL ITALIC CAPITAL B
 <Multi_key> <i> <C>: "𝐶" U1D436 # MATHEMATICAL ITALIC CAPITAL C
@@ -451,10 +423,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <i> <x>: "𝑥" U1D465 # MATHEMATICAL ITALIC SMALL X
 <Multi_key> <i> <y>: "𝑦" U1D466 # MATHEMATICAL ITALIC SMALL Y
 <Multi_key> <i> <z>: "𝑧" U1D467 # MATHEMATICAL ITALIC SMALL Z
-
-
-# Bold italic serif
-#
+#                                                                           }}}1
+# Mathematical Bold Italic                                                  {{{1
 <Multi_key> <I> <A>: "𝑨" U1D468 # MATHEMATICAL BOLD ITALIC CAPITAL A
 <Multi_key> <I> <B>: "𝑩" U1D469 # MATHEMATICAL BOLD ITALIC CAPITAL B
 <Multi_key> <I> <C>: "𝑪" U1D46A # MATHEMATICAL BOLD ITALIC CAPITAL C
@@ -507,10 +477,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <I> <x>: "𝒙" U1D499 # MATHEMATICAL BOLD ITALIC SMALL X
 <Multi_key> <I> <y>: "𝒚" U1D49A # MATHEMATICAL BOLD ITALIC SMALL Y
 <Multi_key> <I> <z>: "𝒛" U1D49B # MATHEMATICAL BOLD ITALIC SMALL Z
-
-
-# Greek letters
-#
+#                                                                           }}}1
+# Greek letters                                                             {{{1
 <Multi_key> <G> <A>: "Α" U0391 # GREEK CAPITAL LETTER ALPHA
 <Multi_key> <G> <B>: "Β" U0392 # GREEK CAPITAL LETTER BETA
 <Multi_key> <G> <C>: "Ψ" U03A8 # GREEK CAPITAL LETTER PSI
@@ -563,10 +531,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <x>: "χ" U03C7 # GREEK SMALL LETTER CHI
 <Multi_key> <g> <y>: "υ" U03C5 # GREEK SMALL LETTER UPSILON
 <Multi_key> <g> <z>: "ζ" U03B6 # GREEK SMALL LETTER ZETA
-
-
-# Bold italic greek
-#
+#                                                                           }}}1
+# Mathematical Bold Italic Greek                                            {{{1
 <Multi_key> <at> <A>: "𝜜" U1D71C # MATHEMATICAL BOLD ITALIC CAPITAL ALPHA
 <Multi_key> <at> <B>: "𝜝" U1D71D # MATHEMATICAL BOLD ITALIC CAPITAL BETA
 <Multi_key> <at> <C>: "𝜳" U1D733 # MATHEMATICAL BOLD ITALIC CAPITAL PSI
@@ -618,66 +584,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <at> <x>: "𝝌" U1D74C # MATHEMATICAL BOLD ITALIC SMALL CHI
 <Multi_key> <at> <y>: "𝝊" U1D74A # MATHEMATICAL BOLD ITALIC SMALL UPSILON
 <Multi_key> <at> <z>: "𝜻" U1D73B # MATHEMATICAL BOLD ITALIC SMALL ZETA
-
-
-# Normal weight caligraphical
-#
-<Multi_key> <c> <A>: "𝓐" U1D4D0 # MATHEMATICAL BOLD SCRIPT CAPITAL A
-<Multi_key> <c> <B>: "𝓑" U1D4D1 # MATHEMATICAL BOLD SCRIPT CAPITAL B
-<Multi_key> <c> <C>: "𝓒" U1D4D2 # MATHEMATICAL BOLD SCRIPT CAPITAL C
-<Multi_key> <c> <D>: "𝓓" U1D4D3 # MATHEMATICAL BOLD SCRIPT CAPITAL D
-<Multi_key> <c> <E>: "𝓔" U1D4D4 # MATHEMATICAL BOLD SCRIPT CAPITAL E
-<Multi_key> <c> <F>: "𝓕" U1D4D5 # MATHEMATICAL BOLD SCRIPT CAPITAL F
-<Multi_key> <c> <G>: "𝓖" U1D4D6 # MATHEMATICAL BOLD SCRIPT CAPITAL G
-<Multi_key> <c> <H>: "𝓗" U1D4D7 # MATHEMATICAL BOLD SCRIPT CAPITAL H
-<Multi_key> <c> <I>: "𝓘" U1D4D8 # MATHEMATICAL BOLD SCRIPT CAPITAL I
-<Multi_key> <c> <J>: "𝓙" U1D4D9 # MATHEMATICAL BOLD SCRIPT CAPITAL J
-<Multi_key> <c> <K>: "𝓚" U1D4DA # MATHEMATICAL BOLD SCRIPT CAPITAL K
-<Multi_key> <c> <L>: "𝓛" U1D4DB # MATHEMATICAL BOLD SCRIPT CAPITAL L
-<Multi_key> <c> <M>: "𝓜" U1D4DC # MATHEMATICAL BOLD SCRIPT CAPITAL M
-<Multi_key> <c> <N>: "𝓝" U1D4DD # MATHEMATICAL BOLD SCRIPT CAPITAL N
-<Multi_key> <c> <O>: "𝓞" U1D4DE # MATHEMATICAL BOLD SCRIPT CAPITAL O
-<Multi_key> <c> <P>: "𝓟" U1D4DF # MATHEMATICAL BOLD SCRIPT CAPITAL P
-<Multi_key> <c> <Q>: "𝓠" U1D4E0 # MATHEMATICAL BOLD SCRIPT CAPITAL Q
-<Multi_key> <c> <R>: "𝓡" U1D4E1 # MATHEMATICAL BOLD SCRIPT CAPITAL R
-<Multi_key> <c> <S>: "𝓢" U1D4E2 # MATHEMATICAL BOLD SCRIPT CAPITAL S
-<Multi_key> <c> <T>: "𝓣" U1D4E3 # MATHEMATICAL BOLD SCRIPT CAPITAL T
-<Multi_key> <c> <U>: "𝓤" U1D4E4 # MATHEMATICAL BOLD SCRIPT CAPITAL U
-<Multi_key> <c> <V>: "𝓥" U1D4E5 # MATHEMATICAL BOLD SCRIPT CAPITAL V
-<Multi_key> <c> <W>: "𝓦" U1D4E6 # MATHEMATICAL BOLD SCRIPT CAPITAL W
-<Multi_key> <c> <X>: "𝓧" U1D4E7 # MATHEMATICAL BOLD SCRIPT CAPITAL X
-<Multi_key> <c> <Y>: "𝓨" U1D4E8 # MATHEMATICAL BOLD SCRIPT CAPITAL Y
-<Multi_key> <c> <Z>: "𝓩" U1D4E9 # MATHEMATICAL BOLD SCRIPT CAPITAL Z
-<Multi_key> <c> <a>: "𝓪" U1D4EA # MATHEMATICAL BOLD SCRIPT SMALL A
-<Multi_key> <c> <b>: "𝓫" U1D4EB # MATHEMATICAL BOLD SCRIPT SMALL B
-<Multi_key> <c> <c>: "𝓬" U1D4EC # MATHEMATICAL BOLD SCRIPT SMALL C
-<Multi_key> <c> <d>: "𝓭" U1D4ED # MATHEMATICAL BOLD SCRIPT SMALL D
-<Multi_key> <c> <e>: "𝓮" U1D4EE # MATHEMATICAL BOLD SCRIPT SMALL E
-<Multi_key> <c> <f>: "𝓯" U1D4EF # MATHEMATICAL BOLD SCRIPT SMALL F
-<Multi_key> <c> <g>: "𝓰" U1D4F0 # MATHEMATICAL BOLD SCRIPT SMALL G
-<Multi_key> <c> <h>: "𝓱" U1D4F1 # MATHEMATICAL BOLD SCRIPT SMALL H
-<Multi_key> <c> <i>: "𝓲" U1D4F2 # MATHEMATICAL BOLD SCRIPT SMALL I
-<Multi_key> <c> <j>: "𝓳" U1D4F3 # MATHEMATICAL BOLD SCRIPT SMALL J
-<Multi_key> <c> <k>: "𝓴" U1D4F4 # MATHEMATICAL BOLD SCRIPT SMALL K
-<Multi_key> <c> <l>: "𝓵" U1D4F5 # MATHEMATICAL BOLD SCRIPT SMALL L
-<Multi_key> <c> <m>: "𝓶" U1D4F6 # MATHEMATICAL BOLD SCRIPT SMALL M
-<Multi_key> <c> <n>: "𝓷" U1D4F7 # MATHEMATICAL BOLD SCRIPT SMALL N
-<Multi_key> <c> <o>: "𝓸" U1D4F8 # MATHEMATICAL BOLD SCRIPT SMALL O
-<Multi_key> <c> <p>: "𝓹" U1D4F9 # MATHEMATICAL BOLD SCRIPT SMALL P
-<Multi_key> <c> <q>: "𝓺" U1D4FA # MATHEMATICAL BOLD SCRIPT SMALL Q
-<Multi_key> <c> <r>: "𝓻" U1D4FB # MATHEMATICAL BOLD SCRIPT SMALL R
-<Multi_key> <c> <s>: "𝓼" U1D4FC # MATHEMATICAL BOLD SCRIPT SMALL S
-<Multi_key> <c> <t>: "𝓽" U1D4FD # MATHEMATICAL BOLD SCRIPT SMALL T
-<Multi_key> <c> <u>: "𝓾" U1D4FE # MATHEMATICAL BOLD SCRIPT SMALL U
-<Multi_key> <c> <v>: "𝓿" U1D4FF # MATHEMATICAL BOLD SCRIPT SMALL V
-<Multi_key> <c> <w>: "𝔀" U1D500 # MATHEMATICAL BOLD SCRIPT SMALL W
-<Multi_key> <c> <x>: "𝔁" U1D501 # MATHEMATICAL BOLD SCRIPT SMALL X
-<Multi_key> <c> <y>: "𝔂" U1D502 # MATHEMATICAL BOLD SCRIPT SMALL Y
-<Multi_key> <c> <z>: "𝔃" U1D503 # MATHEMATICAL BOLD SCRIPT SMALL Z
-
-
-# Bold caligraphical
-#
+#                                                                           }}}1
+# Mathematical Script                                                       {{{1
 <Multi_key> <q> <A>: "𝒜" U1D49C # MATHEMATICAL SCRIPT CAPITAL A
 <Multi_key> <q> <B>: "ℬ" U212C # SCRIPT CAPITAL B
 <Multi_key> <q> <C>: "𝒞" U1D49E # MATHEMATICAL SCRIPT CAPITAL C
@@ -730,10 +638,62 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <q> <x>: "𝓍" U1D4CD # MATHEMATICAL SCRIPT SMALL X
 <Multi_key> <q> <y>: "𝓎" U1D4CE # MATHEMATICAL SCRIPT SMALL Y
 <Multi_key> <q> <z>: "𝓏" U1D4CF # MATHEMATICAL SCRIPT SMALL Z
-
-
-# Frak
-#
+#                                                                           }}}1
+# Mathematical Bold Script                                                  {{{1
+<Multi_key> <c> <A>: "𝓐" U1D4D0 # MATHEMATICAL BOLD SCRIPT CAPITAL A
+<Multi_key> <c> <B>: "𝓑" U1D4D1 # MATHEMATICAL BOLD SCRIPT CAPITAL B
+<Multi_key> <c> <C>: "𝓒" U1D4D2 # MATHEMATICAL BOLD SCRIPT CAPITAL C
+<Multi_key> <c> <D>: "𝓓" U1D4D3 # MATHEMATICAL BOLD SCRIPT CAPITAL D
+<Multi_key> <c> <E>: "𝓔" U1D4D4 # MATHEMATICAL BOLD SCRIPT CAPITAL E
+<Multi_key> <c> <F>: "𝓕" U1D4D5 # MATHEMATICAL BOLD SCRIPT CAPITAL F
+<Multi_key> <c> <G>: "𝓖" U1D4D6 # MATHEMATICAL BOLD SCRIPT CAPITAL G
+<Multi_key> <c> <H>: "𝓗" U1D4D7 # MATHEMATICAL BOLD SCRIPT CAPITAL H
+<Multi_key> <c> <I>: "𝓘" U1D4D8 # MATHEMATICAL BOLD SCRIPT CAPITAL I
+<Multi_key> <c> <J>: "𝓙" U1D4D9 # MATHEMATICAL BOLD SCRIPT CAPITAL J
+<Multi_key> <c> <K>: "𝓚" U1D4DA # MATHEMATICAL BOLD SCRIPT CAPITAL K
+<Multi_key> <c> <L>: "𝓛" U1D4DB # MATHEMATICAL BOLD SCRIPT CAPITAL L
+<Multi_key> <c> <M>: "𝓜" U1D4DC # MATHEMATICAL BOLD SCRIPT CAPITAL M
+<Multi_key> <c> <N>: "𝓝" U1D4DD # MATHEMATICAL BOLD SCRIPT CAPITAL N
+<Multi_key> <c> <O>: "𝓞" U1D4DE # MATHEMATICAL BOLD SCRIPT CAPITAL O
+<Multi_key> <c> <P>: "𝓟" U1D4DF # MATHEMATICAL BOLD SCRIPT CAPITAL P
+<Multi_key> <c> <Q>: "𝓠" U1D4E0 # MATHEMATICAL BOLD SCRIPT CAPITAL Q
+<Multi_key> <c> <R>: "𝓡" U1D4E1 # MATHEMATICAL BOLD SCRIPT CAPITAL R
+<Multi_key> <c> <S>: "𝓢" U1D4E2 # MATHEMATICAL BOLD SCRIPT CAPITAL S
+<Multi_key> <c> <T>: "𝓣" U1D4E3 # MATHEMATICAL BOLD SCRIPT CAPITAL T
+<Multi_key> <c> <U>: "𝓤" U1D4E4 # MATHEMATICAL BOLD SCRIPT CAPITAL U
+<Multi_key> <c> <V>: "𝓥" U1D4E5 # MATHEMATICAL BOLD SCRIPT CAPITAL V
+<Multi_key> <c> <W>: "𝓦" U1D4E6 # MATHEMATICAL BOLD SCRIPT CAPITAL W
+<Multi_key> <c> <X>: "𝓧" U1D4E7 # MATHEMATICAL BOLD SCRIPT CAPITAL X
+<Multi_key> <c> <Y>: "𝓨" U1D4E8 # MATHEMATICAL BOLD SCRIPT CAPITAL Y
+<Multi_key> <c> <Z>: "𝓩" U1D4E9 # MATHEMATICAL BOLD SCRIPT CAPITAL Z
+<Multi_key> <c> <a>: "𝓪" U1D4EA # MATHEMATICAL BOLD SCRIPT SMALL A
+<Multi_key> <c> <b>: "𝓫" U1D4EB # MATHEMATICAL BOLD SCRIPT SMALL B
+<Multi_key> <c> <c>: "𝓬" U1D4EC # MATHEMATICAL BOLD SCRIPT SMALL C
+<Multi_key> <c> <d>: "𝓭" U1D4ED # MATHEMATICAL BOLD SCRIPT SMALL D
+<Multi_key> <c> <e>: "𝓮" U1D4EE # MATHEMATICAL BOLD SCRIPT SMALL E
+<Multi_key> <c> <f>: "𝓯" U1D4EF # MATHEMATICAL BOLD SCRIPT SMALL F
+<Multi_key> <c> <g>: "𝓰" U1D4F0 # MATHEMATICAL BOLD SCRIPT SMALL G
+<Multi_key> <c> <h>: "𝓱" U1D4F1 # MATHEMATICAL BOLD SCRIPT SMALL H
+<Multi_key> <c> <i>: "𝓲" U1D4F2 # MATHEMATICAL BOLD SCRIPT SMALL I
+<Multi_key> <c> <j>: "𝓳" U1D4F3 # MATHEMATICAL BOLD SCRIPT SMALL J
+<Multi_key> <c> <k>: "𝓴" U1D4F4 # MATHEMATICAL BOLD SCRIPT SMALL K
+<Multi_key> <c> <l>: "𝓵" U1D4F5 # MATHEMATICAL BOLD SCRIPT SMALL L
+<Multi_key> <c> <m>: "𝓶" U1D4F6 # MATHEMATICAL BOLD SCRIPT SMALL M
+<Multi_key> <c> <n>: "𝓷" U1D4F7 # MATHEMATICAL BOLD SCRIPT SMALL N
+<Multi_key> <c> <o>: "𝓸" U1D4F8 # MATHEMATICAL BOLD SCRIPT SMALL O
+<Multi_key> <c> <p>: "𝓹" U1D4F9 # MATHEMATICAL BOLD SCRIPT SMALL P
+<Multi_key> <c> <q>: "𝓺" U1D4FA # MATHEMATICAL BOLD SCRIPT SMALL Q
+<Multi_key> <c> <r>: "𝓻" U1D4FB # MATHEMATICAL BOLD SCRIPT SMALL R
+<Multi_key> <c> <s>: "𝓼" U1D4FC # MATHEMATICAL BOLD SCRIPT SMALL S
+<Multi_key> <c> <t>: "𝓽" U1D4FD # MATHEMATICAL BOLD SCRIPT SMALL T
+<Multi_key> <c> <u>: "𝓾" U1D4FE # MATHEMATICAL BOLD SCRIPT SMALL U
+<Multi_key> <c> <v>: "𝓿" U1D4FF # MATHEMATICAL BOLD SCRIPT SMALL V
+<Multi_key> <c> <w>: "𝔀" U1D500 # MATHEMATICAL BOLD SCRIPT SMALL W
+<Multi_key> <c> <x>: "𝔁" U1D501 # MATHEMATICAL BOLD SCRIPT SMALL X
+<Multi_key> <c> <y>: "𝔂" U1D502 # MATHEMATICAL BOLD SCRIPT SMALL Y
+<Multi_key> <c> <z>: "𝔃" U1D503 # MATHEMATICAL BOLD SCRIPT SMALL Z
+#                                                                           }}}1
+# Mathematical Fraktur                                                      {{{1
 <Multi_key> <f> <A>: "𝔄" U1D504 # MATHEMATICAL FRAKTUR CAPITAL A
 <Multi_key> <f> <B>: "𝔅" U1D505 # MATHEMATICAL FRAKTUR CAPITAL B
 <Multi_key> <f> <C>: "ℭ" U212D # BLACK-LETTER CAPITAL C
@@ -786,10 +746,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <f> <x>: "𝔵" U1D535 # MATHEMATICAL FRAKTUR SMALL X
 <Multi_key> <f> <y>: "𝔶" U1D536 # MATHEMATICAL FRAKTUR SMALL Y
 <Multi_key> <f> <z>: "𝔷" U1D537 # MATHEMATICAL FRAKTUR SMALL Z
-
-
-# Bold frak
-#
+#                                                                           }}}1
+# Mathematical Bold Fraktur                                                 {{{1
 <Multi_key> <F> <A>: "𝕬" U1D56C # MATHEMATICAL BOLD FRAKTUR CAPITAL A
 <Multi_key> <F> <B>: "𝕭" U1D56D # MATHEMATICAL BOLD FRAKTUR CAPITAL B
 <Multi_key> <F> <C>: "𝕮" U1D56E # MATHEMATICAL BOLD FRAKTUR CAPITAL C
@@ -842,10 +800,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <F> <x>: "𝖝" U1D59D # MATHEMATICAL BOLD FRAKTUR SMALL X
 <Multi_key> <F> <y>: "𝖞" U1D59E # MATHEMATICAL BOLD FRAKTUR SMALL Y
 <Multi_key> <F> <z>: "𝖟" U1D59F # MATHEMATICAL BOLD FRAKTUR SMALL Z
-
-
-# Blackboard bold
-#
+#                                                                           }}}1
+# Mathematical Double-Struck                                                {{{1
 <Multi_key> <bar> <A>: "𝔸" U1D538 # MATHEMATICAL DOUBLE-STRUCK CAPITAL A
 <Multi_key> <bar> <B>: "𝔹" U1D539 # MATHEMATICAL DOUBLE-STRUCK CAPITAL B
 <Multi_key> <bar> <C>: "ℂ" U2102 # DOUBLE-STRUCK CAPITAL C
@@ -908,8 +864,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <7>: "𝟟" U1D7DF # MATHEMATICAL DOUBLE-STRUCK DIGIT SEVEN
 <Multi_key> <bar> <8>: "𝟠" U1D7E0 # MATHEMATICAL DOUBLE-STRUCK DIGIT EIGHT
 <Multi_key> <bar> <9>: "𝟡" U1D7E1 # MATHEMATICAL DOUBLE-STRUCK DIGIT NINE
-
-# Text ornaments
+#                                                                           }}}1
+# Text Ornaments & Ligatures                                                {{{1
 <Multi_key> <c> <ampersand>: "🙵" U1F675 # SWASH AMPERSAND ORNAMENT
 <Multi_key> <e> <t>: "🙰" U1F670 # SCRIPT LIGATURE ET ORNAMENT
 <Multi_key> <E> <T>: "🙳" U1F673 # HEAVY LIGATURE OPEN ET ORNAMENT
+#                                                                           }}}1
