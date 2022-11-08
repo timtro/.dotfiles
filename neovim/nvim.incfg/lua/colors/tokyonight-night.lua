@@ -19,7 +19,7 @@ local function setup()
       variables = 'NONE',
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'dark', -- style for sidebars, see below
-      floats = 'dark', -- style for floating windows
+      floats = 'transparent', -- style for floating windows
     },
     -- Set a darker background on sidebar-like windows.
     -- For example: `["qf", "vista_kind", "terminal", "packer"]`
@@ -40,12 +40,14 @@ local function setup()
       hl.TabLineSel = {bg = 'none'}
       hl.TabLineFill = {bg = 'none'}
       hl.StatusLine = {bg = 'none'}
-      hl.BufferTabpageFill = {bg = 'none'}
       hl.BufferCurrent = {bg = 'none'}
       hl.BufferOffset = {bg = 'none'}
       hl.BufferCurrentSign = {bg = 'none'}
       hl.BufferInactive = {bg = 'none'}
       hl.BufferInactiveSign = {bg = 'none'}
+      hl['@text.literal'] = {bg = 'none'}
+      hl['@text.none'] = {bg = 'none'}
+      hl['@text.title'] = {bg = 'none'}
     end
   }
 
