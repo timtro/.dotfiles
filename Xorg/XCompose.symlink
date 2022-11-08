@@ -909,4 +909,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <8>: "𝟠" U1D7E0 # MATHEMATICAL DOUBLE-STRUCK DIGIT EIGHT
 <Multi_key> <bar> <9>: "𝟡" U1D7E1 # MATHEMATICAL DOUBLE-STRUCK DIGIT NINE
 
-
+# Text ornaments
+<Multi_key> <c> <ampersand>: "🙵" U1F675 # SWASH AMPERSAND ORNAMENT
+<Multi_key> <e> <t>: "🙰" U1F670 # SCRIPT LIGATURE ET ORNAMENT
+<Multi_key> <E> <T>: "🙳" U1F673 # HEAVY LIGATURE OPEN ET ORNAMENT
