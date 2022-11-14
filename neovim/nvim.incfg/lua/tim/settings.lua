@@ -25,6 +25,7 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.autoindent = true
 vim.opt.backspace = { 'indent', 'eol', 'start' }
+vim.opt.pumblend = 10 -- pseudo-transparency for popup-menu
 vim.opt.confirm = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
@@ -40,8 +41,11 @@ vim.opt.fillchars = {
 vim.opt.list = true -- show tabs, eol and trailing spaces.
 vim.opt.listchars = {
   -- eol = '↲',
+  nbsp = '⦸',
   tab = '↹ ',
-  trail = '·',
+  extends = '»',
+  precedes = '«',
+  trail = '•',
 }
 
 -- Folding (with Treesitter)
@@ -97,7 +101,7 @@ function M.cycle_fold_col()
 
   vim.opt.foldcolumn = foldcolumn_states[curfold].next
 
-  require 'notify'(
+  require('notify').notify(
     'foldcolumn is set to ' .. vim.api.nvim_win_get_option(0, 'foldcolumn'),
     'info',
     { title = 'Window Option Update:' }
