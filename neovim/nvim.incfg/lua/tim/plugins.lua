@@ -252,7 +252,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-scriptease'
   -- use 'folke/lua-dev.nvim'
   use 'rafcamlet/nvim-luapad'
-  use 'rcarriga/nvim-notify'
+  use { 'rcarriga/nvim-notify', config = [[require 'config.notify']] }
   use 'nvim-lua/plenary.nvim'
 
   -- -- C++
