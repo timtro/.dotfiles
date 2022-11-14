@@ -1,4 +1,4 @@
-local plenary_loaded, plenary_reload = pcall(require, "plenary.reload")
+local plenary_loaded, plenary_reload = pcall(require, 'plenary.reload')
 local reloader
 
 if plenary_loaded then
@@ -25,7 +25,7 @@ DN = function(v, cm)
   local time = os.date '%H:%M'
   local context_msg = cm or ' '
   local msg = context_msg .. ' ' .. time
-  require 'notify' (vim.inspect(v), 'DEBUG', {
+  require('notify').notify(vim.inspect(v), 'INFO', {
     title = { 'Debug Output', msg },
   })
   return v
