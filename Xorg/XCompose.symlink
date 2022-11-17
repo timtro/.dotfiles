@@ -100,6 +100,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <at> <slash>: "✓" U2713 # CHECK MARK
 <Multi_key> <at> <x>: "✗" U2717 # BALLOT X
 <Multi_key> <exclam> <bar>: "¦" U00A6 # BROKEN BAR
+<Multi_key> <numbersign> <numbersign>: "♯" U266F # MUSIC SHARP SIGN
 #                                                                           }}}1
 # Special objects                                                           {{{1
 <Multi_key> <0> <slash>: "∅" U2205 # EMPTY SET
