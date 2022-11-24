@@ -20,6 +20,8 @@ vim.g.vimtex_complete_enabled = 1
 -- vim.g.vimtex_quickfix_enabled = 0
 vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
 
-vim.cmd [[
-setlocal indentkeys=!^F,o,O,0=\else,0=\fi
+vim.cmd[[
+let g:vimtex_complete_ref = {
+  \ 'custom_patterns': ['\\[DNBXFA]ref\*\?{[^}]*$']
+  \ }
 ]]
