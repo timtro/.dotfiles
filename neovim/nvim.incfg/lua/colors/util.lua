@@ -2,8 +2,7 @@ local M = {}
 
 M.set_rainbow = function(colors)
   for i = 1, #colors do
-    local s = 'highlight rainbowcol' .. i .. ' guifg=' .. colors[i]
-    vim.cmd(s)
+    vim.cmd('highlight rainbowcol' .. i .. ' guifg=' .. colors[i])
   end
 end
 
