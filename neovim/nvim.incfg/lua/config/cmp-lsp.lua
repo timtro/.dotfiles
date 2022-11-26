@@ -156,6 +156,18 @@ require('lspconfig').pyright.setup {
   flags = lsp_flags,
 }
 
+require('lspconfig').clangd.setup {
+  cmd = {
+    'clangd-14',
+    '--background-index',
+    '--clang-tidy',
+    -- '--header-insertion=iwyu',
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
+
 require('lspconfig').sumneko_lua.setup {
   settings = {
     Lua = {
@@ -192,6 +204,8 @@ null_ls.setup {
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.clang_format.with({command = 'clang-format-14'}),
+    null_ls.builtins.code_actions.gitsigns,
     -- null_ls.builtins.omnifunc,
   },
   on_attach = on_attach,
