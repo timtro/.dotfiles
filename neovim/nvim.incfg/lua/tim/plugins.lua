@@ -72,7 +72,10 @@ return require('packer').startup(function(use)
       require('Comment').setup()
     end,
   }
-  use 'KabbAmine/vCoolor.vim'
+  use {
+    'ziontee113/color-picker.nvim',
+    config = [[require('color-picker').setup({})]],
+  }
   use 'p00f/nvim-ts-rainbow'
 
   -- -- Telescope
