@@ -5,7 +5,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $dir/colourtools.sh
 
 # special
-# set_term_fg "#c0caf5"
+set_term_fg "#c0caf5"
 # set_term_bg "#24283b"
 set_term_cursor "#e33962"
 
@@ -38,5 +38,5 @@ cset 6 "#7dcfff"
 cset 14 "#7dcfff"
 
 # white
-# cset 7 "#a9b1d6"
-# cset 15 "#c0caf5"
+cset 7 "#a9b1d6"
+cset 15 "#c0caf5"
