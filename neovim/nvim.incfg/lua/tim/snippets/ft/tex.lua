@@ -1,3 +1,5 @@
+-- vim: fdm=marker:fdc=2:fmr=<<<,>>>
+
 local ls = require 'luasnip'
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -19,9 +21,7 @@ local postfix = require('luasnip.extras.postfix').postfix
 
 local same = RL('tim.snippets').same
 
--- local snippets, autosnippets = {}, {}
-
--- Non-auto snippets                                                        {{{1
+-- Manual (non-auto) snips                                                  <<<1
 local snippets = {
   ls.parser.parse_snippet(
     { trig = 'emph', name = 'Emphasis' },
@@ -101,7 +101,7 @@ local snippets = {
     .. '\n\t\t$4 &↦ $5'
     .. '\n\\end{align*}'
   ),
--- Beamer snips                                                             {{{2
+-- Beamer related                                                           <<<2
   ls.parser.parse_snippet(
     { trig = 'bmfr', name = 'Empty Beamer frame' },
     '\\begin{frame}\n\t$0\n\\end{frame}'
@@ -126,10 +126,10 @@ local snippets = {
     .. '\n\t\\]\n'
     .. '\\end{frame}'
   ),
---                                                                          }}}2
+--                                                                          >>>2
 }
---                                                                          }}}1
--- Autosnippets{{{
+--                                                                          >>>1
+-- Autosnips                                                                <<<1
 local autosnippets = {
   s(
     { trig = 'em|(.+)|', regTrig = true, name = 'Emphasis' },
@@ -170,6 +170,6 @@ local autosnippets = {
     { t { '\\begin{align*}', '\t' }, i(1), t { '', '\\end{align*}' } }
   ),
 }
--- }}}
-
+--                                                                          >>>1
+--
 return snippets, autosnippets
