@@ -203,6 +203,10 @@ set_maps('n', {
   ['<leader>tw'] = ':Twilight<cr>',
   ['<leader>tz'] = ':ZenMode<cr>',
   ['<leader>tr'] = ':TransparentToggle<cr>',
+  ['<leader>c'] = '<cmd>PickColor<cr>',
+})
+set_maps('i', {
+  ['C-c'] = '<cmd>PickColorInsert<cr>',
 })
 
 -- Treesitter hint textobject
