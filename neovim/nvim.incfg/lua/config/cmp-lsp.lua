@@ -143,6 +143,9 @@ local on_attach = function(client, bufnr)
       lsp_format(bufnr)
     end, bufopts)
   end
+  if client.name == 'null-ls' then
+    vim.bo[bufnr].formatexpr = nil
+  end
 end
 
 local lsp_flags = {
