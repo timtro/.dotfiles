@@ -10,7 +10,7 @@ require('mason').setup {
 }
 
 require('mason-lspconfig').setup {
-  ensure_installed = { 'ltex', 'texlab', 'clangd', 'sumneko_lua' },
+  ensure_installed = { 'ltex', 'texlab', 'clangd', 'lua_ls' },
   automatic_installation = true,
 }
 
@@ -161,7 +161,7 @@ require('lspconfig').pyright.setup {
 
 require('lspconfig').clangd.setup {
   cmd = {
-    'clangd-14',
+    'clangd-15',
     '--background-index',
     '--clang-tidy',
     -- '--header-insertion=iwyu',
@@ -171,7 +171,7 @@ require('lspconfig').clangd.setup {
   flags = lsp_flags,
 }
 
-require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
@@ -207,7 +207,7 @@ null_ls.setup {
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.clang_format.with({command = 'clang-format-14'}),
+    null_ls.builtins.formatting.clang_format.with({command = 'clang-format-15'}),
     null_ls.builtins.code_actions.gitsigns,
     -- null_ls.builtins.omnifunc,
   },

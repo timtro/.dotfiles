@@ -13,10 +13,10 @@ local function setup()
     styles = {
       -- Style to be applied to different syntax groups
       -- Value is any valid attr-list value `:help attr-list`
-      comments = 'italic',
-      keywords = 'italic',
+      comments = { italic = true },
+      keywords = { bold = true },
       functions = 'NONE',
-      variables = 'NONE',
+      variables = {italic = true},
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'dark', -- style for sidebars, see below
       floats = 'dark', -- style for floating windows
@@ -48,6 +48,7 @@ local function setup()
       hl['@text.literal'] = {bg = 'none'}
       hl['@text.none'] = {bg = 'none'}
       hl['@text.title'] = {bg = 'none'}
+      hl['BufferCurrent'] = {bg = colors.blue7}
     end
   }
 

@@ -63,15 +63,10 @@ function seepdf {
 }
 
 # Tablet
-function wacom_left {
+function wacom_on_primary_screen {
+  primary_screen_geometry=`xrandr | grep "primary" | awk '{print $4}'`
   for i in `xsetwacom --list | awk '{print $8}'`; do
-    xsetwacom set $i MapToOutput 1920x1200+0+0
-  done
-}
-
-function wacom_right {
-  for i in `xsetwacom --list | awk '{print $8}'`; do
-    xsetwacom set $i MapToOutput 1920x1200+1920+0
+    xsetwacom set $i MapToOutput ${primary_screen_geometry}
   done
 }
 
@@ -87,6 +82,11 @@ function wacom_presentkeys {
   xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 11 key '+Control_L +y'
   xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 12 key '+Page_Up'
   xsetwacom --set "Wacom Intuos Pro L Pad pad" Button 13 key '+Page_Down'
+}
+
+function wacom_setup {
+  wacom_on_primary_screen
+  wacom_presentkeys
 }
 
 function compose_search {

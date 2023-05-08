@@ -7,8 +7,20 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use { 'akinsho/toggleterm.nvim', config = [[require 'config.toggleterm']] }
   use {
-    'glepnir/dashboard-nvim',
-    config = [[ require 'config.dashboard' ]],
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'error',
+        auto_session_suppress_dirs = { '~/', '~/workspace', '~/Downloads', '/' },
+      }
+    end,
+  }
+  use {
+    'rmagatti/session-lens',
+    requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('session-lens').setup {}
+    end,
   }
   use {
     'kyazdani42/nvim-tree.lua',
@@ -112,7 +124,8 @@ return require('packer').startup(function(use)
 
   -- For prose:
   use 'dbmrq/vim-redacted' -- To blank out blocks of text.
-  use 'dbmrq/vim-chalk' -- Auto number nested fold markers.
+  -- Auto number nested fold markers.
+  use { 'dbmrq/vim-chalk', config = [[ require 'config.foldmarkers' ]] }
   -- }}}
 
   -- LSP / completion / formatting / snipits {{{
@@ -166,7 +179,10 @@ return require('packer').startup(function(use)
     requires = 'nvim-treesitter/nvim-treesitter',
   }
   -- NOTE: For debugging treesitter
-  use 'nvim-treesitter/playground'
+  use {
+    'nvim-treesitter/playground',
+    config = [[require 'config.ts-playground']],
+  }
   --
   use {
     'lewis6991/gitsigns.nvim',
@@ -260,6 +276,18 @@ return require('packer').startup(function(use)
 
   -- -- C++
   use 'jackguo380/vim-lsp-cxx-highlight'
+
+  -- -- Haskell
+  use {
+    'MrcJkb/haskell-tools.nvim',
+    requires = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = [[require 'config.haskell-tools']],
+    ft = { 'haskell' },
+  }
   -- }}}
 
   -- Colorschemes {{{
@@ -283,4 +311,8 @@ return require('packer').startup(function(use)
   use 'kdheepak/monochrome.nvim'
   use 'savq/melange'
   -- }}}
+  --
+  -- Toys {{{
+  use 'Eandrju/cellular-automaton.nvim'
+  --
 end)

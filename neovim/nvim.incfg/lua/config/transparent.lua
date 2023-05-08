@@ -1,8 +1,28 @@
-require("transparent").setup({
-  enable = false, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be clear
-    -- In particular, when you set it to 'all', that means all avaliable groups
-    "lualine_c_normal"
+require('transparent').setup {
+  groups = { -- table: default groups
+    'Normal',
+    'NormalNC',
+    'Comment',
+    'Constant',
+    'Special',
+    'Identifier',
+    'Statement',
+    'PreProc',
+    'Type',
+    'Underlined',
+    'Todo',
+    'String',
+    'Function',
+    'Conditional',
+    'Repeat',
+    'Operator',
+    'Structure',
+    'LineNr',
+    'NonText',
+    'SignColumn',
+    'CursorLineNr',
+    'EndOfBuffer',
   },
-  exclude = {}, -- table: groups you don't want to clear
-})
+  extra_groups = {}, -- table: additional groups that should be cleared
+  exclude_groups = {}, -- table: groups you don't want to clear
+}

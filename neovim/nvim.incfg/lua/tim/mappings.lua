@@ -78,7 +78,7 @@ set_maps('n', {
   ['N'] = 'Nzzzv',
 
   -- 'mz'—save mark z, 'J'—join, '`z'—go to mark z.
-  ['J'] = 'mzJ`z',
+  -- ['J'] = 'mzJ`z',
 
   -- Open new line and go back to normalmode
   ['<A-o>'] = 'o<esc>',
@@ -112,8 +112,8 @@ set_maps('v', {
 
 set_maps('x', {
   -- Move selected line / block of text in visual mode
-  ['K'] = ":move '<-2<cr>gv-gv",
-  ['J'] = ":move '>+1<cr>gv-gv",
+  ['C-K'] = ":move '<-2<cr>gv-gv",
+  ['C-J'] = ":move '>+1<cr>gv-gv",
 
   -- Move current line / block with Alt-j/k ala vscode.
   ['<A-j>'] = ":m '>+1<cr>gv-gv",
@@ -280,7 +280,7 @@ vmap <leader>r <Plug>Redact
 vim.keymap.set(
   'n',
   '<leader><leader>s',
-  '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>'
+  '<cmd>source ~/.config/nvim/lua/config/luasnip.lua<cr>'
 )
 --                                                                          }}}2
 --                                                                          }}}1

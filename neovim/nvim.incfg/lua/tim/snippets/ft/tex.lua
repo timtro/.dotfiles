@@ -34,7 +34,7 @@ local snippets = {
   ls.parser.parse_snippet({
     trig = 'cdar',
     name = 'Inline function arrow',
-  }, '\\begin{tikzcd}[cramped, sep=small] $1 \\rar["$2"] & $3 \\end{tikzcd}$0'),
+  }, '\\begin{tikzcd}[cramped, sep=small] $1 \\ar[r, "$2"] & $3 \\end{tikzcd}$0'),
   ls.parser.parse_snippet(
     { trig = 'lr(', name = 'left( right)' },
     '\\left( ${1:${TM_SELECTED_TEXT}} \\right) $0'
@@ -153,6 +153,24 @@ local autosnippets = {
     { trig = 'tt|(.+)|', regTrig = true, name = 'Typewriter text' },
     f(function(_, snip)
       return '\\texttt{' .. snip.captures[1] .. '}'
+    end)
+  ),
+  s(
+    { trig = 'mtt|(.+)|', regTrig = true, name = 'Mathmode typewriter text' },
+    f(function(_, snip)
+      return '\\mathtt{' .. snip.captures[1] .. '}'
+    end)
+  ),
+  s(
+    { trig = 'mttx|(.+)|', regTrig = true, name = 'Mathmode typewriter text' },
+    f(function(_, snip)
+      return '\\text{\\texttt{' .. snip.captures[1] .. '}}'
+    end)
+  ),
+  s(
+    { trig = 'txt|(.+)|', regTrig = true, name = 'Mathmode text' },
+    f(function(_, snip)
+      return '\\text{' .. snip.captures[1] .. '}'
     end)
   ),
   s(

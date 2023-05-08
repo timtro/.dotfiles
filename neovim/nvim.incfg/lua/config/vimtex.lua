@@ -25,3 +25,18 @@ let g:vimtex_complete_ref = {
   \ 'custom_patterns': ['\\[DNBXFA]ref\*\?{[^}]*$']
   \ }
 ]]
+
+-- For tikzexternalize, to expand memory, need -shell-escape.
+--   https://github.com/lervag/vimtex/issues/467#issuecomment-395840260
+-- vim.cmd[[
+-- let g:vimtex_compiler_latexmk = {
+--     \ 'options' : [
+--     \   '-pdf',
+--     \   '-shell-escape',
+--     \   '-verbose',
+--     \   '-file-line-error',
+--     \   '-synctex=1',
+--     \   '-interaction=nonstopmode',
+--     \ ],
+--     \}
+-- ]]

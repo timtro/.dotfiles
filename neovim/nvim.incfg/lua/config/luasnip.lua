@@ -2,14 +2,14 @@ local ls = require 'luasnip'
 local types = require("luasnip.util.types")
 
 ls.setup {
-  history = true,
+  history = false,
   -- Update more often, :h events for more info.
-  update_events = 'TextChanged,TextChangedI',
+  -- update_events = 'TextChanged,TextChangedI',
   -- Snippets aren't automatically removed if their text is deleted.
   -- `delete_check_events` determines on which events (:h events) a check for
   -- deleted snippets is performed.
   -- This can be especially useful when `history` is enabled.
-  delete_check_events = 'TextChanged',
+  -- delete_check_events = 'TextChanged',
   ext_opts = {
     [types.choiceNode] = {
       active = {

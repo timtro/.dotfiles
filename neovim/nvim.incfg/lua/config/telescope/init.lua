@@ -1,4 +1,4 @@
-local telescope = require'telescope'
+local telescope = require 'telescope'
 
 telescope.setup {
   defaults = {
@@ -26,6 +26,7 @@ telescope.setup {
 }
 
 telescope.load_extension 'bibtex'
+telescope.load_extension 'session-lens'
 
 local M = {}
 
@@ -33,12 +34,12 @@ function M.grep_wiki()
   local opts = {}
   opts.hidden = true
   opts.search_dirs = {
-    "~/Documents/wiki",
+    '~/Documents/wiki',
   }
-  opts.prompt_prefix = " "
-  opts.prompt_title = " Grep Wiki"
-  opts.path_display = { "smart" }
-  require("telescope.builtin").live_grep(opts)
+  opts.prompt_prefix = ' '
+  opts.prompt_title = ' Grep Wiki'
+  opts.path_display = { 'smart' }
+  require('telescope.builtin').live_grep(opts)
 end
 
 return M
