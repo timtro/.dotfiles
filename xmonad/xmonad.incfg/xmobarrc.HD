@@ -1,0 +1,33 @@
+Config {
+-- appearance
+  font        =  "IBM Plex Mono 14px",
+  additionalFonts = [ "Hasklig 18px"
+                    , "Symbols Nerd Font 14px"
+                    , "Symbols Nerd Font 18px"
+                    ],
+  textOffsets = [18]
+  position    =  TopSize C 100 22,
+  border = NoBorder,
+  iconRoot     = "/home/timtro/.config/xmonad/xpm/",
+
+-- layout
+  sepChar  =  "%",  -- delineator between plugin names and straight text
+  alignSep = "}{",  -- separator between left-right alignment
+  -- template = "<icon=dejour.xpm/>    %StdinReader% }{<fc=#3d59a1>:</fc>  %date%        %traygap%",
+  template = " <fn=3><fc=#ff9e64></fc><fc=#9ece6a></fc><fc=#7aa2f7></fc><fc=#f7768e></fc></fn>  %StdinReader% }{<fc=#3d59a1><fn=2></fn> : </fc>%date%  %traygap%",
+
+-- general behavior
+  lowerOnStart =     True,    -- send to bottom of window stack on start
+  hideOnStart =      False,   -- start with window unmapped (hidden)
+  allDesktops =      True,    -- show on all desktops
+  overrideRedirect = True,    -- set the Override Redirect flag (Xlib)
+  pickBroadest =     False,   -- choose widest display (multi-monitor)
+  persistent =       True,    -- enable/disable hiding (True = disabled)
+
+  commands =
+    [
+      Run StdinReader,
+      Run Date           "%A, %e %B, %k:%M" "date" 10,
+      Run Com "/home/timtro/.config/xmonad/scr/tray-gap-icon.sh" [] "traygap" 20
+    ]
+}

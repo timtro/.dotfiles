@@ -1,0 +1,50 @@
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/20/9.yaml
+packages:
+- xmobar
+- xmonad
+- xmonad-contrib
+extra-deps:
+- hostname-1.0
+- netlink-1.1.1.0@sha256:d83424b5ba9921191449e4b1f53c7cba7f4375f2c55a9b737c77e982e1f40d00
+
+# Override default flag values for local packages and extra-deps
+flags:
+  xmobar:
+    # with_xrender: True
+    # with_inotify: False
+    # with_iwlib: False
+    # with_nl80211: False
+    # with_mpd: False
+    all_extensions: True
+    # with_alsa: False
+    # with_datezone: False
+    # with_mpris: False
+    # with_dbus: False
+    # with_xpm: True
+    # with_threaded: True
+    # with_rtsopts: True
+    # with_weather: True
+    # with_uvmeter: False
+    # with_kraken: False
+
+# Extra package databases containing global packages
+# extra-package-dbs: []
+
+# Control whether we use the GHC we find on the path
+# system-ghc: true
+#
+# Require a specific version of stack, using version ranges
+# require-stack-version: -any # Default
+# require-stack-version: ">=2.9"
+#
+# Override the architecture used by stack, especially useful on Windows
+# arch: i386
+# arch: x86_64
+#
+# Extra directories used by stack for building
+# extra-include-dirs: [/path/to/dir]
+# extra-lib-dirs: [/path/to/dir]
+#
+# Allow a newer minor version of GHC than the snapshot specifies
+# compiler-check: newer-minor
