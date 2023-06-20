@@ -18,7 +18,7 @@ vim.g.vimtex_fold_manual = 1
 vim.g.latex_indent_enabled = 0
 vim.g.vimtex_complete_enabled = 1
 -- vim.g.vimtex_quickfix_enabled = 0
-vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
+-- vim.g.vimtex_quickfix_autoclose_after_keystrokes = 1
 
 vim.cmd[[
 let g:vimtex_complete_ref = {

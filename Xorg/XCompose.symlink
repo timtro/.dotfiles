@@ -49,6 +49,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <braceleft> <asciicircum>: "∩" U2229 # INTERSECTION
 <Multi_key> <bar> <asterisk> <bar>: "⊓" U2293 # SQUARE CAP
 <Multi_key> <braceleft> <parenleft>: "⊂" U2282 # SUBSET OF
+<Multi_key> <backslash><backslash>: "∖" U2216 # SET MINUS
 <Multi_key> <braceleft> <equal> <parenleft>: "⊆" U2286 # SUBSET OF OR EQUAL TO
 <Multi_key> <exclam> <braceleft> <parenleft>: "⊄" U2284 # NOT A SUBSET OF
 <Multi_key> <slash> <braceleft> <parenleft>: "⊄" U2284 # NOT A SUBSET OF
@@ -192,6 +193,10 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <minus> <t>: "ₜ" U209C # LATIN SUBSCRIPT SMALL LETTER T
 <Multi_key> <minus> <j>: "ⱼ" U2C7C # LATIN SUBSCRIPT SMALL LETTER J
 #                                                                           }}}1
+# Superscripts ............................................................ {{{1
+<Multi_key> <asciicircum> <n> : "ⁿ" U207F # SUPERSCRIPT LATIN SMALL LETTER N
+
+##  ....................................................................... }}}1
 # Mathematical Sans-Serif Digits                                            {{{1
 <Multi_key> <apostrophe> <0> : "𝟢" U1D7E2 # MATHEMATICAL SANS-SERIF DIGIT ZERO
 <Multi_key> <apostrophe> <1> : "𝟣" U1D7E3 # MATHEMATICAL SANS-SERIF DIGIT ONE
