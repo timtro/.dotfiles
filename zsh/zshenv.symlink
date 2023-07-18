@@ -1,0 +1,6 @@
+
+source $HOME/.dotfiles/zsh/functions.sh
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -e "$HOME/git/kitty/shell-integration/kitty.zsh"; then source "$HOME/git/kitty/shell-integration/kitty.zsh"; fi
+# END_KITTY_SHELL_INTEGRATION
