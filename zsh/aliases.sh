@@ -13,7 +13,7 @@ alias seekeys="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 if which exa >/dev/null; then
-  unalias ll
+  if which ll >/dev/null; then unalias ll; fi
   alias ll="exa -l -g --icons --color=always"
   alias lld="ll --group-directories-first | less"
   alias lt="ll -a -stime"
@@ -49,7 +49,7 @@ alias edhist='$EDITOR ~/.zsh_history'
 alias eddot='edit_in ~/.dotfiles'
 alias ednvim='edit_in ~/.config/nvim/ ~/.config/nvim/init.lua'
 alias edxmonad='eddot ~/.dotfiles/xmonad/xmonad.symlink/xmonad.hs'
-alias edzsh='eddot ~/.dotfiles/zsh/zshrc.symlink'
+alias edzsh='cd ~/.dotfiles/zsh && $EDITOR zshrc.symlink zshenv.symlink'
 alias edaliases='eddot ~/.dotfiles/zsh/aliases.sh'
 alias edfuncs='eddot $HOME/.dotfiles/zsh/functions.sh'
 alias edXdefaults='eddot -c "set filetype=xdefaults" ~/.dotfiles/Xorg/Xdefaults.symlink'
@@ -68,6 +68,7 @@ alias wiki="edit_in ~/Documents/wiki/ ~/Documents/wiki/index.md"
 # Thesis shortcuts                                                          {{{1
 alias thesis='cd ~/Documents/Thesis-PhD'
 alias edthesis='thesis && $EDITOR'
+alias edbib='thesis && cd sub/bibtex/bib && $EDITOR'
 alias edthesis-tex='thesis && cd tex && $EDITOR'
 alias edthesis-md='thesis && cd md && $EDITOR'
 alias edthesis-reports='thesis && cd reports && $EDITOR'

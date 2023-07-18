@@ -182,3 +182,18 @@ function run_gl {
     echo "ERROR: command requires system76-power in path"
   fi
 }
+
+function check-wan {
+  curl --http0.9 -s http://192.168.1.1/admin/landingpage.fwd \
+    | html2text \
+    | awk -f $HOME/.dotfiles/zsh/scr/router-stats.awk
+}
+
+function watch-wan {
+  watch -d --color -x zsh -c check-wan
+}
+
+function watch-gateway {
+  watch -d --color "curl --http0.9 -s http://192.168.1.1/admin/landingpage.fwd \
+    | html2text"
+}
