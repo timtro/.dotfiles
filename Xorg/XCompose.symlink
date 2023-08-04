@@ -24,6 +24,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <equal> <Right> <Left>: "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
 <Multi_key> <Up> <Up>: "↑" U2191 # UPWARDS ARROW
 <Multi_key> <Down> <Down>: "↓" U2193 # DOWNWARDS ARROW
+<Multi_key> <Right> <Left>: "⇌" U21CC # RIGHTWARDS HARPOON OVER LEFTWARDS HARPOON
+<Multi_key> <Left> <Right>: "⇋" U21CB # LEFTWARDS HARPOON OVER RIGHTWARDS HARPOON
 #                                                                           }}}1
 # Conventional binary operators                                             {{{1
 <Multi_key> <x> <period>: "⋅" U22C5 # DOT OPERATOR
@@ -119,6 +121,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <bar> <C>: "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
 <Multi_key> <bar> <bar> <R>: "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
 <Multi_key> <bar> <bar> <Z>: "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
+<Multi_key> <N> <0>: "ℵ" U2135 # ALEF SYMBOL
 #                                                                           }}}1
 # Unitary operators                                                         {{{1
 <Multi_key> <dollar> <dollar>: "∫" U222B # INTEGRAL
@@ -198,16 +201,42 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 
 ##  ....................................................................... }}}1
 # Mathematical Sans-Serif Digits                                            {{{1
-<Multi_key> <apostrophe> <0> : "𝟢" U1D7E2 # MATHEMATICAL SANS-SERIF DIGIT ZERO
-<Multi_key> <apostrophe> <1> : "𝟣" U1D7E3 # MATHEMATICAL SANS-SERIF DIGIT ONE
-<Multi_key> <apostrophe> <2> : "𝟤" U1D7E4 # MATHEMATICAL SANS-SERIF DIGIT TWO
-<Multi_key> <apostrophe> <3> : "𝟥" U1D7E5 # MATHEMATICAL SANS-SERIF DIGIT THREE
-<Multi_key> <apostrophe> <4> : "𝟦" U1D7E6 # MATHEMATICAL SANS-SERIF DIGIT FOUR
-<Multi_key> <apostrophe> <5> : "𝟧" U1D7E7 # MATHEMATICAL SANS-SERIF DIGIT FIVE
-<Multi_key> <apostrophe> <6> : "𝟨" U1D7E8 # MATHEMATICAL SANS-SERIF DIGIT SIX
-<Multi_key> <apostrophe> <7> : "𝟩" U1D7E9 # MATHEMATICAL SANS-SERIF DIGIT SEVEN
-<Multi_key> <apostrophe> <8> : "𝟪" U1D7EA # MATHEMATICAL SANS-SERIF DIGIT EIGHT
-<Multi_key> <apostrophe> <9> : "𝟫" U1D7EB # MATHEMATICAL SANS-SERIF DIGIT NINE
+<Multi_key> <s> <0> : "𝟢" U1D7E2 # MATHEMATICAL SANS-SERIF DIGIT ZERO
+<Multi_key> <s> <1> : "𝟣" U1D7E3 # MATHEMATICAL SANS-SERIF DIGIT ONE
+<Multi_key> <s> <2> : "𝟤" U1D7E4 # MATHEMATICAL SANS-SERIF DIGIT TWO
+<Multi_key> <s> <3> : "𝟥" U1D7E5 # MATHEMATICAL SANS-SERIF DIGIT THREE
+<Multi_key> <s> <4> : "𝟦" U1D7E6 # MATHEMATICAL SANS-SERIF DIGIT FOUR
+<Multi_key> <s> <5> : "𝟧" U1D7E7 # MATHEMATICAL SANS-SERIF DIGIT FIVE
+<Multi_key> <s> <6> : "𝟨" U1D7E8 # MATHEMATICAL SANS-SERIF DIGIT SIX
+<Multi_key> <s> <7> : "𝟩" U1D7E9 # MATHEMATICAL SANS-SERIF DIGIT SEVEN
+<Multi_key> <s> <8> : "𝟪" U1D7EA # MATHEMATICAL SANS-SERIF DIGIT EIGHT
+<Multi_key> <s> <9> : "𝟫" U1D7EB # MATHEMATICAL SANS-SERIF DIGIT NINE
+<Multi_key> <s> <a>: "𝖺" U1D5BA # MATHEMATICAL SANS-SERIF SMALL A
+<Multi_key> <s> <b>: "𝖻" U1D5BB # MATHEMATICAL SANS-SERIF SMALL B
+<Multi_key> <s> <c>: "𝖼" U1D5BC # MATHEMATICAL SANS-SERIF SMALL C
+<Multi_key> <s> <d>: "𝖽" U1D5BD # MATHEMATICAL SANS-SERIF SMALL D
+<Multi_key> <s> <e>: "𝖾" U1D5BE # MATHEMATICAL SANS-SERIF SMALL E
+<Multi_key> <s> <f>: "𝖿" U1D5BF # MATHEMATICAL SANS-SERIF SMALL F
+<Multi_key> <s> <g>: "𝗀" U1D5C0 # MATHEMATICAL SANS-SERIF SMALL G
+<Multi_key> <s> <h>: "𝗁" U1D5C1 # MATHEMATICAL SANS-SERIF SMALL H
+<Multi_key> <s> <i>: "𝗂" U1D5C2 # MATHEMATICAL SANS-SERIF SMALL I
+<Multi_key> <s> <j>: "𝗃" U1D5C3 # MATHEMATICAL SANS-SERIF SMALL J
+<Multi_key> <s> <k>: "𝗄" U1D5C4 # MATHEMATICAL SANS-SERIF SMALL K
+<Multi_key> <s> <l>: "𝗅" U1D5C5 # MATHEMATICAL SANS-SERIF SMALL L
+<Multi_key> <s> <m>: "𝗆" U1D5C6 # MATHEMATICAL SANS-SERIF SMALL M
+<Multi_key> <s> <n>: "𝗇" U1D5C7 # MATHEMATICAL SANS-SERIF SMALL N
+<Multi_key> <s> <o>: "𝗈" U1D5C8 # MATHEMATICAL SANS-SERIF SMALL O
+<Multi_key> <s> <p>: "𝗉" U1D5C9 # MATHEMATICAL SANS-SERIF SMALL P
+<Multi_key> <s> <q>: "𝗊" U1D5CA # MATHEMATICAL SANS-SERIF SMALL Q
+<Multi_key> <s> <r>: "𝗋" U1D5CB # MATHEMATICAL SANS-SERIF SMALL R
+<Multi_key> <s> <s>: "𝗌" U1D5CC # MATHEMATICAL SANS-SERIF SMALL S
+<Multi_key> <s> <t>: "𝗍" U1D5CD # MATHEMATICAL SANS-SERIF SMALL T
+<Multi_key> <s> <u>: "𝗎" U1D5CE # MATHEMATICAL SANS-SERIF SMALL U
+<Multi_key> <s> <v>: "𝗏" U1D5CF # MATHEMATICAL SANS-SERIF SMALL V
+<Multi_key> <s> <w>: "𝗐" U1D5D0 # MATHEMATICAL SANS-SERIF SMALL W
+<Multi_key> <s> <x>: "𝗑" U1D5D1 # MATHEMATICAL SANS-SERIF SMALL X
+<Multi_key> <s> <y>: "𝗒" U1D5D2 # MATHEMATICAL SANS-SERIF SMALL Y
+<Multi_key> <s> <z>: "𝗓" U1D5D3 # MATHEMATICAL SANS-SERIF SMALL Z
 #                                                                           }}}1
 # Mathematical Sans-Serif Bold Digits                                       {{{1
 <Multi_key> <asterisk> <0>: "𝟬" U1D7EC # MATHEMATICAL SANS-SERIF BOLD DIGIT ZERO
@@ -522,7 +551,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <d>: "δ" U03B4 # GREEK SMALL LETTER DELTA
 <Multi_key> <g> <e>: "ε" U03B5 # GREEK SMALL LETTER EPSILON
 <Multi_key> <g> <f>: "φ" U03C6 # GREEK SMALL LETTER PHI
-<Multi_key> <g> <F>: "𝜙" U1D719 # MATHEMATICAL ITALIC PHI SYMBOL
+<Multi_key> <G> <f>: "𝜙" U1D719 # MATHEMATICAL ITALIC PHI SYMBOL
 <Multi_key> <g> <g>: "γ" U03B3 # GREEK SMALL LETTER GAMMA
 <Multi_key> <g> <h>: "η" U03B7 # GREEK SMALL LETTER ETA
 <Multi_key> <g> <i>: "ι" U03B9 # GREEK SMALL LETTER IOTA
@@ -533,10 +562,11 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <g> <n>: "ν" U03BD # GREEK SMALL LETTER NU
 <Multi_key> <g> <o>: "ο" U03BF # GREEK SMALL LETTER OMICRON
 <Multi_key> <g> <p>: "π" U03C0 # GREEK SMALL LETTER PI
-<Multi_key> <g> <W>: "ϖ" U03D6 # GREEK PI SYMBOL
+<Multi_key> <g> <P>: "ϖ" U03D6 # GREEK PI SYMBOL
 <Multi_key> <g> <r>: "ρ" U03C1 # GREEK SMALL LETTER RHO
+<Multi_key> <G> <r>: "𝜚" U1D71A # MATHEMATICAL ITALIC RHO SYMBOL
 <Multi_key> <g> <s>: "σ" U03C3 # GREEK SMALL LETTER SIGMA
-<Multi_key> <g> <S>: "𝜍" U1D70D # MATHEMATICAL ITALIC SMALL FINAL SIGMA
+<Multi_key> <G> <s>: "𝜍" U1D70D # MATHEMATICAL ITALIC SMALL FINAL SIGMA
 <Multi_key> <g> <t>: "τ" U03C4 # GREEK SMALL LETTER TAU
 <Multi_key> <g> <u>: "θ" U03B8 # GREEK SMALL LETTER THETA
 <Multi_key> <G> <u>: "ϑ" U03D1 # GREEK THETA SYMBOL
