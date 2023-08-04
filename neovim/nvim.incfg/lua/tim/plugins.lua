@@ -4,7 +4,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Editor/IDE tools {{{
-  use 'kyazdani42/nvim-web-devicons'
+  -- use 'nvim-tree/nvim-web-devicons'
+  use 'nvim-tree/nvim-web-devicons'
   use { 'akinsho/toggleterm.nvim', config = [[require 'config.toggleterm']] }
   use {
     'rmagatti/auto-session',
@@ -23,21 +24,28 @@ return require('packer').startup(function(use)
     end,
   }
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('nvim-tree').setup {}
     end,
   }
   use {
+    'ThePrimeagen/harpoon',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require 'config.harpoon'
+    end,
+  }
+  use {
     'hoob3rt/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = { 'nvim-tree/nvim-web-devicons' },
   }
-  use { -- Tabs / top tab bar
-    'romgrk/barbar.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = [[require 'config.barbar']],
-  }
+  -- use { -- Tabs / top tab bar
+  --   'romgrk/barbar.nvim',
+  --   requires = { 'nvim-tree/nvim-web-devicons' },
+  --   config = [[require 'config.barbar']],
+  -- }
   use {
     'machakann/vim-highlightedyank',
     config = function()
@@ -93,20 +101,23 @@ return require('packer').startup(function(use)
   -- -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = [[ require 'config.telescope' ]],
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-bibtex.nvim',
+    },
+    config = [[ require 'config.telescope.init' ]],
   }
   use {
     'nvim-telescope/telescope-project.nvim',
-    config = function()
-      require('telescope').load_extension 'project'
-    end,
+    -- config = function()
+    --   require('telescope').load_extension 'project'
+    -- end,
   }
   use {
     'nvim-telescope/telescope-bibtex.nvim',
-    config = function()
-      require('telescope').load_extension 'bibtex'
-    end,
+    -- config = function()
+    --   require('telescope').load_extension 'bibtex'
+    -- end,
     requires = { 'nvim-telescope/telescope.nvim' },
   }
 
@@ -250,10 +261,11 @@ return require('packer').startup(function(use)
 
   -- Filetype and syntax plugins {{{
   -- -- General/Text/Prose
-  use 'dhruvasagar/vim-table-mode'
+  -- use 'dhruvasagar/vim-table-mode'
 
   -- -- (La)TeX
   use { 'lervag/vimtex', config = [[require 'config.vimtex']] }
+  use { 'peterbjorgensen/sved', ft = 'tex' }
 
   -- -- Markdown
   use {

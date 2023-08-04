@@ -61,10 +61,6 @@ set_maps('n', {
   ['<C-Left>'] = ':vertical resize -2<cr>',
   ['<C-Right>'] = ':vertical resize +2<cr>',
 
-  -- Tab switch buffer
-  ['<S-l>'] = ':BufferNext<cr>',
-  ['<S-h>'] = ':BufferPrevious<cr>',
-
   -- Clear search hilight and redraw
   ['<C-_>'] = ':nohl<cr><C-L>',
   ['<C-/>'] = ':nohl<cr><C-L>',
@@ -126,11 +122,13 @@ set_maps('x', {
 -- Telescope
 set_maps('n', {
   ['<leader>ff'] = ':Telescope find_files<cr>',
-  ['<leader>fg'] = ':Telescope live_grep<cr>',
+  ['<leader>tt'] = ':Telescope buffers<cr>',
+  ['<leader>tm'] = ':Telescope harpoon marks<cr>',
+  ['<leader>tg'] = ':Telescope live_grep<cr>',
   ['<leader>fb'] = ':Telescope current_buffer_fuzzy_find<cr>',
   ['<leader>fc'] = ':Telescope bibtex theme=dropdown<cr>',
-  ['<leader>fh'] = ':Telescope help_tags<cr>',
-  ['<leader>fd'] = ':Telescope lsp_workspace_diagnostics<cr>',
+  ['<leader>th'] = ':Telescope help_tags<cr>',
+  ['<leader>td'] = ':Telescope diagnostics<cr>',
   -- Grep in open files.
   ['<leader>fl'] = ':Telescope live_grep grep_open_files=true<cr>',
   ['<leader>fw'] = [[<cmd>lua require('tim.telescope').grep_wiki()<cr>]],
@@ -139,29 +137,26 @@ set_maps('n', {
 -- RnVimr
 set_maps('n', { ['<leader>rr'] = ':RnvimrToggle<cr>' })
 
--- barbar tabs
+-- file navigation, tabline and buffers
 set_maps('n', {
-  -- ['<A-,>'] = ':BufferPrevious<cr>',
-  -- ['<A-.>'] = ':BufferNext<cr>',
-  ['<leader>b['] = ':BufferMovePrevious<cr>',
-  ['<leader>b]'] = ':BufferMoveNext<cr>',
-  ['<A-,>'] = ':BufferMovePrevious<cr>',
-  ['<A-.>'] = ':BufferMoveNext<cr>',
-  ['<A-c>'] = ':BufferClose<cr>',
-  ['<A-1>'] = ':BufferGoto 1<cr>',
-  ['<A-2>'] = ':BufferGoto 2<cr>',
-  ['<A-3>'] = ':BufferGoto 3<cr>',
-  ['<A-4>'] = ':BufferGoto 4<cr>',
-  ['<A-5>'] = ':BufferGoto 5<cr>',
-  ['<A-6>'] = ':BufferGoto 6<cr>',
-  ['<A-7>'] = ':BufferGoto 7<cr>',
-  ['<A-8>'] = ':BufferGoto 8<cr>',
-  ['<A-9>'] = ':BufferGoto 9<cr>',
-  ['<A-0>'] = ':BufferLast<cr>',
-  ['<C-p>'] = ':BufferPick<cr>',
-  ['<space>bb'] = ':BufferOrderByBufferNumber<cr>',
-  ['<space>bd'] = ':BufferOrderByDirectory<cr>',
-  ['<space>bl'] = ':BufferOrderByLanguage<cr>',
+  -- Tab switch buffer
+  ['<C-l>'] = ':bnext<cr>',
+  ['<C-h>'] = ':bprev<cr>',
+  -- harpoon
+  ['<leader>h'] = ':lua require("harpoon.ui").toggle_quick_menu()<cr>',
+  -- ['<S-m>'] = ':lua require("harpoon.mark").add_file()<cr>',
+  ['<S-m>'] = ':lua require("harpoon.mark").toggle_file()<cr>',
+  ['<S-l>'] = ':lua require("harpoon.ui").nav_next()<cr>',
+  ['<S-h>'] = ':lua require("harpoon.ui").nav_prev()<cr>',
+  ['<A-1>'] = ':lua require("harpoon.ui").nav_file(1)<cr>',
+  ['<A-2>'] = ':lua require("harpoon.ui").nav_file(2)<cr>',
+  ['<A-3>'] = ':lua require("harpoon.ui").nav_file(3)<cr>',
+  ['<A-4>'] = ':lua require("harpoon.ui").nav_file(4)<cr>',
+  ['<A-5>'] = ':lua require("harpoon.ui").nav_file(5)<cr>',
+  ['<A-6>'] = ':lua require("harpoon.ui").nav_file(6)<cr>',
+  ['<A-7>'] = ':lua require("harpoon.ui").nav_file(7)<cr>',
+  ['<A-8>'] = ':lua require("harpoon.ui").nav_file(8)<cr>',
+  ['<A-9>'] = ':lua require("harpoon.ui").nav_file(9)<cr>',
 })
 
 -- Sideways

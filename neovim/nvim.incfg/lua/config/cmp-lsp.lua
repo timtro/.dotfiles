@@ -171,6 +171,12 @@ require('lspconfig').clangd.setup {
   flags = lsp_flags,
 }
 
+require('lspconfig').texlab.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
+
 require('lspconfig').lua_ls.setup {
   settings = {
     Lua = {

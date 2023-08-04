@@ -10,10 +10,16 @@ telescope.setup {
   },
   extensions = {
     bibtex = {
+      context = true,
+      global_fallback = true,
       global_files = {
-        '/home/timtro/texmf/bibtex/bib',
+        -- '/home/timtro/texmf/bibtex/bib',
+        '~/Documents/Thesis-PhD/sub/bibtex/bib',
       },
+      -- custom_formats = { },
       format = 'plain',
+      use_auto_format = false,
+      wrapping = true,
     },
     project = {
       base_dirs = {
@@ -27,19 +33,20 @@ telescope.setup {
 
 telescope.load_extension 'bibtex'
 telescope.load_extension 'session-lens'
+telescope.load_extension 'harpoon'
 
-local M = {}
-
-function M.grep_wiki()
-  local opts = {}
-  opts.hidden = true
-  opts.search_dirs = {
-    '~/Documents/wiki',
-  }
-  opts.prompt_prefix = ' '
-  opts.prompt_title = ' Grep Wiki'
-  opts.path_display = { 'smart' }
-  require('telescope.builtin').live_grep(opts)
-end
-
-return M
+-- local M = {}
+--
+-- function M.grep_wiki()
+--   local opts = {}
+--   opts.hidden = true
+--   opts.search_dirs = {
+--     '~/Documents/wiki',
+--   }
+--   opts.prompt_prefix = ' '
+--   opts.prompt_title = ' Grep Wiki'
+--   opts.path_display = { 'smart' }
+--   require('telescope.builtin').live_grep(opts)
+-- end
+--
+-- return M

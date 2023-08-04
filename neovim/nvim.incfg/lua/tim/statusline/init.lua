@@ -12,7 +12,7 @@ local conditions = {
   end,
 }
 
-local lsp_HUD = {
+local lsp_component = {
   function()
     local msg = 'No Active Lsp'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -31,7 +31,7 @@ local lsp_HUD = {
   icon = ' ',
 }
 
-local lsp_diagnostics_HUD = {
+local lsp_diagnostics_component = {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -42,7 +42,7 @@ local lsp_diagnostics_HUD = {
   },
 }
 
-local git_HUD = {
+local git_component = {
   'branch',
   {
     'diff',
@@ -53,6 +53,60 @@ local git_HUD = {
       color_removed = { fg = 'DiffDelete' },
     },
     cond = conditions.hide_in_width,
+  },
+}
+
+local filename_component = {
+  'filename',
+  file_status = true, -- Displays file status (readonly status, modified status)
+  newfile_status = false, -- Display new file status (new file means no write after created)
+  path = 0, -- 0: Just the filename
+  -- 1: Relative path
+  -- 2: Absolute path
+  -- 3: Absolute path, with tilde as the home directory
+  -- 4: Filename and parent dir, with tilde as the home directory
+
+  shorting_target = 40, -- Shortens path to leave 40 spaces in the window
+  -- for other components. (terrible name, any suggestions?)
+  symbols = {
+    modified = '[+]', -- Text to show when the file is modified.
+    readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
+    unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    newfile = '[New]', -- Text to show for newly created file before first write
+  },
+}
+
+local buffers_component = {
+  'buffers',
+  show_filename_only = true, -- Shows shortened relative path when set to false.
+  hide_filename_extension = false, -- Hide filename extension when set to true.
+  show_modified_status = true, -- Shows indicator when the buffer is modified.
+
+  mode = 1,
+  -- 0: Shows buffer name
+  -- 1: Shows buffer index
+  -- 2: Shows buffer name + buffer index
+  -- 3: Shows buffer number
+  -- 4: Shows buffer name + buffer number
+
+  max_length = vim.go.columns, -- Maximum width of buffers component,
+  -- it can also be a function that returns
+  -- the value of `max_length` dynamically.
+  filetype_names = {
+    TelescopePrompt = '',
+    dashboard = 'Dashboard',
+    packer = 'Packer',
+    fzf = 'FZF',
+    alpha = 'Alpha',
+  }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
+
+  -- Automatically updates active buffer color to match color of other components (will be overidden if buffers_color is set)
+  use_mode_colors = false,
+
+  symbols = {
+    modified = ' ●', -- Text to show when the buffer is modified
+    alternate_file = '#', -- Text to show to identify the alternate file
+    directory = '', -- Text to show when the buffer is a directory
   },
 }
 
@@ -73,8 +127,8 @@ return function(theme)
           right_padding = 2,
         },
       },
-      lualine_b = {},
-      lualine_c = { lsp_diagnostics_HUD },
+      lualine_b = { filename_component },
+      lualine_c = { lsp_diagnostics_component },
       lualine_x = {},
       lualine_y = { 'filetype', 'progress' },
       lualine_z = {
@@ -89,7 +143,14 @@ return function(theme)
       lualine_y = {},
       lualine_z = { 'location' },
     },
-    tabline = {},
+    -- tabline = {
+    --   lualine_a = {},
+    --   lualine_b = {},
+    --   lualine_c = {},
+    --   lualine_x = {},
+    --   lualine_y = {},
+    --   lualine_z = {},
+    -- },
     extensions = { 'nvim-tree' },
   }
 end
