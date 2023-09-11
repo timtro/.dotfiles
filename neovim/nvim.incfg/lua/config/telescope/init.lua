@@ -13,7 +13,6 @@ telescope.setup {
       context = true,
       global_fallback = true,
       global_files = {
-        -- '/home/timtro/texmf/bibtex/bib',
         '~/Documents/Thesis-PhD/sub/bibtex/bib',
       },
       -- custom_formats = { },
@@ -23,8 +22,8 @@ telescope.setup {
     },
     project = {
       base_dirs = {
-        { path = '~/workspace', max_depth = 2 },
-        { path = '~/Documents/Thesis-PhD', max_depth = 1 },
+        -- { path = '~/workspace', max_depth = 2 },
+        -- { path = '~/Documents/Thesis-PhD', max_depth = 1 },
       },
       hidden_files = false, -- default: false
     },

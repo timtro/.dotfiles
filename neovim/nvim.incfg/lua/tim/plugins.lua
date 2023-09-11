@@ -130,6 +130,16 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- code minimap
+  use {
+    'gorbit99/codewindow.nvim',
+    config = function()
+      local codewindow = require 'codewindow'
+      codewindow.setup()
+      codewindow.apply_default_keybinds()
+    end,
+  }
+
   -- TODO: Remove once https://github.com/neovim/neovim/issues/12587 is fixed.
   use 'antoinemadec/FixCursorHold.nvim'
 
@@ -158,7 +168,7 @@ return require('packer').startup(function(use)
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
-      { 'quangnguyen30192/cmp-nvim-ultisnips', after = 'nvim-cmp' },
+      -- { 'quangnguyen30192/cmp-nvim-ultisnips', after = 'nvim-cmp' },
     },
   }
   use 'tamago324/nlsp-settings.nvim'
@@ -242,21 +252,27 @@ return require('packer').startup(function(use)
     end,
   }
   use {
+    'nvim-neorg/neorg',
+    config = [[require 'config.neorg']],
+    run = ':Neorg sync-parsers',
+    requires = 'nvim-lua/plenary.nvim',
+  }
+  use {
     'lervag/wiki-ft.vim',
     requires = { 'lervag/wiki-ft.vim' },
   }
-  use {
-    'lukas-reineke/headlines.nvim',
-    config = function()
-      require('headlines').setup()
-    end,
-  }
-  use {
-    'dkarter/bullets.vim',
-    config = function()
-      vim.g.bullets_checkbox_markers = '✗○◐●✓'
-    end,
-  }
+  -- use { -- hilight heading lines
+  --   'lukas-reineke/headlines.nvim',
+  --   config = function()
+  --     require('headlines').setup()
+  --   end,
+  -- }
+  -- use {
+  --   'dkarter/bullets.vim',
+  --   config = function()
+  --     vim.g.bullets_checkbox_markers = '✗○◐●✓'
+  --   end,
+  -- }
   -- }}} (Notes and Productivity)
 
   -- Filetype and syntax plugins {{{
@@ -266,6 +282,8 @@ return require('packer').startup(function(use)
   -- -- (La)TeX
   use { 'lervag/vimtex', config = [[require 'config.vimtex']] }
   use { 'peterbjorgensen/sved', ft = 'tex' }
+  -- use { 'Konfekt/vim-latexencode' }
+  use { 'timtro/vim-latexencode', branch = 'feat(visual-select)' }
 
   -- -- Markdown
   use {

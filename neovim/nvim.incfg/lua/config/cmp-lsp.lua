@@ -41,7 +41,6 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    -- { name = 'omni' },
   }, {
     { name = 'buffer' },
   }),
@@ -58,8 +57,6 @@ cmp.setup {
         nvim_lsp = '[LSP]',
         luasnip = '[LuaSnip]',
         nvim_lua = '[Lua]',
-        latex_symbols = '[LaTeX]',
-        omni = (vim.inspect(vim_item.menu):gsub('%"', '')),
       })[entry.source.name]
       return vim_item
     end,
@@ -73,6 +70,51 @@ cmp.setup.filetype('gitcommit', {
   }, {
     { name = 'buffer' },
   }),
+})
+
+cmp.setup.filetype('tex', {
+  sources = cmp.config.sources {
+    -- {
+    --   name = 'omni',
+    --   keyword_length = 0, -- required or nothing shows.
+    --   option = {
+    --     disable_omnifuncs = { 'v:lua.vim.lsp.omnifunc' },
+    --   },
+    -- },
+    { name = 'luasnip' },
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          local bufs = {}
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            bufs[vim.api.nvim_win_get_buf(win)] = true
+          end
+          return vim.tbl_keys(bufs)
+        end,
+      },
+    },
+    { name = 'path' },
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      -- fancy icons and a name of kind
+      vim_item.kind = require('lspkind').presets.default[vim_item.kind]
+        .. ' '
+        .. vim_item.kind
+
+      -- set a name for each source
+      vim_item.menu = ({
+        buffer = '[Buffer]',
+        nvim_lsp = '[LSP]',
+        luasnip = '[LuaSnip]',
+        latex_symbols = '[LaTeX]',
+        -- omni = (vim.inspect(vim_item.menu):gsub('%"', '')),
+        -- omni = '[Omni]',
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
 })
 
 -- Use buffer source for `/` and `?`
@@ -213,11 +255,10 @@ null_ls.setup {
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.clang_format.with({command = 'clang-format-15'}),
+    null_ls.builtins.formatting.clang_format.with { command = 'clang-format-15' },
     null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.code_actions.proselint,
     null_ls.builtins.diagnostics.proselint,
-    -- null_ls.builtins.omnifunc,
   },
   on_attach = on_attach,
   capabilities = capabilities,

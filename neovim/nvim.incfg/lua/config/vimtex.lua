@@ -62,7 +62,7 @@ vim.g.vimtex_toc_config = {
 
 vim.cmd [[
 let g:vimtex_complete_ref = {
-  \ 'custom_patterns': ['\\[DNBXFA]ref\*\?{[^}]*$']
+  \ 'custom_patterns': ['\\\%([FTS]\|def\|thm\|prop\|page\)ref\*\?{[^}]*']
   \ }
 ]]
 

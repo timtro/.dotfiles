@@ -5,6 +5,7 @@ require 'tim.plugins'
 require 'tim.globals'
 require 'tim.mappings'
 require 'config.cmp-lsp'
+require 'tim.bibfetch'
 
 -- Colours                                                                  {{{1
 local is_daylight = function(dt)
