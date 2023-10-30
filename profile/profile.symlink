@@ -44,10 +44,12 @@ fi
 if [ -d "$HOME/.cabal/bin" ] ; then
     PATH="$HOME/.cabal/bin:$PATH"
 fi
+# Go
 export GOPATH=$HOME/go
 if [ -d "$HOME/go" ] ; then
   PATH="${GOPATH//://bin:}/bin:$PATH"
 fi
+# Android SDK
 if [ -d "$HOME/android/tools" ] ; then
   export ANDROID_HOME="$HOME/android/tools"
   PATH="${PATH}:$ANDROID_HOME"
@@ -60,10 +62,22 @@ if [ -d "$HOME/Android/Sdk" ] ; then
   export PATH="${ANDROID_HOME}/emulator:${PATH}"
   export PATH="${ANDROID_HOME}/platform-tools:${PATH}"
 fi
+# Vanilla TeXlive.
+if [ -d "/usr/local/texlive/2023/bin/x86_64-linux" ] ; then
+  export PATH="/usr/local/texlive/2023/bin/x86_64-linux:${PATH}"
+fi
+# Java
 if [ -d "/usr/lib/jvm/java-8-oracle" ] ; then
   export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 fi
-
 export JWT_SECRET="824ba19901722b16b7ff33fd5ba18bcab0e0098df4256e9002cacd1266b8a1a4"
-
+# Rust/cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+# Brew
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+
