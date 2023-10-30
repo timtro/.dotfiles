@@ -150,10 +150,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- cf. https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
 local lsp_format = function(bufnr)
   vim.lsp.buf.format {
-    filter = function(client)
-      -- only use null-ls
-      return client.name == 'null-ls'
-    end,
+    -- filter = function(client)
+    -- end,
     bufnr = bufnr,
     async = true,
   }
@@ -184,9 +182,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>f', function()
       lsp_format(bufnr)
     end, bufopts)
-  end
-  if client.name == 'null-ls' then
-    vim.bo[bufnr].formatexpr = nil
   end
 end
 
@@ -241,30 +236,10 @@ require('lspconfig').lua_ls.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
-    -- NOTE: Prefer stylua configured in null-ls:
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
   end,
   flags = lsp_flags,
 }
 
-local null_ls = require 'null-ls'
-null_ls.setup {
-  sources = {
-    -- null_ls.builtins.diagnostics.chktex,
-    null_ls.builtins.hover.dictionary,
-    null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.clang_format.with { command = 'clang-format-15' },
-    null_ls.builtins.code_actions.gitsigns,
-    null_ls.builtins.code_actions.proselint,
-    null_ls.builtins.diagnostics.proselint,
-  },
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-}
---                                                                          }}}1
 
 -- require'lspconfig'.tsserver.setup{
 --     on_attach = on_attach,
@@ -277,8 +252,4 @@ null_ls.setup {
 --     settings = {
 --       ["rust-analyzer"] = {}
 --     }
--- }
--- require('lspconfig').texlab.setup {
---   on_attach = on_attach,
---   flags = lsp_flags,
 -- }

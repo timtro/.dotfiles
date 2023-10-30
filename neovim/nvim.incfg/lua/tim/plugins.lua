@@ -121,12 +121,12 @@ return require('packer').startup(function(use)
     requires = { 'nvim-telescope/telescope.nvim' },
   }
 
-  -- Rapid movement plugin(s)
+  -- Rapid movement plugin (like easymotion)
   use {
-    'ggandor/lightspeed.nvim',
+    'ggandor/leap.nvim',
     requires = { 'tpope/vim-repeat' },
     config = function()
-      require('lightspeed').setup {}
+      require('leap').add_default_mappings()
     end,
   }
 
@@ -172,7 +172,6 @@ return require('packer').startup(function(use)
     },
   }
   use 'tamago324/nlsp-settings.nvim'
-  use 'jose-elias-alvarez/null-ls.nvim'
   use { 'folke/lsp-colors.nvim', config = [[require 'config.lsp-colors']] }
   use 'folke/trouble.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -220,16 +219,6 @@ return require('packer').startup(function(use)
   -- }}}
 
   -- Probation {{{
-  -- Spellchecking in code using treeistter.
-  use {
-    'lewis6991/spellsitter.nvim',
-    config = function()
-      require('spellsitter').setup {
-        enable = { 'tex', 'md' },
-        spellchecker = 'vimfn',
-      }
-    end,
-  }
   use 'mfussenegger/nvim-treehopper'
   use {
     'kevinhwang91/nvim-hlslens',
@@ -281,7 +270,7 @@ return require('packer').startup(function(use)
 
   -- -- (La)TeX
   use { 'lervag/vimtex', config = [[require 'config.vimtex']] }
-  use { 'peterbjorgensen/sved', ft = 'tex' }
+  use { 'peterbjorgensen/sved', ft = 'tex' } -- synctex for Evince through DBus.
   -- use { 'Konfekt/vim-latexencode' }
   use { 'timtro/vim-latexencode', branch = 'feat(visual-select)' }
 
