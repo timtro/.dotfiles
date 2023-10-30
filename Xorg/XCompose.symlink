@@ -26,6 +26,11 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <Down> <Down>: "↓" U2193 # DOWNWARDS ARROW
 <Multi_key> <Right> <Left>: "⇌" U21CC # RIGHTWARDS HARPOON OVER LEFTWARDS HARPOON
 <Multi_key> <Left> <Right>: "⇋" U21CB # LEFTWARDS HARPOON OVER RIGHTWARDS HARPOON
+# <Multi_key> : "⇀" U21C0 # RIGHTWARDS HARPOON WITH BARB UPWARDS
+# <Multi_key> : "⇁" U21C1 # RIGHTWARDS HARPOON WITH BARB DOWNWARDS
+# <Multi_key> : "↼" U21BC # LEFTWARDS HARPOON WITH BARB UPWARDS
+# <Multi_key> : "↽" U21BD # LEFTWARDS HARPOON WITH BARB DOWNWARDS
+
 #                                                                           }}}1
 # Conventional binary operators                                             {{{1
 <Multi_key> <x> <period>: "⋅" U22C5 # DOT OPERATOR
@@ -117,10 +122,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <underscore> <space>: "␣" U2423 # OPEN BOX
 # <Multi_key> <minus> <2> <M>       : "⸺" U2E3A # TWO-EM DASH
 # <Multi_key> <minus> <3> <M>       : "⸻" U2E3B # THREE-EM DASH
-<Multi_key> <bar> <bar> <B>: "𝐁" U1D401 # MATHEMATICAL BOLD CAPITAL B
-<Multi_key> <bar> <bar> <C>: "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
-<Multi_key> <bar> <bar> <R>: "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
-<Multi_key> <bar> <bar> <Z>: "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
 <Multi_key> <N> <0>: "ℵ" U2135 # ALEF SYMBOL
 #                                                                           }}}1
 # Unitary operators                                                         {{{1
@@ -466,6 +467,60 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <i> <y>: "𝑦" U1D466 # MATHEMATICAL ITALIC SMALL Y
 <Multi_key> <i> <z>: "𝑧" U1D467 # MATHEMATICAL ITALIC SMALL Z
 #                                                                           }}}1
+# Mathematical bold upright ............................................... {{{1
+<Multi_key> <bar> <bar> <a> : "𝐚" U1D41A # MATHEMATICAL BOLD SMALL A
+<Multi_key> <bar> <bar> <b> : "𝐛" U1D41B # MATHEMATICAL BOLD SMALL B
+<Multi_key> <bar> <bar> <c> : "𝐜" U1D41C # MATHEMATICAL BOLD SMALL C
+<Multi_key> <bar> <bar> <d> : "𝐝" U1D41D # MATHEMATICAL BOLD SMALL D
+<Multi_key> <bar> <bar> <e> : "𝐞" U1D41E # MATHEMATICAL BOLD SMALL E
+<Multi_key> <bar> <bar> <f> : "𝐟" U1D41F # MATHEMATICAL BOLD SMALL F
+<Multi_key> <bar> <bar> <g> : "𝐠" U1D420 # MATHEMATICAL BOLD SMALL G
+<Multi_key> <bar> <bar> <h> : "𝐡" U1D421 # MATHEMATICAL BOLD SMALL H
+<Multi_key> <bar> <bar> <i> : "𝐢" U1D422 # MATHEMATICAL BOLD SMALL I
+<Multi_key> <bar> <bar> <j> : "𝐣" U1D423 # MATHEMATICAL BOLD SMALL J
+<Multi_key> <bar> <bar> <k> : "𝐤" U1D424 # MATHEMATICAL BOLD SMALL K
+<Multi_key> <bar> <bar> <l> : "𝐥" U1D425 # MATHEMATICAL BOLD SMALL L
+<Multi_key> <bar> <bar> <m> : "𝐦" U1D426 # MATHEMATICAL BOLD SMALL M
+<Multi_key> <bar> <bar> <n> : "𝐧" U1D427 # MATHEMATICAL BOLD SMALL N
+<Multi_key> <bar> <bar> <o> : "𝐨" U1D428 # MATHEMATICAL BOLD SMALL O
+<Multi_key> <bar> <bar> <p> : "𝐩" U1D429 # MATHEMATICAL BOLD SMALL P
+<Multi_key> <bar> <bar> <q> : "𝐪" U1D42A # MATHEMATICAL BOLD SMALL Q
+<Multi_key> <bar> <bar> <r> : "𝐫" U1D42B # MATHEMATICAL BOLD SMALL R
+<Multi_key> <bar> <bar> <s> : "𝐬" U1D42C # MATHEMATICAL BOLD SMALL S
+<Multi_key> <bar> <bar> <t> : "𝐭" U1D42D # MATHEMATICAL BOLD SMALL T
+<Multi_key> <bar> <bar> <u> : "𝐮" U1D42E # MATHEMATICAL BOLD SMALL U
+<Multi_key> <bar> <bar> <v> : "𝐯" U1D42F # MATHEMATICAL BOLD SMALL V
+<Multi_key> <bar> <bar> <w> : "𝐰" U1D430 # MATHEMATICAL BOLD SMALL W
+<Multi_key> <bar> <bar> <x> : "𝐱" U1D431 # MATHEMATICAL BOLD SMALL X
+<Multi_key> <bar> <bar> <y> : "𝐲" U1D432 # MATHEMATICAL BOLD SMALL Y
+<Multi_key> <bar> <bar> <z> : "𝐳" U1D433 # MATHEMATICAL BOLD SMALL Z
+<Multi_key> <bar> <bar> <A> : "𝐀" U1D400 # MATHEMATICAL BOLD CAPITAL A
+<Multi_key> <bar> <bar> <B> : "𝐁" U3D401 # MATHEMATICAL BOLD CAPITAL B
+<Multi_key> <bar> <bar> <C> : "𝐂" U1D402 # MATHEMATICAL BOLD CAPITAL C
+<Multi_key> <bar> <bar> <D> : "𝐃" U1D403 # MATHEMATICAL BOLD CAPITAL D
+<Multi_key> <bar> <bar> <E> : "𝐄" U1D404 # MATHEMATICAL BOLD CAPITAL E
+<Multi_key> <bar> <bar> <F> : "𝐅" U1D405 # MATHEMATICAL BOLD CAPITAL F
+<Multi_key> <bar> <bar> <G> : "𝐆" U1D406 # MATHEMATICAL BOLD CAPITAL G
+<Multi_key> <bar> <bar> <H> : "𝐇" U1D407 # MATHEMATICAL BOLD CAPITAL H
+<Multi_key> <bar> <bar> <I> : "𝐈" U1D408 # MATHEMATICAL BOLD CAPITAL I
+<Multi_key> <bar> <bar> <J> : "𝐉" U1D409 # MATHEMATICAL BOLD CAPITAL J
+<Multi_key> <bar> <bar> <K> : "𝐊" U1D40A # MATHEMATICAL BOLD CAPITAL K
+<Multi_key> <bar> <bar> <L> : "𝐋" U1D40B # MATHEMATICAL BOLD CAPITAL L
+<Multi_key> <bar> <bar> <M> : "𝐌" U1D40C # MATHEMATICAL BOLD CAPITAL M
+<Multi_key> <bar> <bar> <N> : "𝐍" U1D40D # MATHEMATICAL BOLD CAPITAL N
+<Multi_key> <bar> <bar> <O> : "𝐎" U1D40E # MATHEMATICAL BOLD CAPITAL O
+<Multi_key> <bar> <bar> <P> : "𝐏" U1D40F # MATHEMATICAL BOLD CAPITAL P
+<Multi_key> <bar> <bar> <Q> : "𝐐" U1D410 # MATHEMATICAL BOLD CAPITAL Q
+<Multi_key> <bar> <bar> <R> : "𝐑" U1D411 # MATHEMATICAL BOLD CAPITAL R
+<Multi_key> <bar> <bar> <S> : "𝐒" U1D412 # MATHEMATICAL BOLD CAPITAL S
+<Multi_key> <bar> <bar> <T> : "𝐓" U1D413 # MATHEMATICAL BOLD CAPITAL T
+<Multi_key> <bar> <bar> <U> : "𝐔" U1D414 # MATHEMATICAL BOLD CAPITAL U
+<Multi_key> <bar> <bar> <V> : "𝐕" U1D415 # MATHEMATICAL BOLD CAPITAL V
+<Multi_key> <bar> <bar> <W> : "𝐖" U1D416 # MATHEMATICAL BOLD CAPITAL W
+<Multi_key> <bar> <bar> <X> : "𝐗" U1D417 # MATHEMATICAL BOLD CAPITAL X
+<Multi_key> <bar> <bar> <Y> : "𝐘" U1D418 # MATHEMATICAL BOLD CAPITAL Y
+<Multi_key> <bar> <bar> <Z> : "𝐙" U1D419 # MATHEMATICAL BOLD CAPITAL Z
+#  ........................................................................ }}}1
 # Mathematical Bold Italic                                                  {{{1
 <Multi_key> <I> <A>: "𝑨" U1D468 # MATHEMATICAL BOLD ITALIC CAPITAL A
 <Multi_key> <I> <B>: "𝑩" U1D469 # MATHEMATICAL BOLD ITALIC CAPITAL B
