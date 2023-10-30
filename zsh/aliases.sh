@@ -73,3 +73,6 @@ alias edthesis-tex='thesis && cd tex && $EDITOR'
 alias edthesis-md='thesis && cd md && $EDITOR'
 alias edthesis-reports='thesis && cd reports && $EDITOR'
 #                                                                           }}}1
+# Convenience ............................................................. {{{1
+alias startpicom='start_uniquely "picom --experimental-backends"'
+#  ........................................................................ }}}1
