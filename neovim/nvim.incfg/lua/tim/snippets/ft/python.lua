@@ -17,7 +17,7 @@ local l = extras.l
 local rep = extras.rep
 local postfix = require('luasnip.extras.postfix').postfix
 
-local same = RL('tim.snippets').same
+-- local same = RL('tim.snippets').same
 
 -- local snippets, autosnippets = {}, {}
 

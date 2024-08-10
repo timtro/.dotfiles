@@ -1,5 +1,7 @@
 -- vim: fdm=marker:fdc=2:fmr=<<<,>>>
 
+print("Loading LaTeX Snips")
+
 local ls = require 'luasnip'
 local s = ls.snippet
 local sn = ls.snippet_node

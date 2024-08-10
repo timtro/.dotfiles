@@ -1,10 +1,9 @@
-require 'packer_bootstrap'
 require 'tim.settings'
-require 'tim.plugins'
+require 'tim.lazy'
 
 require 'tim.globals'
 require 'tim.mappings'
-require 'config.cmp-lsp'
+-- require 'config.cmp-lsp'
 require 'tim.bibfetch'
 
 -- Colours                                                                  {{{1

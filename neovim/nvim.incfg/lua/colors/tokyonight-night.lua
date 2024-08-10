@@ -1,37 +1,53 @@
 local colors = require('tokyonight.colors').setup { style = 'night' }
 
 local function setup()
-  vim.opt.background = 'dark'
-  vim.g.tokyonight_style = 'night'
 
   require('tokyonight').setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    style = 'night',
-    transparent = true,
-    terminal_colors = true,
+    style = "night", -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
+    light_style = "day", -- The theme is used when the background is set to light
+    transparent = true, -- Enable this to disable setting the background color
+    terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
     styles = {
       -- Style to be applied to different syntax groups
-      -- Value is any valid attr-list value `:help attr-list`
+      -- Value is any valid attr-list value for `:help nvim_set_hl`
       comments = { italic = true },
-      keywords = { bold = true },
-      functions = 'NONE',
-      variables = {italic = true},
+      keywords = { italic = true, bold = true },
+      functions = {},
+      variables = {},
       -- Background styles. Can be "dark", "transparent" or "normal"
-      sidebars = 'dark', -- style for sidebars, see below
-      floats = 'dark', -- style for floating windows
+      sidebars = "dark", -- style for sidebars, see below
+      floats = "dark", -- style for floating windows
     },
-    -- Set a darker background on sidebar-like windows.
-    -- For example: `["qf", "vista_kind", "terminal", "packer"]`
-    sidebars = { 'terminal', 'packer', 'help' },
-
-    -- Enabling this option, will hide inactive statuslines and replace them
-    -- with a thin border instead. Should work with the standard **StatusLine**
-    -- and **LuaLine**:
-    hide_inactive_statusline = false,
+    day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
     dim_inactive = false, -- dims inactive windows
-    -- When `true`, section headers in the lualine theme will be bold:
-    lualine_bold = false,
+    lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+
+    --- You can override specific color groups to use other groups or a hex color
+    --- function will be called with a ColorScheme table
+    ---@param colors ColorScheme
+    on_colors = function(colors) end,
+
+    --- You can override specific highlights to use other groups or a hex color
+    --- function will be called with a Highlights and ColorScheme table
+    ---@param highlights tokyonight.Highlights
+    ---@param colors ColorScheme
+    on_highlights = function(highlights, colors) end,
+
+    cache = true, -- When set to true, the theme will be cached for better performance
+
+    ---@type table<string, boolean|{enabled:boolean}>
+    plugins = {
+      -- enable all plugins when not using lazy.nvim
+      -- set to false to manually enable/disable plugins
+      all = package.loaded.lazy == nil,
+      -- uses your plugin manager to automatically enable needed plugins
+      -- currently only lazy.nvim is supported
+      auto = true,
+      -- add any plugins here that you want to enable
+      -- for all possible plugins, see:
+      --   * https://github.com/folke/tokyonight.nvim/tree/main/lua/tokyonight/groups
+      -- telescope = true,
+    },
     on_highlights = function(hl, _)
       hl.FoldColumn = {bg = 'none'}
       hl.Folded = {bg = 'none'}
@@ -52,18 +68,18 @@ local function setup()
     end
   }
 
-  local rainbow_colors = {
-    colors.fg,     -- 1
-    colors.green,  -- 2
-    colors.orange, -- ⋮
-    colors.blue1,
-    colors.yellow,
-    colors.purple,
-    colors.blue,
-  }
+  -- local rainbow_colors = {
+  --   colors.fg,     -- 1
+  --   colors.green,  -- 2
+  --   colors.orange, -- ⋮
+  --   colors.blue1,
+  --   colors.yellow,
+  --   colors.purple,
+  --   colors.blue,
+  -- }
 
   vim.cmd 'colorscheme tokyonight'
-  require('colors.util').set_rainbow(rainbow_colors)
+  -- require('colors.util').set_rainbow(rainbow_colors)
 end
 
 local lualine_theme = require 'lualine.themes.tokyonight'
